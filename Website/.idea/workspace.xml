@@ -1,0 +1,118 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ChangeListManager">
+    <list default="true" id="cf777b53-d4c6-45f0-aeac-fee878dcc8f0" name="Default Changelist" comment="" />
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="ComposerSettings">
+    <execution>
+      <executable />
+    </execution>
+  </component>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="HTML File" />
+      </list>
+    </option>
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$/.." />
+  </component>
+  <component name="ProjectId" id="1bRLRbu71Xqs0q4725RtPmje10s" />
+  <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
+  <component name="ProjectViewState">
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showExcludedFiles" value="true" />
+    <option name="showLibraryContents" value="true" />
+  </component>
+  <component name="PropertiesComponent">
+    <property name="DefaultHtmlFileTemplate" value="HTML File" />
+    <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
+    <property name="WebServerToolWindowFactoryState" value="true" />
+    <property name="last_opened_file_path" value="C:/Program Files/nodejs" />
+    <property name="nodejs_package_manager_path" value="npm" />
+    <property name="settings.editor.selected.configurable" value="watcher.settings" />
+  </component>
+  <component name="RecentsManager">
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="C:\Users\Rober\Documents\GitHub\IProjectEenmaalAndermaal\Website\mybulma" />
+    </key>
+  </component>
+  <component name="RunManager">
+    <configuration name="css-build" type="js.build_tools.npm" temporary="true" nameIsGenerated="true">
+      <package-json value="$PROJECT_DIR$/mybulma/package.json" />
+      <command value="run" />
+      <scripts>
+        <script value="css-build" />
+      </scripts>
+      <node-interpreter value="project" />
+      <envs />
+      <method v="2" />
+    </configuration>
+    <recent_temporary>
+      <list>
+        <item itemvalue="npm.css-build" />
+      </list>
+    </recent_temporary>
+  </component>
+  <component name="SvnConfiguration">
+    <configuration />
+  </component>
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="cf777b53-d4c6-45f0-aeac-fee878dcc8f0" name="Default Changelist" comment="" />
+      <created>1588589951967</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1588589951967</updated>
+      <workItem from="1588589955423" duration="967000" />
+      <workItem from="1588591031380" duration="1771000" />
+    </task>
+    <servers />
+  </component>
+  <component name="TypeScriptGeneratedFilesManager">
+    <option name="version" value="1" />
+  </component>
+  <component name="WindowStateProjectService">
+    <state x="442" y="116" key="#css-build" timestamp="1588591942277">
+      <screen x="0" y="0" width="1536" height="834" />
+    </state>
+    <state x="442" y="116" key="#css-build/0.0.1536.834@0.0.1536.834" timestamp="1588591942277" />
+    <state x="405" y="196" width="725" height="627" key="EditFileWatcherDialog" timestamp="1588590672978">
+      <screen x="0" y="0" width="1536" height="834" />
+    </state>
+    <state x="405" y="196" width="725" height="627" key="EditFileWatcherDialog/0.0.1536.834@0.0.1536.834" timestamp="1588590672978" />
+    <state x="548" y="265" key="FileChooserDialogImpl" timestamp="1588590668401">
+      <screen x="0" y="0" width="1536" height="834" />
+    </state>
+    <state x="548" y="265" key="FileChooserDialogImpl/0.0.1536.834@0.0.1536.834" timestamp="1588590668401" />
+    <state width="1493" height="213" key="GridCell.Tab.0.bottom" timestamp="1588591991017">
+      <screen x="0" y="0" width="1536" height="834" />
+    </state>
+    <state width="1493" height="213" key="GridCell.Tab.0.bottom/0.0.1536.834@0.0.1536.834" timestamp="1588591991017" />
+    <state width="1493" height="213" key="GridCell.Tab.0.center" timestamp="1588591991017">
+      <screen x="0" y="0" width="1536" height="834" />
+    </state>
+    <state width="1493" height="213" key="GridCell.Tab.0.center/0.0.1536.834@0.0.1536.834" timestamp="1588591991017" />
+    <state width="1493" height="213" key="GridCell.Tab.0.left" timestamp="1588591991017">
+      <screen x="0" y="0" width="1536" height="834" />
+    </state>
+    <state width="1493" height="213" key="GridCell.Tab.0.left/0.0.1536.834@0.0.1536.834" timestamp="1588591991017" />
+    <state width="1493" height="213" key="GridCell.Tab.0.right" timestamp="1588591991017">
+      <screen x="0" y="0" width="1536" height="834" />
+    </state>
+    <state width="1493" height="213" key="GridCell.Tab.0.right/0.0.1536.834@0.0.1536.834" timestamp="1588591991017" />
+    <state x="277" y="60" key="SettingsEditor" timestamp="1588590861898">
+      <screen x="0" y="0" width="1536" height="834" />
+    </state>
+    <state x="277" y="60" key="SettingsEditor/0.0.1536.834@0.0.1536.834" timestamp="1588590861898" />
+    <state x="465" y="241" key="com.intellij.ide.util.TipDialog" timestamp="1588591031197">
+      <screen x="0" y="0" width="1536" height="834" />
+    </state>
+    <state x="465" y="241" key="com.intellij.ide.util.TipDialog/0.0.1536.834@0.0.1536.834" timestamp="1588591031197" />
+  </component>
+</project>
