@@ -38,6 +38,13 @@ $control-border-width: 2px;
 $input-border-color: transparent;
 $input-shadow: none;
 
+// Disable the widescreen breakpoint
+$widescreen-enabled: true;
+
+  // Disable the fullhd breakpoint
+$fullhd-enabled: true;
+
+
 // Import only what you need from Bulma
 //Import all
 @import "node_modules/bulma/sass/utilities/_all";
