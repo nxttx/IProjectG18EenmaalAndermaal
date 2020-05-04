@@ -12,12 +12,24 @@ $gray: #EFF0EB;
 
 // Update Bulma's global variables
 $family-sans-serif: "Nunito", sans-serif;
+$purple: $purple;
 $grey-dark: $black;
-$grey-light: $red;
-$primary: $purple;
-$link: $mint-green;
+$red: $red;
+$turquoise: $mint-green;
+$gray: $gray;
 $widescreen-enabled: false;
 $fullhd-enabled: false;
+
+$primary: $purple;
+$link: $turquoise;
+$info: $cyan;
+$success: $green;  //Standaard
+$warning: $yellow; //standaard
+$danger: $red;
+$dark: $grey-dark;
+$text: $grey-dark;
+
+
 
 // Update some of Bulma's component variables
 $body-background-color: $gray;
