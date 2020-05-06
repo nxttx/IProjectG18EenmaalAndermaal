@@ -33,12 +33,18 @@
     <property name="DefaultHtmlFileTemplate" value="HTML File" />
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
     <property name="WebServerToolWindowFactoryState" value="true" />
-    <property name="last_opened_file_path" value="C:/Program Files/nodejs" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/includes" />
     <property name="nodejs_package_manager_path" value="npm" />
     <property name="settings.editor.selected.configurable" value="preferences.pluginManager" />
   </component>
   <component name="RecentsManager">
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="C:\Users\Rober\Documents\GitHub\IProjectEenmaalAndermaal\Website\includes" />
+      <recent name="C:\Users\Rober\Documents\GitHub\IProjectEenmaalAndermaal\Website\JS" />
+      <recent name="C:\Users\Rober\Documents\GitHub\IProjectEenmaalAndermaal\Website\PHP" />
+    </key>
     <key name="MoveFile.RECENT_KEYS">
+      <recent name="C:\Users\Rober\Documents\GitHub\IProjectEenmaalAndermaal\Website" />
       <recent name="C:\Users\Rober\Documents\GitHub\IProjectEenmaalAndermaal\Website\mybulma" />
     </key>
   </component>
@@ -71,7 +77,8 @@
       <updated>1588589951967</updated>
       <workItem from="1588589955423" duration="967000" />
       <workItem from="1588591031380" duration="5456000" />
-      <workItem from="1588597641210" duration="1140000" />
+      <workItem from="1588597641210" duration="2286000" />
+      <workItem from="1588750504302" duration="540000" />
     </task>
     <servers />
   </component>
