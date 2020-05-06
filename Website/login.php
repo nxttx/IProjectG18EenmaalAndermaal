@@ -1,5 +1,5 @@
 <?php
-$siteTitle= "hoofdpagina"
+$siteTitle= "Login pagina"
 
 ?>
 
