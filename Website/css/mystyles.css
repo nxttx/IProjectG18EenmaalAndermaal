@@ -4245,7 +4245,7 @@ a.list-item {
   padding: 20px; }
 
 .navbar {
-  background-color: #EFF0EB;
+  background-color: white;
   min-height: 3.25rem;
   position: relative;
   z-index: 30; }
@@ -4863,7 +4863,7 @@ a.navbar-item,
   .navbar-link::after {
     display: none; }
   .navbar-menu {
-    background-color: #EFF0EB;
+    background-color: white;
     box-shadow: 0 8px 16px rgba(45, 45, 42, 0.1);
     padding: 0.5rem 0; }
     .navbar-menu.is-active {

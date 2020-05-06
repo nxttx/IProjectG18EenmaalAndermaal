@@ -10,6 +10,7 @@ $black: #2D2D2A;
 $red: #B20D30;
 $mint-green: #8BE8CB;
 $gray: #EFF0EB;
+$light-gray:#F4F5F0;
 
 // Update Bulma's global variables
 $family-sans-serif: "Nunito", sans-serif;
@@ -34,7 +35,7 @@ $text: $grey-dark;
 
 // Update some of Bulma's component variables
 $body-background-color: $gray;
-$navbar-background-color: $gray;
+$navbar-background-color: white;
 $control-border-width: 2px;
 $input-border-color: transparent;
 $input-shadow: none;
