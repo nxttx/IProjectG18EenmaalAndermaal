@@ -11,7 +11,7 @@
 --V1.1, FIXED NAMES AND ID PROBLEMS --
 --------------------------------------
 
-
+use iproject18
 -----------------------------------------------------------------------nr, naam, valt onder rubrieknummer, volgorde nummer--
 INSERT INTO rubriek(rubrieknummer, rubrieknaam, rubriek, volgnr) VALUES(1, 'Audio, Tv en Foto',NULL, 1)
 INSERT INTO rubriek(rubrieknummer, rubrieknaam, rubriek, volgnr) VALUES(2, 'Boeken', NULL, 2)

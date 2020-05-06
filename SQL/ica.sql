@@ -1,9 +1,9 @@
 --
--- Database: `icaproject`
+-- Database: `iproject18`
 --
 
-CREATE DATABASE icaproject;
-USE icaproject;
+--CREATE DATABASE iproject18;
+USE iproject18;
 
 -- --------------------------------------------------------
 
@@ -56,8 +56,8 @@ CREATE TABLE feedback (
 -- Tabelstructuur voor tabel `gebruiker`
 --
 
-INSERT INTO gebruiker(gebruikersnaam, voornaam, achternaam, adresregel1, adresregel2, postcode, plaatsnaam, Land, GeboorteDag, Mailbox, wachtwoord, Vraag, antwoordtekst, Verkopen) VALUES(
-	'WILLEM', 'piet','piet','gesges',NULL, '2424FG', 'ARNHEM', 'Netherls', 'wfewf', 'mvail@gmail.com', 'test', '1', 'wrwr', 'rwr');
+--INSERT INTO gebruiker(gebruikersnaam, voornaam, achternaam, adresregel1, adresregel2, postcode, plaatsnaam, Land, GeboorteDag, Mailbox, wachtwoord, Vraag, antwoordtekst, Verkopen) VALUES(
+--	WILLEM', 'piet','piet','gesges',NULL, '2424FG', 'ARNHEM', 'Netherls', 'wfewf', 'mvail@gmail.com', 'test', '1', 'wrwr', 'rwr');
 
 DROP TABLE IF EXISTS gebruiker;
 CREATE TABLE gebruiker (
@@ -108,12 +108,12 @@ CREATE TABLE rubriek (
 -- Tabelstructuur voor tabel `verkoper`
 --
 
-INSERT INTO verkoper(Gebruiker, Bank, Bankrekening, ControleOptie, Creditcard) VALUES(
+--INSERT INTO verkoper(Gebruiker, Bank, Bankrekening, ControleOptie, Creditcard) VALUES(
 	
-	'WILLEM', 'Rabobank', null, 'wqwrq', NULL);
+--	'WILLEM', 'Rabobank', null, 'wqwrq', NULL);
 
-	select * from verkoper
-	select * from gebruiker
+--	select * from verkoper
+--	select * from gebruiker
 
 DROP TABLE IF EXISTS verkoper;
 CREATE TABLE verkoper (
@@ -268,10 +268,10 @@ ALTER TABLE VoorwerpInRubriek
 
 -- Extra beperkingen
 -- Tabellen Verkoper en Gebruiker: Kolom Verkoper(Gebruiker) moet uitsluitend alle gebruikers bevatten, die in kolom Gebruiker(Verkoper?) de waarde ‘wel’ hebben.
-use icaproject
+use iproject18
 
 
-use icaproject
+use iproject18
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
 /*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
@@ -285,7 +285,7 @@ AS
 	DECLARE @v_Gebruiker char(10);
 	DECLARE @v_Gebruiker_Wel char(10);
 	select @v_Gebruiker=i.Gebruiker  	from Inserted i;
-	select @v_Gebruiker_Wel=Wel  	from Gebruiker where gebruikersnaam = @v_Gebruiker;
+	select @v_Gebruiker_Wel=Verkopen  	from Gebruiker where gebruikersnaam = @v_Gebruiker;
 
 	IF(@v_Gebruiker_Wel != 'yes')
 		BEGIN
