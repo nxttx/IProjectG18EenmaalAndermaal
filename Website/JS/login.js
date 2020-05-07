@@ -25,20 +25,26 @@ login = (form) => {
 
     if(username.value.length != 0 && pw.value.length != 0) {
         let request = new XMLHttpRequest();
+        let errorField = document.getElementById("error-field");
 
         request.onreadystatechange = () => {
             if(request.readyState == 4) {
                 button.classList.remove("is-loading");
 
-                if(request.status == 404) {
-                    
+                switch(request.status) {
+                    case 404:
+                        errorField.innerHTML("Gebruikersnaam of wachtwoord incorrect");
+                        break;
+                    case 200:
+                        location.href = "index.php";
+                        break;
+                    default:
+                        errorField.innerHTML("Er ging iets mis, probeer het later opnieuw...");
                 }
             }
-
-            console.log(request.readyState, request.status);
         }
 
-        request.open("POST", "php/authenticate.php", true);
+        request.open("POST", "php/LoginController.php", true);
         request.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
         request.send(`username=${username.value}&password=${pw.value}`);
     }

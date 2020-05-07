@@ -26,6 +26,8 @@ if (!$dbh) {
 
         if(password_verify($password, $pw)) {
             http_response_code(200);
+
+            $_SESSION["user"] = $username;
         } else {
             // Eigenlijk een 401, maar om niet teveel informatie weg te geven een 404 (Not Found)
             http_response_code(404);

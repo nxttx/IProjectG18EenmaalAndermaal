@@ -1,6 +1,11 @@
-<?php
-$siteTitle = "Login pagina"
+<?php $siteTitle = "Login pagina"; ?>
 
+<?php
+    session_start();
+
+    if(isset($_SESSION["user"])) {
+        header('Location: index.php');
+    }
 ?>
 
 <?php include "includes/head.php" ?>
@@ -14,7 +19,7 @@ $siteTitle = "Login pagina"
                 <br>
                 <h3 class="title is-3 has-text-white">Inloggen</h3>
                 <form action="" onsubmit="login(this)" method="post" id="form">
-                    <p></p>
+                    <p id="error-field" class="is-danger"></p>
 
                     <div class="field">
                         <label class="label" for="Gebruikersnaam">Gebruikersnaam</label>
