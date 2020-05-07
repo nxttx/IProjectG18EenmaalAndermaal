@@ -17,6 +17,7 @@
       <list>
         <option value="HTML File" />
         <option value="JavaScript File" />
+        <option value="CSS File" />
       </list>
     </option>
   </component>
@@ -35,6 +36,7 @@
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
     <property name="WebServerToolWindowFactoryState" value="true" />
     <property name="last_opened_file_path" value="$PROJECT_DIR$/includes" />
+    <property name="list.type.of.created.stylesheet" value="CSS" />
     <property name="nodejs_package_manager_path" value="npm" />
     <property name="settings.editor.selected.configurable" value="preferences.pluginManager" />
   </component>
@@ -83,6 +85,8 @@
       <workItem from="1588754800866" duration="1487000" />
       <workItem from="1588764138833" duration="1868000" />
       <workItem from="1588837468891" duration="5578000" />
+      <workItem from="1588856661436" duration="1478000" />
+      <workItem from="1588859118490" duration="5977000" />
     </task>
     <servers />
   </component>
@@ -138,10 +142,10 @@
       <screen x="0" y="0" width="1536" height="834" />
     </state>
     <state x="277" y="60" key="SettingsEditor/0.0.1536.834@0.0.1536.834" timestamp="1588597450914" />
-    <state x="465" y="241" key="com.intellij.ide.util.TipDialog" timestamp="1588837885465">
+    <state x="465" y="241" key="com.intellij.ide.util.TipDialog" timestamp="1588859118803">
       <screen x="0" y="0" width="1536" height="834" />
     </state>
-    <state x="465" y="241" key="com.intellij.ide.util.TipDialog/0.0.1536.834@0.0.1536.834" timestamp="1588837885465" />
+    <state x="465" y="241" key="com.intellij.ide.util.TipDialog/0.0.1536.834@0.0.1536.834" timestamp="1588859118803" />
     <state x="425" y="189" key="run.anything.popup" timestamp="1588840012026">
       <screen x="0" y="0" width="1536" height="834" />
     </state>
