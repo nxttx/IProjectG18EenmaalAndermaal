@@ -9,9 +9,9 @@ function connectToDatabase()
         $password = "pT9CaHbD";
         $dbname = "iproject18;";
     } else {
-        $servername = "localhost";
-        $username = "root";
-        $password = "";
+        $servername = "mssql2.iproject.icasites.nl";
+        $username = "iproject18";
+        $password = "pT9CaHbD";
         $dbname = "iproject18;";
     }
 
