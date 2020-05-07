@@ -48,7 +48,7 @@ login = (form) => {
             }
         }
 
-        request.open("POST", "php/LoginController.php", true);
+        request.open("POST", "php/authenticate.php", true);
         request.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
         request.send(`username=${username.value}&password=${pw.value}`);
     }

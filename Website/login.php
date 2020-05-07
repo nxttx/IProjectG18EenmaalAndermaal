@@ -1,15 +1,15 @@
 <?php $siteTitle = "Login pagina"; ?>
 
 <?php
-    session_start();
+    if(isset($_SESSION["user"])) {
+        header('Location: index.php');
 
-    // if(isset($_SESSION["user"])) {
-    //     header('Location: index.php');
-    // }
+        $login = true;
+    }    
 ?>
 
 <?php include "includes/head.php" ?>
-<?php include "includes/header.html" ?>
+<?php include "includes/header.php" ?>
 
 <section class="hero is-primary is-fullheight">
     <div class="hero-body">
