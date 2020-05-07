@@ -79,7 +79,8 @@
       <workItem from="1588591031380" duration="5456000" />
       <workItem from="1588597641210" duration="2286000" />
       <workItem from="1588750504302" duration="2319000" />
-      <workItem from="1588754800866" duration="1273000" />
+      <workItem from="1588754800866" duration="1487000" />
+      <workItem from="1588764138833" duration="1868000" />
     </task>
     <servers />
   </component>
@@ -91,6 +92,10 @@
       <screen x="0" y="0" width="1536" height="834" />
     </state>
     <state x="361" y="76" key="#Notifications/0.0.1536.834@0.0.1536.834" timestamp="1588597371533" />
+    <state x="499" y="164" key="#com.intellij.refactoring.safeDelete.UnsafeUsagesDialog" timestamp="1588765346970">
+      <screen x="0" y="0" width="1536" height="834" />
+    </state>
+    <state x="499" y="164" key="#com.intellij.refactoring.safeDelete.UnsafeUsagesDialog/0.0.1536.834@0.0.1536.834" timestamp="1588765346970" />
     <state x="442" y="116" key="#css-build" timestamp="1588591942277">
       <screen x="0" y="0" width="1536" height="834" />
     </state>
@@ -123,9 +128,9 @@
       <screen x="0" y="0" width="1536" height="834" />
     </state>
     <state x="277" y="60" key="SettingsEditor/0.0.1536.834@0.0.1536.834" timestamp="1588597450914" />
-    <state x="465" y="241" key="com.intellij.ide.util.TipDialog" timestamp="1588597657466">
+    <state x="465" y="241" key="com.intellij.ide.util.TipDialog" timestamp="1588764139499">
       <screen x="0" y="0" width="1536" height="834" />
     </state>
-    <state x="465" y="241" key="com.intellij.ide.util.TipDialog/0.0.1536.834@0.0.1536.834" timestamp="1588597657466" />
+    <state x="465" y="241" key="com.intellij.ide.util.TipDialog/0.0.1536.834@0.0.1536.834" timestamp="1588764139499" />
   </component>
 </project>
