@@ -24,7 +24,7 @@ $ads .=  "  <div class=\"column\">
                         <div class=\"columns has-text-centered\">
                             <div class=\"column\">
                                 <div class=\"content is-medium\">
-                                    <p>{$row['prijs']}</p>
+                                    <p>&euro; {$row['Verkoopprijs']}</p>
                                 </div>
                             </div>
                             <div class=\"column\">
@@ -50,6 +50,7 @@ $ads .=  "  <div class=\"column\">
 <?php include "includes/header.php"?>
 <section>
     <div class="container">
+        <br>
         <h2 class="title is-3  has-text-centered">Populaire producten</h2>
         <p class="subtitle is-6  has-text-centered">Dit zijn de meest populaire producten!</p>
         <div class="columns">

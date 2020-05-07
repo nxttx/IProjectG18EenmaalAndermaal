@@ -89,7 +89,7 @@ if (isset($_SESSION["user"])) {
                             </button>
                             <button class="button is-light has-text-primary" style="width:32%">
                                 <i class="far fa-2x fa-user"></i>
-                                <a class="has-text-primary" href="#"> Login</a>
+                                <a class="has-text-primary" href="login.php"> Login</a>
                             </button>
                             <button class="button is-primary">
                                 <i class="far fa-2x fa-user"></i>
