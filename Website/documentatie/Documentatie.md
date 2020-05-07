@@ -11,4 +11,7 @@
 `$text: $grey-dark;`<br>
 `$body-background-color: $gray;`<br>
 
-##Een andere kop
+##Footer
+Voor de footer gaan we javascript gebruiken zodat de footer mee scaled met de breedte van het scherm. Dit gaan we doen met `screen.width` en een `setInterval`. Daarmee gaan we een if statement doen waarmee de visability word aangepast. 
+
+## een adere feature
