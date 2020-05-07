@@ -16,6 +16,7 @@
     <option name="RECENT_TEMPLATES">
       <list>
         <option value="HTML File" />
+        <option value="JavaScript File" />
       </list>
     </option>
   </component>
@@ -81,6 +82,7 @@
       <workItem from="1588750504302" duration="2319000" />
       <workItem from="1588754800866" duration="1487000" />
       <workItem from="1588764138833" duration="1868000" />
+      <workItem from="1588837468891" duration="5578000" />
     </task>
     <servers />
   </component>
@@ -88,6 +90,10 @@
     <option name="version" value="1" />
   </component>
   <component name="WindowStateProjectService">
+    <state x="361" y="76" key="#Deployment" timestamp="1588838779120">
+      <screen x="0" y="0" width="1536" height="834" />
+    </state>
+    <state x="361" y="76" key="#Deployment/0.0.1536.834@0.0.1536.834" timestamp="1588838779120" />
     <state x="361" y="76" key="#Notifications" timestamp="1588597371533">
       <screen x="0" y="0" width="1536" height="834" />
     </state>
@@ -128,9 +134,13 @@
       <screen x="0" y="0" width="1536" height="834" />
     </state>
     <state x="277" y="60" key="SettingsEditor/0.0.1536.834@0.0.1536.834" timestamp="1588597450914" />
-    <state x="465" y="241" key="com.intellij.ide.util.TipDialog" timestamp="1588764139499">
+    <state x="465" y="241" key="com.intellij.ide.util.TipDialog" timestamp="1588837885465">
       <screen x="0" y="0" width="1536" height="834" />
     </state>
-    <state x="465" y="241" key="com.intellij.ide.util.TipDialog/0.0.1536.834@0.0.1536.834" timestamp="1588764139499" />
+    <state x="465" y="241" key="com.intellij.ide.util.TipDialog/0.0.1536.834@0.0.1536.834" timestamp="1588837885465" />
+    <state x="425" y="189" key="run.anything.popup" timestamp="1588840012026">
+      <screen x="0" y="0" width="1536" height="834" />
+    </state>
+    <state x="425" y="189" key="run.anything.popup/0.0.1536.834@0.0.1536.834" timestamp="1588840012026" />
   </component>
 </project>
