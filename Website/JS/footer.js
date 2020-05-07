@@ -1,12 +1,18 @@
-var footerloop = setInterval(function () {
+// var footerloop = setInterval(function () {
+//
+//     if (screen.width >= 768) {
+//         document.getElementById('desktop').style = "display: block;";
+//         document.getElementById('mobile').style = "display: none;";
+//     } else {
+//         document.getElementById('mobile').style = "display: block;";
+//         document.getElementById('desktop').style = "display: none;";
+//     }
+// }, 250);
 
     if (screen.width >= 768) {
-        document.getElementById('desktop').style = "visibility: visible;";
-        document.getElementById('mobile').style = "visibility: hidden;";
-        document.getElementById('copyright').style = "margin-top: -10em;";
+        document.getElementById('desktop').style = "display: block;";
+        document.getElementById('mobile').style = "display: none;";
     } else {
-        document.getElementById('mobile').style = "visibility: visible; margin-top:-10em;";
-        document.getElementById('desktop').style = "visibility: hidden;";
-        document.getElementById('copyright').style = "margin-top: 0;";
+        document.getElementById('mobile').style = "display: block;";
+        document.getElementById('desktop').style = "display: none;";
     }
-}, 250);
