@@ -3,9 +3,9 @@
 <?php
     session_start();
 
-    if(isset($_SESSION["user"])) {
-        header('Location: index.php');
-    }
+    // if(isset($_SESSION["user"])) {
+    //     header('Location: index.php');
+    // }
 ?>
 
 <?php include "includes/head.php" ?>
@@ -19,8 +19,6 @@
                 <br>
                 <h3 class="title is-3 has-text-white">Inloggen</h3>
                 <form action="" onsubmit="login(this)" method="post" id="form">
-                    <p id="error-field" class="is-danger"></p>
-
                     <div class="field">
                         <label class="label" for="Gebruikersnaam">Gebruikersnaam</label>
                         <input class="input is-primary is-large" type="text" name="username" id="Gebruikersnaam" autofocus="" required placeholder="Gebruikersnaam">
@@ -31,8 +29,14 @@
                         <input class="input is-primary is-large" type="password" name="password" id="wachtwoord" placeholder="Wachtwoord">
                     </div>
 
-                    <button class="button has-background-primary is-fullwidth has-text-white" name="loginButton">Inloggen</button>
+                    <button class="button has-background-primary is-fullwidth has-text-white" name="loginButton">
+                        Inloggen
+                    </button>
+
+                    <span id="error-field" class="help"></span>
+
                     <br>
+
                     <a class="has-text-white" href="../login/passwordForgot.html">
                         <p>Wachtwoord vergeten</p>
                     </a>

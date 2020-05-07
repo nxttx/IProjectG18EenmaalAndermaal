@@ -6,8 +6,12 @@ login = (form) => {
     let username = form.username;
     let pw = form.password;
     let button = form.loginButton;
+    let errorField = document.getElementById("error-field");
 
     button.classList.add("is-loading");
+    button.classList.remove("is-danger");
+
+    errorField.innerHTML = "";
 
     if(username.value.length === 0) {
         username.classList.add("is-danger")
@@ -25,7 +29,6 @@ login = (form) => {
 
     if(username.value.length != 0 && pw.value.length != 0) {
         let request = new XMLHttpRequest();
-        let errorField = document.getElementById("error-field");
 
         request.onreadystatechange = () => {
             if(request.readyState == 4) {
@@ -33,13 +36,14 @@ login = (form) => {
 
                 switch(request.status) {
                     case 404:
-                        errorField.innerHTML("Gebruikersnaam of wachtwoord incorrect");
+                        errorField.innerHTML = "Gebruikersnaam of wachtwoord incorrect";
                         break;
                     case 200:
-                        location.href = "index.php";
+                        button.innerHTML = '<span class="icon is-small"><i class="fas fa-check"></i></span>';
+                        setTimeout(() => location.href = "index.php", 1000);
                         break;
                     default:
-                        errorField.innerHTML("Er ging iets mis, probeer het later opnieuw...");
+                        errorField.innerHTML = "Er ging iets mis, probeer het later opnieuw...";
                 }
             }
         }
