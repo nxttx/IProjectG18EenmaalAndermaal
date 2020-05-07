@@ -3,8 +3,7 @@ $siteTitle= "hoofdpagina"
 
 ?>
 <?php include "php/dbh.php"?>
-<?php include "includes/head.php" ?>
-<?php include "includes/header.html"?>
+
 
 <?php
 $dbh = connectToDatabase();
@@ -45,12 +44,11 @@ $ads .=  "  <div class=\"column\">
                     </div>
                 </div>
             </div> ";
-
-
 }
-
-
 ?>
+<?php include "includes/head.php" ?>
+<?php include "includes/header.html"?>
+
 <section class="section">
     <div class="container">
         <h2 class="title is-3  has-text-centered">Populaire producten</h2>
