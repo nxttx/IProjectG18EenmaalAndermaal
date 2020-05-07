@@ -47,7 +47,7 @@ $ads .=  "  <div class=\"column\">
 }
 ?>
 <?php include "includes/head.php" ?>
-<?php include "includes/header.html"?>
+<?php include "includes/header.php"?>
 <section>
     <div class="container">
         <h2 class="title is-3  has-text-centered">Populaire producten</h2>
