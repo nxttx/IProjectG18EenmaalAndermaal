@@ -34,12 +34,15 @@ if (isset($_SESSION["user"])) {
                             </form>
                         </div>
                     </div>
+
+                    <a class="navbar-item" href="#">Rubrieken</a>
+                    <a class="navbar-item" href="#">Aanbiedingen</a>
                     <div class="navbar-item">
                         <i class="far fa-2x fa-user small-icon"></i>
                         <div class="buttons">
                             <?php
                             if (!$login) {
-                                echo '<a class="navbar-link" href="login.php"><strong>Log in</strong></a>';
+                                echo '<a class="link" href="login.php"><strong>Log in</strong></a>';
                             } else {
                                 echo '<button class="button" onclick="logout()"><strong>Log out</strong></button>';
                             }
