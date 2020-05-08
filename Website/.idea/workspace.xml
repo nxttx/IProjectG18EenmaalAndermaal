@@ -35,6 +35,7 @@
     <property name="DefaultHtmlFileTemplate" value="HTML File" />
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
     <property name="WebServerToolWindowFactoryState" value="true" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
     <property name="list.type.of.created.stylesheet" value="CSS" />
     <property name="nodejs_package_manager_path" value="npm" />
     <property name="settings.editor.selected.configurable" value="preferences.pluginManager" />
@@ -88,7 +89,7 @@
       <workItem from="1588859118490" duration="5977000" />
       <workItem from="1588872859188" duration="932000" />
       <workItem from="1588878525201" duration="1598000" />
-      <workItem from="1588932518899" duration="950000" />
+      <workItem from="1588932518899" duration="1296000" />
     </task>
     <servers />
   </component>
