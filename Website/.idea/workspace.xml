@@ -95,11 +95,11 @@
     <option name="version" value="1" />
   </component>
   <component name="WindowStateProjectService">
-    <state x="451" y="95" key="#Deployment" timestamp="1589183737937">
+    <state x="451" y="95" key="#Deployment" timestamp="1589195094874">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state x="361" y="76" key="#Deployment/0.0.1536.834@0.0.1536.834" timestamp="1588838779120" />
-    <state x="451" y="95" key="#Deployment/0.0.1920.1040/-1600.103.1600.860@0.0.1920.1040" timestamp="1589183737937" />
+    <state x="451" y="95" key="#Deployment/0.0.1920.1040/-1600.103.1600.860@0.0.1920.1040" timestamp="1589195094874" />
     <state x="361" y="76" key="#Notifications" timestamp="1588597371533">
       <screen x="0" y="0" width="1536" height="834" />
     </state>
@@ -141,21 +141,28 @@
       <screen x="0" y="0" width="1536" height="834" />
     </state>
     <state width="1493" height="213" key="GridCell.Tab.0.right/0.0.1536.834@0.0.1536.834" timestamp="1588597616913" />
-    <state x="604" y="341" key="NewPhpFileDialog" timestamp="1588847400595">
-      <screen x="0" y="0" width="1536" height="834" />
+    <state x="755" y="425" key="NewPhpFileDialog" timestamp="1589200118521">
+      <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state x="604" y="341" key="NewPhpFileDialog/0.0.1536.834@0.0.1536.834" timestamp="1588847400595" />
-    <state x="277" y="60" key="SettingsEditor" timestamp="1588597450914">
-      <screen x="0" y="0" width="1536" height="834" />
+    <state x="755" y="425" key="NewPhpFileDialog/0.0.1920.1040/-1600.103.1600.860@0.0.1920.1040" timestamp="1589200118521" />
+    <state x="346" y="75" key="SettingsEditor" timestamp="1589185310578">
+      <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state x="277" y="60" key="SettingsEditor/0.0.1536.834@0.0.1536.834" timestamp="1588597450914" />
+    <state x="346" y="75" key="SettingsEditor/0.0.1920.1040/-1600.103.1600.860@0.0.1920.1040" timestamp="1589185310578" />
     <state x="465" y="241" key="com.intellij.ide.util.TipDialog" timestamp="1588932520777">
       <screen x="0" y="0" width="1536" height="834" />
     </state>
     <state x="465" y="241" key="com.intellij.ide.util.TipDialog/0.0.1536.834@0.0.1536.834" timestamp="1588932520777" />
-    <state x="425" y="189" key="run.anything.popup" timestamp="1588840012026">
-      <screen x="0" y="0" width="1536" height="834" />
+    <state x="1094" y="0" width="833" height="1047" key="dock-window-1" timestamp="1589186944036">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state x="1094" y="0" width="833" height="1047" key="dock-window-1/0.0.1920.1040/-1600.103.1600.860@0.0.1920.1040" timestamp="1589186944036" />
+    <state x="531" y="236" key="run.anything.popup" timestamp="1589203935022">
+      <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state x="425" y="189" key="run.anything.popup/0.0.1536.834@0.0.1536.834" timestamp="1588840012026" />
+    <state x="531" y="236" key="run.anything.popup/0.0.1920.1040/-1600.103.1600.860@0.0.1920.1040" timestamp="1589203935022" />
   </component>
 </project>
