@@ -87,9 +87,8 @@ foreach ($dbh->query($sql) as $row) {
 }
 ?>
 <?php include "includes/head.php" ?>
-<?php include "includes/header.html" ?>
-
-<section class="section">
+<?php include "includes/header.php" ?>
+<section>
     <div class="container">
         <br>
 
@@ -98,7 +97,6 @@ foreach ($dbh->query($sql) as $row) {
                 <h2 class="title is-3  has-text-centered">Populaire producten</h2>
                 <p class="subtitle is-6  has-text-centered">Dit zijn de meest populaire producten!</p>
                 <div class="columns">
-
                     <?= $ads ?>
 
                 </div>
@@ -108,9 +106,9 @@ foreach ($dbh->query($sql) as $row) {
                     <?= $Random ?>
 
                 </div>
-            </div>
-        </div>
-        <br>
+          </div>
+      </div>
+      <br>
     </div>
 </section>
 <?php include "includes/footer.html" ?>
