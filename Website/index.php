@@ -1,5 +1,5 @@
 <?php
-$siteTitle= "hoofdpagina"
+$siteTitle= "Hoofdpagina"
 
 ?>
 <?php include "php/dbh.php"?>

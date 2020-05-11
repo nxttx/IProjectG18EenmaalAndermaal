@@ -15,7 +15,7 @@ if (isset($_SESSION["user"])) {
         <div class="container ">
             <div class="navbar-brand">
                 <h1 class="navbar-item title">
-                    <a class="title" href="http://iproject18.icasites.nl/"> EenmaalAndermaal</a>
+                    <a class="title" href="index.php"> EenmaalAndermaal</a>
                 </h1>
             </div>
             <div class="navbar-menu">
