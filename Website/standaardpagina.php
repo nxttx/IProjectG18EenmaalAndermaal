@@ -1,6 +1,5 @@
 <?php
-$siteTitle= "standaarpagina"
-
+$siteTitle= "standaarpagina";
 ?>
 
 <?php include "includes/head.php" ?>
@@ -12,7 +11,6 @@ $siteTitle= "standaarpagina"
         <p class="subtitle is-6  has-text-centered">ONDERTITEL</p>
         <div class="columns">
 
-        <?= $ads ?>
 
         </div>
     </div>

@@ -8,9 +8,7 @@
     <option name="LAST_RESOLUTION" value="IGNORE" />
   </component>
   <component name="ComposerSettings">
-    <execution>
-      <executable />
-    </execution>
+    <execution />
   </component>
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
@@ -24,11 +22,11 @@
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$/.." />
   </component>
+  <component name="PhpWorkspaceProjectConfiguration" interpreter_name="PHP" />
   <component name="ProjectId" id="1bRLRbu71Xqs0q4725RtPmje10s" />
   <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
   <component name="ProjectViewState">
     <option name="hideEmptyMiddlePackages" value="true" />
-    <option name="showExcludedFiles" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
   <component name="PropertiesComponent">
@@ -97,14 +95,19 @@
     <option name="version" value="1" />
   </component>
   <component name="WindowStateProjectService">
-    <state x="361" y="76" key="#Deployment" timestamp="1588838779120">
-      <screen x="0" y="0" width="1536" height="834" />
+    <state x="451" y="95" key="#Deployment" timestamp="1589183737937">
+      <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state x="361" y="76" key="#Deployment/0.0.1536.834@0.0.1536.834" timestamp="1588838779120" />
+    <state x="451" y="95" key="#Deployment/0.0.1920.1040/-1600.103.1600.860@0.0.1920.1040" timestamp="1589183737937" />
     <state x="361" y="76" key="#Notifications" timestamp="1588597371533">
       <screen x="0" y="0" width="1536" height="834" />
     </state>
     <state x="361" y="76" key="#Notifications/0.0.1536.834@0.0.1536.834" timestamp="1588597371533" />
+    <state x="507" y="73" key="#PHP" timestamp="1589183523850">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state x="507" y="73" key="#PHP/0.0.1920.1040/-1600.103.1600.860@0.0.1920.1040" timestamp="1589183523850" />
     <state x="499" y="164" key="#com.intellij.refactoring.safeDelete.UnsafeUsagesDialog" timestamp="1588873092662">
       <screen x="0" y="0" width="1536" height="834" />
     </state>
@@ -117,10 +120,11 @@
       <screen x="0" y="0" width="1536" height="834" />
     </state>
     <state x="405" y="196" width="725" height="627" key="EditFileWatcherDialog/0.0.1536.834@0.0.1536.834" timestamp="1588590672978" />
-    <state x="548" y="265" key="FileChooserDialogImpl" timestamp="1588590668401">
-      <screen x="0" y="0" width="1536" height="834" />
+    <state x="685" y="330" key="FileChooserDialogImpl" timestamp="1589183678133">
+      <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state x="548" y="265" key="FileChooserDialogImpl/0.0.1536.834@0.0.1536.834" timestamp="1588590668401" />
+    <state x="685" y="330" key="FileChooserDialogImpl/0.0.1920.1040/-1600.103.1600.860@0.0.1920.1040" timestamp="1589183678133" />
     <state width="1493" height="213" key="GridCell.Tab.0.bottom" timestamp="1588597616913">
       <screen x="0" y="0" width="1536" height="834" />
     </state>
