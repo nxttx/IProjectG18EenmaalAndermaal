@@ -35,7 +35,7 @@ if (isset($_SESSION["user"])) {
                         </div>
                     </div>
 
-                    <a class="navbar-item" href="#">Rubrieken</a>
+                    <a class="navbar-item" href="rubrieken.php">Rubrieken</a>
                     <a class="navbar-item" href="#">Aanbiedingen</a>
                     <div class="navbar-item">
                         <i class="far fa-2x fa-user small-icon"></i>
