@@ -1,19 +1,17 @@
 <?php
-$siteTitle= "hoofdpagina"
+$siteTitle = "hoofdpagina"
 
 ?>
-<?php include "php/dbh.php"?>
+<?php include "php/dbh.php" ?>
 
 
 <?php
 $dbh = connectToDatabase();
-$ads="";
+$ads = "";
 
-
-$sql = "SELECT TOP (3) * from voorwerp";
+$sql = "SELECT TOP (1) * from voorwerp";
 
 foreach ($dbh->query($sql) as $row) {
-$pid=$row['voorwerpnummer'];
     $ads .=  "  <div class=\"column\">
                 <div class=\"has-background-primary\">
                     <img src=\"\" alt=\"\">
@@ -39,7 +37,7 @@ $pid=$row['voorwerpnummer'];
                                 </div>
                             </div>
                         </div>
-                        <a class=\"button is-fullwidth\" href='product.php?id=$pid'>
+                        <a class=\"button is-fullwidth\" href='#'>
                             Bekijk nu!
                         </a>
                     </div>
@@ -48,17 +46,19 @@ $pid=$row['voorwerpnummer'];
 }
 ?>
 <?php include "includes/head.php" ?>
-<?php include "includes/header.php"?>
+<?php include "includes/header.php" ?>
+
 <section>
     <div class="container">
         <br>
         <h2 class="title is-3  has-text-centered">Populaire producten</h2>
         <p class="subtitle is-6  has-text-centered">Dit zijn de meest populaire producten!</p>
+        <?php include "breadcrumbstest.php" ?>
         <div class="columns">
 
-        <?= $ads ?>
+            <?= $ads ?>
 
         </div>
     </div>
 </section>
-<?php include "includes/footer.html"?>
+<?php include "includes/footer.html" ?>
