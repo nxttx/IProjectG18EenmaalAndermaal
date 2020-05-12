@@ -15,7 +15,7 @@ if (!$dbh) {
 
     $searchInput = "%$searchInput%";
     
-    $qry = $dbh->prepare("SELECT * FROM voorwerp WHERE titel LIKE :search");
+    $qry = $dbh->prepare("SELECT * FROM voorwerp WHERE titel LIKE :search ORDER BY titel ASC");
 
     $qry->execute(array($searchInput));
 

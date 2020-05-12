@@ -22,7 +22,6 @@ $siteTitle = "Contact";
                         </div>
                     </div>
                 </form>
-
             </div>
         </div>
         <br>
