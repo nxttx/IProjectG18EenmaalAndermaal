@@ -15,14 +15,14 @@ if (isset($_SESSION["user"])) {
         <div class="container ">
             <div class="navbar-brand">
                 <h1 class="navbar-item title">
-                    <a class="title" href="http://iproject18.icasites.nl/"> EenmaalAndermaal</a>
+                    <a class="title" href="index.php"> EenmaalAndermaal</a>
                 </h1>
             </div>
             <div class="navbar-menu">
                 <div class="navbar-end">
                     <div class="navbar-item">
                         <div class="field has-addons">
-                            <form action="#" method="get">
+                            <form action="zoeken.php" method="get">
                                 <div class="field has-addons">
                                     <div class="control">
                                         <label>
@@ -34,12 +34,15 @@ if (isset($_SESSION["user"])) {
                             </form>
                         </div>
                     </div>
+
+                    <a class="navbar-item" href="categorieen.php">Categorieën</a>
+                    <a class="navbar-item" href="#">Aanbiedingen</a>
                     <div class="navbar-item">
                         <i class="far fa-2x fa-user small-icon"></i>
                         <div class="buttons">
                             <?php
                             if (!$login) {
-                                echo '<a class="navbar-link" href="login.php"><strong>Log in</strong></a>';
+                                echo '<a class="link" href="login.php"><strong>Log in</strong></a>';
                             } else {
                                 echo '<button class="button" onclick="logout()"><strong>Log out</strong></button>';
                             }
@@ -57,7 +60,7 @@ if (isset($_SESSION["user"])) {
                     <details style="width:100%">
                         <summary class="title">&equiv; EenmaalAndermaal</summary>
 
-                        <form action="#" method="get">
+                        <form action="zoeken.php" method="get">
                             <div class="field has-addons">
                                 <div class="control">
                                     <label>
@@ -89,7 +92,7 @@ if (isset($_SESSION["user"])) {
                             </button>
                             <button class="button is-light has-text-primary" style="width:32%">
                                 <i class="far fa-2x fa-user"></i>
-                                <a class="has-text-primary" href="#"> Login</a>
+                                <a class="has-text-primary" href="login.php"> Login</a>
                             </button>
                             <button class="button is-primary">
                                 <i class="far fa-2x fa-user"></i>

@@ -11,7 +11,19 @@
 `$text: $grey-dark;`<br>
 `$body-background-color: $gray;`<br>
 
-##Footer
+## Footer
 Voor de footer gaan we javascript gebruiken zodat de footer mee scaled met de breedte van het scherm. Dit gaan we doen met `screen.width` en een `setInterval`. Daarmee gaan we een if statement doen waarmee de visability word aangepast. 
+###### edit 
+```SetInterval``` is uiteindelijk niet gebruik vanwege performance 
+##header
+Voor de footer gaan we javascript gebruiken zodat de footer mee scaled met de breedte van het scherm. Dit gaan we doen met `screen.width` en een `setInterval`. Daarmee gaan we een if statement doen waarmee de visability word aangepast. 
+###### edit
+```SetInterval``` is uiteindelijk niet gebruik vanwege performance 
 
-## een adere feature
+## index
+De advertenties bij de index worden laten zien door een for each loop. Die de gegevens 1 voor 1 van de database verwerkt in de goede colom.
+
+## Rubriekenboom
+De rubriekenboom gaan we met twee for loops doorlopen, waardoor we eerst de headerkiezen en daarna het sub menu.
+
+## een andere feature 
