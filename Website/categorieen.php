@@ -27,9 +27,9 @@ foreach ($dbh->query($sql) as $row) {
 //MAIN CODE:
 for ($a = 0; $a <$countH1; $a++) {
     $rubriekenLijst .= "<p class='link title is-8'>" . $header1[$a] . "</p>";
-    $sql = "SELECT (rubrieknaam) as 'h2 naam' FROM rubriek WHERE Rubriek = $a+1;";
+    $sql = "SELECT (rubrieknaam) as 'h2 naam', (rubrieknummer) as nummer FROM rubriek WHERE Rubriek = $a+1;";
     foreach ($dbh->query($sql) as $row) {
-        $rubriekenLijst .= '<p class="link"><a href="#">' . $row['h2 naam'] . '</a></p>';
+        $rubriekenLijst .= '<p class="link"><a href="categorieensubsub.php?rk=' .$row['nummer'] . '">' . $row['h2 naam'] . '</a></p>';
     }
 }
 
@@ -47,6 +47,7 @@ for ($a = 0; $a <$countH1; $a++) {
                     <h2 class="title is-2  has-text-centered">Categorien</h2>
                     <?= $rubriekenLijst ?>
                 </div>
+
             </div>
             <br>
 
