@@ -23,14 +23,11 @@ $siteTitle = "Contact";
                     </div>
                 </form>
 
-                <br>
-
-                <h2 class="is-2  has-text-left">Resultaten:</h2>
-
-                <div class="results">
-                    
-                </div>
             </div>
+        </div>
+        <br>
+        <div id="results">
+
         </div>
         <br>
     </div>

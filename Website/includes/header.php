@@ -22,11 +22,11 @@ if (isset($_SESSION["user"])) {
                 <div class="navbar-end">
                     <div class="navbar-item">
                         <div class="field has-addons">
-                            <form action="zoeken.php" method="get">
+                            <form action="search.php" method="get">
                                 <div class="field has-addons">
                                     <div class="control">
                                         <label>
-                                            <input class="input is-primary" placeholder="Zoeken..." type="text">
+                                            <input class="input is-primary" placeholder="Zoeken..." type="text" name="searchInput">
                                         </label>
                                     </div>
                                     <button class="button is-primary"><i class="fas fa-search"></i></button>
