@@ -11,18 +11,18 @@ if (isset($_SESSION["user"])) {
 ?>
 
 <body>
-<nav class="navbar" id="headerDesktop">
-    <div class="container ">
-        <div class="navbar-brand">
-            <h1 class="navbar-item title">
-                <a class="title" href="index.php"> EenmaalAndermaal</a>
-            </h1>
-        </div>
-        <div class="navbar-menu">
-            <div class="navbar-end">
-                <div class="navbar-item">
-                    <div class="field has-addons">
-                        <form action="zoeken.php" method="get">
+    <nav class="navbar" id="headerDesktop">
+        <div class="container ">
+            <div class="navbar-brand">
+                <h1 class="navbar-item title">
+                    <a class="title" href="index.php"> EenmaalAndermaal</a>
+                </h1>
+            </div>
+            <div class="navbar-menu">
+                <div class="navbar-end">
+                    <div class="navbar-item">
+                        <div class="field has-addons">
+                            <form action="search.php" method="get">
                             <div class="field has-addons">
                                 <div class="control">
                                     <label>
