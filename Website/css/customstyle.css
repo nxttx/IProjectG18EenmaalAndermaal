@@ -1,0 +1,8 @@
+details summary::-webkit-details-marker {
+    display:none;
+}
+
+ .extra-padding-1 {
+     padding: 1em;
+ }
+
