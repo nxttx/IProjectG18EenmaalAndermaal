@@ -42,9 +42,9 @@ if (isset($_SESSION["user"])) {
                         <div class="buttons">
                             <?php
                             if (!$login) {
-                                echo '<a class="link" href="login.php"><strong>Log in</strong></a>';
+                                echo '<a class="link" href="login.php"><strong>Inloggen</strong></a>';
                             } else {
-                                echo '<button class="button" onclick="logout()"><strong>Log out</strong></button>';
+                                echo '<button class="button is-primary" onclick="logout()"><strong>Uitloggen</strong></button>';
                             }
                             ?>
                         </div>
@@ -92,7 +92,7 @@ if (isset($_SESSION["user"])) {
                             </button>
                             <button class="button is-light has-text-primary" style="width:32%">
                                 <i class="far fa-2x fa-user"></i>
-                                <a class="has-text-primary" href="login.php"> Login</a>
+                                <a class="has-text-primary" href="login.php"> Inloggen</a>
                             </button>
                             <button class="button is-primary">
                                 <i class="far fa-2x fa-user"></i>
