@@ -8,7 +8,9 @@
     <option name="LAST_RESOLUTION" value="IGNORE" />
   </component>
   <component name="ComposerSettings">
-    <execution />
+    <execution>
+      <executable />
+    </execution>
   </component>
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$/.." />
@@ -36,20 +38,26 @@
       <option name="presentableId" value="Default" />
       <updated>1589267565172</updated>
       <workItem from="1589267571262" duration="1162000" />
+      <workItem from="1589273073481" duration="755000" />
     </task>
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
-    <option name="version" value="2" />
+    <option name="version" value="1" />
   </component>
   <component name="WindowStateProjectService">
-    <state x="552" y="178" key="#Deployment" timestamp="1589267668587">
-      <screen x="0" y="0" width="1920" height="1040" />
+    <state x="442" y="143" key="#Deployment" timestamp="1589273111517">
+      <screen x="0" y="0" width="1536" height="834" />
     </state>
+    <state x="442" y="143" key="#Deployment/0.0.1536.834@0.0.1536.834" timestamp="1589273111517" />
     <state x="552" y="178" key="#Deployment/0.0.1920.1040/-1600.103.1600.860@0.0.1920.1040" timestamp="1589267668587" />
     <state x="667" y="163" key="#PHP" timestamp="1589268234171">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state x="667" y="163" key="#PHP/0.0.1920.1040/-1600.103.1600.860@0.0.1920.1040" timestamp="1589268234171" />
+    <state x="465" y="241" key="com.intellij.ide.util.TipDialog" timestamp="1589273079774">
+      <screen x="0" y="0" width="1536" height="834" />
+    </state>
+    <state x="465" y="241" key="com.intellij.ide.util.TipDialog/0.0.1536.834@0.0.1536.834" timestamp="1589273079774" />
   </component>
 </project>
