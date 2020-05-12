@@ -26,7 +26,7 @@ if (isset($_SESSION["user"])) {
                             <div class="field has-addons">
                                 <div class="control">
                                     <label>
-                                        <input class="input is-primary" placeholder="Zoeken..." type="text">
+                                        <input class="input is-primary" placeholder="Zoeken..." type="text" name="searchInput">
                                     </label>
                                 </div>
                                 <button class="button is-primary"><i class="fas fa-search"></i></button>
