@@ -60,7 +60,7 @@ if (isset($_SESSION["user"])) {
                     <details style="width:100%">
                         <summary class="title">&equiv; EenmaalAndermaal</summary>
 
-                        <form action="zoeken.php" method="get">
+                        <form action="search.php" method="get">
                             <div class="field has-addons">
                                 <div class="control">
                                     <label>
