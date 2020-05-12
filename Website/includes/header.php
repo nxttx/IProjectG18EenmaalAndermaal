@@ -22,7 +22,7 @@ if (isset($_SESSION["user"])) {
                 <div class="navbar-end">
                     <div class="navbar-item">
                         <div class="field has-addons">
-                            <form action="#" method="post">
+                            <form action="zoeken.php" method="get">
                                 <div class="field has-addons">
                                     <div class="control">
                                         <label>
@@ -35,7 +35,7 @@ if (isset($_SESSION["user"])) {
                         </div>
                     </div>
 
-                    <a class="navbar-item" href="rubrieken.php">Rubrieken</a>
+                    <a class="navbar-item" href="categorieen.php">Categorieën</a>
                     <a class="navbar-item" href="#">Aanbiedingen</a>
                     <div class="navbar-item">
                         <i class="far fa-2x fa-user small-icon"></i>
@@ -60,7 +60,7 @@ if (isset($_SESSION["user"])) {
                     <details style="width:100%">
                         <summary class="title">&equiv; EenmaalAndermaal</summary>
 
-                        <form action="#" method="post">
+                        <form action="zoeken.php" method="get">
                             <div class="field has-addons">
                                 <div class="control">
                                     <label>
