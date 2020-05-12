@@ -22,7 +22,7 @@ if (isset($_SESSION["user"])) {
                 <div class="navbar-end">
                     <div class="navbar-item">
                         <div class="field has-addons">
-                            <form action="#" method="post">
+                            <form action="zoeken.php" method="get">
                                 <div class="field has-addons">
                                     <div class="control">
                                         <label>
@@ -60,7 +60,7 @@ if (isset($_SESSION["user"])) {
                     <details style="width:100%">
                         <summary class="title">&equiv; EenmaalAndermaal</summary>
 
-                        <form action="#" method="post">
+                        <form action="zoeken.php" method="get">
                             <div class="field has-addons">
                                 <div class="control">
                                     <label>
