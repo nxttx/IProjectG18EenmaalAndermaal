@@ -1,18 +1,24 @@
+<!--Gebruik de code in deze pagina om een nieuwe pagina aan te maken. Op deze houden we overal dezelfde stijl -->
+
 <?php
-$siteTitle= "standaarpagina";
+$siteTitle = "titel";
 ?>
 
 <?php include "includes/head.php" ?>
-<?php include "includes/header.php"?>
-<section>
-    <div class="container">
-        <br>
-        <h2 class="title is-3  has-text-centered">TITEL</h2>
-        <p class="subtitle is-6  has-text-centered">ONDERTITEL</p>
-        <div class="columns">
+<?php include "includes/header.php" ?>
+    <section>
+        <div class="container">
+            <br>
 
+            <div class="card ">
+                <div class="card-content">
+                    <h2 class="title is-2  has-text-centered">Titel</h2>
+                    <p class="subtitle is-5  has-text-centered">Subtitel is dit maar die is meerdere woorden </p>
+                </div>
+            </div>
+
+            <br>
 
         </div>
-    </div>
-</section>
-<?php include "includes/footer.html"?>
+    </section>
+<?php include "includes/footer.html" ?>
