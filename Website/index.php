@@ -26,7 +26,7 @@ foreach ($dbh->query($sql) as $row) {
                         <div class=\"columns has-text-centered\">
                             <div class=\"column\">
                                 <div class=\"content is-medium\">
-                                    	<p>&euro;{$row['euro']}</p>
+                                    	<p>&euro;{$row['startprijs']}</p>
                                 </div> 
                             </div>
                             <div class=\"column\">
@@ -36,7 +36,7 @@ foreach ($dbh->query($sql) as $row) {
                             </div>
                             <div class=\"column\">
                                 <div class=\"content is-medium\">
-                                    <p>{$row['LooptijdbeginDag']}</p>
+                                    <p>{$row['looptijdbeginDag']}</p>
                                 </div>
                             </div>
                         </div>
@@ -64,7 +64,7 @@ foreach ($dbh->query($sql) as $row) {
                         <div class=\"columns has-text-centered\">
                             <div class=\"column\">
                                 <div class=\"content is-medium\">
-                                    	<p>&euro;{$row['euro']}</p>
+                                    	<p>&euro;{$row['startprijs']}</p>
                                 </div> 
                             </div>
                             <div class=\"column\">
@@ -74,7 +74,7 @@ foreach ($dbh->query($sql) as $row) {
                             </div>
                             <div class=\"column\">
                                 <div class=\"content is-medium\">
-                                    <p>{$row['LooptijdbeginDag']}</p>
+                                    <p>{$row['looptijdbeginDag']}</p>
                                 </div>
                             </div>
                         </div>
