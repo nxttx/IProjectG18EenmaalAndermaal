@@ -57,7 +57,7 @@ INSERT INTO rubriek(rubrieknummer, rubrieknaam, rubriek, volgnr) VALUES(26, 'Ver
 INSERT INTO rubriek(rubrieknummer, rubrieknaam, rubriek, volgnr) VALUES(27, 'Mp3-spelers | Ipod', 5, 9)
 INSERT INTO rubriek(rubrieknummer, rubrieknaam, rubriek, volgnr) VALUES(102, 'Mp3-spelers | Overige', 5, 10)
 INSERT INTO rubriek(rubrieknummer, rubrieknaam, rubriek, volgnr) VALUES(28, 'Mp3-accessoires | Ipod', 5, 11)
-INSERT INTO rubriek(rubrieknummer, rubrieknaam, rubriek, volgnr) VALUES(103, 'Mp3-accessoires | Overige', 5, 12)
+INSERT INTO rubriek(rubrieknummer, rubrieknaam, rubriek, volgnr) VALUES(103, 'Mp3-accessoires | Over', 5, 12)
 INSERT INTO rubriek(rubrieknummer, rubrieknaam, rubriek, volgnr) VALUES(29, 'Mp4-spelers', 5, 13)
 INSERT INTO rubriek(rubrieknummer, rubrieknaam, rubriek, volgnr) VALUES(30, 'Walkmans en Discmans', 5, 14)
 
@@ -72,7 +72,7 @@ INSERT INTO rubriek(rubrieknummer, rubrieknaam, rubriek, volgnr) VALUES(37, 'Med
 INSERT INTO rubriek(rubrieknummer, rubrieknaam, rubriek, volgnr) VALUES(38, 'Sport- en Actiecamera''s', 6, 8)
 INSERT INTO rubriek(rubrieknummer, rubrieknaam, rubriek, volgnr) VALUES(39, 'Tv-decoders & schotels', 6, 9)
 INSERT INTO rubriek(rubrieknummer, rubrieknaam, rubriek, volgnr) VALUES(40, 'Tv''s | Plasma, Lcd, Led', 6, 10)
-INSERT INTO rubriek(rubrieknummer, rubrieknaam, rubriek, volgnr) VALUES(104, 'Tv''s | Overige Tv's', 6, 11)
+INSERT INTO rubriek(rubrieknummer, rubrieknaam, rubriek, volgnr) VALUES(104, 'Tv''s | Overige Tv''s', 6, 11)
 INSERT INTO rubriek(rubrieknummer, rubrieknaam, rubriek, volgnr) VALUES(105, 'Tv''s | Accessoires', 6, 12)
 INSERT INTO rubriek(rubrieknummer, rubrieknaam, rubriek, volgnr) VALUES(41, 'Videobewakingsapparatuur', 6, 13)
 INSERT INTO rubriek(rubrieknummer, rubrieknaam, rubriek, volgnr) VALUES(42, 'Videocamera''s | Analoog', 6, 14)
@@ -111,7 +111,7 @@ INSERT INTO rubriek(rubrieknummer, rubrieknaam, rubriek, volgnr) VALUES(65, 'Ove
 --Boeken -- Geschiedenis, Politiek en Historie
 INSERT INTO rubriek(rubrieknummer, rubrieknaam, rubriek, volgnr) VALUES(66, 'Geschiedenis | Regio', 10, 1)
 INSERT INTO rubriek(rubrieknummer, rubrieknaam, rubriek, volgnr) VALUES(108, 'Geschiedenis | Vaderland', 10, 2)
-\INSERT INTO rubriek(rubrieknummer, rubrieknaam, rubriek, volgnr) VALUES(109, 'Geschiedenis | Wereld', 10, 3)
+INSERT INTO rubriek(rubrieknummer, rubrieknaam, rubriek, volgnr) VALUES(109, 'Geschiedenis | Wereld', 10, 3)
 INSERT INTO rubriek(rubrieknummer, rubrieknaam, rubriek, volgnr) VALUES(67, 'Historische romans', 10, 4)
 INSERT INTO rubriek(rubrieknummer, rubrieknaam, rubriek, volgnr) VALUES(68, 'Oorlog en Militair', 10, 5)
 INSERT INTO rubriek(rubrieknummer, rubrieknaam, rubriek, volgnr) VALUES(69, 'Politiek en Maatschappij', 10, 6)
@@ -132,7 +132,7 @@ INSERT INTO rubriek(rubrieknummer, rubrieknaam, rubriek, volgnr) VALUES(77, 'Fot
 INSERT INTO rubriek(rubrieknummer, rubrieknaam, rubriek, volgnr) VALUES(78, 'Muziek', 12, 6)
 
 --Computers en Software -- Randapparatuur
-INSERT INTO rubriek(rubrieknummer, rubrieknaam, rubriek, volgnr) VALUES(102, 'Cd Spelers en Branders', 13, 1) --Dit id is omdat het zinloos en tijd verspillend is om alle andere records aan te passen zodat deze 'id' werkt
+INSERT INTO rubriek(rubrieknummer, rubrieknaam, rubriek, volgnr) VALUES(119, 'Cd Spelers en Branders', 13, 1) --Dit id is omdat het zinloos en tijd verspillend is om alle andere records aan te passen zodat deze 'id' werkt
 INSERT INTO rubriek(rubrieknummer, rubrieknaam, rubriek, volgnr) VALUES(79, 'Modems, ISDN, Faxen', 13, 2)
 INSERT INTO rubriek(rubrieknummer, rubrieknaam, rubriek, volgnr) VALUES(80, 'Monitoren', 13, 3)
 INSERT INTO rubriek(rubrieknummer, rubrieknaam, rubriek, volgnr) VALUES(81, 'Muizen en Joysticks', 13, 4)
@@ -158,7 +158,7 @@ INSERT INTO rubriek(rubrieknummer, rubrieknaam, rubriek, volgnr) VALUES(96, 'Ove
 --Computers en Software -- Tablets en E-readers
 INSERT INTO rubriek(rubrieknummer, rubrieknaam, rubriek, volgnr) VALUES(97, 'E-books', 15, 1)
 INSERT INTO rubriek(rubrieknummer, rubrieknaam, rubriek, volgnr) VALUES(98, 'Tablets | Apple iPad', 15, 2)
-INSERT INTO rubriek(rubrieknummer, rubrieknaam, rubriek, volgnr) VALUES(113, 'Tablets | Apple iPad Mini', 15, 3)
+INSERT INTO rubriek(rubrieknummer, rubrieknaam, rubriek, volgnr) VALUES(113, 'Tablets | A. iPad Mini', 15, 3)
 INSERT INTO rubriek(rubrieknummer, rubrieknaam, rubriek, volgnr) VALUES(114, 'Tablets | Samsung', 15, 4)
 INSERT INTO rubriek(rubrieknummer, rubrieknaam, rubriek, volgnr) VALUES(115, 'Tablets | Overige merken', 15, 5)
 INSERT INTO rubriek(rubrieknummer, rubrieknaam, rubriek, volgnr) VALUES(99, 'E-Readers', 15, 6)

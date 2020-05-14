@@ -1,10 +1,10 @@
 --------------------------------------
 --INSERT QUERY FOR EENMAALANDERMAAL --
---TABLE                      --
---VERSION: 1.2                      --
---04-MAY-2020                       --
+--TABLE gebruiker                   --
+--VERSION: 1.0                      --
+--12-MAY-2020                       --
 --IPROJECT GROEP 18                 -- 
---HIGHEST ID: 129                   --
+--				                    --
 --------------------------------------
 --VERSIONS:                         --
 --V1.0, BUILD QUERY                 --
@@ -216,4 +216,5 @@ INSERT INTO Gebruiker([gebruikersnaam],[voornaam],[achternaam],[adresregel1 ],[p
 INSERT INTO Gebruiker([gebruikersnaam],[voornaam],[achternaam],[adresregel1 ],[postcode],[plaatsnaam],[land],[geboorteDag],[emailadres],[wachtwoord],[vraag],[antwoordtekst],[verkoper]) VALUES('ornare','Aladdin','Decker','P.O. Box 241, 1651 Laoreet St.','3496 QM','Oosterhout','Netherlands','30/11/1999','lorem.sit@pharetranibh.edu','$2y$10$AAOjWXKYwv1GBE52H39qCeRbzdBr6MkVBUe1Sf8JOw8Ugz1iapy02','Vraag','antwoord op vraag','wel');
 INSERT INTO Gebruiker([gebruikersnaam],[voornaam],[achternaam],[adresregel1 ],[postcode],[plaatsnaam],[land],[geboorteDag],[emailadres],[wachtwoord],[vraag],[antwoordtekst],[verkoper]) VALUES('ac,','Kareem','Hawkins','3344 Nulla. Ave','9148 KD','Hoofddorp','Netherlands','15/03/1961','nec@non.net','$2y$10$AAOjWXKYwv1GBE52H39qCeRbzdBr6MkVBUe1Sf8JOw8Ugz1iapy02','Vraag','antwoord op vraag','wel');
 INSERT INTO Gebruiker([gebruikersnaam],[voornaam],[achternaam],[adresregel1 ],[postcode],[plaatsnaam],[land],[geboorteDag],[emailadres],[wachtwoord],[vraag],[antwoordtekst],[verkoper]) VALUES('varius.','Cameran','Knight','475-8316 Quis St.','6281 KU','Oldenzaal','Netherlands','29/10/1970','amet@est.net','$2y$10$AAOjWXKYwv1GBE52H39qCeRbzdBr6MkVBUe1Sf8JOw8Ugz1iapy02','Vraag','antwoord op vraag','wel');
+insert into gebruiker values ('WILLEM', 'Wilem', 'Klul', 'adres1', NULL, '1234AB', 'Arnhem', 'NL', '07-05-2020', ' ', '$2y$10$AAOjWXKYwv1GBE52H39qCeRbzdBr6MkVBUe1Sf8JOw8Ugz1iapy02', 1, 'iets', 'wel');
 

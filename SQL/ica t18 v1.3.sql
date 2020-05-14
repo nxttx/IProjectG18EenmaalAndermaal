@@ -1,17 +1,17 @@
 --
--- Database: `icaproject` v1.3
+-- Database: `iproject` v1.3
 --
 
 USE master
 GO
 
-DROP DATABASE IF EXISTS icaprojectT18;
+DROP DATABASE IF EXISTS iproject18;
 GO
 
-CREATE DATABASE icaprojectT18;
+CREATE DATABASE iproject18;
 
 GO
-USE icaprojectT18;
+USE iproject18;
 
 
 -- --------------------------------------------------------
@@ -38,7 +38,7 @@ DROP TABLE IF EXISTS bod;
 CREATE TABLE bod (
   voorwerp INT NOT NULL,
   bodbedrag char(6) NOT NULL,
-  gebruiker char(25) NOT NULL,
+  gebruiker char(50) NOT NULL,
   bodDag char(6) NOT NULL,
   bodTijdstip char(10) NOT NULL
 ) 
@@ -69,18 +69,18 @@ CREATE TABLE feedback (
 DROP TABLE IF EXISTS gebruiker;
 
 CREATE TABLE gebruiker (
-  gebruikersnaam char(25) NOT NULL,
-  voornaam char(25) NOT NULL,
-  achternaam char(25) NOT NULL,
-  adresregel1 char(30) NOT NULL,
-  adresregel2 char(30) DEFAULT NULL,
-  postcode char(6) NOT NULL,
-  plaatsnaam char(25) NOT NULL,
-  land char(20) NOT NULL,
+  gebruikersnaam char(50) NOT NULL,
+  voornaam char(50) NOT NULL,
+  achternaam char(50) NOT NULL,
+  adresregel1 char(100) NOT NULL,
+  adresregel2 char(100) DEFAULT NULL,
+  postcode char(20) NOT NULL,
+  plaatsnaam char(50) NOT NULL,
+  land char(30) NOT NULL,
   geboorteDag char(10) NOT NULL,
   emailadress varchar(50) NOT NULL,
-  wachtwoord varchar(18) NOT NULL,
-  vraag INT NOT NULL,
+  wachtwoord varchar(255) NOT NULL,
+  vraag varchar(255) NOT NULL,
   antwoordtekst varchar(255) NOT NULL,
   verkoper char(3) NOT NULL DEFAULT 'nee'
 )
@@ -95,7 +95,7 @@ DROP TABLE IF EXISTS gebruikerstelefoon;
 
 CREATE TABLE gebruikerstelefoon (
   volgnr INT NOT NULL,
-  gebruiker char(25) NOT NULL,
+  gebruiker char(50) NOT NULL,
   telefoon char(15) NOT NULL
 ) 
 -- --------------------------------------------------------
@@ -121,12 +121,13 @@ CREATE TABLE rubriek (
 DROP TABLE IF EXISTS verkoper;
 
 CREATE TABLE verkoper (
-  gebruiker char(25) NOT NULL,
+  gebruiker char(50) NOT NULL,
   bank char(20) DEFAULT NULL,
   bankrekening char(18) NULL,
   controleOptie char(10) NOT NULL,
-  creditcard char(16) DEFAULT NULL
+  creditcard char(20) DEFAULT NULL
 )
+
 
 -- Tabelstructuur voor tabel 'voorwerp'
 
@@ -135,9 +136,9 @@ DROP TABLE IF EXISTS voorwerp;
 
 CREATE TABLE voorwerp (
 	voorwerpnummer INT NOT NULL,
-	titel char(25) NOT NULL,
+	titel char(150) NOT NULL,
 	beschrijving varchar(255) NOT NULL,
-	startprijs char(6) NOT NULL,
+	startprijs char(20) NOT NULL,
 	betalingswijze char(25) NOT NULL,
 	betalingsinstructie varchar(255) NULL,
 	plaatsnaam char(20) NOT NULL,
@@ -147,14 +148,15 @@ CREATE TABLE voorwerp (
 	looptijdbeginTijdstip char(10) NOT NULL,
 	verzendkosten char(6) NULL,
 	verzendinstructies varchar(255) NULL,
-	verkoper char(25) NOT NULL,
-	koper char(25) NULL,
+	verkoper char(50) NOT NULL,
+	koper char(50) NULL,
 	looptijdeindeDag char(10) NOT NULL,
 	looptijdeindeTijdstip char(10) NOT NULL,
 	veilinGesloten varchar(4) NOT NULL DEFAULT 'niet',
-	verkoopprijs char(6) NULL,
+	verkoopprijs char(20) NULL,
 	views INT null
 	)
+
 
 -- Tabelstructuur voor Voorwerp in Rubriek
 DROP TABLE IF EXISTS voorwerpInRubriek;
