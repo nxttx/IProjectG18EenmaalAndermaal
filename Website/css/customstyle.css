@@ -6,3 +6,6 @@ details summary::-webkit-details-marker {
      padding: 1em;
  }
 
+.objectfit-cover{
+    object-fit: cover;
+}
