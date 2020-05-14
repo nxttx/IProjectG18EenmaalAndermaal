@@ -12,7 +12,7 @@ $Random = "";
 
 
 
-$sql = "SELECT TOP (3) V.titel, V.beschrijving, V.startprijs, V.LooptijdbeginDag, B.filenaam 
+$sql = "SELECT TOP (4) V.titel, V.beschrijving, V.startprijs, V.LooptijdbeginDag, B.filenaam 
 FROM Voorwerp V 
 	JOIN bestand B on V.voorwerpnummer = B.voorwerp
 ORDER BY views DESC";
@@ -21,7 +21,7 @@ ORDER BY views DESC";
 foreach ($dbh->query($sql) as $row) {
     $ads .= "  <div class=\"column\">
                 <div class=\"has-background-primary\">
-                    <figure class=\"image is-square\">
+                    <figure class=\"image objectfit-cover\">
                         <img src=\"{$row['filenaam']}\" alt=\"img\">
                     </figure>
                     <div class=\"extra-padding-1 has-background-light\">
@@ -54,7 +54,7 @@ foreach ($dbh->query($sql) as $row) {
             </div> ";
 }
 
-$sql = "SELECT TOP (3) V.titel, V.beschrijving, V.startprijs, V.LooptijdbeginDag, B.filenaam 
+$sql = "SELECT TOP (4) V.titel, V.beschrijving, V.startprijs, V.LooptijdbeginDag, B.filenaam 
 FROM Voorwerp V 
 	JOIN bestand B on V.voorwerpnummer = B.voorwerp
 ORDER BY NEWID()";
@@ -62,7 +62,7 @@ ORDER BY NEWID()";
 foreach ($dbh->query($sql) as $row) {
     $Random .= "  <div class=\"column\">
                 <div class=\"has-background-primary\">
-                    <figure class=\"image is-square\">
+                    <figure class=\"image objectfit-cover\">
                         <img src=\"{$row['filenaam']}\" alt=\"img\">
                     </figure>
                     <div class=\"extra-padding-1 has-background-light\">
