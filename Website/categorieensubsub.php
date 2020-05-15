@@ -36,7 +36,8 @@ foreach ($sth->fetchAll(PDO::FETCH_ASSOC) as $row) {
 
             <div class="card ">
                 <div class="card-content">
-                    <h2 class="title is-2  has-text-centered">Categorie |  <?=$categorie?> </h2>
+                    <h2 class="title is-2  has-text-centered">Subcategorie</h2>
+                    <h3 class="subtitle is-5 has-text-centered"><?=$categorie?></h3>
                     <?= $rubriekenLijst ?>
                 </div>
             </div>
