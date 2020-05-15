@@ -5,7 +5,6 @@ $dbh = connectToDatabase();
 
 $searchInput = $_REQUEST["search"];
 
-
 if (!$dbh) {
     http_response_code(500);
 
@@ -15,9 +14,9 @@ if (!$dbh) {
 
     $searchInput = "%$searchInput%";
     
-    $qry = $dbh->prepare("SELECT * FROM voorwerp WHERE titel LIKE :search ORDER BY titel ASC");
+    $qry = $dbh->prepare("SELECT * FROM voorwerp WHERE titel LIKE :search OR beschrijving LIKE :search2 ORDER BY titel ASC");
 
-    $qry->execute(array($searchInput));
+    $qry->execute(array($searchInput, $searchInput));
 
     $records = $qry->fetchAll(PDO::FETCH_ASSOC);
 

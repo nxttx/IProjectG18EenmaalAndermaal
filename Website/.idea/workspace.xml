@@ -1,15 +1,14 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
+    <list default="true" id="107207d0-5958-485e-a0df-ed2e445e4ac0" name="Default Changelist" comment="" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
     <option name="LAST_RESOLUTION" value="IGNORE" />
   </component>
   <component name="ComposerSettings">
-    <execution>
-      <executable />
-    </execution>
+    <execution />
   </component>
   <component name="DatabaseView">
     <option name="SHOW_INTERMEDIATE" value="true" />
@@ -31,12 +30,10 @@
   <component name="ProjectId" id="1bollkVL9pomkBOrQgPNPAOcMlE" />
   <component name="ProjectViewState">
     <option name="hideEmptyMiddlePackages" value="true" />
-    <option name="showExcludedFiles" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
   <component name="PropertiesComponent">
     <property name="DatabaseDriversLRU" value="sqlserver" />
-
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
     <property name="WebServerToolWindowFactoryState" value="true" />
     <property name="last_opened_file_path" value="$PROJECT_DIR$" />
@@ -46,40 +43,19 @@
       <recent name="C:\Users\Rober\Documents\GitHub\IProjectEenmaalAndermaal\Website" />
     </key>
   </component>
-  <component name="ServiceViewManager">
-    <option name="viewStates">
-      <list>
-        <serviceView>
-          <treeState>
-            <expand>
-              <path>
-                <item name="services root" type="e789fda9:ObjectUtils$Sentinel" />
-                <item name="iproject18: root" type="7427dc5b:ServiceModel$ServiceGroupNode" />
-              </path>
-              <path>
-                <item name="services root" type="e789fda9:ObjectUtils$Sentinel" />
-                <item name="iproject18: root" type="7427dc5b:ServiceModel$ServiceGroupNode" />
-                <item name="com.intellij.database.console.session.MessageBusSession@525d1a32" type="9fbbdea:ServiceModel$ServiceNode" />
-              </path>
-            </expand>
-            <select />
-          </treeState>
-        </serviceView>
-      </list>
-    </option>
-  </component>
   <component name="SvnConfiguration">
     <configuration />
   </component>
   <component name="TaskManager">
     <task active="true" id="Default" summary="Default task">
-
-      <changelist id="80040273-c89c-419f-af91-d9beea0150f8" name="Default Changelist" comment="" />
+      <changelist id="107207d0-5958-485e-a0df-ed2e445e4ac0" name="Default Changelist" comment="" />
       <created>1589306480380</created>
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1589306480380</updated>
       <workItem from="1589306484575" duration="7420000" />
+      <workItem from="1589390361046" duration="384000" />
+      <workItem from="1589447936149" duration="712000" />
     </task>
     <servers />
   </component>
@@ -95,30 +71,30 @@
       <screen x="0" y="0" width="1536" height="834" />
     </state>
     <state x="361" y="76" key="#com.intellij.execution.impl.EditConfigurationsDialog/0.0.1536.834@0.0.1536.834" timestamp="1589307433375" />
-    <state width="1024" height="213" key="GridCell.Tab.0.bottom" timestamp="1589310198363">
+    <state width="1024" height="214" key="GridCell.Tab.0.bottom" timestamp="1589445932450">
       <screen x="0" y="0" width="1536" height="834" />
     </state>
-    <state width="1024" height="213" key="GridCell.Tab.0.bottom/0.0.1536.834@0.0.1536.834" timestamp="1589310198363" />
-    <state width="1024" height="213" key="GridCell.Tab.0.center" timestamp="1589310198363">
+    <state width="1024" height="214" key="GridCell.Tab.0.bottom/0.0.1536.834@0.0.1536.834" timestamp="1589445932450" />
+    <state width="1024" height="214" key="GridCell.Tab.0.center" timestamp="1589445932450">
       <screen x="0" y="0" width="1536" height="834" />
     </state>
-    <state width="1024" height="213" key="GridCell.Tab.0.center/0.0.1536.834@0.0.1536.834" timestamp="1589310198363" />
-    <state width="1024" height="213" key="GridCell.Tab.0.left" timestamp="1589310198363">
+    <state width="1024" height="214" key="GridCell.Tab.0.center/0.0.1536.834@0.0.1536.834" timestamp="1589445932450" />
+    <state width="1024" height="214" key="GridCell.Tab.0.left" timestamp="1589445932450">
       <screen x="0" y="0" width="1536" height="834" />
     </state>
-    <state width="1024" height="213" key="GridCell.Tab.0.left/0.0.1536.834@0.0.1536.834" timestamp="1589310198363" />
-    <state width="1024" height="213" key="GridCell.Tab.0.right" timestamp="1589310198363">
+    <state width="1024" height="214" key="GridCell.Tab.0.left/0.0.1536.834@0.0.1536.834" timestamp="1589445932450" />
+    <state width="1024" height="214" key="GridCell.Tab.0.right" timestamp="1589445932450">
       <screen x="0" y="0" width="1536" height="834" />
     </state>
-    <state width="1024" height="213" key="GridCell.Tab.0.right/0.0.1536.834@0.0.1536.834" timestamp="1589310198363" />
+    <state width="1024" height="214" key="GridCell.Tab.0.right/0.0.1536.834@0.0.1536.834" timestamp="1589445932450" />
     <state x="523" y="171" key="com.intellij.database.run.ParametersPanel.Standalone" timestamp="1589310188935">
       <screen x="0" y="0" width="1536" height="834" />
     </state>
     <state x="523" y="171" key="com.intellij.database.run.ParametersPanel.Standalone/0.0.1536.834@0.0.1536.834" timestamp="1589310188935" />
-    <state x="465" y="241" key="com.intellij.ide.util.TipDialog" timestamp="1589306486908">
+    <state x="465" y="241" key="com.intellij.ide.util.TipDialog" timestamp="1589447937304">
       <screen x="0" y="0" width="1536" height="834" />
     </state>
-    <state x="465" y="241" key="com.intellij.ide.util.TipDialog/0.0.1536.834@0.0.1536.834" timestamp="1589306486908" />
+    <state x="465" y="241" key="com.intellij.ide.util.TipDialog/0.0.1536.834@0.0.1536.834" timestamp="1589447937304" />
     <state x="431" y="155" width="672" height="678" key="search.everywhere.popup" timestamp="1589309595316">
       <screen x="0" y="0" width="1536" height="834" />
     </state>

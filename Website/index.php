@@ -10,13 +10,19 @@ $dbh = connectToDatabase();
 $ads = "";
 $Random = "";
 
-$sql = "SELECT TOP (3) * from Voorwerp ORDER BY views DESC";
+
+
+$sql = "SELECT TOP (4) V.titel, V.beschrijving, V.startprijs, V.LooptijdbeginDag, B.filenaam 
+FROM Voorwerp V 
+	JOIN bestand B on V.voorwerpnummer = B.voorwerp
+ORDER BY views DESC";
+
 
 foreach ($dbh->query($sql) as $row) {
     $ads .= "  <div class=\"column\">
                 <div class=\"has-background-primary\">
-                    <figure class=\"image is-square\">
-                        <img src=\"https://bulma.io/images/placeholders/480x480.png\" alt=\"img\">
+                    <figure class=\"image objectfit-cover\">
+                        <img src=\"{$row['filenaam']}\" alt=\"img\">
                     </figure>
                     <div class=\"extra-padding-1 has-background-light\">
                         <h3 class=\"title is-4 \"> {$row['titel']}  </h3>
@@ -26,7 +32,7 @@ foreach ($dbh->query($sql) as $row) {
                         <div class=\"columns has-text-centered\">
                             <div class=\"column\">
                                 <div class=\"content is-medium\">
-                                    	<p>&euro;{$row['euro']}</p>
+                                    	<p>&euro;{$row['startprijs']}</p>
                                 </div> 
                             </div>
                             <div class=\"column\">
@@ -48,13 +54,16 @@ foreach ($dbh->query($sql) as $row) {
             </div> ";
 }
 
-$sql = "SELECT TOP (3) * from Voorwerp ORDER BY NEWID()";
+$sql = "SELECT TOP (4) V.titel, V.beschrijving, V.startprijs, V.LooptijdbeginDag, B.filenaam 
+FROM Voorwerp V 
+	JOIN bestand B on V.voorwerpnummer = B.voorwerp
+ORDER BY NEWID()";
 
 foreach ($dbh->query($sql) as $row) {
     $Random .= "  <div class=\"column\">
                 <div class=\"has-background-primary\">
-                    <figure class=\"image is-square\">
-                        <img src=\"https://bulma.io/images/placeholders/480x480.png\" alt=\"img\">
+                    <figure class=\"image objectfit-cover\">
+                        <img src=\"{$row['filenaam']}\" alt=\"img\">
                     </figure>
                     <div class=\"extra-padding-1 has-background-light\">
                         <h3 class=\"title is-4 \"> {$row['titel']}  </h3>
@@ -64,7 +73,7 @@ foreach ($dbh->query($sql) as $row) {
                         <div class=\"columns has-text-centered\">
                             <div class=\"column\">
                                 <div class=\"content is-medium\">
-                                    	<p>&euro;{$row['euro']}</p>
+                                    	<p>&euro;{$row['startprijs']}</p>
                                 </div> 
                             </div>
                             <div class=\"column\">

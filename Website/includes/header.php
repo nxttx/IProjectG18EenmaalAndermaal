@@ -1,6 +1,9 @@
 <?php
 
-session_start();
+if(!isset($_SESSION)) 
+{ 
+    session_start(); 
+}
 
 $login = false;
 
@@ -79,11 +82,11 @@ if (isset($_SESSION["user"])) {
                     <div class="buttons">
                         <button class="button is-light has-text-primary" style="width:82%">
                             <i class="fas fa-2x fa-home"></i>
-                            <a class="has-text-primary" href="http://iproject18.icasites.nl/"> Home</a>
+                            <a class="has-text-primary" href="index.php"> Home</a>
                         </button>
                         <button class="button is-light has-text-primary" style="width:32%">
                             <i class="fas fa-2x fa-book-open"></i>
-                            <a class="has-text-primary" href="http://iproject18.icasites.nl/"> Rubrieken</a>
+                            <a class="has-text-primary" href="categorieen.php"> Categorieën</a>
                         </button>
                         <button class="button is-light has-text-primary">
                             <i class="fas fa-2x fa-shopping-cart"></i>
