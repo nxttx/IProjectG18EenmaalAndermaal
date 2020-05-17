@@ -5,7 +5,8 @@ $siteTitle = "Categorieën"
 <?php include "php/dbh.php" ?>
 <?php
 $dbh = connectToDatabase();
-$rubriekenLijst = "";
+$rubriekenLijstDesktop = "";
+$rubriekenLijstMobile = "";
 
 $countH1 = 0;
 $header1 = array();
@@ -25,34 +26,57 @@ foreach ($dbh->query($sql) as $row) {
 
 
 //MAIN CODE:
-for ($a = 0; $a <$countH1; $a++) {
-    $rubriekenLijst .= "<br><h2 class='link title is-8 is-marginless'>" . $header1[$a] . "</h2>";
+//Desktop:
+for ($a = 0; $a < $countH1; $a++) {
+    $rubriekenLijstDesktop .= "<br><h2 class='link title is-8 is-marginless'>" . $header1[$a] . "</h2>";
     $sql = "SELECT (rubrieknaam) as 'h2 naam', (rubrieknummer) as nummer FROM rubriek WHERE Rubriek = $a+1;";
     foreach ($dbh->query($sql) as $row) {
-        $rubriekenLijst .= '<p class="link"><a href="categorieensubsub.php?rk=' .$row['nummer'] . '">' . $row['h2 naam'] . '</a></p>';
+        $rubriekenLijstDesktop .= '<p class="link"><a href="#top" onclick="showSubSub( ' . $row['nummer'] . ')">' . $row['h2 naam'] . '</a></p>';
     }
 }
 
+//mobile:
+for ($a = 0; $a < $countH1; $a++) {
+    $rubriekenLijstMobile .= "<br><h2 class='link title is-8 is-marginless'>" . $header1[$a] . "</h2>";
+    $sql = "SELECT (rubrieknaam) as 'h2 naam', (rubrieknummer) as nummer FROM rubriek WHERE Rubriek = $a+1;";
+    foreach ($dbh->query($sql) as $row) {
+        $rubriekenLijstMobile .= '<p class="link"><a href="categorieensubsub.php?rk=' . $row['nummer'] . '">' . $row['h2 naam'] . '</a></p>';
+    }
+}
 
 ?>
 
 <?php include "includes/head.php" ?>
 <?php include "includes/header.php" ?>
-    <section>
-        <div class="container">
-            <br>
+<section>
+    <div class="container">
+        <br>
 
-            <div class="card ">
-                <div class="card-content">
-                    <h2 class="title is-2  has-text-centered">Categorieën</h2>
-                    <?= $rubriekenLijst ?>
+        <div class="card">
+            <div class="card-content" id="boomDesktop">
+
+                <div class="columns">
+                    <div class="column">
+                        <h2 class="title is-2">Categorieën</h2>
+                        <?= $rubriekenLijstDesktop ?>
+                    </div>
+                    <div class="column">
+                        <iframe class="top" src="" scrolling="no" width="100%" height="480" id="subsubsub"
+                                style="display:none;"></iframe>
+                    </div>
                 </div>
-
             </div>
-            <br>
 
+            <div class="card-content" id="boomMobile">
+                <h2 class="title is-2  has-text-centered">Categorieën</h2>
+                <?= $rubriekenLijstMobile ?>
+            </div>
         </div>
-    </section>
+        <br>
+
+    </div>
+</section>
+<script src="js/categorieën.js"></script>
 
 <?php include "includes/footer.html" ?>
 

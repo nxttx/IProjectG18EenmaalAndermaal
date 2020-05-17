@@ -8,7 +8,9 @@
     <option name="LAST_RESOLUTION" value="IGNORE" />
   </component>
   <component name="ComposerSettings">
-    <execution />
+    <execution>
+      <executable />
+    </execution>
   </component>
   <component name="DatabaseView">
     <option name="SHOW_INTERMEDIATE" value="true" />
@@ -24,6 +26,13 @@
     <expand />
     <select />
   </component>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="JavaScript File" />
+      </list>
+    </option>
+  </component>
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$/.." />
   </component>
@@ -36,10 +45,11 @@
     <property name="DatabaseDriversLRU" value="sqlserver" />
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
     <property name="WebServerToolWindowFactoryState" value="true" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/includes" />
   </component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
+      <recent name="C:\Users\Rober\Documents\GitHub\IProjectEenmaalAndermaal\Website\includes" />
       <recent name="C:\Users\Rober\Documents\GitHub\IProjectEenmaalAndermaal\Website" />
     </key>
   </component>
@@ -56,6 +66,7 @@
       <workItem from="1589306484575" duration="7420000" />
       <workItem from="1589390361046" duration="384000" />
       <workItem from="1589447936149" duration="712000" />
+      <workItem from="1589706117430" duration="2005000" />
     </task>
     <servers />
   </component>
@@ -95,6 +106,10 @@
       <screen x="0" y="0" width="1536" height="834" />
     </state>
     <state x="465" y="241" key="com.intellij.ide.util.TipDialog/0.0.1536.834@0.0.1536.834" timestamp="1589447937304" />
+    <state x="425" y="189" key="run.anything.popup" timestamp="1589573573688">
+      <screen x="0" y="0" width="1536" height="834" />
+    </state>
+    <state x="425" y="189" key="run.anything.popup/0.0.1536.834@0.0.1536.834" timestamp="1589573573688" />
     <state x="431" y="155" width="672" height="678" key="search.everywhere.popup" timestamp="1589309595316">
       <screen x="0" y="0" width="1536" height="834" />
     </state>
