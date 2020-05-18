@@ -68,7 +68,7 @@ message = (record) => {
             <div class="message-body">
                 <p>${record.beschrijving}</p>
                 <br>
-                <p class="has-text-weight-bold">&euro;${record.euro} </p> <p class="is-size-7">excl. &euro;${record.Verzendkosten} verzendkosten</p>
+                <p class="has-text-weight-bold">&euro;${record.startprijs} </p> <p class="is-size-7">excl. &euro;${record.verzendkosten} verzendkosten</p>
             </div>
         </article>
 
@@ -77,6 +77,8 @@ message = (record) => {
 }
 
 requestSearchRecords = (input) => {
+    
+
     let requestPromise = new Promise((resolve, reject) => {
         let searchRequest = new XMLHttpRequest();
 
