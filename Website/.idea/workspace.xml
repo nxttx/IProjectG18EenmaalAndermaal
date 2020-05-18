@@ -8,7 +8,9 @@
     <option name="LAST_RESOLUTION" value="IGNORE" />
   </component>
   <component name="ComposerSettings">
-    <execution />
+    <execution>
+      <executable />
+    </execution>
   </component>
   <component name="DatabaseView">
     <option name="SHOW_INTERMEDIATE" value="true" />
@@ -24,6 +26,13 @@
     <expand />
     <select />
   </component>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="JavaScript File" />
+      </list>
+    </option>
+  </component>
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$/.." />
   </component>
@@ -36,12 +45,43 @@
     <property name="DatabaseDriversLRU" value="sqlserver" />
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
     <property name="WebServerToolWindowFactoryState" value="true" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/php/checks" />
   </component>
   <component name="RecentsManager">
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="C:\Users\Rober\Documents\GitHub\IProjectEenmaalAndermaal\Website\php\checks" />
+    </key>
     <key name="CopyFile.RECENT_KEYS">
+      <recent name="C:\Users\Rober\Documents\GitHub\IProjectEenmaalAndermaal\Website\php\checks" />
       <recent name="C:\Users\Rober\Documents\GitHub\IProjectEenmaalAndermaal\Website" />
     </key>
+  </component>
+  <component name="RunAnythingCache">
+    <option name="myCommands">
+      <command value="chrome" />
+    </option>
+  </component>
+  <component name="ServiceViewManager">
+    <option name="viewStates">
+      <list>
+        <serviceView>
+          <treeState>
+            <expand>
+              <path>
+                <item name="services root" type="e789fda9:ObjectUtils$Sentinel" />
+                <item name="iproject18: root" type="7427dc5b:ServiceModel$ServiceGroupNode" />
+              </path>
+              <path>
+                <item name="services root" type="e789fda9:ObjectUtils$Sentinel" />
+                <item name="iproject18: root" type="7427dc5b:ServiceModel$ServiceGroupNode" />
+                <item name="com.intellij.database.console.session.MessageBusSession@2e2b2c45" type="9fbbdea:ServiceModel$ServiceNode" />
+              </path>
+            </expand>
+            <select />
+          </treeState>
+        </serviceView>
+      </list>
+    </option>
   </component>
   <component name="SvnConfiguration">
     <configuration />
@@ -71,33 +111,45 @@
       <screen x="0" y="0" width="1536" height="834" />
     </state>
     <state x="361" y="76" key="#com.intellij.execution.impl.EditConfigurationsDialog/0.0.1536.834@0.0.1536.834" timestamp="1589307433375" />
-    <state width="1024" height="214" key="GridCell.Tab.0.bottom" timestamp="1589445932450">
+    <state width="1024" height="213" key="GridCell.Tab.0.bottom" timestamp="1589813356381">
       <screen x="0" y="0" width="1536" height="834" />
     </state>
-    <state width="1024" height="214" key="GridCell.Tab.0.bottom/0.0.1536.834@0.0.1536.834" timestamp="1589445932450" />
-    <state width="1024" height="214" key="GridCell.Tab.0.center" timestamp="1589445932450">
+    <state width="1024" height="213" key="GridCell.Tab.0.bottom/0.0.1536.834@0.0.1536.834" timestamp="1589813356381" />
+    <state width="1024" height="213" key="GridCell.Tab.0.center" timestamp="1589813356381">
       <screen x="0" y="0" width="1536" height="834" />
     </state>
-    <state width="1024" height="214" key="GridCell.Tab.0.center/0.0.1536.834@0.0.1536.834" timestamp="1589445932450" />
-    <state width="1024" height="214" key="GridCell.Tab.0.left" timestamp="1589445932450">
+    <state width="1024" height="213" key="GridCell.Tab.0.center/0.0.1536.834@0.0.1536.834" timestamp="1589813356381" />
+    <state width="1024" height="213" key="GridCell.Tab.0.left" timestamp="1589813356381">
       <screen x="0" y="0" width="1536" height="834" />
     </state>
-    <state width="1024" height="214" key="GridCell.Tab.0.left/0.0.1536.834@0.0.1536.834" timestamp="1589445932450" />
-    <state width="1024" height="214" key="GridCell.Tab.0.right" timestamp="1589445932450">
+    <state width="1024" height="213" key="GridCell.Tab.0.left/0.0.1536.834@0.0.1536.834" timestamp="1589813356381" />
+    <state width="1024" height="213" key="GridCell.Tab.0.right" timestamp="1589813356381">
       <screen x="0" y="0" width="1536" height="834" />
     </state>
-    <state width="1024" height="214" key="GridCell.Tab.0.right/0.0.1536.834@0.0.1536.834" timestamp="1589445932450" />
-    <state x="523" y="171" key="com.intellij.database.run.ParametersPanel.Standalone" timestamp="1589310188935">
+    <state width="1024" height="213" key="GridCell.Tab.0.right/0.0.1536.834@0.0.1536.834" timestamp="1589813356381" />
+    <state x="844" y="189" key="NewPhpFileDialog" timestamp="1589808514152">
       <screen x="0" y="0" width="1536" height="834" />
     </state>
-    <state x="523" y="171" key="com.intellij.database.run.ParametersPanel.Standalone/0.0.1536.834@0.0.1536.834" timestamp="1589310188935" />
+    <state x="844" y="189" key="NewPhpFileDialog/0.0.1536.834@0.0.1536.834" timestamp="1589808514152" />
+    <state x="775" y="205" key="com.intellij.database.run.ParametersPanel.Standalone" timestamp="1589794277225">
+      <screen x="0" y="0" width="1536" height="834" />
+    </state>
+    <state x="775" y="205" key="com.intellij.database.run.ParametersPanel.Standalone/0.0.1536.834@0.0.1536.834" timestamp="1589794277225" />
     <state x="465" y="241" key="com.intellij.ide.util.TipDialog" timestamp="1589447937304">
       <screen x="0" y="0" width="1536" height="834" />
     </state>
     <state x="465" y="241" key="com.intellij.ide.util.TipDialog/0.0.1536.834@0.0.1536.834" timestamp="1589447937304" />
-    <state x="431" y="155" width="672" height="678" key="search.everywhere.popup" timestamp="1589309595316">
+    <state x="675" y="202" width="738" height="606" key="find.popup" timestamp="1589812675968">
       <screen x="0" y="0" width="1536" height="834" />
     </state>
-    <state x="431" y="155" width="672" height="678" key="search.everywhere.popup/0.0.1536.834@0.0.1536.834" timestamp="1589309595316" />
+    <state x="675" y="202" width="738" height="606" key="find.popup/0.0.1536.834@0.0.1536.834" timestamp="1589812675968" />
+    <state x="425" y="189" width="672" height="677" key="run.anything.popup" timestamp="1589793328950">
+      <screen x="0" y="0" width="1536" height="834" />
+    </state>
+    <state x="425" y="189" width="672" height="677" key="run.anything.popup/0.0.1536.834@0.0.1536.834" timestamp="1589793328950" />
+    <state x="431" y="155" width="672" height="678" key="search.everywhere.popup" timestamp="1589812605457">
+      <screen x="0" y="0" width="1536" height="834" />
+    </state>
+    <state x="431" y="155" width="672" height="678" key="search.everywhere.popup/0.0.1536.834@0.0.1536.834" timestamp="1589812605457" />
   </component>
 </project>
