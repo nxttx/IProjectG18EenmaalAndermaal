@@ -36,3 +36,7 @@ Login.php is de daadwerkelijk zichtbare pagina waar men zijn of haar credentials
 
 ## Zoeken
 In de header staat een zoekbalk waar men op kan klikken. Als op enter wordt gedrukt wordt een get-request uitgevoerd naar search.php. Deze pagina opent vanzelf en stuurt vervolgens aan de hand van de URL een get-request uit naar searchHandler.php. De reden dat dit tweemaal gebeurt is zodat de zoekopdracht in de URL staat en met de back en forward knop in de browser terug wordt verwezen naar deze resultaten.
+
+## Andere feature
+
+## Andere feature

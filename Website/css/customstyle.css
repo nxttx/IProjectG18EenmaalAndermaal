@@ -9,3 +9,7 @@ details summary::-webkit-details-marker {
 .objectfit-cover{
     object-fit: cover;
 }
+
+html{
+    scroll-behavior: smooth;
+}

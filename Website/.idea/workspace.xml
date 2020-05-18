@@ -45,6 +45,7 @@
     <property name="DatabaseDriversLRU" value="sqlserver" />
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
     <property name="WebServerToolWindowFactoryState" value="true" />
+
     <property name="last_opened_file_path" value="$PROJECT_DIR$/php/checks" />
   </component>
   <component name="RecentsManager">
@@ -96,6 +97,7 @@
       <workItem from="1589306484575" duration="7420000" />
       <workItem from="1589390361046" duration="384000" />
       <workItem from="1589447936149" duration="712000" />
+      <workItem from="1589706117430" duration="2473000" />
     </task>
     <servers />
   </component>
@@ -103,6 +105,10 @@
     <option name="version" value="1" />
   </component>
   <component name="WindowStateProjectService">
+    <state x="552" y="178" key="#Deployment" timestamp="1589788386593">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state x="552" y="178" key="#Deployment/0.0.1920.1040/1920.177.1600.860@0.0.1920.1040" timestamp="1589788386593" />
     <state x="559" y="97" key="#categorieen.php" timestamp="1589307033937">
       <screen x="0" y="0" width="1536" height="834" />
     </state>
@@ -148,6 +154,12 @@
     </state>
     <state x="425" y="189" width="672" height="677" key="run.anything.popup/0.0.1536.834@0.0.1536.834" timestamp="1589793328950" />
     <state x="431" y="155" width="672" height="678" key="search.everywhere.popup" timestamp="1589812605457">
+    <state x="425" y="189" key="run.anything.popup" timestamp="1589573573688">
+      <screen x="0" y="0" width="1536" height="834" />
+    </state>
+    <state x="425" y="189" key="run.anything.popup/0.0.1536.834@0.0.1536.834" timestamp="1589573573688" />
+    <state x="431" y="155" width="672" height="678" key="search.everywhere.popup" timestamp="1589309595316">
+
       <screen x="0" y="0" width="1536" height="834" />
     </state>
     <state x="431" y="155" width="672" height="678" key="search.everywhere.popup/0.0.1536.834@0.0.1536.834" timestamp="1589812605457" />
