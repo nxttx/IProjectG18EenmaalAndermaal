@@ -35,4 +35,4 @@ $siteTitle = "Contact";
 <script src="JS/search-params.js"></script>
 <script src="JS/search.js"></script>
 
-<?php include "includes/footer.html" ?>
+<?php include "includes/footer.php" ?>

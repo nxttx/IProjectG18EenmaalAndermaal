@@ -46,5 +46,5 @@ foreach ($sth->fetchAll(PDO::FETCH_ASSOC) as $row) {
         </div>
     </section>
 
-<?php include "includes/footer.html" ?>
+<?php include "includes/footer.php" ?>
 

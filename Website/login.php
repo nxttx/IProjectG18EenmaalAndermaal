@@ -56,4 +56,4 @@ if (isset($_SESSION["user"])) {
 
 <script src="js/login.js"></script>
 
-<?php include "includes/footer.html" ?>
+<?php include "includes/footer.php" ?>

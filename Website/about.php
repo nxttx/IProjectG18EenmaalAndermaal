@@ -29,4 +29,4 @@ $siteTitle = "Over ons";
         <br>
     </div>
 </section>
-<?php include "includes/footer.html" ?>
+<?php include "includes/footer.php" ?>
