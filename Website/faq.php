@@ -57,4 +57,4 @@ $siteTitle = "FAQ";
 
         </div>
     </section>
-<?php include "includes/footer.html" ?>
+<?php include "includes/footer.php" ?>

@@ -12,12 +12,20 @@
                     <!--                    <p class="is-link">-->
                     <!--                        <a href="#">Plaats advertentie</a>-->
                     <!--                    </p>-->
-                    <p class="is-link">
-                        <a href="#">Aanmelden</a>
-                    </p>
-                    <p class="is-link">
-                        <a href="login.php">Inloggen </a>
-                    </p>
+
+
+                    <?php if (!isset($_SESSION['user'])) { ?>
+                        <p class="is-link">
+                            <a href="#">Registreren</a>
+                        </p>
+                        <p class="is-link">
+                            <a href="login.php">Inloggen </a>
+                        </p>
+                    <?php } elseif (isset($_SESSION['user'])) { ?>
+                        <p class="link"><a href="profile.php">Mijn profiel</a></p>
+                    <?php }; ?>
+
+
                 </div>
                 <div class="column is-4">
                     <p class="title">
@@ -61,12 +69,20 @@
                 <!--                <p class="is-link is-large">-->
                 <!--                    <a href="#">Plaats advertentie</a>-->
                 <!--                </p>-->
-                <p class="is-link is-large">
-                    <a href="#">Aanmelden</a>
-                </p>
-                <p class="is-link is-large">
-                    <a href="login.php">Inloggen </a>
-                </p>
+
+
+                <?php if (!isset($_SESSION['user'])) { ?>
+                    <p class="is-link">
+                        <a href="#">Registreren</a>
+                    </p>
+                    <p class="is-link">
+                        <a href="login.php">Inloggen </a>
+                    </p>
+                <?php } elseif (isset($_SESSION['user'])) { ?>
+                    <p class="link"><a href="profile.php">Mijn profiel</a></p>
+                <?php }; ?>
+
+
             </details>
             <details>
                 <summary class="title">EenmaalAndermaal</summary>
@@ -101,7 +117,8 @@
         <br>
         <div class="columns is-mobile is-centered is-paddingless is-marginless" id="copyright">
             <div class="column is-paddingless is-marginless"></div>
-            <div class="column is-center is-paddingless is-marginless"><p class="is-center">Copyright &copy; | 2020-2021 EenmaalAndermaal</p></div>
+            <div class="column is-center is-paddingless is-marginless"><p class="is-center">Copyright &copy; | 2020-2021
+                    EenmaalAndermaal</p></div>
             <div class="column is-paddingless is-marginless"></div>
         </div>
 

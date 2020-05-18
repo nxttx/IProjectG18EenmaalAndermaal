@@ -78,5 +78,5 @@ for ($a = 0; $a < $countH1; $a++) {
 </section>
 <script src="js/categorieën.js"></script>
 
-<?php include "includes/footer.html" ?>
+<?php include "includes/footer.php" ?>
 

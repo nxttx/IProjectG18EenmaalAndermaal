@@ -120,4 +120,4 @@ foreach ($dbh->query($sql) as $row) {
       <br>
     </div>
 </section>
-<?php include "includes/footer.html" ?>
+<?php include "includes/footer.php" ?>
