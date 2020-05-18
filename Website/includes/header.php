@@ -1,8 +1,7 @@
 <?php
 
-if(!isset($_SESSION)) 
-{ 
-    session_start(); 
+if (!isset($_SESSION)) {
+    session_start();
 }
 
 $login = false;
@@ -14,22 +13,23 @@ if (isset($_SESSION["user"])) {
 ?>
 
 <body>
-    <nav class="navbar" id="headerDesktop">
-        <div class="container ">
-            <div class="navbar-brand">
-                <h1 class="navbar-item title">
-                    <a class="title" href="index.php"> EenmaalAndermaal</a>
-                </h1>
-            </div>
-            <div class="navbar-menu">
-                <div class="navbar-end">
-                    <div class="navbar-item">
-                        <div class="field has-addons">
-                            <form action="search.php" method="get">
+<nav class="navbar" id="headerDesktop">
+    <div class="container ">
+        <div class="navbar-brand">
+            <h1 class="navbar-item title">
+                <a class="title" href="index.php"> EenmaalAndermaal</a>
+            </h1>
+        </div>
+        <div class="navbar-menu">
+            <div class="navbar-end">
+                <div class="navbar-item">
+                    <div class="field has-addons">
+                        <form action="search.php" method="get">
                             <div class="field has-addons">
                                 <div class="control">
                                     <label>
-                                        <input class="input is-primary" placeholder="Zoeken..." type="text" name="searchInput">
+                                        <input class="input is-primary" placeholder="Zoeken..." type="text"
+                                               name="searchInput">
                                     </label>
                                 </div>
                                 <button class="button is-primary"><i class="fas fa-search"></i></button>
@@ -80,35 +80,44 @@ if (isset($_SESSION["user"])) {
 
 
                     <div class="buttons">
-                        <button class="button is-light has-text-primary" style="width:82%">
+
+                        <a href="index.php" class="button is-light has-text-primary" style="width:82%">
                             <i class="fas fa-2x fa-home"></i>
-                            <a class="has-text-primary" href="index.php"> Home</a>
-                        </button>
-                        <button class="button is-light has-text-primary" style="width:32%">
+                            <p> Home</p>
+                        </a>
+
+                        <a href="categorieen.php" class="button is-light has-text-primary" style="width:32%">
                             <i class="fas fa-2x fa-book-open"></i>
-                            <a class="has-text-primary" href="categorieen.php"> Categorieën</a>
-                        </button>
-                        <button class="button is-light has-text-primary">
+                            <p> Categorieën</p>
+                        </a>
+
+                        <a href="#" class="button is-light has-text-primary">
                             <i class="fas fa-2x fa-shopping-cart"></i>
-                            <a class="has-text-primary" href="#"> Aanbiedingen</a>
-                        </button>
+                            <p>Aanbiedingen</p>
+                        </a>
+
                         <?php
                         if (!$login) {
-                            echo '                        <button class="button is-light has-text-primary" style="width:32%">
+                            echo '                        
+                        <a href="login.php" class="button is-light has-text-primary" style="width:32%">
                             <i class="far fa-2x fa-user"></i>
-                            <a class="has-text-primary" href="login.php"> Inloggen</a>
-                        </button>';
+                            <p> Inloggen</p>
+                        </a>
+                        <a href="#" class="button is-primary">
+                            <i class="far fa-2x fa-user"></i>
+                            <p>Account aanmaken</p>
+                        </a>
+                        ';
                         } else {
-                            echo '                        <button class="button is-light has-text-primary" onclick="logout()" style="width:32%">
+                            echo '                        
+                        <button class="button is-primary" onclick="logout()" style="width:82%">
                             <i class="far fa-2x fa-user"></i>
-                            <p class="has-text-primary"> Uitloggen</p>
+                            <p> Uitloggen</p>
                         </button>';
                         }
                         ?>
-                        <button class="button is-primary">
-                            <i class="far fa-2x fa-user"></i>
-                            <a class="has-text-white" href="#"> Account aanmaken</a>
-                        </button>
+
+
                     </div>
                 </details>
             </div>

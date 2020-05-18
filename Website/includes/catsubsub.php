@@ -1,4 +1,4 @@
-<?php include "php/dbh.php" ?>
+<?php include "../php/dbh.php" ?>
 <?php
 $dbh = connectToDatabase();
 $siteTitle = "";
@@ -27,24 +27,27 @@ foreach ($sth->fetchAll(PDO::FETCH_ASSOC) as $row) {
 
 
 ?>
+<!DOCTYPE html>
+<html lang="nl" style="background-color: white">
+<head>
+    <meta charset="UTF-8">
+    <title>EenmaalAndermaal | <?=$siteTitle?> </title>
+    <link rel="stylesheet" href="../css/mystyles.css">
+    <link href="https://kit-free.fontawesome.com/releases/latest/css/free.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="css/customstyle.css">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+</head>
 
-<?php include "includes/head.php" ?>
-<?php include "includes/header.php" ?>
-    <section>
+<body>
+    <section class="has-background-white">
         <div class="container">
-            <br>
-
-            <div class="card">
-                <div class="card-content">
                     <h2 class="title is-2  has-text-centered">Subcategorie</h2>
                     <h3 class="subtitle is-5 has-text-centered"><?=$categorie?></h3>
                     <?= $rubriekenLijst ?>
-                </div>
-            </div>
-            <br>
 
         </div>
     </section>
 
-<?php include "includes/footer.html" ?>
+</body>
+</html>
 
