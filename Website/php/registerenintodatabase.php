@@ -1,15 +1,14 @@
 <?php include "dbh.php" ?>
 <?php
 $dbh = connectToDatabase();
-echo $_POST['vraag'];
 
 
 if ($_POST['wachtwoordregel1'] == $_POST['wachtwoordregel2'] && strlen($_POST['wachtwoordregel1']) >= 8) {
     $password = $_POST['wachtwoordregel1'];
     $finalPassword = password_hash($password, PASSWORD_DEFAULT);
 
-    $sth = $dbh->prepare('INSERT INTO gebruiker (gebruikersnaam, voornaam, achternaam, adresregel1, adresregel2, postcode, plaatsnaam, Land, GeboorteDag, emailadress, wachtwoord, Vraag, antwoordtekst, Verkopen)
-VALUES( :gebruikersnaam, :voornaam, :achternaam, :adresregel1, :adresregel2, :postcode, :plaatsnaam, :Land, :GeboorteDag, :emailadress, :wachtwoord, :Vraag, :antwoordtekst, :Verkopen)');
+    $sth = $dbh->prepare("INSERT INTO gebruiker (gebruikersnaam, voornaam, achternaam, adresregel1, adresregel2, postcode, plaatsnaam, Land, GeboorteDag, emailadress, wachtwoord, Vraag, antwoordtekst)
+VALUES( :gebruikersnaam, :voornaam, :achternaam, :adresregel1, :adresregel2, :postcode, :plaatsnaam, :Land, :GeboorteDag, :emailadress, :wachtwoord, :Vraag, :antwoordtekst)");
     $sth->bindParam(':gebruikersnaam', $gebruikersnaam);
     $sth->bindParam(':voornaam', $voornaam);
     $sth->bindParam(':achternaam', $achternaam);
@@ -21,7 +20,7 @@ VALUES( :gebruikersnaam, :voornaam, :achternaam, :adresregel1, :adresregel2, :po
     $sth->bindParam(':GeboorteDag', $birthdate);
     $sth->bindParam(':emailadress', $email);
     $sth->bindParam(':wachtwoord', $finalPassword);
-    $sth->bindParam(':vraag', $vraag);
+    $sth->bindParam(':Vraag', $vraag);
     $sth->bindParam(':antwoordtekst', $antwoord);
 
     $gebruikersnaam= $_POST['gebruikersnaam'];
@@ -42,10 +41,11 @@ VALUES( :gebruikersnaam, :voornaam, :achternaam, :adresregel1, :adresregel2, :po
 
     $title = "Registreren gelukt.";
     $subtitle = "";
-    $error_msg = "";
+    $error_msg = "<p>Welkom ". $voornaam .", <br> Leuk dat je je bij ons aansluit! Samen gaan we opweg naar een duurzamere wereld.<br> Waarin hergebruik steeds van zelf sprekender wordt.<br> <br> Je moet nog even wachten tot een beheerder je aanvraag goed keurd. Maar tot die tijd kan je gewoon op de website rond kijken. <br> Groetjes, Het team van <a>EenmaalAndermaal</a></p>";
+
 } elseif ($_POST['wachtwoordregel1'] != $_POST['wachtwoordregel2']) {
     $title = "Foutmelding";
-    $subtitle = "";
+       $subtitle = "";
     $error_msg = '<div class="notification is-danger">
   Wachtwoorden zijn <b>niet</b> gelijk. 
 </div>';
@@ -91,5 +91,5 @@ $siteTitle = "registreren part 2";
     </section>
 <?php include "../includes/footer.html" ?>
 <?php
-//"select * from gebruiker where gebruikersnaam = 'NXTTX'"
+//"delete from gebruiker where gebruikersnaam = 'NXTTX'"
 ?>

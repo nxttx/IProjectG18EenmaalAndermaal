@@ -74,7 +74,7 @@ $siteTitle = "Registreer uw account";
                         </div>
                         <div class="column is-half">
                             <div class="field">
-                                <label for="adresregel2" class="label">Uw adres:</label>
+                                <label for="adresregel2" class="label">Tweede adres regel:</label>
                                 <p class="control has-icons-left">
                                     <input class="input is-primary" type="text" name="adresregel2"
                                            placeholder="Uw adres" maxlength="100">
