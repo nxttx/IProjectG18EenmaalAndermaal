@@ -47,6 +47,8 @@ if (isset($_SESSION["user"])) {
                             echo '<a class="button is-primary" href="login.php"><i class="far fa-f2x fa-user small-icon"></i>Log in</strong></a>';
                         } else {
                             echo '<button class="button is-primary" onclick="logout()"><strong><i class="far fa-f2x fa-user small-icon"></i>Uitloggen</strong></button>';
+                            echo '<a class="button is-primary" href="profile.php"><i class="far fa-f2x fa-user small-icon"></i>Mijn profiel</strong></a>';
+
                         }
                         ?>
                     </div>
