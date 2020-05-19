@@ -1,64 +1,66 @@
 <?php include "dbh.php" ?>
-<?php include "../includes/head.php" ?>
-<?php include "../includes/header.php" ?>
+
 
 <?php
 $dbh = connectToDatabase();
 //wachtwoord check
 
-$sth = $dbh->prepare("SELECT wachtwoord FROM gebruiker WHERE gebruikersnaam =:gebruikersnaam");
-$sth->bindParam(':gebruikersnaam', $gebruikersnaam);
-$gebruikersnaam = $_SESSION['user'];
-$sth->execute();
-foreach ($sth->fetchAll(PDO::FETCH_ASSOC) as $row) {
-    $DBwachtwoord = $row['wachtwoord'];
-}
-
-//first check
+$username = $_SESSION['user'];
 $password = $_POST['wachtwoordregel1'];
-$finalPassword = password_hash($password, PASSWORD_DEFAULT);
-if ($finalPassword == $DBwachtwoord) {
 
+$qry = $dbh->prepare("SELECT wachtwoord FROM gebruiker WHERE gebruikersnaam=:username");
 
-    $sth = $dbh->prepare("UPDATE gebruiker
+$qry->execute(array($username));
+
+$hash = $qry->fetch();
+
+if (empty($hash)) {
+    http_response_code(404);
+} else {
+    $pw = $hash[0];
+
+    if (password_verify($password, $pw)) {
+
+        $sth = $dbh->prepare("UPDATE gebruiker
 SET voornaam=:voornaam, achternaam=:achternaam, adresregel1=:adresregel1, adresregel2=:adresregel2, postcode=:postcode, plaatsnaam=:plaatsnaam,
  Land=:Land, GeboorteDag=:GeboorteDag, emailadress=:emailadress
  WHERE gebruikersnaam =:gebruikersnaam
  ");
-    $sth->bindParam(':voornaam', $voornaam);
-    $sth->bindParam(':achternaam', $achternaam);
-    $sth->bindParam(':adresregel1', $adresregel1);
-    $sth->bindParam(':adresregel2', $adresregel2);
-    $sth->bindParam(':postcode', $postcode);
-    $sth->bindParam(':plaatsnaam', $plaatsnaam);
-    $sth->bindParam(':Land', $land);
-    $sth->bindParam(':GeboorteDag', $birthdate);
-    $sth->bindParam(':emailadress', $email);
-    $sth->bindParam(':gebruikersnaam', $gebruikersnaam);
+        $sth->bindParam(':voornaam', $voornaam);
+        $sth->bindParam(':achternaam', $achternaam);
+        $sth->bindParam(':adresregel1', $adresregel1);
+        $sth->bindParam(':adresregel2', $adresregel2);
+        $sth->bindParam(':postcode', $postcode);
+        $sth->bindParam(':plaatsnaam', $plaatsnaam);
+        $sth->bindParam(':Land', $land);
+        $sth->bindParam(':GeboorteDag', $birthdate);
+        $sth->bindParam(':emailadress', $email);
+        $sth->bindParam(':gebruikersnaam', $gebruikersnaam);
 
-    $voornaam = $_POST['voornaam'];
-    $achternaam = $_POST['achternaam'];
-    $adresregel1 = $_POST['adresregel1'];
-    $adresregel2 = $_POST['adresregel2'];
-    $postcode = $_POST['postcode'];
-    $plaatsnaam = $_POST['plaatsnaam'];
-    $land = $_POST['land'];
-    $birthdate = $_POST['birthdate'];
-    $email = $_POST['email'];
-    $gebruikersnaam = $_SESSION['user'];
-    $sth->execute();
+        $voornaam = $_POST['voornaam'];
+        $achternaam = $_POST['achternaam'];
+        $adresregel1 = $_POST['adresregel1'];
+        $adresregel2 = $_POST['adresregel2'];
+        $postcode = $_POST['postcode'];
+        $plaatsnaam = $_POST['plaatsnaam'];
+        $land = $_POST['land'];
+        $birthdate = $_POST['birthdate'];
+        $email = $_POST['email'];
+        $gebruikersnaam = $_SESSION['user'];
+        $sth->execute();
 
 
-    $title = "Uw gegevens zijn aangepast.";
-    $subtitle = "";
-    $error_msg = "";
+        $title = "Uw gegevens zijn aangepast.";
+        $subtitle = "";
+        $error_msg = "";
 
-} elseif ($finalPassword != $DBwachtwoord) {
-    $title = "Foutmelding";
-    $subtitle = "";
-    $error_msg = '<div class="notification is-danger">
+    } else {
+        $title = "Foutmelding";
+        $subtitle = "";
+        $error_msg = '<div class="notification is-danger">
   Wachtwoord klopt niet!
 </div>';
+    }
 }
 
 $dbh = null;

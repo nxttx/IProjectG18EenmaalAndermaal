@@ -56,7 +56,7 @@ $dbh = connectToDatabase();
             <label for="voornaam" class="label">Uw voornaam: *</label>
             <div class="control">
                <input class="input is-primary" type="text" name="voornaam"
-                  value="' . $row['voornaam'] . '"
+                  value="' . rtrim($row['voornaam']) . '"
                   maxlength="50" required>
             </div>
          </div>
@@ -66,7 +66,7 @@ $dbh = connectToDatabase();
             <label for="achternaam" class="label">Uw achternaam: *</label>
             <div class="control">
                <input class="input is-primary"                                                     
-               value="' . $row['achternaam'] . '"
+               value="' . rtrim($row['achternaam']) . '"
                   type="text" name="achternaam"
                   maxlength="50" required>
             </div>
@@ -81,7 +81,7 @@ $dbh = connectToDatabase();
             <label for="adresregel1" class="label">Uw adres: *</label>
             <p class="control has-icons-left">
                <input class="input is-primary" type="text" name="adresregel1"
-                  value="' . $row['adresregel1'] . '" 
+                  value="' . rtrim($row['adresregel1']) . '" 
                 maxlength="100" required>
                <span class="icon is-small is-left">
                <i class="fas fa-map-marked-alt"></i>
@@ -94,7 +94,7 @@ $dbh = connectToDatabase();
             <label for="adresregel2" class="label">Uw adres:</label>
             <p class="control has-icons-left">
                <input class="input is-primary" type="text" name="adresregel2"
-                  value="' . $row['adresregel2'] . '"
+                  value="' . rtrim($row['adresregel2']) . '"
                   maxlength="100">
                <span class="icon is-small is-left">
                <i class="fas fa-map-marked-alt"></i>
@@ -109,7 +109,7 @@ $dbh = connectToDatabase();
             <label for="postcode" class="label">Uw postcode: *</label>
             <div class="control has-icons-left">
                <input class="input is-primary" type="text" name="postcode"
-                  value="' . $row['postcode'] . '"
+                  value="' . rtrim($row['postcode']) . '"
                   maxlength="20" required>
                <span class="icon is-small is-left">
                <i class="fas fa-map-marked-alt"></i>
@@ -122,7 +122,7 @@ $dbh = connectToDatabase();
             <label for="plaatsnaam" class="label">Uw plaatsnaam: *</label>
             <div class="control has-icons-left">
                <input class="input is-primary" type="text" name="plaatsnaam"
-                  value="' . $row['plaatsnaam'] . '"
+                  value="' . rtrim($row['plaatsnaam']) . '"
                   maxlength="50" required>
                <span class="icon is-small is-left">
                <i class="fas fa-map-marked-alt"></i>
@@ -163,7 +163,7 @@ $dbh = connectToDatabase();
             <label for="birthdate" class="label">Uw geboorte datum: *</label>
             <p class="control has-icons-left">
                <input class="input is-primary" type="text" name="birthdate"
-                  value="' . $row['geboorteDag'] . '"
+                  value="' . rtrim($row['geboorteDag']) . '"
                   maxlength="10" required>
                <span class="icon is-small is-left">
                <i class="far fa-calendar-alt"></i>
@@ -176,7 +176,7 @@ $dbh = connectToDatabase();
             <label for="email" class="label">Uw email: *</label>
             <p class="control has-icons-left">
                <input class="input is-primary" type="email" name="email"
-                  value="' . $row['emailadress'] . '"
+                  value="' . rtrim($row['emailadress']) . '"
                   required maxlength="50">
                <span class="icon is-small is-left">
                <i class="fas fa-envelope"></i>
@@ -219,9 +219,7 @@ $dbh = connectToDatabase();
       <div class="column"></div>
    </div>
 </form>
-                           
-                                                   
-                        ';
+                           ';
                     };
 
 
