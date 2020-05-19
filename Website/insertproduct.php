@@ -1,5 +1,5 @@
 <?php
-$siteTitle = "Over ons";
+$siteTitle = "Product toevoegen";
 ob_start();
 ?>
 
@@ -46,7 +46,7 @@ else {
             <div class="field">
                 <label class="label">Startprijs</label>
                 <div class="control has-icons-left has-icons-right">
-                    <input class="input is-success" name="prijs" type="text" placeholder="Bedrag" >
+                    <input class="input is-success" name="prijs" type="number" placeholder="Bedrag" >
                     <span class="icon is-small is-left">
                         <i class="fas fa-money-check"></i>
                     </span>
@@ -120,9 +120,11 @@ else {
                     <input class="input is-success" name="plaats" type="text" placeholder="Plaats" >
                 </div>
             </div>
-
+<br>
             <div class="file">
+                
                 <label class="file-label">
+                    
                     <input class="file-input" type="file" name="pic" id="propic">
                     <span class="file-cta">
                         <span class="file-icon">
@@ -132,9 +134,15 @@ else {
                             Choose a file…
                         </span>
                     </span>
+                    
+                        
                 </label>
+                
             </div>
 
+                    <li>Max. 20MB</li>
+                    <li>Alleen .JPG of .PNG</li>
+            <br>
             <div class="field">
                 <div class="control">
                     <label class="checkbox">
@@ -177,7 +185,9 @@ else {
 
         endforeach;
 
+        
         $idn=$iid+1;
+        $dir = $idn;
         $product_titel = $_POST['titel'];
         $product_prijs = $_POST['prijs'];
         $product_betalingswijze = $_POST['betaling'];
@@ -188,24 +198,40 @@ else {
         if(isset($_FILES['pic']['name']));
         $picname=$_FILES['pic']['name'];
         $tmp=$_FILES['pic']['tmp_name'];
+        $imagesize=$_FILES['pic']['size'];
+$size=20000000;
+if($imagesize>=$size){
+echo "<script>alert('Max Size')</script>";
+exit();
+}
 
-        $ext="jpg";
-        $picpath="data/voorwerpen/$product_titel.$ext";
 
-        move_uploaded_file($tmp,$picpath); 
+        $ext = end((explode(".", $picname)));
+        if($ext=="jpg" || $ext=="png"){
+}
+else{
+echo "<script>alert('Upload Image Only')</script>";
+exit();
+
+}
+
+        $picpath="data/voorwerpen/$dir/A.$ext";
+
+      
 
 
-        if ($product_titel == '' OR $product_prijs == '' OR $product_betalingswijze == '' OR $product_categorie == '' OR $product_beschrijving == '' OR $_POST['check'] == ''){
+        if ($product_titel == '' OR $product_prijs == '' OR $product_betalingswijze == '' OR $product_categorie == '' OR $product_beschrijving == '' OR $_POST['check'] == '' OR $product_land == '' OR $product_plaats == ''){
             echo "<script>alert('Vul alle velden in')</script>";
             exit();
 
-        }
-
+        }else{
+            mkdir("data/voorwerpen/".$idn, 0777, true);
+ move_uploaded_file($tmp,$picpath); 
         $dbh = connectToDatabase();
         $smte = $dbh->prepare("INSERT INTO voorwerp (voorwerpnummer, titel, beschrijving, startprijs, Betalingswijze, betalingsinstructie, 
 						plaatsnaam, land, LooptijdbeginDag, LooptijdbeginTijdstip, Verzendkosten,
 						verzendinstructies, Verkoper, Koper, LooptijdeindeDag, LooptijdeindeTijdstip, VeilinGesloten, Verkoopprijs)
-VALUES	   ('$idn', '$product_titel','$product_beschrijving','$product_prijs', '$product_betalingswijze', 'Overschrijving moet ontvangen zijn binnen 10 dagen na verkoop', '$product_plaats', '$product_land', CONVERT(date, GETDATE()), CONVERT(time, GETDATE()), '6,95', null , 'aliquet', NULL, '22-mei-20', '12:46:', 'niet', null)");
+VALUES	   ('$idn', '$product_titel','$product_beschrijving','$product_prijs', '$product_betalingswijze', 'Overschrijving moet ontvangen zijn binnen 10 dagen na verkoop', '$product_plaats', '$product_land', CONVERT(date, GETDATE()), CONVERT(time, GETDATE()), '6,95', null , '$userr', NULL, DATEADD(day, 7, GETDATE()), CONVERT(time, GETDATE()), 'niet', null)");
         $smte->execute();
 
         $dbh = connectToDatabase();
@@ -213,10 +239,10 @@ VALUES	   ('$idn', '$product_titel','$product_beschrijving','$product_prijs', '$
         $smtc->execute();
 
         $dbh = connectToDatabase();
-        $smtpic = $dbh->prepare("INSERT INTO bestand (filenaam, voorwerpnummer) VALUES ('$picpath', '$idn')");
+        $smtpic = $dbh->prepare("INSERT INTO bestand (filenaam, voorwerp) VALUES ('$picpath', '$idn')");
         $smtpic->execute();
 
 
-
+        }
 
     }
