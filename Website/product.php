@@ -57,7 +57,7 @@ foreach ($sth->fetchAll(PDO::FETCH_ASSOC) as $row) {
                         <p>
                         <b>Verkoper:</b> '. $row['verkoper'].'
                         <br>
-                        <b>locatie verkoper:</b> '.$row['land'].$row['plaatsnaam'].'
+                        <b>Locatie verkoper:</b> '.$row['plaatsnaam'] .$row['land'].'
                         <br><br>
                         <b>Betalingswijze:</b> '.$row['Betalingswijze'].'
                         <br>
@@ -66,7 +66,7 @@ foreach ($sth->fetchAll(PDO::FETCH_ASSOC) as $row) {
                 </div>
         </div>
 
-
+<!-- Hier moeten de vorige biedingen komen  -->
 
 
 
