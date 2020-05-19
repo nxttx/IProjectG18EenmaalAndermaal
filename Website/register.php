@@ -219,7 +219,7 @@ $siteTitle = "Registreer uw account";
                                 <label for="antwoord" class="label">Antwoord tekst: *</label>
                                 <div class="control has-icons-left">
                                     <input class="input is-primary" type="text" name="antwoord"
-                                           placeholder="Kalverslaan " maxlength="255" required>
+                                           placeholder="Kalverstraat" maxlength="255" required>
                                     <span class="icon is-small is-left">
                                         <i class="fas fa-fingerprint"></i>
                                     </span>
@@ -234,7 +234,7 @@ $siteTitle = "Registreer uw account";
                         <div class="column has-text-centered">
                             <label class="checkbox">
                                 <input type="checkbox" required>
-                                Ik ga akoord met de<a href="tos.php" target="_blank">gebruikersvoorwaarde</a>
+                                Ik ga akoord met <a href="tos.php" target="_blank"> de gebruikersvoorwaarden</a>
                             </label>
 
                         </div>
@@ -264,5 +264,6 @@ $siteTitle = "Registreer uw account";
         <br>
     </div>
 </section>
+
 <script src="js/registreren.js"></script>
-<?php include "includes/footer.html" ?>
+<?php include "includes/footer.php" ?>

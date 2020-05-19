@@ -16,7 +16,7 @@
 
                     <?php if (!isset($_SESSION['user'])) { ?>
                         <p class="is-link">
-                            <a href="#">Registreren</a>
+                            <a href="register.php">Registreren</a>
                         </p>
                         <p class="is-link">
                             <a href="login.php">Inloggen </a>

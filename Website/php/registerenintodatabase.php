@@ -50,7 +50,7 @@ VALUES( :gebruikersnaam, :voornaam, :achternaam, :adresregel1, :adresregel2, :po
 
     $title = "Registreren gelukt.";
     $subtitle = "";
-    $error_msg = "<p>Welkom " . $voornaam . ", <br> Leuk dat je je bij ons aansluit! Samen gaan we opweg naar een duurzamere wereld. Waarin hergebruik steeds van zelf sprekender wordt.<br> <br> Je moet nog even wachten tot een beheerder je aanvraag goedkeurt. Maar tot die tijd kan je gewoon op de website rond kijken. <br> Groetjes, <br>Het team van <a>EenmaalAndermaal</a></p>";
+    $error_msg = "<p>Welkom " . $voornaam . ", <br> Leuk dat je je bij ons aansluit! Samen gaan we opweg naar een duurzamere wereld. Waarin hergebruik steeds van zelf sprekender wordt.<br> <br> Je moet nog even wachten tot een beheerder je aanvraag goedkeurt. Maar tot die tijd kan je gewoon op de website rond kijken. <br> Groetjes, <br>Het team van <a href='https://pastebin.com/WNgV1kc8'>EenmaalAndermaal</a></p>";
 
 } elseif ($_POST['wachtwoordregel1'] != $_POST['wachtwoordregel2']) {
     $title = "Foutmelding";
