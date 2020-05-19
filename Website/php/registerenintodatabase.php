@@ -104,7 +104,7 @@ $siteTitle = "registreren part 2";
 
         </div>
     </section>
-<?php include "../includes/footer.html" ?>
+<?php include "../includes/footer.php" ?>
 <?php
 //"delete from gebruiker where gebruikersnaam = 'iets'"
 //"select * from gebruiker"

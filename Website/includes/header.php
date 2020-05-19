@@ -45,9 +45,10 @@ if (isset($_SESSION["user"])) {
                         <?php
                         if (!$login) {
                             echo '<a class="button is-primary" href="../login.php"><i class="far fa-f2x fa-user small-icon"></i>Log in</strong></a>';
+                            echo '<b><a class="button has-text-primary" href="../register.php"><i class="far fa-f2x fa-user small-icon"></i>Registeren</strong></a></b>';
                         } else {
-                            echo '<button class="button is-primary" onclick="logout()"><strong><i class="far fa-f2x fa-user small-icon"></i>Uitloggen</strong></button>';
-                            echo '<a class="button is-primary" href="profile.php"><i class="far fa-f2x fa-user small-icon"></i>Mijn profiel</strong></a>';
+                            echo '<b><button class="button has-text-primary" onclick="logout()"><strong><i class="far fa-f2x fa-user small-icon"></i>Uitloggen</strong></button></b>';
+                            echo '<a class="button is-primary" href="../profile.php"><i class="far fa-f2x fa-user small-icon"></i>Mijn profiel</strong></a>';
 
                         }
                         ?>
@@ -101,13 +102,13 @@ if (isset($_SESSION["user"])) {
                         <?php
                         if (!$login) {
                             echo '                        
-                        <a href="login.php" class="button is-light has-text-primary" style="width:32%">
+                        <a href="../login.php" class="button is-light has-text-primary" style="width:32%">
                             <i class="far fa-2x fa-user"></i>
                             <p> Inloggen</p>
                         </a>
-                        <a href="register.php" class="button is-primary">
+                        <a href="../register.php" class="button is-primary">
                             <i class="far fa-2x fa-user"></i>
-                            <p>Account aanmaken</p>
+                            <p>Registeren</p>
                         </a>
                         ';
                         } else {
