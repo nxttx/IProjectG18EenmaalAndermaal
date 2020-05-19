@@ -7,7 +7,7 @@
                         <a href="index.php">Home</a>
                     </p>
                     <p class="is-link">
-                        <a href="categorieen.php">Categorieën </a>
+                        <a href="../categorieen.php">Categorieën </a>
                     </p>
                     <!--                    <p class="is-link">-->
                     <!--                        <a href="#">Plaats advertentie</a>-->
@@ -16,13 +16,13 @@
 
                     <?php if (!isset($_SESSION['user'])) { ?>
                         <p class="is-link">
-                            <a href="#">Registreren</a>
+                            <a href="../register.php">Registreren</a>
                         </p>
                         <p class="is-link">
-                            <a href="login.php">Inloggen </a>
+                            <a href="../login.php">Inloggen </a>
                         </p>
                     <?php } elseif (isset($_SESSION['user'])) { ?>
-                        <p class="link"><a href="profile.php">Mijn profiel</a></p>
+                        <p class="link"><a href="../profile.php">Mijn profiel</a></p>
                     <?php }; ?>
 
 
@@ -32,16 +32,16 @@
                         <a href="#">EenmaalAndermaal</a>
                     </p>
                     <p class="is-link">
-                        <a href="about.php">Over Ons</a>
+                        <a href="../about.php">Over Ons</a>
                     </p>
                     <p class="is-link">
-                        <a href="contact.php">Contact</a>
+                        <a href="../contact.php">Contact</a>
                     </p>
                     <p class="is-link">
-                        <a href="tos.php">Algemene voorwaarden</a>
+                        <a href="../tos.php">Algemene voorwaarden</a>
                     </p>
                     <p class="is-link">
-                        <a href="faq.php">Veel gestelde vragen</a>
+                        <a href="../faq.php">Veel gestelde vragen</a>
                     </p>
                 </div>
                 <div class="column is-4">
@@ -64,7 +64,7 @@
             <details>
                 <summary class="title">Home</summary>
                 <p class="is-link is-large">
-                    <a href="categorieen.php">Categorieën </a>
+                    <a href="../categorieen.php">Categorieën </a>
                 </p>
                 <!--                <p class="is-link is-large">-->
                 <!--                    <a href="#">Plaats advertentie</a>-->
@@ -73,13 +73,13 @@
 
                 <?php if (!isset($_SESSION['user'])) { ?>
                     <p class="is-link">
-                        <a href="#">Registreren</a>
+                        <a href="../register.php">Registreren</a>
                     </p>
                     <p class="is-link">
-                        <a href="login.php">Inloggen </a>
+                        <a href="../login.php">Inloggen </a>
                     </p>
                 <?php } elseif (isset($_SESSION['user'])) { ?>
-                    <p class="link"><a href="profile.php">Mijn profiel</a></p>
+                    <p class="link"><a href="../profile.php">Mijn profiel</a></p>
                 <?php }; ?>
 
 
@@ -87,16 +87,16 @@
             <details>
                 <summary class="title">EenmaalAndermaal</summary>
                 <p class="is-link is-large">
-                    <a href="about.php">Over Ons</a>
+                    <a href="../about.php">Over Ons</a>
                 </p>
                 <p class="is-link is-large">
-                    <a href="contact.php">Contact</a>
+                    <a href="../contact.php">Contact</a>
                 </p>
                 <p class="is-link is-large">
-                    <a href="tos.php">Algemene voorwaarden</a>
+                    <a href="../tos.php">Algemene voorwaarden</a>
                 </p>
                 <p class="is-link is-large">
-                    <a href="faq.php">Veel gestelde vragen</a>
+                    <a href="../faq.php">Veel gestelde vragen</a>
                 </p>
             </details>
             <details>
@@ -124,6 +124,6 @@
 
     </div>
 </footer>
-<script src="js/footer.js"></script>
+<script src="../js/footer.js"></script>
 </body>
 </html>

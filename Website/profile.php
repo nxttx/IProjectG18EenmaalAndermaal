@@ -231,7 +231,6 @@ $dbh = connectToDatabase();
 
                         <?= $profielAanpassen ?>
 
-
                     <?php } ?>
                 </div>
             </div>
