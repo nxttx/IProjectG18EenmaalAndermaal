@@ -59,7 +59,7 @@ VALUES( :gebruikersnaam, :voornaam, :achternaam, :adresregel1, :adresregel2, :po
   Wachtwoorden zijn <b>niet</b> gelijk. 
 </div>';
 
-} elseif (strlen($_POST['wachtwoordregel1']) <= 8) {
+} elseif (strlen($_POST['wachtwoordregel1']) < 8) {
     $title = "Foutmelding";
     $subtitle = "";
     $error_msg = '<div class="notification is-danger">
