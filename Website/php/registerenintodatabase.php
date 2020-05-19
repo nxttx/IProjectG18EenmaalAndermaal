@@ -60,7 +60,7 @@ VALUES( :gebruikersnaam, :voornaam, :achternaam, :adresregel1, :adresregel2, :po
 </div>';
 
 } elseif (strlen($_POST['wachtwoordregel1']) < 8) {
-    $title = "Foutmelding";00
+    $title = "Foutmelding";
     $subtitle = "";
     $error_msg = '<div class="notification is-danger">
   Wachtwoord moet groter zijn dan 8 tekens. U heeft: ' . strlen($_POST['wachtwoordregel1']) . ' tekens.
