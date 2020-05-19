@@ -68,15 +68,15 @@
     <property name="DatabaseDriversLRU" value="sqlserver" />
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
     <property name="WebServerToolWindowFactoryState" value="true" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/php/checks" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
   </component>
   <component name="RecentsManager">
-    <key name="MoveFile.RECENT_KEYS">
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="C:\Users\Rober\Documents\GitHub\IProjectEenmaalAndermaal\Website" />
       <recent name="C:\Users\Rober\Documents\GitHub\IProjectEenmaalAndermaal\Website\php\checks" />
     </key>
-    <key name="CopyFile.RECENT_KEYS">
+    <key name="MoveFile.RECENT_KEYS">
       <recent name="C:\Users\Rober\Documents\GitHub\IProjectEenmaalAndermaal\Website\php\checks" />
-      <recent name="C:\Users\Rober\Documents\GitHub\IProjectEenmaalAndermaal\Website" />
     </key>
   </component>
   <component name="RunAnythingCache">
@@ -97,7 +97,7 @@
               <path>
                 <item name="services root" type="e789fda9:ObjectUtils$Sentinel" />
                 <item name="iproject18: root" type="7427dc5b:ServiceModel$ServiceGroupNode" />
-                <item name="com.intellij.database.console.session.MessageBusSession@30845cff" type="9fbbdea:ServiceModel$ServiceNode" />
+                <item name="com.intellij.database.console.session.MessageBusSession@3f07e34e" type="9fbbdea:ServiceModel$ServiceNode" />
               </path>
             </expand>
             <select />
@@ -120,6 +120,7 @@
       <workItem from="1589390361046" duration="384000" />
       <workItem from="1589447936149" duration="712000" />
       <workItem from="1589869688132" duration="3716000" />
+      <workItem from="1589883458996" duration="1939000" />
     </task>
     <servers />
   </component>
@@ -155,18 +156,18 @@
       <screen x="0" y="0" width="1536" height="834" />
     </state>
     <state width="1024" height="213" key="GridCell.Tab.0.right/0.0.1536.834@0.0.1536.834" timestamp="1589872848558" />
-    <state x="844" y="189" key="NewPhpFileDialog" timestamp="1589808514152">
+    <state x="844" y="189" key="NewPhpFileDialog" timestamp="1589883479606">
       <screen x="0" y="0" width="1536" height="834" />
     </state>
-    <state x="844" y="189" key="NewPhpFileDialog/0.0.1536.834@0.0.1536.834" timestamp="1589808514152" />
+    <state x="844" y="189" key="NewPhpFileDialog/0.0.1536.834@0.0.1536.834" timestamp="1589883479606" />
     <state x="757" y="239" key="com.intellij.database.run.ParametersPanel.Standalone" timestamp="1589871209772">
       <screen x="0" y="0" width="1536" height="834" />
     </state>
     <state x="757" y="239" key="com.intellij.database.run.ParametersPanel.Standalone/0.0.1536.834@0.0.1536.834" timestamp="1589871209772" />
-    <state x="465" y="241" key="com.intellij.ide.util.TipDialog" timestamp="1589869700714">
+    <state x="465" y="241" key="com.intellij.ide.util.TipDialog" timestamp="1589883460167">
       <screen x="0" y="0" width="1536" height="834" />
     </state>
-    <state x="465" y="241" key="com.intellij.ide.util.TipDialog/0.0.1536.834@0.0.1536.834" timestamp="1589869700714" />
+    <state x="465" y="241" key="com.intellij.ide.util.TipDialog/0.0.1536.834@0.0.1536.834" timestamp="1589883460167" />
     <state x="675" y="202" width="738" height="606" key="find.popup" timestamp="1589812675968">
       <screen x="0" y="0" width="1536" height="834" />
     </state>
