@@ -50,7 +50,7 @@ VALUES( :gebruikersnaam, :voornaam, :achternaam, :adresregel1, :adresregel2, :po
 
     $title = "Registreren gelukt.";
     $subtitle = "";
-    $error_msg = "<p>Welkom " . $voornaam . ", <br> Leuk dat je je bij ons aansluit! Samen gaan we opweg naar een duurzamere wereld.<br> Waarin hergebruik steeds van zelf sprekender wordt.<br> <br> Je moet nog even wachten tot een beheerder je aanvraag goed keurd. Maar tot die tijd kan je gewoon op de website rond kijken. <br> Groetjes, Het team van <a>EenmaalAndermaal</a></p>";
+    $error_msg = "<p>Welkom " . $voornaam . ", <br> Leuk dat je je bij ons aansluit! Samen gaan we opweg naar een duurzamere wereld. Waarin hergebruik steeds van zelf sprekender wordt.<br> <br> Je moet nog even wachten tot een beheerder je aanvraag goedkeurt. Maar tot die tijd kan je gewoon op de website rond kijken. <br> Groetjes, <br>Het team van <a>EenmaalAndermaal</a></p>";
 
 } elseif ($_POST['wachtwoordregel1'] != $_POST['wachtwoordregel2']) {
     $title = "Foutmelding";
@@ -60,7 +60,7 @@ VALUES( :gebruikersnaam, :voornaam, :achternaam, :adresregel1, :adresregel2, :po
 </div>';
 
 } elseif (strlen($_POST['wachtwoordregel1']) < 8) {
-    $title = "Foutmelding";
+    $title = "Foutmelding";00
     $subtitle = "";
     $error_msg = '<div class="notification is-danger">
   Wachtwoord moet groter zijn dan 8 tekens. U heeft: ' . strlen($_POST['wachtwoordregel1']) . ' tekens.
@@ -70,7 +70,7 @@ VALUES( :gebruikersnaam, :voornaam, :achternaam, :adresregel1, :adresregel2, :po
     $title = "Foutmelding";
     $subtitle = "";
     $error_msg = '<div class="notification is-danger">
-  Gebruikersnaam bestaald al. U had <b>\'' . $_POST['gebruikersnaam'] . '\'</b>.
+  Gebruikersnaam bestaat al. U had <b>\'' . $_POST['gebruikersnaam'] . '\'</b>.
 </div>';
 } else {
     $title = "Foutmelding";

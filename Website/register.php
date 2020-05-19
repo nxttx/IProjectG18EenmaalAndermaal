@@ -234,7 +234,7 @@ $siteTitle = "Registreer uw account";
                         <div class="column has-text-centered">
                             <label class="checkbox">
                                 <input type="checkbox" required>
-                                I agree to the <a href="tos.php" target="_blank">terms and conditions</a>
+                                Ik ga akoord met de<a href="tos.php" target="_blank">gebruikersvoorwaarde</a>
                             </label>
 
                         </div>
