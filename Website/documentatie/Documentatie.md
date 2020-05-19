@@ -37,6 +37,8 @@ Login.php is de daadwerkelijk zichtbare pagina waar men zijn of haar credentials
 ## Zoeken
 In de header staat een zoekbalk waar men op kan klikken. Als op enter wordt gedrukt wordt een get-request uitgevoerd naar search.php. Deze pagina opent vanzelf en stuurt vervolgens aan de hand van de URL een get-request uit naar searchHandler.php. De reden dat dit tweemaal gebeurt is zodat de zoekopdracht in de URL staat en met de back en forward knop in de browser terug wordt verwezen naar deze resultaten.
 
-## Andere feature
+## Registreren
+Tijdens het registeren kan je door middel van javascript, php en sql checken of je gebuikers naam nog vrij is.
+Bij het wachtwoord wordt gecheckt of het wachtwoord gelijk is en lang genoeg. Dit gaat worden gedaan door middel van javascript en het veranderen van de kleur van de rand. De gebruiker mag dit negeren. Echter zal de gebruiker dan een fout melding krijgen na het inleveren van de form. Bij elke input is ingesteld dat het niet langer mag zijn dan dat de database toestaat. Dit is een html lock en kan dus wel met element inspecteren worden veranderd. Maar de database accepteert dit niet. 
 
 ## Andere feature
