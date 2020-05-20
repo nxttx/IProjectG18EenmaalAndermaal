@@ -8,7 +8,9 @@
     <option name="LAST_RESOLUTION" value="IGNORE" />
   </component>
   <component name="ComposerSettings">
-    <execution />
+    <execution>
+      <executable />
+    </execution>
   </component>
   <component name="DatabaseView">
     <option name="SHOW_INTERMEDIATE" value="true" />
@@ -95,7 +97,7 @@
               <path>
                 <item name="services root" type="e789fda9:ObjectUtils$Sentinel" />
                 <item name="iproject18: root" type="7427dc5b:ServiceModel$ServiceGroupNode" />
-                <item name="com.intellij.database.console.session.MessageBusSession@3f07e34e" type="9fbbdea:ServiceModel$ServiceNode" />
+                <item name="com.intellij.database.console.session.MessageBusSession@390abc47" type="9fbbdea:ServiceModel$ServiceNode" />
               </path>
             </expand>
             <select />
@@ -121,6 +123,7 @@
       <workItem from="1589883458996" duration="6848000" />
       <workItem from="1589910408497" duration="165000" />
       <workItem from="1589910617379" duration="513000" />
+      <workItem from="1589960925466" duration="521000" />
     </task>
     <servers />
   </component>
@@ -168,10 +171,10 @@
       <screen x="0" y="0" width="1536" height="834" />
     </state>
     <state x="757" y="239" key="com.intellij.database.run.ParametersPanel.Standalone/0.0.1536.834@0.0.1536.834" timestamp="1589871209772" />
-    <state x="465" y="241" key="com.intellij.ide.util.TipDialog" timestamp="1589910616573">
+    <state x="465" y="241" key="com.intellij.ide.util.TipDialog" timestamp="1589960979011">
       <screen x="0" y="0" width="1536" height="834" />
     </state>
-    <state x="465" y="241" key="com.intellij.ide.util.TipDialog/0.0.1536.834@0.0.1536.834" timestamp="1589910616573" />
+    <state x="465" y="241" key="com.intellij.ide.util.TipDialog/0.0.1536.834@0.0.1536.834" timestamp="1589960979011" />
     <state x="675" y="202" width="738" height="606" key="find.popup" timestamp="1589812675968">
       <screen x="0" y="0" width="1536" height="834" />
     </state>
@@ -180,9 +183,9 @@
       <screen x="0" y="0" width="1536" height="834" />
     </state>
     <state x="425" y="189" width="672" height="677" key="run.anything.popup/0.0.1536.834@0.0.1536.834" timestamp="1589910736286" />
-    <state x="431" y="155" width="672" height="678" key="search.everywhere.popup" timestamp="1589812605457">
+    <state x="431" y="155" width="672" height="678" key="search.everywhere.popup" timestamp="1589961038803">
       <screen x="0" y="0" width="1536" height="834" />
     </state>
-    <state x="431" y="155" width="672" height="678" key="search.everywhere.popup/0.0.1536.834@0.0.1536.834" timestamp="1589812605457" />
+    <state x="431" y="155" width="672" height="678" key="search.everywhere.popup/0.0.1536.834@0.0.1536.834" timestamp="1589961038803" />
   </component>
 </project>
