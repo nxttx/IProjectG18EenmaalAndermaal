@@ -6,46 +6,50 @@ $dbh = connectToDatabase();
 
 <?php include "includes/head.php" ?>
 <?php include "includes/header.php" ?>
-    <section>
-        <div class="container">
-            <br>
-            <div class="card ">
-                <div class="card-content">
+<section>
+    <div class="container">
+        <br>
+        <div class="card ">
+            <div class="card-content">
 
 
-                    <?php if (!isset($_SESSION['user'])) { ?>
-                        <h2 class="title is-3">U bent nog niet ingelogd, u wordt doorgestuurd naar de inlogpagina</h2>
-                        <h3 class="subtitle is-5">Gebeurt dit niet automatisch binnnen enkele seconden? Klik dan <a
-                                    href="login.php">hier.</a></h3>
+                <?php if (!isset($_SESSION['user'])) { ?>
+                    <h2 class="title is-3">U bent nog niet ingelogd, u wordt doorgestuurd naar de inlogpagina</h2>
+                    <h3 class="subtitle is-5">Gebeurt dit niet automatisch binnnen enkele seconden? Klik dan <a
+                                href="login.php">hier.</a></h3>
 
-                        <script>
-                            setTimeout(function () {
-                                window.location.href = 'login.php';
-                            }, 2000)
-                        </script>
+                    <script>
+                        setTimeout(function () {
+                            window.location.href = 'login.php';
+                        }, 2000)
+                    </script>
 
-                    <?php } elseif ($_SESSION['user'] == "admin") { ?>
-                        <!--html admin -->
-
-
-                    <?php }
-                    elseif (isset($_SESSION['user'])) {
-                    //Dit wordt alle PHP voor _SESSION['user'];
-                    $profielAanpassen = '';
-                    $username = $_SESSION['user'];
+                <?php } elseif ($_SESSION['user'] == "admin") { ?>
+                    <!--html admin -->
 
 
-                    $sth = $dbh->prepare('SELECT * FROM gebruiker WHERE gebruikersnaam =:user');
-                    $sth->bindParam(':user', $us);
-                    $us = $username;
-                    $sth->execute();
-                    $test = "DIT IS PHP";
+                <?php }
+                elseif (isset($_SESSION['user'])) {
+                //Dit wordt alle PHP voor _SESSION['user'];
+                $profielAanpassen = '';
+                $username = $_SESSION['user'];
 
 
-                    foreach ($sth->fetchAll(PDO::FETCH_ASSOC) as $row) {
-                        $profielAanpassen .= ' 
-                            <p>Uw gebruikernaam is: ' . $row['gebruikersnaam'] . '</p>
-                                                   <br>                                                   
+                $sth = $dbh->prepare('SELECT * FROM gebruiker WHERE gebruikersnaam =:user');
+                $sth->bindParam(':user', $us);
+                $us = $username;
+                $sth->execute();
+                $test = "DIT IS PHP";
+
+
+                foreach ($sth->fetchAll(PDO::FETCH_ASSOC) as $row) {
+                    $profielAanpassen .= ' 
+                  
+                        <label for="gebruikersnaam" class="label">Uw gebruikersnaam:</label>
+                    <input class="input is-primary" type="text" name="gebruikersnaam"
+                    id="gebruikersnaam" value="' . rtrim($row['gebruikersnaam']) . '" disabled="disabled" required>
+                    <p class="help">U kan uw gebruikersnaam niet wijzigen.</p>
+                  <br>
                                                    
 
 <form method="post" action="php/altergebruiker.php">
@@ -220,25 +224,25 @@ $dbh = connectToDatabase();
    </div>
 </form>
                            ';
-                    };
+                };
 
 
-                    ?>
-                        <!--html user-->
-                        <h1 class="title is-1 has-text-centered">Mijn gegevens</h1>
-                        <h3 class="subtitle is-size-5 has-text-centered">Hier kunt u uw gegevens bekijken en
-                            aanpassen</h3>
+                ?>
+                    <!--html user-->
+                    <h1 class="title is-1 has-text-centered">Mijn gegevens</h1>
+                    <h3 class="subtitle is-size-5 has-text-centered">Hier kunt u uw gegevens bekijken en
+                        aanpassen</h3>
 
-                        <?= $profielAanpassen ?>
+                    <?= $profielAanpassen ?>
 
-                    <?php } ?>
-                </div>
+                <?php } ?>
             </div>
-
-            <br>
-
         </div>
-    </section>
+
+        <br>
+
+    </div>
+</section>
 
 
 <?php include "includes/footer.php" ?>
