@@ -164,7 +164,7 @@ $dbh = connectToDatabase();
    <div class="columns">
       <div class="column is-half">
          <div class="field">
-            <label for="birthdate" class="label">Uw geboorte datum: *</label>
+            <label for="birthdate" class="label">Uw geboortedatum: *</label>
             <p class="control has-icons-left">
                <input class="input is-primary" type="text" name="birthdate"
                   value="' . rtrim($row['geboorteDag']) . '"
@@ -190,8 +190,8 @@ $dbh = connectToDatabase();
       </div>
    </div>
    <br>
-   <!--                    wachtwoord-->
    
+   <!--                    wachtwoord-->
       <div class="field">
          <label for="wachtwoordregel1" class="label">Uw wachtwoord: *</label>
          <div class="control has-icons-left">
@@ -206,8 +206,6 @@ $dbh = connectToDatabase();
             <p class="help">Vul uw wachtwoord in om uw gegevens te wijzigen</p>
          </div>
          <br>
-
-   <!--Beveiligingsvraag-->
    
    <br>
    <!--                    Final buttons -->
@@ -236,13 +234,14 @@ $dbh = connectToDatabase();
                     <?= $profielAanpassen ?>
 
                 <?php } ?>
+
             </div>
         </div>
 
-        <br>
-
     </div>
 </section>
+<br>
+
 
 
 <?php include "includes/footer.php" ?>

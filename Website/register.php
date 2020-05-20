@@ -137,7 +137,7 @@ $siteTitle = "Registreer uw account";
                     <div class="columns">
                         <div class="column is-half">
                             <div class="field">
-                                <label for="birthdate" class="label">Uw geboorte datum: *</label>
+                                <label for="birthdate" class="label">Uw geboortedatum: *</label>
                                 <p class="control has-icons-left">
                                     <input class="input is-primary" type="text" name="birthdate"
                                            placeholder="DD/MM/JJJJ"
