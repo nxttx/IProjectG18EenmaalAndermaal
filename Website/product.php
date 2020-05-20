@@ -25,7 +25,7 @@ foreach ($sth->fetchAll(PDO::FETCH_ASSOC) as $row) {
         <br>
         <div class="columns">
                 <div class="column is-half">
-                    <figure class=\"image objectfit-cover\">
+                    <figure class="image objectfit-cover">
                         <img src=" ' . $row['filenaam'] . '" alt="img">
                     </figure>
                 </div>
@@ -35,7 +35,7 @@ foreach ($sth->fetchAll(PDO::FETCH_ASSOC) as $row) {
                            ' . $row['beschrijving'] . '
                         </p>
                         <br>
-                        <form action="" method="">
+                        <form action="" method=""> <!--Dit is voor de bied functie later -->
 
                             <label for="bod" class="label">Uw bod: *</label>
                             <label class="checkbox">
