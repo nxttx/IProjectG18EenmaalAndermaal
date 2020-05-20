@@ -8,6 +8,8 @@ ob_start();
 <?php include "php/dbh.php" ?>
 
 <?php
+    //session_destroy();
+
     if(isset($_SESSION["user"])){
         $name='';
         $userr=$_SESSION["user"];
@@ -36,6 +38,153 @@ else {
 
     <div class="notification">
         <form method="post" action="insertproduct.php" enctype="multipart/form-data">
+
+
+            <?php
+            $dbh = connectToDatabase();
+            $smt = $dbh->prepare('select * From Rubriek where Rubriek IS NULL');
+            $smt->execute();
+            $data = $smt->fetchAll();
+            if(isset($_POST['categorie'])){
+                $categorie=$_POST['categorie'];
+                $_SESSION['categorie']=$categorie;
+            }
+
+            ?>
+
+            <div class="field">
+                <label class="label">Categorie  <font style="margin-left:12%;"></font> <font style="margin-left:8%;"></font></label>
+                <div class="control">
+                    <div class="select">
+                        <select name="categorie" onchange='this.form.submit()'>
+
+                            <?php
+
+                            if(isset($_SESSION['categorie'])){
+                                $showcat=$_SESSION['categorie'];
+                                $dbh = connectToDatabase();
+                                $smts = $dbh->prepare("select * From Rubriek where rubrieknummer='$showcat'");
+                                $smts->execute();
+                                $datas = $smts->fetchAll();
+
+                                foreach ($datas as $rows):
+                                echo '<option value="'.$rows["rubrieknummer"].'">'.$rows["rubrieknaam"].'</option>';
+                                endforeach;
+                            }
+
+                            if(!isset($_SESSION['categorie'])){
+                                echo '<option value="0" disabled selected>Selecteer Categorie</option>';
+                            }
+
+
+                            ?>
+
+
+                            <?php foreach ($data as $row): ?>
+                            <option value="<?=$row["rubrieknummer"];
+                                    ?>"><?=$row["rubrieknaam"];
+                                ?></option>
+                            <?php endforeach ?>
+                        </select>
+                    </div>
+
+                    <?php
+    $categorienumber='';
+                            if(isset($_SESSION['categorie']))
+                                $categorienumber=$_SESSION['categorie'];
+
+                            $dbh = connectToDatabase();
+                            $smt1 = $dbh->prepare("select * From Rubriek where Rubriek='$categorienumber'");
+                            $smt1->execute();
+                            $data1 = $smt1->fetchAll();
+
+                            if(isset($_POST['subcategorie'])){
+                                $subcategorie=$_POST['subcategorie'];
+                                $_SESSION['subcategorie']=$subcategorie;
+                            }
+
+                    ?>
+
+
+                    <div class="select">
+                        <select name="subcategorie" onchange='this.form.submit()'>
+                            <?php
+
+                            if(isset($_SESSION['subcategorie'])){
+                                $showcat1=$_SESSION['subcategorie'];
+                                $dbh = connectToDatabase();
+                                $smtd = $dbh->prepare("select * From Rubriek where rubrieknummer='$showcat1'");
+                                $smtd->execute();
+                                $datad = $smtd->fetchAll();
+
+                                foreach ($datad as $rowd):
+                                echo '<option value="'.$rowd["rubrieknummer"].'">'.$rowd["rubrieknaam"].'</option>';
+                                endforeach;
+                            }
+
+                            if(!isset($_SESSION['categorie'])){
+                                echo '<option value="0" disabled selected>Selecteer Categorie</option>';
+                            }
+
+
+                            ?>
+
+                            <?php foreach ($data1 as $row1): ?>
+
+                            <option value="<?=$row1["rubrieknummer"];
+                                    ?>"><?=$row1["rubrieknaam"];
+                                ?></option>
+                            <?php endforeach ?>
+                        </select>
+                    </div>
+
+
+
+                    <?php
+    $subcategorienumber='';
+                            if(isset($_SESSION['subcategorie']))
+                                $subcategorienumber=$_SESSION['subcategorie'];
+
+                            $dbh = connectToDatabase();
+                            $smt2 = $dbh->prepare("select * From Rubriek where Rubriek='$subcategorienumber'");
+                            $smt2->execute();
+                            $data2 = $smt2->fetchAll();
+
+
+                    ?>
+
+
+                    <div class="select">
+                        <select name="subsubcategorie">
+
+                            <?php
+
+                            if(!isset($_SESSION['subcategorie'])){
+                                echo' <option value="0" disabled selected>Selecteer Categorie</option>';
+                            }
+                            ?>
+
+                            <?php foreach ($data2 as $row2): ?>
+                            <option value="<?=$row2["rubrieknummer"];
+                                    ?>"><?=$row2["rubrieknaam"];
+                                ?></option>
+                            <?php endforeach ?>
+                        </select>
+                    </div>
+
+
+
+
+
+                </div>
+
+
+
+
+            </div>
+
+
+
             <div class="field">
                 <label class="label">Productnaam</label>
                 <div class="control">
@@ -74,28 +223,6 @@ else {
             </div>
 
             <?php
-            $dbh = connectToDatabase();
-            $smt = $dbh->prepare('select * From Rubriek');
-            $smt->execute();
-            $data = $smt->fetchAll();
-
-            ?>
-
-            <div class="field">
-                <label class="label">Categorie</label>
-                <div class="control">
-                    <div class="select">
-                        <select name="categorie">
-                            <?php foreach ($data as $row): ?>
-                            <option value="<?=$row["rubrieknummer"];
-                                    ?>"><?=$row["rubrieknaam"];
-                                ?></option>
-                            <?php endforeach ?>
-                        </select>
-                    </div>
-                </div>
-            </div>
-            <?php
 
             ?>
             <div class="field">
@@ -120,11 +247,11 @@ else {
                     <input class="input is-success" name="plaats" type="text" placeholder="Plaats" >
                 </div>
             </div>
-<br>
+            <br>
             <div class="file">
-                
+
                 <label class="file-label">
-                    
+
                     <input class="file-input" type="file" name="pic" id="propic">
                     <span class="file-cta">
                         <span class="file-icon">
@@ -134,14 +261,14 @@ else {
                             Choose a file…
                         </span>
                     </span>
-                    
-                        
+
+
                 </label>
-                
+
             </div>
 
-                    <li>Max. 20MB</li>
-                    <li>Alleen .JPG of .PNG</li>
+            <li>Max. 10MB</li>
+            <li>Alleen .JPG of .JPEG</li>
             <br>
             <div class="field">
                 <div class="control">
@@ -174,6 +301,7 @@ else {
 
 
     if(isset($_POST['insertproduct'])){
+        $product_categorie = $_SESSION['categorie'];
         $userr=$_SESSION["user"];
         $dbh = connectToDatabase();
         $smtid = $dbh->prepare('select * From voorwerp');
@@ -185,13 +313,15 @@ else {
 
         endforeach;
 
-        
+
         $idn=$iid+1;
         $dir = $idn;
         $product_titel = $_POST['titel'];
         $product_prijs = $_POST['prijs'];
         $product_betalingswijze = $_POST['betaling'];
-        $product_categorie = $_POST['categorie'];
+
+        $subproduct_categorie = $_SESSION['subcategorie'];
+        $subsubproduct_categorie = $_POST['subsubcategorie'];
         $product_beschrijving = $_POST['beschrijving'];
         $product_land = $_POST['land'];
         $product_plaats = $_POST['plaats'];
@@ -199,50 +329,53 @@ else {
         $picname=$_FILES['pic']['name'];
         $tmp=$_FILES['pic']['tmp_name'];
         $imagesize=$_FILES['pic']['size'];
-$size=20000000;
-if($imagesize>=$size){
-echo "<script>alert('Max Size')</script>";
-exit();
-}
+        $size=10000000;
+        if($imagesize>=$size){
+            echo "<script>alert('Max Size')</script>";
+            exit();
+        }
 
 
         $ext = end((explode(".", $picname)));
-        if($ext=="jpg" || $ext=="png"){
-}
-else{
-echo "<script>alert('Upload Image Only')</script>";
-exit();
+        if($ext=="jpg" || $ext=="jpeg"){
+        }
+        else{
+            echo "<script>alert('Upload Image Only')</script>";
+            exit();
 
-}
+        }
 
         $picpath="data/voorwerpen/$dir/A.$ext";
 
-      
 
 
-        if ($product_titel == '' OR $product_prijs == '' OR $product_betalingswijze == '' OR $product_categorie == '' OR $product_beschrijving == '' OR $_POST['check'] == '' OR $product_land == '' OR $product_plaats == ''){
+
+        if ($product_titel == '' OR $product_prijs == '' OR $product_betalingswijze == '' OR $product_beschrijving == '' OR $_POST['check'] == '' OR $product_land == '' OR $product_plaats == ''){
             echo "<script>alert('Vul alle velden in')</script>";
             exit();
 
         }else{
             mkdir("data/voorwerpen/".$idn, 0777, true);
- move_uploaded_file($tmp,$picpath); 
-        $dbh = connectToDatabase();
-        $smte = $dbh->prepare("INSERT INTO voorwerp (voorwerpnummer, titel, beschrijving, startprijs, Betalingswijze, betalingsinstructie, 
+            move_uploaded_file($tmp,$picpath); 
+            $dbh = connectToDatabase();
+            $smte = $dbh->prepare("INSERT INTO voorwerp (voorwerpnummer, titel, beschrijving, startprijs, Betalingswijze, betalingsinstructie, 
 						plaatsnaam, land, LooptijdbeginDag, LooptijdbeginTijdstip, Verzendkosten,
-						verzendinstructies, Verkoper, Koper, LooptijdeindeDag, LooptijdeindeTijdstip, VeilinGesloten, Verkoopprijs)
-VALUES	   ('$idn', '$product_titel','$product_beschrijving','$product_prijs', '$product_betalingswijze', 'Overschrijving moet ontvangen zijn binnen 10 dagen na verkoop', '$product_plaats', '$product_land', CONVERT(date, GETDATE()), CONVERT(time, GETDATE()), '6,95', null , '$userr', NULL, DATEADD(day, 7, GETDATE()), CONVERT(time, GETDATE()), 'niet', null)");
-        $smte->execute();
+						verzendinstructies, Verkoper, Koper, LooptijdeindeDag, LooptijdeindeTijdstip, VeilinGesloten, Verkoopprijs, views)
+VALUES	   ('$idn', '$product_titel','$product_beschrijving','$product_prijs', '$product_betalingswijze', 'Overschrijving moet ontvangen zijn binnen 10 dagen na verkoop', '$product_plaats', '$product_land', CONVERT(date, GETDATE()), CONVERT(time, GETDATE()), '6,95', null , '$userr', NULL, DATEADD(day, 7, GETDATE()), CONVERT(time, GETDATE()), 'niet', NULL, 0)");
+            $smte->execute();
 
-        $dbh = connectToDatabase();
-        $smtc = $dbh->prepare("INSERT INTO voorwerpinrubriek (voorwerp, rubriekoplaagsteniveau) VALUES ('$idn', '$product_categorie')");
-        $smtc->execute();
+            $dbh = connectToDatabase();
+            $smtc = $dbh->prepare("INSERT INTO voorwerpinrubriek (voorwerp, rubriekoplaagsteniveau) VALUES ('$idn', '$subsubproduct_categorie')");
+            $smtc->execute();
 
-        $dbh = connectToDatabase();
-        $smtpic = $dbh->prepare("INSERT INTO bestand (filenaam, voorwerp) VALUES ('$picpath', '$idn')");
-        $smtpic->execute();
+            $dbh = connectToDatabase();
+            $smtpic = $dbh->prepare("INSERT INTO bestand (filenaam, voorwerp) VALUES ('$picpath', '$idn')");
+            $smtpic->execute();
 
-
+            echo "<script>alert('Product is toegevoegd!')</script>";
+            exit();
         }
 
     }
+                            unset($_SESSION['subcategorie']);
+                            unset($_SESSION['categorie']);
