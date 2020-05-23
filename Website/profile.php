@@ -17,7 +17,6 @@ $dbh = connectToDatabase();
                     <h2 class="title is-3">U bent nog niet ingelogd, u wordt doorgestuurd naar de inlogpagina</h2>
                     <h3 class="subtitle is-5">Gebeurt dit niet automatisch binnnen enkele seconden? Klik dan <a
                                 href="login.php">hier.</a></h3>
-
                     <script>
                         setTimeout(function () {
                             window.location.href = 'login.php';
@@ -221,11 +220,19 @@ $dbh = connectToDatabase();
       <div class="column"></div>
    </div>
 </form>
+
+<br>
+<br>
+
+<!-- DELETE USER DATA BUTTON -->
+<h2 class="title is-2 has-text-centered is-marginless">Uw account verwijderen</h2>
+<div class="column has-text-centered">
+    <a href="gegevensVerwijderen.php" class="button is-danger">
+    Klik hier om uw account te verwijderen
+    </a>
+ </div>
                            ';
-                };
-
-
-                ?>
+                }; ?>
                     <!--html user-->
                     <h1 class="title is-1 has-text-centered">Mijn gegevens</h1>
                     <h3 class="subtitle is-size-5 has-text-centered">Hier kunt u uw gegevens bekijken en
@@ -241,7 +248,6 @@ $dbh = connectToDatabase();
     </div>
 </section>
 <br>
-
 
 
 <?php include "includes/footer.php" ?>
