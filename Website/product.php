@@ -3,8 +3,8 @@
 $dbh = connectToDatabase();
 $siteTitle = "";
 $productpage = "";
-$biedingen="";
-$sth ="";
+$biedingen = "";
+$sth = "";
 
 if ($_SERVER["REQUEST_METHOD"] == "GET") {
     $productNummer = $_GET['pn'];
@@ -47,19 +47,6 @@ $sth->bindParam(':productnummer', $pn);
 $pn = $productNummer;
 $sth->execute();
 
-//biedingen
-// get info for the page
-$sth = $dbh->prepare('Select (Bodbedrag, gebruiker, bodDag, BodTijdstip) from bod where Voorwerp  =:productnummer');
-$sth->bindParam(':productnummer', $pn);
-$pn = $productNummer;
-$sth->execute();
-
-foreach ($sth->fetchAll(PDO::FETCH_ASSOC) as $row) {
-    $biedingen = '
-      
-    ';
-}
-
 
 // get info for the page
 $sth = $dbh->prepare('SELECT V.titel, V.beschrijving, V.startprijs, V.Betalingswijze, V.betalingsinstructie, V.plaatsnaam, V.land,
@@ -75,6 +62,8 @@ $sth->execute();
 
 foreach ($sth->fetchAll(PDO::FETCH_ASSOC) as $row) {
     $siteTitle = $row['titel'];
+    $productnaam = $row['titel'];
+    $filenaam =$row['filenaam'];
     $productpage = '
         <h2 class="title is-1  has-text-centered">' . $row['titel'] . '</h2>
         <br>
@@ -91,7 +80,7 @@ foreach ($sth->fetchAll(PDO::FETCH_ASSOC) as $row) {
                         </p>
                         <br>
                         <form action=" product.php " method="POST">
-                            <input value="'.$productNummer.'" style="display: none" name="pn">
+                            <input value="' . $productNummer . '" style="display: none" name="pn">
                             <label for="bod" class="label">Uw bod: *</label>
                             <label class="checkbox">
                                 <input type="checkbox" required>
@@ -125,6 +114,36 @@ foreach ($sth->fetchAll(PDO::FETCH_ASSOC) as $row) {
     ';
 }
 
+//biedingen
+$sth = $dbh->prepare('Select * from bod where Voorwerp  =:productnummer');
+$sth->bindParam(':productnummer', $pn);
+$pn = $productNummer;
+$sth->execute();
+
+foreach ($sth->fetchAll(PDO::FETCH_ASSOC) as $row) {
+    $biedingen = '
+                                     <div class="box">
+                                    <article class="media">
+                                        <div class="media-left">
+                                            <figure class="image is-64x64">
+                                                <img src="'.$filenaam.'" alt="Image">
+                                            </figure>
+                                        </div>
+                                        <div class="media-content">
+                                            <div class="content">
+                                                <p>
+                                                    <strong>'.$row['gebruiker'].'</strong> <small>@ '. substr($productnaam,0,10).'...' .'</small>
+                                                    <small>'. substr($row['bodTijdStip'],0,5). $row['bodDag'] .'</small>
+                                                    <br>
+                                                    Bod: &euro; '.$row['bodbedrag'].'
+                                                </p>
+                                            </div>
+                                        </div>
+                                    </article>
+                                </div>
+    ';
+}
+
 ?>
 
 <?php include "includes/head.php" ?>
@@ -140,7 +159,31 @@ foreach ($sth->fetchAll(PDO::FETCH_ASSOC) as $row) {
                     <div class="columns">
                         <div class="column">
                             <h3 class="title is-8  has-text-centered">Vorige biedingen </h3>
-                            <?=$biedingen ?>
+                            <?= $biedingen ?>
+                                <div class="box">
+                                    <article class="media">
+                                        <div class="media-left">
+                                            <figure class="image is-64x64">
+                                                <img src="<?=$filenaam?>" alt="Image">
+                                            </figure>
+                                        </div>
+                                        <div class="media-content">
+                                            <div class="content">
+                                                <p>
+                                                    <strong>UserName</strong> <small>@<?=substr($productnaam,0,10).'...'?></small>
+                                                    <small>17:27 25/05/2005</small>
+                                                    <br>
+                                                    Bod: &euro; 10,00
+                                                </p>
+                                            </div>
+                                        </div>
+                                    </article>
+                                </div>
+
+                        </div>
+                        <div class="column">
+                            <h3 class="title is-8  has-text-centered">Iets anders </h3>
+
                         </div>
                     </div>
 
