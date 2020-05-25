@@ -367,8 +367,8 @@ ON bod
 FOR INSERT, UPDATE
 AS
 	DECLARE @v_Voorwerp numeric(25);
-	DECLARE @v_Bodbedrag char(6);
-	DECLARE @v_Max_Bodbedrag char(6);
+	DECLARE @v_Bodbedrag char(20);
+	DECLARE @v_Max_Bodbedrag char(20);
 
 	select @v_Voorwerp=i.Voorwerp, @v_Bodbedrag=i.Bodbedrag 	from Inserted i;
 	SELECT @v_Max_Bodbedrag = max(CAST(Bodbedrag AS INT)) FROM bod WHERE Voorwerp = @v_Voorwerp;

@@ -3,6 +3,7 @@
 $dbh = connectToDatabase();
 $siteTitle = "";
 $productpage = "";
+$biedingen="";
 $sth ="";
 
 if ($_SERVER["REQUEST_METHOD"] == "GET") {
@@ -25,7 +26,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $bodbedrag = $bodBedrag;
     $gebruikersnaam = $_SESSION['user'];
     $bodDag = date('Y/m/d');
-    $bodTijdstip = date('H/i/s');;
+    $bodTijdstip = date('H:i:s');;
     $sth->execute();
 
 }
@@ -45,6 +46,20 @@ $sth = $dbh->prepare('UPDATE voorwerp SET views = views +1  WHERE voorwerpnummer
 $sth->bindParam(':productnummer', $pn);
 $pn = $productNummer;
 $sth->execute();
+
+//biedingen
+// get info for the page
+$sth = $dbh->prepare('Select (Bodbedrag, gebruiker, bodDag, BodTijdstip) from bod where Voorwerp  =:productnummer');
+$sth->bindParam(':productnummer', $pn);
+$pn = $productNummer;
+$sth->execute();
+
+foreach ($sth->fetchAll(PDO::FETCH_ASSOC) as $row) {
+    $biedingen = '
+      
+    ';
+}
+
 
 // get info for the page
 $sth = $dbh->prepare('SELECT V.titel, V.beschrijving, V.startprijs, V.Betalingswijze, V.betalingsinstructie, V.plaatsnaam, V.land,
@@ -107,13 +122,6 @@ foreach ($sth->fetchAll(PDO::FETCH_ASSOC) as $row) {
                         </p>
                 </div>
         </div>
-
-<!-- Hier moeten de vorige biedingen komen  -->
-
-
-
-
-
     ';
 }
 
@@ -128,6 +136,14 @@ foreach ($sth->fetchAll(PDO::FETCH_ASSOC) as $row) {
             <div class="card ">
                 <div class="card-content">
                     <?= $productpage ?>
+                    <br>
+                    <div class="columns">
+                        <div class="column">
+                            <h3 class="title is-8  has-text-centered">Vorige biedingen </h3>
+                            <?=$biedingen ?>
+                        </div>
+                    </div>
+
                 </div>
             </div>
 
