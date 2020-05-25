@@ -61,13 +61,13 @@ foreach ($sth->fetchAll(PDO::FETCH_ASSOC) as $row) {
                         </form>
                         <br>
                         <p>
-                        <b>Verkoper:</b> '. $row['verkoper'].'
+                        <b>Verkoper:</b> ' . $row['verkoper'] . '
                         <br>
-                        <b>Locatie verkoper:</b> '.$row['plaatsnaam'] .$row['land'].'
+                        <b>Locatie verkoper:</b> ' . $row['plaatsnaam'] . $row['land'] . '
                         <br><br>
-                        <b>Betalingswijze:</b> '.$row['Betalingswijze'].'
+                        <b>Betalingswijze:</b> ' . $row['Betalingswijze'] . '
                         <br>
-                        <b>Betalingsinstructie:</b> '.$row['betalingsinstructie'].'
+                        <b>Betalingsinstructie:</b> ' . $row['betalingsinstructie'] . '
                         </p>
                 </div>
         </div>
@@ -85,19 +85,19 @@ foreach ($sth->fetchAll(PDO::FETCH_ASSOC) as $row) {
 
 <?php include "includes/head.php" ?>
 <?php include "includes/header.php" ?>
-    <section>
-        <div class="container">
-            <br>
-            <?php include "breadcrumbstest.php" ?>
+<section>
+    <div class="container">
+        <br>
 
-            <div class="card ">
-                <div class="card-content">
-                    <?= $productpage ?>
-                </div>
+        <div class="card ">
+            <div class="card-content">
+                <?php include "breadcrumbstest.php" ?>
+                <?= $productpage ?>
             </div>
-
-            <br>
-
         </div>
-    </section>
+
+        <br>
+
+    </div>
+</section>
 <?php include "includes/footer.php" ?>

@@ -7,7 +7,7 @@ function makeBreadcrumbs()
 ?>
 <?php
 
-$id = $_GET['id'];
+$id = $_GET['pn'];
 $cat = "";
 $subcat = "";
 $subsubcat = "";
