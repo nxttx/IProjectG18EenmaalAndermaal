@@ -4,7 +4,8 @@ $dbh = connectToDatabase();
 $siteTitle = "";
 $productpage = "";
 $biedingen = "";
-$sth = "";
+$productnaam = "";
+$filenaam ="";
 
 if ($_SERVER["REQUEST_METHOD"] == "GET") {
     $productNummer = $_GET['pn'];
@@ -88,21 +89,28 @@ foreach ($sth->fetchAll(PDO::FETCH_ASSOC) as $row) {
                             </label>
                             <div class="field has-addons">
 
-                                <div class="control">
-                                    <input class="input is-primary" type="number" name="bod"
+                                <div class="control"> ';
+//    Check voor user ingelogf en of het de verkoper is.
+    if(!isset($_SESSION['user'])){
+            $productpage .= ' <input class="input is-primary" type="number" name="bod"
                                            id="bod" placeholder="&euro;' . $row['startprijs'] . '" maxlength="50" minlength="5" required
-                                           oninput="checkBodAmount()" step="0.01">
-                                           
-                                </div>
+                                           oninput="checkBodAmount()" step="0.01" disabled >';
+    }else{
+        $productpage .= ' <input class="input is-primary" type="number" name="bod"
+                                           id="bod" placeholder="&euro;' . $row['startprijs'] . '" maxlength="50" minlength="5" required
+                                           oninput="checkBodAmount()" step="0.01" >';
+    }
+    $productpage.='          </div>
                                 <input class="button is-primary" type="submit" id="submitButton" value="breng bod uit" disabled>
 
                             </div>
                             <div class="notification is-danger" id="errorBod" style="display: none"></div>
                         </form>
                         <br>
-                        <p>
+                        <p id="verkoper">
                         <b>Verkoper:</b> ' . $row['verkoper'] . '
-                        <br>
+                        </p>
+                        <p>
                         <b>Locatie verkoper:</b> ' . $row['plaatsnaam'] . $row['land'] . '
                         <br><br>
                         <b>Betalingswijze:</b> ' . $row['Betalingswijze'] . '
@@ -148,6 +156,7 @@ foreach ($sth->fetchAll(PDO::FETCH_ASSOC) as $row) {
 
 <?php include "includes/head.php" ?>
 <?php include "includes/header.php" ?>
+<div id="user" style="display: none"><?=$_SESSION['user']?></div>
     <section>
         <div class="container">
             <br>

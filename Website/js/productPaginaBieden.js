@@ -8,7 +8,7 @@ function checkBodAmount() {
         if (bod < 49.99) {//Dan moet minimaal +0.50
             if (huidigBod + 0.50 <= bod) {
                 document.getElementById('bod').classList = "input is-link";
-                document.getElementById('errorBod').style="display:none";
+                document.getElementById('errorBod').style = "display:none";
                 document.getElementById("submitButton").disabled = false;
             } else {
                 document.getElementById("submitButton").disabled = true;
@@ -19,7 +19,7 @@ function checkBodAmount() {
         } else if (bod < 499.99) {//Dan moet minimaal +1.00
             if (huidigBod + 1.00 <= bod) {
                 document.getElementById('bod').classList = "input is-link";
-                document.getElementById('errorBod').style="display:none";
+                document.getElementById('errorBod').style = "display:none";
                 document.getElementById("submitButton").disabled = false;
             } else {
                 document.getElementById("submitButton").disabled = true;
@@ -30,7 +30,7 @@ function checkBodAmount() {
         } else if (bod < 999.99) {//Dan moet minimaal +5.00
             if (huidigBod + 5.00 <= bod) {
                 document.getElementById('bod').classList = "input is-link";
-                document.getElementById('errorBod').style="display:none";
+                document.getElementById('errorBod').style = "display:none";
                 document.getElementById("submitButton").disabled = false;
             } else {
                 document.getElementById("submitButton").disabled = true;
@@ -41,7 +41,7 @@ function checkBodAmount() {
         } else if (bod < 4999.99) {//Dan moet minimaal +10.00
             if (huidigBod + 10.00 <= bod) {
                 document.getElementById('bod').classList = "input is-link";
-                document.getElementById('errorBod').style="display:none";
+                document.getElementById('errorBod').style = "display:none";
                 document.getElementById("submitButton").disabled = false;
             } else {
                 document.getElementById("submitButton").disabled = true;
@@ -52,7 +52,7 @@ function checkBodAmount() {
         } else if (bod > 5000.00) {//Dan moet minimaal +50.00
             if (huidigBod + 50.00 <= bod) {
                 document.getElementById('bod').classList = "input is-link";
-                document.getElementById('errorBod').style="display:none";
+                document.getElementById('errorBod').style = "display:none";
                 document.getElementById("submitButton").disabled = false;
             } else {
                 document.getElementById("submitButton").disabled = true;
@@ -71,5 +71,12 @@ function checkBodAmount() {
     }
 }
 
-
-
+//check user.
+var user = document.getElementById("user").innerHTML.trim().toLowerCase();
+var productOwner = document.getElementById("verkoper").innerHTML.toLowerCase().trim().substring('<b>verkoper:</b>'.length).trim();
+console.log("user === PO");
+console.log(user +" == " + productOwner);
+if (user == productOwner) {
+    console.log("user === PO2");
+    document.getElementById("bod").disabled = true;
+}
