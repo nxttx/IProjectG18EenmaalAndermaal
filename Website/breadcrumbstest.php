@@ -23,7 +23,7 @@ $data = $data->fetchAll();
 foreach ($data as $row1) {
     $rubrieknummer = $row1['rubrieknummer'];
     $rubrieknaam1 = $row1['rubrieknaam'];
-    $Rubriek = $row1['Rubriek'];
+    $Rubriek = $row1['rubriek'];
     $volgnr = $row1['volgnr'];
 }
 
