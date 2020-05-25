@@ -1,29 +1,34 @@
-<?php $siteTitle = "Login pagina"; ?>
-
+<?php $siteTitle = "Inloggen"; ?>
 <?php
-    if(isset($_SESSION["user"])) {
-        header('Location: index.php');
 
-        $login = true;
-    }    
+if (!isset($_SESSION)) {
+    session_start();
+}
+
+if (isset($_SESSION["user"])) {
+    header('Location: index.php');
+
+    $login = true;
+}
 ?>
-
 <?php include "includes/head.php" ?>
 <?php include "includes/header.php" ?>
 
-<section class="hero is-primary is-fullheight">
-    <div class="hero-body">
-        <div class="container has-text-centered">
-            <div class="column is-4 is-offset-4">
-                <h2 class="title is-2 has-text-white">EenmaalAndermaal</h2>
+<section>
+    <div class="container">
+        <br>
+
+        <div class="card ">
+            <div class="card-content">
+                <h2 class="title is-2  has-text-centered">EenmaalAndermaal</h2>
                 <br>
-                <h3 class="title is-3 has-text-white">Inloggen</h3>
+                <h2 class="title is-2  ">Inloggen</h2>
                 <form action="" onsubmit="login(this)" method="post" id="form">
                     <div class="field">
-                        <label class="label" for="Gebruikersnaam">Gebruikersnaam</label>
+                        <label class="label " for="Gebruikersnaam">Gebruikersnaam</label>
                         <input class="input is-primary is-large" type="text" name="username" id="Gebruikersnaam" autofocus="" required placeholder="Gebruikersnaam">
                     </div>
-
+                    <br>
                     <div class="field">
                         <label class="label" for="wachtwoord">Wachtwoord</label>
                         <input class="input is-primary is-large" type="password" name="password" id="wachtwoord" placeholder="Wachtwoord">
@@ -43,9 +48,12 @@
                 </form>
             </div>
         </div>
+
+        <br>
+
     </div>
 </section>
 
 <script src="js/login.js"></script>
 
-<?php include "includes/footer.html" ?>
+<?php include "includes/footer.php" ?>

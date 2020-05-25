@@ -5,3 +5,11 @@ details summary::-webkit-details-marker {
  .extra-padding-1 {
      padding: 1em;
  }
+
+.objectfit-cover{
+    object-fit: cover;
+}
+
+html{
+    scroll-behavior: smooth;
+}

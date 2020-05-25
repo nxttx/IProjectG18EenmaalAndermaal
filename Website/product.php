@@ -1,64 +1,103 @@
-<?php
-$siteTitle = "hoofdpagina"
-
-?>
 <?php include "php/dbh.php" ?>
-
-
 <?php
 $dbh = connectToDatabase();
-$ads = "";
+$siteTitle = "";
+$productNummer = $_GET['pn'];
+$productpage = "";
 
-$sql = "SELECT TOP (1) * from voorwerp";
+//views +1
+$sth = $dbh->prepare('UPDATE voorwerp SET views = views +1  WHERE voorwerpnummer = :productnummer');
+$sth->bindParam(':productnummer', $pn);
+$pn = $productNummer;
+$sth->execute();
 
-foreach ($dbh->query($sql) as $row) {
-    $ads .=  "  <div class=\"column\">
-                <div class=\"has-background-primary\">
-                    <img src=\"\" alt=\"\">
-                    <div class=\"extra-padding-1 has-background-light\">
-                        <h3 class=\"title is-4 \"> {$row['titel']}  </h3>
-                        <div class=\"content is-medium\">
-                            {$row['beschrijving']}
-                        </div>
-                        <div class=\"columns has-text-centered\">
-                            <div class=\"column\">
-                                <div class=\"content is-medium\">
-                                    <p>&euro; {$row['Verkoopprijs']}</p>
-                                </div>
-                            </div>
-                            <div class=\"column\">
-                                <div class=\"content is-medium\">
-                                    <p> | </p>
-                                </div>
-                            </div>
-                            <div class=\"column\">
-                                <div class=\"content is-medium\">
-                                    <p>{$row['LooptijdbeginDag']}</p>
-                                </div>
-                            </div>
-                        </div>
-                        <a class=\"button is-fullwidth\" href='#'>
-                            Bekijk nu!
-                        </a>
-                    </div>
+// get info for the page
+$sth = $dbh->prepare('SELECT V.titel, V.beschrijving, V.startprijs, V.Betalingswijze, V.betalingsinstructie, V.plaatsnaam, V.land,
+       V.LooptijdbeginDag, V.LooptijdbeginTijdstip, V.Verzendkosten, V.verkoper, V.VeilinGesloten,V.Verkoopprijs,
+       V.views, B.filenaam
+FROM Voorwerp V
+	JOIN bestand B on V.voorwerpnummer = B.voorwerp
+ 	WHERE voorwerpnummer = :productnummer');
+$sth->bindParam(':productnummer', $pn);
+$pn = $productNummer;
+$sth->execute();
+
+
+foreach ($sth->fetchAll(PDO::FETCH_ASSOC) as $row) {
+    $siteTitle = $row['titel'];
+    $productpage = '
+
+        <h2 class="title is-1  has-text-centered">' . $row['titel'] . '</h2>
+        <br>
+        <div class="columns">
+                <div class="column is-half">
+                    <figure class=\"image objectfit-cover\">
+                        <img src=" ' . $row['filenaam'] . '" alt="img">
+                    </figure>
                 </div>
-            </div> ";
+                <div class="column is-half">
+                        <h3 class="title is-8"> &euro;' . $row['startprijs'] . '</h3>
+                        <p>
+                           ' . $row['beschrijving'] . '
+                        </p>
+                        <br>
+                        <form action="" method="">
+
+                            <label for="bod" class="label">Uw bod: *</label>
+                            <label class="checkbox">
+                                <input type="checkbox" required>
+                                Ik ga akoord met <a href="tos.php" target="_blank"> de gebruikersvoorwaarden</a>
+                            </label>
+                            <div class="field has-addons">
+
+                                <div class="control">
+                                    <input class="input is-primary" type="text" name="bod"
+                                           id="bod" value="&euro;" maxlength="50" minlength="5" required>
+                                </div>
+                                <input class="button is-primary" type="submit" value="breng bod uit">
+
+                            </div>
+
+                        </form>
+                        <br>
+                        <p>
+                        <b>Verkoper:</b> '. $row['verkoper'].'
+                        <br>
+                        <b>Locatie verkoper:</b> '.$row['plaatsnaam'] .$row['land'].'
+                        <br><br>
+                        <b>Betalingswijze:</b> '.$row['Betalingswijze'].'
+                        <br>
+                        <b>Betalingsinstructie:</b> '.$row['betalingsinstructie'].'
+                        </p>
+                </div>
+        </div>
+
+<!-- Hier moeten de vorige biedingen komen  -->
+
+
+
+
+
+    ';
 }
+
 ?>
+
 <?php include "includes/head.php" ?>
 <?php include "includes/header.php" ?>
+    <section>
+        <div class="container">
+            <br>
+            <?php include "breadcrumbstest.php" ?>
 
-<section>
-    <div class="container">
-        <br>
-        <h2 class="title is-3  has-text-centered">Populaire producten</h2>
-        <p class="subtitle is-6  has-text-centered">Dit zijn de meest populaire producten!</p>
-        <?php include "breadcrumbstest.php" ?>
-        <div class="columns">
+            <div class="card ">
+                <div class="card-content">
+                    <?= $productpage ?>
+                </div>
+            </div>
 
-            <?= $ads ?>
+            <br>
 
         </div>
-    </div>
-</section>
-<?php include "includes/footer.html" ?>
+    </section>
+<?php include "includes/footer.php" ?>
