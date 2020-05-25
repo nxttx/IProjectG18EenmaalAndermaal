@@ -12,7 +12,6 @@ $dbh = connectToDatabase();
         <div class="card ">
             <div class="card-content">
 
-
                 <?php if (!isset($_SESSION['user'])) { ?>
                     <h2 class="title is-3">U bent nog niet ingelogd, u wordt doorgestuurd naar de inlogpagina</h2>
                     <h3 class="subtitle is-5">Gebeurt dit niet automatisch binnnen enkele seconden? Klik dan <a
