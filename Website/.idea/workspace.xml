@@ -90,17 +90,7 @@
       <list>
         <serviceView>
           <treeState>
-            <expand>
-              <path>
-                <item name="services root" type="e789fda9:ObjectUtils$Sentinel" />
-                <item name="iproject18: root" type="7427dc5b:ServiceModel$ServiceGroupNode" />
-              </path>
-              <path>
-                <item name="services root" type="e789fda9:ObjectUtils$Sentinel" />
-                <item name="iproject18: root" type="7427dc5b:ServiceModel$ServiceGroupNode" />
-                <item name="com.intellij.database.console.session.MessageBusSession@911ac42" type="9fbbdea:ServiceModel$ServiceNode" />
-              </path>
-            </expand>
+            <expand />
             <select />
           </treeState>
         </serviceView>
@@ -127,6 +117,7 @@
       <workItem from="1589960925466" duration="521000" />
       <workItem from="1590431348884" duration="49000" />
       <workItem from="1590490281591" duration="8425000" />
+      <workItem from="1590500043861" duration="238000" />
     </task>
     <servers />
   </component>
@@ -178,10 +169,10 @@
       <screen x="0" y="0" width="1536" height="834" />
     </state>
     <state x="756" y="153" width="490" height="488" key="com.intellij.database.run.ParametersPanel.Standalone/0.0.1536.834@0.0.1536.834" timestamp="1590494648572" />
-    <state x="465" y="241" key="com.intellij.ide.util.TipDialog" timestamp="1590490291617">
+    <state x="465" y="241" key="com.intellij.ide.util.TipDialog" timestamp="1590500056482">
       <screen x="0" y="0" width="1536" height="834" />
     </state>
-    <state x="465" y="241" key="com.intellij.ide.util.TipDialog/0.0.1536.834@0.0.1536.834" timestamp="1590490291617" />
+    <state x="465" y="241" key="com.intellij.ide.util.TipDialog/0.0.1536.834@0.0.1536.834" timestamp="1590500056482" />
     <state x="601" y="212" width="738" height="594" key="find.popup" timestamp="1590413412561">
       <screen x="0" y="0" width="1536" height="834" />
     </state>

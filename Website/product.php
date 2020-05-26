@@ -14,7 +14,6 @@ if ($_SERVER["REQUEST_METHOD"] == "GET") {
 }
 
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
-    echo "nu dus post";
     $productNummer = $_POST['pn'];
 
 
