@@ -2,10 +2,11 @@
 <?php
 $dbh = connectToDatabase();
 $siteTitle = "";
+$verkoper = "";
 $productpage = "";
 $biedingen = "";
 $productnaam = "";
-$filenaam ="";
+$filenaam = "";
 
 if ($_SERVER["REQUEST_METHOD"] == "GET") {
     $productNummer = $_GET['pn'];
@@ -14,31 +15,39 @@ if ($_SERVER["REQUEST_METHOD"] == "GET") {
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
     echo "nu dus post";
     $productNummer = $_POST['pn'];
-    $bodBedrag = test_input($_POST["bod"]);
 
-    $sth = $dbh->prepare("INSERT INTO Bod (Voorwerp, Bodbedrag, Gebruiker, BodDag, BodTijdstip) VALUES(:Voorwerp, :Bodbedrag, :Gebruiker, :BodDag, :BodTijdstip)");
-    $sth->bindParam(':Voorwerp', $Voorwerp);
-    $sth->bindParam(':Bodbedrag', $bodbedrag);
-    $sth->bindParam(':Gebruiker', $gebruikersnaam);
-    $sth->bindParam(':BodDag', $bodDag);
-    $sth->bindParam(':BodTijdstip', $bodTijdstip);
 
-    $Voorwerp = $productNummer;
-    $bodbedrag = $bodBedrag;
-    $gebruikersnaam = $_SESSION['user'];
-    $bodDag = date('Y/m/d');
-    $bodTijdstip = date('H:i:s');;
+    $sth = $dbh->prepare('SELECT V.verkoper, B.bodbedrag
+FROM Voorwerp V
+JOIN bod  b on v.voorwerpnummer = b.voorwerp
+ 	WHERE voorwerpnummer = :productnummer');
+
+    $sth->bindParam(':productnummer', $pn);
+    $pn = $productNummer;
     $sth->execute();
+    foreach ($sth->fetchAll(PDO::FETCH_ASSOC) as $row) {
+        $verkoper = $row['verkoper'];
+        $huidigebod= $row['bodbedrag'];
+    }
 
-}
+    $bodBedrag = $_POST["bod"];
+    if($verkoper !=$_SESSION['user'] ){
+        if($huidigebod <$bodBedrag) {
+            $sth = $dbh->prepare("INSERT INTO Bod (voorwerp, Bodbedrag, Gebruiker, BodDag, BodTijdstip) VALUES(:Voorwerp, :Bodbedrag, :Gebruiker, :BodDag, :BodTijdstip)");
+            $sth->bindParam(':Voorwerp', $Voorwerp);
+            $sth->bindParam(':Bodbedrag', $bodbedrag);
+            $sth->bindParam(':Gebruiker', $gebruikersnaam);
+            $sth->bindParam(':BodDag', $bodDag);
+            $sth->bindParam(':BodTijdstip', $bodTijdstip);
 
-
-function test_input($data)
-{
-    $data = trim($data);
-    $data = stripslashes($data);
-    $data = htmlspecialchars($data);
-    return $data;
+            $Voorwerp = $productNummer;
+            $bodbedrag = $bodBedrag;
+            $gebruikersnaam = $_SESSION['user'];
+            $bodDag = date('Y/m/d');
+            $bodTijdstip = date('H:i:s');;
+            $sth->execute();
+        }
+    }
 }
 
 
@@ -50,12 +59,16 @@ $sth->execute();
 
 
 // get info for the page
+
 $sth = $dbh->prepare('SELECT V.titel, V.beschrijving, V.startprijs, V.Betalingswijze, V.betalingsinstructie, V.plaatsnaam, V.land,
        V.LooptijdbeginDag, V.LooptijdbeginTijdstip, V.Verzendkosten, V.verkoper, V.VeilinGesloten,V.Verkoopprijs,
-       V.views, B.filenaam
+       V.views, B.filenaam, D.bodbedrag
 FROM Voorwerp V
-	JOIN bestand B on V.voorwerpnummer = B.voorwerp
- 	WHERE voorwerpnummer = :productnummer');
+	JOIN bestand B on V.voorwerpnummer = B.voorwerp 
+    JOIN Bod D on  V.voorwerpnummer = D.voorwerp
+ 	WHERE V.voorwerpnummer = :productnummer
+ 	ORDER BY D.Bodbedrag ASC');
+
 $sth->bindParam(':productnummer', $pn);
 $pn = $productNummer;
 $sth->execute();
@@ -64,7 +77,7 @@ $sth->execute();
 foreach ($sth->fetchAll(PDO::FETCH_ASSOC) as $row) {
     $siteTitle = $row['titel'];
     $productnaam = $row['titel'];
-    $filenaam =$row['filenaam'];
+    $filenaam = $row['filenaam'];
     $productpage = '
         <h2 class="title is-1  has-text-centered">' . $row['titel'] . '</h2>
         <br>
@@ -75,7 +88,7 @@ foreach ($sth->fetchAll(PDO::FETCH_ASSOC) as $row) {
                     </figure>
                 </div>
                 <div class="column is-half">
-                        <h3 class="title is-8" id="price"> &euro;' . $row['startprijs'] . '</h3>
+                        <h3 class="title is-8" id="price"> &euro;' .$row['bodbedrag'] .'</h3>
                         <p>
                            ' . $row['beschrijving'] . '
                         </p>
@@ -90,17 +103,17 @@ foreach ($sth->fetchAll(PDO::FETCH_ASSOC) as $row) {
                             <div class="field has-addons">
 
                                 <div class="control"> ';
-//    Check voor user ingelogf en of het de verkoper is.
-    if(!isset($_SESSION['user'])){
-            $productpage .= ' <input class="input is-primary" type="number" name="bod"
+//    Check voor user ingelog en of het de verkoper is.
+    if (!isset($_SESSION['user'])) {
+        $productpage .= ' <input class="input is-primary" type="number" name="bod"
                                            id="bod" placeholder="&euro;' . $row['startprijs'] . '" maxlength="50" minlength="5" required
                                            oninput="checkBodAmount()" step="0.01" disabled >';
-    }else{
+    } else {
         $productpage .= ' <input class="input is-primary" type="number" name="bod"
                                            id="bod" placeholder="&euro;' . $row['startprijs'] . '" maxlength="50" minlength="5" required
                                            oninput="checkBodAmount()" step="0.01" >';
     }
-    $productpage.='          </div>
+    $productpage .= '          </div>
                                 <input class="button is-primary" type="submit" id="submitButton" value="breng bod uit" disabled>
 
                             </div>
@@ -123,27 +136,27 @@ foreach ($sth->fetchAll(PDO::FETCH_ASSOC) as $row) {
 }
 
 //biedingen
-$sth = $dbh->prepare('Select * from bod where Voorwerp  =:productnummer');
+$sth = $dbh->prepare('Select * from bod where Voorwerp  =:productnummer ORDER BY bodDag,BodTijdstip DESC');
 $sth->bindParam(':productnummer', $pn);
 $pn = $productNummer;
 $sth->execute();
 
 foreach ($sth->fetchAll(PDO::FETCH_ASSOC) as $row) {
-    $biedingen = '
+    $biedingen .= '
                                      <div class="box">
                                     <article class="media">
                                         <div class="media-left">
                                             <figure class="image is-64x64">
-                                                <img src="'.$filenaam.'" alt="Image">
+                                                <img src="' . $filenaam . '" alt="Image">
                                             </figure>
                                         </div>
                                         <div class="media-content">
                                             <div class="content">
                                                 <p>
-                                                    <strong>'.$row['gebruiker'].'</strong> <small>@ '. substr($productnaam,0,10).'...' .'</small>
-                                                    <small>'. substr($row['bodTijdStip'],0,5). $row['bodDag'] .'</small>
+                                                    <strong>' . $row['gebruiker'] . '</strong> <small>@ ' . substr($productnaam, 0, 10) . '...' . '</small>
+                                                    <small>' . substr($row['bodTijdstip'], 0, 5) .' ' . $row['bodDag'] . '</small>
                                                     <br>
-                                                    Bod: &euro; '.$row['bodbedrag'].'
+                                                    Bod: &euro; ' . $row['bodbedrag'] . '
                                                 </p>
                                             </div>
                                         </div>
@@ -152,11 +165,12 @@ foreach ($sth->fetchAll(PDO::FETCH_ASSOC) as $row) {
     ';
 }
 
+
 ?>
 
 <?php include "includes/head.php" ?>
 <?php include "includes/header.php" ?>
-<div id="user" style="display: none"><?=$_SESSION['user']?></div>
+    <div id="user" style="display: none"><?= $_SESSION['user'] ?></div>
     <section>
         <div class="container">
             <br>
@@ -167,32 +181,11 @@ foreach ($sth->fetchAll(PDO::FETCH_ASSOC) as $row) {
                     <br>
                     <div class="columns">
                         <div class="column">
-                            <h3 class="title is-8  has-text-centered">Vorige biedingen </h3>
+                            <h3 class="title is-8  has-text-centered">Vorige biedingen:</h3>
                             <?= $biedingen ?>
-                                <div class="box">
-                                    <article class="media">
-                                        <div class="media-left">
-                                            <figure class="image is-64x64">
-                                                <img src="<?=$filenaam?>" alt="Image">
-                                            </figure>
-                                        </div>
-                                        <div class="media-content">
-                                            <div class="content">
-                                                <p>
-                                                    <strong>UserName</strong> <small>@<?=substr($productnaam,0,10).'...'?></small>
-                                                    <small>17:27 25/05/2005</small>
-                                                    <br>
-                                                    Bod: &euro; 10,00
-                                                </p>
-                                            </div>
-                                        </div>
-                                    </article>
-                                </div>
-
                         </div>
                         <div class="column">
                             <h3 class="title is-8  has-text-centered">Iets anders </h3>
-
                         </div>
                     </div>
 

@@ -98,7 +98,7 @@
               <path>
                 <item name="services root" type="e789fda9:ObjectUtils$Sentinel" />
                 <item name="iproject18: root" type="7427dc5b:ServiceModel$ServiceGroupNode" />
-                <item name="com.intellij.database.console.session.MessageBusSession@6fea81ad" type="9fbbdea:ServiceModel$ServiceNode" />
+                <item name="com.intellij.database.console.session.MessageBusSession@911ac42" type="9fbbdea:ServiceModel$ServiceNode" />
               </path>
             </expand>
             <select />
@@ -125,6 +125,8 @@
       <workItem from="1589910408497" duration="165000" />
       <workItem from="1589910617379" duration="513000" />
       <workItem from="1589960925466" duration="521000" />
+      <workItem from="1590431348884" duration="49000" />
+      <workItem from="1590490281591" duration="5130000" />
     </task>
     <servers />
   </component>
@@ -172,14 +174,14 @@
       <screen x="0" y="0" width="1536" height="834" />
     </state>
     <state x="844" y="189" key="NewPhpFileDialog/0.0.1536.834@0.0.1536.834" timestamp="1589883479606" />
-    <state x="710" y="171" width="490" height="488" key="com.intellij.database.run.ParametersPanel.Standalone" timestamp="1590419112410">
+    <state x="756" y="153" width="490" height="488" key="com.intellij.database.run.ParametersPanel.Standalone" timestamp="1590494648572">
       <screen x="0" y="0" width="1536" height="834" />
     </state>
-    <state x="710" y="171" width="490" height="488" key="com.intellij.database.run.ParametersPanel.Standalone/0.0.1536.834@0.0.1536.834" timestamp="1590419112410" />
-    <state x="465" y="241" key="com.intellij.ide.util.TipDialog" timestamp="1589960979011">
+    <state x="756" y="153" width="490" height="488" key="com.intellij.database.run.ParametersPanel.Standalone/0.0.1536.834@0.0.1536.834" timestamp="1590494648572" />
+    <state x="465" y="241" key="com.intellij.ide.util.TipDialog" timestamp="1590490291617">
       <screen x="0" y="0" width="1536" height="834" />
     </state>
-    <state x="465" y="241" key="com.intellij.ide.util.TipDialog/0.0.1536.834@0.0.1536.834" timestamp="1589960979011" />
+    <state x="465" y="241" key="com.intellij.ide.util.TipDialog/0.0.1536.834@0.0.1536.834" timestamp="1590490291617" />
     <state x="601" y="212" width="738" height="594" key="find.popup" timestamp="1590413412561">
       <screen x="0" y="0" width="1536" height="834" />
     </state>
