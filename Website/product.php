@@ -7,6 +7,7 @@ $productpage = "";
 $biedingen = "";
 $productnaam = "";
 $filenaam = "";
+$errorMsg = "";
 
 if ($_SERVER["REQUEST_METHOD"] == "GET") {
     $productNummer = $_GET['pn'];
@@ -27,12 +28,14 @@ JOIN bod  b on v.voorwerpnummer = b.voorwerp
     $sth->execute();
     foreach ($sth->fetchAll(PDO::FETCH_ASSOC) as $row) {
         $verkoper = $row['verkoper'];
-        $huidigebod= $row['bodbedrag'];
+        $huidigebod = $row['bodbedrag'];
     }
 
     $bodBedrag = $_POST["bod"];
-    if($verkoper !=$_SESSION['user'] ){
-        if($huidigebod <$bodBedrag) {
+    if (trim(strtolower($verkoper)) == trim(strtolower($_SESSION['user']))) {
+        $errorMsg = '<div class="notification is-danger">U kunt niet op u zelf bieden.</div>';
+    } else {
+        if ($huidigebod < $bodBedrag) {
             $sth = $dbh->prepare("INSERT INTO Bod (voorwerp, Bodbedrag, Gebruiker, BodDag, BodTijdstip) VALUES(:Voorwerp, :Bodbedrag, :Gebruiker, :BodDag, :BodTijdstip)");
             $sth->bindParam(':Voorwerp', $Voorwerp);
             $sth->bindParam(':Bodbedrag', $bodbedrag);
@@ -88,7 +91,7 @@ foreach ($sth->fetchAll(PDO::FETCH_ASSOC) as $row) {
                     </figure>
                 </div>
                 <div class="column is-half">
-                        <h3 class="title is-8" id="price"> &euro;' .$row['bodbedrag'] .'</h3>
+                        <h3 class="title is-8" id="price"> &euro;' . $row['bodbedrag'] . '</h3>
                         <p>
                            ' . $row['beschrijving'] . '
                         </p>
@@ -136,7 +139,7 @@ foreach ($sth->fetchAll(PDO::FETCH_ASSOC) as $row) {
 }
 
 //biedingen
-$sth = $dbh->prepare('Select * from bod where Voorwerp  =:productnummer ORDER BY bodDag,BodTijdstip DESC');
+$sth = $dbh->prepare('Select * from bod where Voorwerp  =:productnummer ORDER BY  Bodbedrag DESC');
 $sth->bindParam(':productnummer', $pn);
 $pn = $productNummer;
 $sth->execute();
@@ -154,7 +157,7 @@ foreach ($sth->fetchAll(PDO::FETCH_ASSOC) as $row) {
                                             <div class="content">
                                                 <p>
                                                     <strong>' . $row['gebruiker'] . '</strong> <small>@ ' . substr($productnaam, 0, 10) . '...' . '</small>
-                                                    <small>' . substr($row['bodTijdstip'], 0, 5) .' ' . $row['bodDag'] . '</small>
+                                                    <small>' . substr($row['bodTijdstip'], 0, 5) . ' ' . $row['bodDag'] . '</small>
                                                     <br>
                                                     Bod: &euro; ' . $row['bodbedrag'] . '
                                                 </p>
@@ -174,7 +177,7 @@ foreach ($sth->fetchAll(PDO::FETCH_ASSOC) as $row) {
     <section>
         <div class="container">
             <br>
-
+            <?= $errorMsg ?>
             <div class="card ">
                 <div class="card-content">
                     <?= $productpage ?>
