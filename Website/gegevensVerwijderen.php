@@ -46,20 +46,22 @@ $dbh = connectToDatabase();
             </span>
          </div>
          
-         <br>
+         
          <br>
          <br>
          <div class="column has-text-centered">
-            <button class="button is-danger">
+            <button class="button is-danger" >
                Klik hier om uw account te verwijderen
             </button>
         
-        </div>
-                    
-                    
-                    
+        </div>                    
                         ';
+
+                        //if (HASH (password) of $username) == DataBase password of $username) and buttonpressed, do the prepared statemen
+                        $sth = $dbh->prepare('SELECT * FROM gebruiker WHERE gebruikersnaam =');
+
                     }; ?>
+
 
                     <!--Weergeven op de gegevensVerwijderen pagina-->
                     <h1 class="title is-1 has-text-centered">Uw account verwijderen</h1>
