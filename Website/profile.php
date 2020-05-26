@@ -236,7 +236,6 @@ $dbh = connectToDatabase();
                     <h1 class="title is-1 has-text-centered">Mijn gegevens</h1>
                     <h3 class="subtitle is-size-5 has-text-centered">Hier kunt u uw gegevens bekijken en
                         aanpassen</h3>
-
                     <?= $profielAanpassen ?>
 
                 <?php } ?>
