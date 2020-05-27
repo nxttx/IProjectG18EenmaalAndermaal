@@ -2,42 +2,30 @@
 require_once( "../php/dbh.php");
 $dbh = connectToDatabase();
 
-$false = 0;
-$true = 1;
 
-if (isset($_POST['submit'])) {
-
-    $_POST = array_map('stripslashes', $_POST);
-
-    //collect form data
-    extract($_POST);
-    $gebruikersnaam = $_GET['gebruikersnaam'];
-    if (!isset($error)) {
-
-        try {
-
-            $sql = "UPDATE gebruiker SET is_geverifieerd = :is_geverifieerd WHERE gebruikersnaam = :gebruikersnaam";
-            $stmt = $dbh->prepare($sql);
-            $stmt->execute(array(
-                ':is_geverifieerd' => $true,
-                ':gebruikersnaam' => $gebruikersnaam
-            ));
-
-            //redirect to index page
-            header('Location: ../dashboard.php?action=updated');
-            exit;
-
-        } catch (PDOException $e) {
-            echo $e->getMessage();
-        }
-
-    }
-
-}
-if (isset($error)) {
-    foreach ($error as $error) {
-        echo $error . '<br />';
-    }
-}
 
 ?>
+
+
+<?php
+$siteTitle = "titel";
+?>
+
+<?php include "includes/head.php" ?>
+<?php include "includes/header.php" ?>
+    <section>
+        <div class="container">
+            <br>
+
+            <div class="card ">
+                <div class="card-content">
+                    <h2 class="title is-2  has-text-centered">Titel</h2>
+                    <p class="subtitle is-5  has-text-centered">Subtitel is dit maar die is meerdere woorden </p>
+                </div>
+            </div>
+
+            <br>
+
+        </div>
+    </section>
+<?php include "includes/footer.php" ?>

@@ -25,7 +25,7 @@ $stmt->execute([$true]);
 
 
 $klanten .= "
-             <form class=\"field\" method=\"post\">
+             <form class='field' method='post'>
                  <table class='table'>
                      <thead>
                         <tr>
