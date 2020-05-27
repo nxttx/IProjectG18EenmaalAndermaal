@@ -1,6 +1,3 @@
-<!--#TODO: CHECK OF GEBRUIKER NOG GEEN VERKOPER IS.
-    #TODO: INSERT TABLE.-->
-
 <?php
 $siteTitle = "titel";
 include "php/dbh.php" ;
