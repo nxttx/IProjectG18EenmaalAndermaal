@@ -9,11 +9,6 @@
                     <p class="is-link">
                         <a href="../categorieen.php">Categorieën </a>
                     </p>
-                    <!--                    <p class="is-link">-->
-                    <!--                        <a href="#">Plaats advertentie</a>-->
-                    <!--                    </p>-->
-
-
                     <?php if (!isset($_SESSION['user'])) { ?>
                         <p class="is-link">
                             <a href="../register.php">Registreren</a>
@@ -23,6 +18,22 @@
                         </p>
                     <?php } elseif (isset($_SESSION['user'])) { ?>
                         <p class="link"><a href="../profile.php">Mijn profiel</a></p>
+                        <?php
+                        $sth = $dbh->prepare("SELECT COUNT(gebruiker)as x FROM verkoper WHERE gebruiker=:username");
+                        $sth->bindParam(':username', $_SESSION['user']);
+                        $sth->execute();
+                        foreach ($sth->fetchAll(PDO::FETCH_ASSOC) as $row) {
+                            $results=$row['x'];
+                        }
+                        if($results <1){ //niet verkoper ?>
+                            <p class="is-link is-large">
+                                <a href="../verkoper_worden.php">Wordt verkoper</a>
+                            </p>
+                        <?php } else{ //verkoper?>
+                            <p class="is-link is-large">
+                                <a href="Insertproduct.php">Plaats advertentie</a>
+                            </p>
+                        <?php }?>
                     <?php }; ?>
 
 
@@ -66,11 +77,6 @@
                 <p class="is-link is-large">
                     <a href="../categorieen.php">Categorieën </a>
                 </p>
-                <!--                <p class="is-link is-large">-->
-                <!--                    <a href="#">Plaats advertentie</a>-->
-                <!--                </p>-->
-
-
                 <?php if (!isset($_SESSION['user'])) { ?>
                     <p class="is-link">
                         <a href="../register.php">Registreren</a>
@@ -80,6 +86,22 @@
                     </p>
                 <?php } elseif (isset($_SESSION['user'])) { ?>
                     <p class="link"><a href="../profile.php">Mijn profiel</a></p>
+                    <?php
+                    $sth = $dbh->prepare("SELECT COUNT(gebruiker)as x FROM verkoper WHERE gebruiker=:username");
+                    $sth->bindParam(':username', $_SESSION['user']);
+                    $sth->execute();
+                    foreach ($sth->fetchAll(PDO::FETCH_ASSOC) as $row) {
+                        $results=$row['x'];
+                    }
+                    if($results <1){ //niet verkoper ?>
+                                        <p class="is-link is-large">
+                                            <a href="../verkoper_worden.php">Wordt verkoper</a>
+                                        </p>
+                    <?php } else{ //verkoper?>
+                                        <p class="is-link is-large">
+                                            <a href="Insertproduct.php">Plaats advertentie</a>
+                                        </p>
+                        <?php }?>
                 <?php }; ?>
 
 
