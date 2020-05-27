@@ -60,8 +60,6 @@ $dbh = connectToDatabase();
                     }
 
                     $sth->execute();
-                    //"Delete FROM verkoper where gebruiker = 'NXTTX'"
-                    //"SELECT * FROM verkoper"
                 }
                 $results=0;
                 //check of gebruiker een verkoper is
@@ -164,8 +162,15 @@ $dbh = connectToDatabase();
                     <?php if($results >= 1) { ?>
 
                     <h2 class="title is-2  has-text-centered">Aanmelden als verkoper</h2>
-                    <p class="subtitle is-5  has-text-centered">U heeft zich al aangemeld als verkoper.</p>
+                    <p class="subtitle is-5  has-text-centered">U bent al verkoper en hoeft u niet opnieuw aan te melden als verkoper. U wordt doorgestuurd naar de hoofdpagina</p>
 
+                    <p class="subtitle is-5 has-text-centered">Gebeurt dit niet automatisch binnnen enkele seconden? Klik dan <a
+                                href="index.php.php">hier.</a></p>
+                    <script>
+                        setTimeout(function () {
+                            window.location.href = 'index.php';
+                        }, 3000)
+                    </script>
 
                 <?php }
                 } ?>
