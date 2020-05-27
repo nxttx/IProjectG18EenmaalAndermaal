@@ -16,7 +16,9 @@ $antaal_Nieuwe_Gebruiker = "";
 $false = 0;
 $true = 1;
 
+if(isset($_POST[''])){
 
+}
 if(isset($_POST['akkoord'])){
 
         $gebruikersnaam = $_POST['gebruikersnaam'];
@@ -87,7 +89,7 @@ foreach ($stmt->fetchAll() as $row) {
                     <nav class="menu">
                         <ul class="menu-list">
                             <li><a>Dashboard</a></li>
-                            <li><a>Klanten</a></li>
+                            <li><button class="button is-primary is-rounded" name="klanten" type="submit">Klanten</button></li>
                         </ul>
                     </nav>
                 </aside>
