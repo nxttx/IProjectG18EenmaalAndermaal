@@ -72,11 +72,11 @@
     <property name="last_opened_file_path" value="$PROJECT_DIR$" />
   </component>
   <component name="RecentsManager">
-    <key name="CopyFile.RECENT_KEYS">
-      <recent name="C:\Users\Rober\Documents\GitHub\IProjectEenmaalAndermaal\Website" />
+    <key name="MoveFile.RECENT_KEYS">
       <recent name="C:\Users\Rober\Documents\GitHub\IProjectEenmaalAndermaal\Website\php\checks" />
     </key>
-    <key name="MoveFile.RECENT_KEYS">
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="C:\Users\Rober\Documents\GitHub\IProjectEenmaalAndermaal\Website" />
       <recent name="C:\Users\Rober\Documents\GitHub\IProjectEenmaalAndermaal\Website\php\checks" />
     </key>
   </component>
@@ -90,7 +90,22 @@
       <list>
         <serviceView>
           <treeState>
-            <expand />
+            <expand>
+              <path>
+                <item name="services root" type="e789fda9:ObjectUtils$Sentinel" />
+                <item name="iproject18: root" type="7427dc5b:ServiceModel$ServiceGroupNode" />
+              </path>
+              <path>
+                <item name="services root" type="e789fda9:ObjectUtils$Sentinel" />
+                <item name="iproject18: root" type="7427dc5b:ServiceModel$ServiceGroupNode" />
+                <item name="com.intellij.database.console.session.MessageBusSession@2dbe85af" type="9fbbdea:ServiceModel$ServiceNode" />
+              </path>
+              <path>
+                <item name="services root" type="e789fda9:ObjectUtils$Sentinel" />
+                <item name="iproject18: root" type="7427dc5b:ServiceModel$ServiceGroupNode" />
+                <item name="com.intellij.database.console.session.MessageBusSession@37e63efc" type="9fbbdea:ServiceModel$ServiceNode" />
+              </path>
+            </expand>
             <select />
           </treeState>
         </serviceView>
@@ -115,9 +130,8 @@
       <workItem from="1589910408497" duration="165000" />
       <workItem from="1589910617379" duration="513000" />
       <workItem from="1589960925466" duration="521000" />
-      <workItem from="1590431348884" duration="49000" />
-      <workItem from="1590490281591" duration="8425000" />
-      <workItem from="1590500043861" duration="238000" />
+      <workItem from="1590568451322" duration="8533000" />
+      <workItem from="1590583124551" duration="1784000" />
     </task>
     <servers />
   </component>
@@ -145,35 +159,36 @@
       <screen x="0" y="0" width="1536" height="834" />
     </state>
     <state x="549" y="172" key="FileChooserDialogImpl/0.0.1536.834@0.0.1536.834" timestamp="1589889410020" />
-    <state width="1024" height="185" key="GridCell.Tab.0.bottom" timestamp="1590498043627">
+
+    <state width="1024" height="185" key="GridCell.Tab.0.bottom" timestamp="1590585718227">
       <screen x="0" y="0" width="1536" height="834" />
     </state>
-    <state width="1024" height="185" key="GridCell.Tab.0.bottom/0.0.1536.834@0.0.1536.834" timestamp="1590498043627" />
-    <state width="1024" height="185" key="GridCell.Tab.0.center" timestamp="1590498043627">
+    <state width="1024" height="185" key="GridCell.Tab.0.bottom/0.0.1536.834@0.0.1536.834" timestamp="1590585718227" />
+    <state width="1024" height="185" key="GridCell.Tab.0.center" timestamp="1590585718227">
       <screen x="0" y="0" width="1536" height="834" />
     </state>
-    <state width="1024" height="185" key="GridCell.Tab.0.center/0.0.1536.834@0.0.1536.834" timestamp="1590498043627" />
-    <state width="1024" height="185" key="GridCell.Tab.0.left" timestamp="1590498043627">
+    <state width="1024" height="185" key="GridCell.Tab.0.center/0.0.1536.834@0.0.1536.834" timestamp="1590585718227" />
+    <state width="1024" height="185" key="GridCell.Tab.0.left" timestamp="1590585718227">
       <screen x="0" y="0" width="1536" height="834" />
     </state>
-    <state width="1024" height="185" key="GridCell.Tab.0.left/0.0.1536.834@0.0.1536.834" timestamp="1590498043627" />
-    <state width="1024" height="185" key="GridCell.Tab.0.right" timestamp="1590498043627">
+    <state width="1024" height="185" key="GridCell.Tab.0.left/0.0.1536.834@0.0.1536.834" timestamp="1590585718227" />
+    <state width="1024" height="185" key="GridCell.Tab.0.right" timestamp="1590585718227">
       <screen x="0" y="0" width="1536" height="834" />
     </state>
-    <state width="1024" height="185" key="GridCell.Tab.0.right/0.0.1536.834@0.0.1536.834" timestamp="1590498043627" />
+    <state width="1024" height="185" key="GridCell.Tab.0.right/0.0.1536.834@0.0.1536.834" timestamp="1590585718227" />
     <state x="844" y="189" key="NewPhpFileDialog" timestamp="1589883479606">
       <screen x="0" y="0" width="1536" height="834" />
     </state>
     <state x="844" y="189" key="NewPhpFileDialog/0.0.1536.834@0.0.1536.834" timestamp="1589883479606" />
-    <state x="756" y="153" width="490" height="488" key="com.intellij.database.run.ParametersPanel.Standalone" timestamp="1590494648572">
+    <state x="757" y="239" key="com.intellij.database.run.ParametersPanel.Standalone" timestamp="1590583332987">
       <screen x="0" y="0" width="1536" height="834" />
     </state>
-    <state x="756" y="153" width="490" height="488" key="com.intellij.database.run.ParametersPanel.Standalone/0.0.1536.834@0.0.1536.834" timestamp="1590494648572" />
-    <state x="465" y="241" key="com.intellij.ide.util.TipDialog" timestamp="1590500056482">
+    <state x="757" y="239" key="com.intellij.database.run.ParametersPanel.Standalone/0.0.1536.834@0.0.1536.834" timestamp="1590583332987" />
+    <state x="465" y="241" key="com.intellij.ide.util.TipDialog" timestamp="1590583126860">
       <screen x="0" y="0" width="1536" height="834" />
     </state>
-    <state x="465" y="241" key="com.intellij.ide.util.TipDialog/0.0.1536.834@0.0.1536.834" timestamp="1590500056482" />
-    <state x="601" y="212" width="738" height="594" key="find.popup" timestamp="1590413412561">
+    <state x="465" y="241" key="com.intellij.ide.util.TipDialog/0.0.1536.834@0.0.1536.834" timestamp="1590583126860" />
+    <state x="675" y="202" width="738" height="606" key="find.popup" timestamp="1589812675968">
       <screen x="0" y="0" width="1536" height="834" />
     </state>
     <state x="601" y="212" width="738" height="594" key="find.popup/0.0.1536.834@0.0.1536.834" timestamp="1590413412561" />
