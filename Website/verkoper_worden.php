@@ -35,6 +35,12 @@ $dbh = connectToDatabase();
                 elseif (isset($_SESSION['user'])) {
 
                 if ($_SERVER["REQUEST_METHOD"] == "POST") {
+                    $sth = $dbh->prepare("UPDATE gebruiker SET verkoper= 'wel' WHERE gebruikersnaam=:gebruiker ");
+                    $sth->bindParam(':gebruiker', $gebruiker);
+                    $gebruiker = $_SESSION['user'];
+
+                    $sth->execute();
+
                     $sth = $dbh->prepare('INSERT INTO  verkoper(gebruiker, bank, bankrekening, controleoptie, creditcard) 
                                                         VALUES (:gebruiker, :bank, :bankrekening, :controleoptie, :creditcard)');
 
