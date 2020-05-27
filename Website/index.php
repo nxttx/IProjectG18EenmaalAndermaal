@@ -55,11 +55,7 @@ else {
 $datee=$day."-".$mont."-".$year;
 
 
-/*$sql = "SELECT TOP (4) V.voorwerpnummer ,V.titel, V.beschrijving, V.startprijs, V.LooptijdbeginDag, B.filenaam 
-FROM Voorwerp V 
-	JOIN bestand B on V.voorwerpnummer = B.voorwerp
-ORDER BY views DESC";
- Old Query   */
+
 
 $sql = "SELECT TOP (4) V.voorwerpnummer ,V.titel, V.beschrijving, V.startprijs, V.LooptijdbeginDag, B.filenaam 
 FROM Voorwerp V 
@@ -81,6 +77,7 @@ foreach ($dbh->query($sql) as $row) {
                         <div class=\"columns has-text-centered\">
                             <div class=\"column\">
                                 <div class=\"content is-medium\">
+                                <p class='is-size-7'>vanaf prijs:</p>
                                     	<p>&euro;{$row['startprijs']}</p>
                                 </div> 
                             </div>
@@ -122,6 +119,7 @@ foreach ($dbh->query($sql) as $row) {
                         <div class=\"columns has-text-centered\">
                             <div class=\"column\">
                                 <div class=\"content is-medium\">
+                                <p class='is-size-7'>vanaf prijs:</p>
                                     	<p>&euro;{$row['startprijs']}</p>
                                 </div> 
                             </div>
