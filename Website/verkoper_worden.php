@@ -33,6 +33,7 @@ $dbh = connectToDatabase();
 
                 <?php }
                 elseif (isset($_SESSION['user'])) {
+                    $registreermessage="";
 
                 if ($_SERVER["REQUEST_METHOD"] == "POST") {
                     $sth = $dbh->prepare("UPDATE gebruiker SET verkoper= 'wel' WHERE gebruikersnaam=:gebruiker ");
@@ -60,6 +61,7 @@ $dbh = connectToDatabase();
                     }
 
                     $sth->execute();
+                    $registreermessage = "<div class=\"notification is-primary\">U ben verkoper geworden, leuk om je er bij te hebben!</div>";
                 }
                 $results=0;
                 //check of gebruiker een verkoper is
@@ -160,7 +162,7 @@ $dbh = connectToDatabase();
                     </form>
                         <?php } ?>
                     <?php if($results >= 1) { ?>
-
+                    <?=$registreermessage?>
                     <h2 class="title is-2  has-text-centered">Aanmelden als verkoper</h2>
                     <p class="subtitle is-5  has-text-centered">U bent al verkoper en hoeft u niet opnieuw aan te melden als verkoper. U wordt doorgestuurd naar de hoofdpagina</p>
 
@@ -183,3 +185,4 @@ $dbh = connectToDatabase();
 </section>
 <script src="js/VerkoperWorden.js"></script>
 <?php include "includes/footer.php"?>
+
