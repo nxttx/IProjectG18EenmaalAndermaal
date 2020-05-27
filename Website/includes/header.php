@@ -44,11 +44,11 @@ if (isset($_SESSION["user"])) {
                     <div class="buttons">
                         <?php
                         if (!$login) {
-                            echo '<a class="button is-primary" href="../login.php"><i class="far fa-f2x fa-user small-icon"></i>Log in</strong></a>';
-                            echo '<b><a class="button has-text-primary" href="../register.php"><i class="far fa-f2x fa-user small-icon"></i>Registeren</strong></a></b>';
+                            echo '<a class="button is-primary" href="../login.php"><i class="far fa-f2x fa-user small-icon"></i>Log in</a>';
+                            echo '<b><a class="button has-text-primary" href="../register.php"><i class="far fa-f2x fa-user small-icon"></i>Registeren</a></b>';
                         } else {
-                            echo '<b><button class="button has-text-primary" onclick="logout()"><strong><i class="far fa-f2x fa-user small-icon"></i>Uitloggen</strong></button></b>';
-                            echo '<a class="button is-primary" href="../profile.php"><i class="far fa-f2x fa-user small-icon"></i>Mijn profiel</strong></a>';
+                            echo '<b><button class="button has-text-primary" onclick="logout()"><i class="far fa-f2x fa-user small-icon"></i>Uitloggen</button></b>';
+                            echo '<b><a class="button is-primary" href="../profile.php"><i class="far fa-f2x fa-user small-icon"></i>Mijn profiel</b></a>';
 
                         }
                         ?>
