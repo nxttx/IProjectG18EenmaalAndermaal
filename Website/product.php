@@ -5,6 +5,72 @@ $siteTitle = "";
 $productNummer = $_GET['pn'];
 $productpage = "";
 
+
+$day= date('d');
+$month= date('m');
+$year= date('Y');
+    
+      if($month==1){
+ $mont="jan";
+}
+else if($month==2){
+$mont="feb";
+}
+else if($month==3){
+$mont="mar";
+}
+else if($month==4){
+$mont="apr";
+}
+else if($month==5){
+$mont="may";
+}
+else if($month==6){
+$mont="jun";
+}
+else if($month==7){
+$mont="jul";
+}
+else if($month==8){
+$mont="aug";
+}
+else if($month==9){
+$mont="sept";
+}
+else if($month==10){
+$mont="oct";
+}
+else if($month==11){
+$mont="nov";
+}
+else if($month==12){
+$mont="dec";
+}
+else {
+
+}
+$datee=$day."-".$mont."-".$year;
+$dat="";
+$d="";
+$dbh = connectToDatabase();
+            $smts = $dbh->prepare("SELECT * FROM voorwerp WHERE voorwerpnummer = ? AND looptijdeindeDag> ? ");
+	
+            $smts->execute([$productNummer, $datee]);
+            $datas = $smts->fetchAll();
+				  
+				  foreach ($datas as $rows):
+				
+                 $dat=$rows["looptijdeindeDag"];
+				  endforeach;
+if($dat==NULL){
+$d="disabled";
+}
+else {
+
+}
+
+
+
 //views +1
 $sth = $dbh->prepare('UPDATE voorwerp SET views = views +1  WHERE voorwerpnummer = :productnummer');
 $sth->bindParam(':productnummer', $pn);
@@ -26,7 +92,6 @@ $sth->execute();
 foreach ($sth->fetchAll(PDO::FETCH_ASSOC) as $row) {
     $siteTitle = $row['titel'];
     $productpage = '
-
         <h2 class="title is-1  has-text-centered">' . $row['titel'] . '</h2>
         <br>
         <div class="columns">
@@ -42,22 +107,18 @@ foreach ($sth->fetchAll(PDO::FETCH_ASSOC) as $row) {
                         </p>
                         <br>
                         <form action="" method="">
-
                             <label for="bod" class="label">Uw bod: *</label>
                             <label class="checkbox">
                                 <input type="checkbox" required>
                                 Ik ga akoord met <a href="tos.php" target="_blank"> de gebruikersvoorwaarden</a>
                             </label>
                             <div class="field has-addons">
-
                                 <div class="control">
                                     <input class="input is-primary" type="text" name="bod"
                                            id="bod" value="&euro;" maxlength="50" minlength="5" required>
                                 </div>
-                                <input class="button is-primary" type="submit" value="breng bod uit">
-
+                                <input class="button is-primary" type="submit" value="breng bod uit" '.$d.'>
                             </div>
-
                         </form>
                         <br>
                         <p>
@@ -71,13 +132,7 @@ foreach ($sth->fetchAll(PDO::FETCH_ASSOC) as $row) {
                         </p>
                 </div>
         </div>
-
 <!-- Hier moeten de vorige biedingen komen  -->
-
-
-
-
-
     ';
 }
 
