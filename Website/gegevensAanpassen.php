@@ -1,5 +1,5 @@
 <?php
-$siteTitle = "Mijn profiel";
+$siteTitle = "Mijn gegevens";
 include "php/dbh.php";
 $dbh = connectToDatabase();
 ?>

@@ -51,7 +51,13 @@ SET voornaam=:voornaam, achternaam=:achternaam, adresregel1=:adresregel1, adresr
 
 
         $title = "Uw gegevens zijn aangepast.";
-        $subtitle = '<p class="subtitle has-text-centered is-marginless">U kunt nu gerust de pagina sluiten of naar een andere pagina gaan.</p>';
+        $subtitle = '<p class="subtitle has-text-centered is-marginless">U kunt nu gerust de pagina sluiten of naar een andere pagina gaan.</p> 
+         <div class="field has-text-centered">
+            <br>
+            <input class="button is-primary" value="Klik om terug te gaan" onclick="history.back()">
+         </div>   
+            ';
+
         $error_msg = "";
 
     } else {

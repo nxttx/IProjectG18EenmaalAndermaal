@@ -2,7 +2,6 @@
 $siteTitle = "Account verwijderen";
 include "php/dbh.php";
 $dbh = connectToDatabase();
-// TODO: MOET JE EEN DBusername hebben? gewoon $_SESSION username gebruiken en met passwd checken is vgm genoeg
 ?>
 
 <?php include "includes/head.php" ?>
@@ -119,7 +118,11 @@ $dbh = connectToDatabase();
                             $sth->execute();
 
                             $deleteUser = '';
-                            $subtitle = '<br><p class="subtitle has-text-centered is-marginless">U kunt nu gerust de pagina sluiten of naar een andere pagina gaan.</p>';
+                            $subtitle = '<br><p class="subtitle has-text-centered is-marginless">U kunt nu gerust de pagina sluiten of naar een andere pagina gaan.</p>
+                            <div class="field has-text-centered">
+                                <br>
+                                <a href="index.php" class="button is-primary">Klik om naar de homepagina te gaan</a>
+                            </div>   ';
                             $error_msg = "";
                             session_destroy();
 

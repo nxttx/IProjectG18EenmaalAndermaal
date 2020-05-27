@@ -33,7 +33,7 @@ $dbh = connectToDatabase();
 
 
                     <!--html user-->
-                    <h1 class="title is-1 has-text-centered">Mijn gegevens</h1>
+                    <h1 class="title is-1 has-text-centered">Mijn profiel</h1>
                     <p class="subtitle is-5  has-text-centered">Hier kunt u naar de pagina's gaan om uw gegevens aan te
                         passen of verkoper te worden.</p>
                             <br>
