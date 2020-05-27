@@ -3,7 +3,6 @@
   <component name="ChangeListManager">
     <list default="true" id="0aff27a9-945f-405c-a4cf-e1d8b89d62ae" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/PHP/verwerken_gebruiker.php" beforeDir="false" afterPath="$PROJECT_DIR$/PHP/view_gebruiker.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/dashboard.php" beforeDir="false" afterPath="$PROJECT_DIR$/dashboard.php" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -71,7 +70,7 @@
     <property name="DatabaseDriversLRU" value="sqlserver" />
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
     <property name="WebServerToolWindowFactoryState" value="true" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/../../../d" />
     <property name="nodejs_package_manager_path" value="npm" />
   </component>
   <component name="RecentsManager">
@@ -93,7 +92,7 @@
   </component>
   <component name="TaskManager">
     <task active="true" id="Default" summary="Default task">
-      <changelist id="107207d0-5958-485e-a0df-ed2e445e4ac0" name="Default Changelist" comment="" />
+      <changelist id="0aff27a9-945f-405c-a4cf-e1d8b89d62ae" name="Default Changelist" comment="" />
       <created>1589306480380</created>
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
@@ -107,11 +106,24 @@
       <workItem from="1589910617379" duration="513000" />
       <workItem from="1589960925466" duration="521000" />
       <workItem from="1590412215058" duration="5270000" />
+      <workItem from="1590601435232" duration="4153000" />
     </task>
+    <task id="LOCAL-00001" summary="dashboard">
+      <created>1590601476891</created>
+      <option name="number" value="00001" />
+      <option name="presentableId" value="LOCAL-00001" />
+      <option name="project" value="LOCAL" />
+      <updated>1590601476891</updated>
+    </task>
+    <option name="localTasksCounter" value="2" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
     <option name="version" value="2" />
+  </component>
+  <component name="VcsManagerConfiguration">
+    <MESSAGE value="dashboard" />
+    <option name="LAST_COMMIT_MESSAGE" value="dashboard" />
   </component>
   <component name="WindowStateProjectService">
     <state x="361" y="71" key="#Deployment" timestamp="1590412321719">
@@ -130,10 +142,14 @@
       <screen x="0" y="0" width="1536" height="834" />
     </state>
     <state x="499" y="164" key="#com.intellij.refactoring.safeDelete.UnsafeUsagesDialog/0.0.1536.834@0.0.1536.834" timestamp="1589872848411" />
-    <state x="549" y="170" key="FileChooserDialogImpl" timestamp="1590412297777">
+    <state x="390" y="0" key="CommitChangelistDialog2" timestamp="1590601476312">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
-    <state x="549" y="170" key="FileChooserDialogImpl/0.0.1536.824@0.0.1536.824" timestamp="1590412297777" />
+    <state x="390" y="0" key="CommitChangelistDialog2/0.0.1536.824@0.0.1536.824" timestamp="1590601476312" />
+    <state x="549" y="170" key="FileChooserDialogImpl" timestamp="1590601626997">
+      <screen x="0" y="0" width="1536" height="824" />
+    </state>
+    <state x="549" y="170" key="FileChooserDialogImpl/0.0.1536.824@0.0.1536.824" timestamp="1590601626997" />
     <state x="549" y="172" key="FileChooserDialogImpl/0.0.1536.834@0.0.1536.834" timestamp="1589889410020" />
     <state width="1024" height="373" key="GridCell.Tab.0.bottom" timestamp="1589890569890">
       <screen x="0" y="0" width="1536" height="834" />
