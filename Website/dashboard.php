@@ -37,8 +37,7 @@ function count_aantal($geval, $aantal)
 
 
 $klanten .= "
-             <form class='field' method='post'>
-                 <table class='table'>
+                  <table class='table'>
                      <thead>
                         <tr>
                            <th><abbr title='Gebruikers_Naam'>Gebruiker Name</abbr></th>
@@ -51,10 +50,13 @@ $stmt->execute([$true]);
 
 foreach ($stmt->fetchAll() as $row) {
     $klanten .= "
+        <form class='field' method='post'>
           <tr>
-              <td>" . $row['gebruikersnaam'] . "</td>
+              <td><button class='button is-white' name='gebruiker' type='submit'> ".$row['gebruikersnaam']."</button></td>
+                            <input type='hidden' name='gebruikersnaam' value=" . $row['gebruikersnaam'] . ">
               <td>" . $row['emailadress'] . "</td>
           </tr>
+        </form>
 ";
 
 }
@@ -62,7 +64,7 @@ $klanten .= "
                      </tr>
                    </thead>
                 </table>
-             </form>";
+             ";
 
 
 $niewe_Klanten = "<div class='columns is-multiline is-'>
@@ -122,6 +124,7 @@ if (isset($_POST['klanten'])) {
 if(isset($_POST['gebruiker'])){
 
     $gebruikersnaam = $_POST['gebruikersnaam'];
+
     $sql = "SELECT * FROM gebruiker
  WHERE gebruikersnaam =:gebruikersnaam";
     $sth = $dbh->prepare("$sql");
@@ -130,10 +133,11 @@ if(isset($_POST['gebruiker'])){
 
     foreach ($sth->fetchAll(PDO::FETCH_ASSOC) as $row) {
         $gegevens_Klant = " 
+                    <form class='field' method='post'>
                         <br>
                             <label for='gebruikersnaam' class='label'>Gebruikersnaam:</label> 
                             <input class='input is-primary' type='text' name='gebruikersnaam' 
-                            id='gebruikersnaam' value='" . rtrim($row['gebruikersnaam']) . "' disabled='disabled'>
+                            id='gebruikersnaam' value='" .$row['gebruikersnaam'] . "' disabled='disabled'>
                         <br> 
                         
                         <form class='field'>
@@ -144,7 +148,7 @@ if(isset($_POST['gebruiker'])){
                                         <label for=\"voornaam\" class=\"label\">Voornaam:</label>
                                          <div class=\"control\">
                                            <input class='input is-primary' type='text' name='voornaam'
-                                            value='" . rtrim($row['voornaam']) ."' maxlength='50' disabled=\"disabled\">
+                                            value='" . $row['voornaam'] ."' maxlength='50' disabled=\"disabled\">
                                         </div>
                                     </div>
                                 </div>
@@ -153,7 +157,7 @@ if(isset($_POST['gebruiker'])){
                                     <label for=\"achternaam\" class=\"label\">Achternaam:</label>
                                         <div class=\"control\">
                                         <input class=\"input is-primary\"
-                                            value=\"" . rtrim($row['achternaam']) . "\"
+                                            value=\"" . $row['achternaam'] . "\"
                                             type=\"text\" name=\"achternaam\"
                                             maxlength=\"50\" disabled=\"disabled\">
                                         </div>
@@ -167,7 +171,7 @@ if(isset($_POST['gebruiker'])){
                                         <label for=\"adresregel1\" class=\"label\">Adres:</label>
                                          <p class=\"control has-icons-left\">
                                          <input class=\"input is-primary\" type=\"text\" name=\"adresregel1\"
-                                            value=\"" . rtrim($row['adresregel1']) . "\"
+                                            value=\"" . $row['adresregel1'] . "\"
                                             maxlength=\"100\" disabled=\"disabled\">
                                          <span class=\"icon is-small is-left\">
                                             <i class=\"fas fa-map-marked-alt\"></i>
@@ -180,7 +184,7 @@ if(isset($_POST['gebruiker'])){
                                         <label for=\"adresregel2\" class=\"label\">Adres 2:</label>
                                         <p class=\"control has-icons-left\">
                                          <input class=\"input is-primary\" type=\"text\" name=\"adresregel2\"
-                                                 value=\"" . rtrim($row['adresregel2']) . "\"
+                                                 value=\"" . $row['adresregel2'] . "\"
                                                     maxlength=\"100\" disabled=\"disabled\">
                                         <span class=\"icon is-small is-left\">
                                             <i class=\"fas fa-map-marked-alt\"></i>
@@ -188,45 +192,111 @@ if(isset($_POST['gebruiker'])){
                                         </p>
                                     </div>
                                 </div>
+                            </div><div class=\"columns\">
+                                <div class=\"column is-half\">
+                                    <div class=\"field\">
+                                         <label for=\"postcode\" class=\"label\">Postcode:</label>
+                                         <div class=\"control has-icons-left\">
+                                             <input class=\"input is-primary\" type=\"text\" name=\"postcode\"
+                                                 value=\"" . $row['postcode'] . "\"
+                                                maxlength=\"20\" disabled=\"disabled\">
+                                             <span class=\"icon is-small is-left\">
+                                                  <i class=\"fas fa-map-marked-alt\"></i>
+                                             </span>
+                                         </div>
+                                    </div>
+                                </div>
+                                <div class=\"column is-half\">
+                                     <div class=\"field\">
+                                        <label for=\"plaatsnaam\" class=\"label\">Plaatsnaam: *</label>
+                                        <div class=\"control has-icons-left\">
+                                             <input class=\"input is-primary\" type=\"text\" name=\"plaatsnaam\"
+                                                 value=\"" . $row['plaatsnaam'] . "\"
+                                                maxlength=\"50\" disabled=\"disabled\">
+                                             <span class=\"icon is-small is-left\">
+                                             <i class=\"fas fa-map-marked-alt\"></i>
+                                             </span>
+                                         </div>
+                                     </div>
+                                </div>
+                            </div><div class=\"columns\">
+                                <div class=\"column is-half\">
+                                    <div class=\"field\">
+                                        <label for=\"land\" class=\"label\">Land:</label>
+                                        <div class=\"control has-icons-left\">
+                                            <input class=\"input is-primary\" type=\"text\" name=\"plaatsnaam\"
+                                            value=\"" . $row['land'] . "\"
+                                                maxlength=\"50\" disabled=\"disabled\">
+                                              <span class=\"icon is-small is-left\">
+                                                    <i class=\"fas fa-map-marked-alt\"></i>
+                                              </span>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class=\"column is-half\">
+                                    <div class=\"field\">
+                                    <label for=\"birthdate\" class=\"label\">Geboortedatum: *</label>
+                                    <p class=\"control has-icons-left\">
+                                    <input class=\"input is-primary\" type=\"text\" name=\"birthdate\"
+                                     value=\"" .$row['geboorteDag'] . "\"
+                                        maxlength=\"10\" disabled=\"disabled\">
+                                    <span class=\"icon is-small is-left\">
+                                    <i class=\"far fa-calendar-alt\"></i>
+                                    </span>
+                                    </p>
+                                    </div>
+                                </div>
                             </div>
-                        
-                            
+                            <br>
+                            <!--                    Persoonlijk-->
+                            <div class=\"columns\">
+                                <div class=\"column is-half\">
+                                     <div class=\"field\">
+                                        <label for=\"email\" class=\"label\">Email:</label>
+                                        <p class=\"control has-icons-left\">
+                                        <input class=\"input is-primary\" type=\"email\" name=\"email\"
+                                            value=\"" . $row['emailadress'] . "\"
+                                            required maxlength=\"50\" disabled=\"disabled\">
+                                            <span class=\"icon is-small is-left\">
+                                                <i class=\"fas fa-envelope\"></i>
+                                            </span>
+                                        </p>
+                                     </div>
+                                </div>
+                            </div>
+                        </form>
     ";
     }
     $index = $gegevens_Klant;
 }
 
+function update_Gebruiker($geval, $gebruikersnaam, $echo){
+    include_once("php/dbh.php");
+    $dbh = connectToDatabase();
+    try {
+        $sql = 'UPDATE gebruiker
+                SET is_geverifieerd = :is_geverifieerd
+                WHERE gebruikersnaam = :gebruikersnaam';
+        $stmt = $dbh->prepare($sql);
+        $stmt->execute([$geval, $gebruikersnaam]);
+        $index = $echo;
+
+        header('Location: ../dashboard.php?');
+
+    } catch (PDOException $e) {
+        echo $e->getMessage();
+    }
+}
+
 if (isset($_POST['akkoord'])) {
 
     $gebruikersnaam = $_POST['gebruikersnaam'];
-    try {
-        $sql = 'UPDATE gebruiker
-                SET is_geverifieerd = :is_geverifieerd
-                WHERE gebruikersnaam = :gebruikersnaam';
-        $stmt = $dbh->prepare($sql);
-        $stmt->execute([$true, $gebruikersnaam]);
-        $index = $niewe_Klanten;
+    update_Gebruiker($true, $gebruikersnaam, $niewe_Klanten);
 
-        header('Location: ../dashboard.php');
 
-    } catch (PDOException $e) {
-        echo $e->getMessage();
-    }
 } elseif (isset($_POST['delete'])) {
+    update_Gebruiker($false, $gebruikersnaam, $niewe_Klanten);
     $gebruikersnaam = $_POST['gebruikersnaam'];
-    try {
-        $sql = 'UPDATE gebruiker
-                SET is_geverifieerd = :is_geverifieerd
-                WHERE gebruikersnaam = :gebruikersnaam';
-        $stmt = $dbh->prepare($sql);
-        $stmt->execute([$false, $gebruikersnaam]);
-        $index = $niewe_Klanten;
-        header('Location: ../dashboard.php');
-    } catch (PDOException $e) {
-        echo $e->getMessage();
-    }
-
-
 }
 
 ?>
