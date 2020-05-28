@@ -292,7 +292,10 @@ else {
         </form>
     </div>
 </section>
+
 <?php include "includes/footer.html" ?>
+<?php include "includes/footer.php" ?>
+
 <?php
 
 
