@@ -70,5 +70,24 @@ Hier zitten een paar problemen aan omdat de `strings` die in de database staan h
 Als de gebruiker zijn data heeft aangepast en het wachtwoord is geverifieerd wordt met een `prepared statement` het formulier naar de database verstuurd en de gegevens aangepast.
 
 ## Gegevens verwijderen
-Als de gebruiker ingelogd is en op de `Mijn profiel` knop drukt komt er een pagina met 2 knop/opties tevoorschijn. de gebruiker klan verkoper worden(zie hietrboven) of gegevens aanpassen. Op de gegevens aanpassen pagina kan de gebruiker op een knop drukken om zijn gegevens te verwijderen
+Als de gebruiker ingelogd is en op de `Mijn profiel` knop drukt komt er een pagina met 2 opties tevoorschijn:  
+- De gebruiker kan verkoper worden(zie kopje `Verkoper worden`) 
+
+- Of de gebruiker kan zijn gegevens aanpassen. 
+
+Hiernaast wordt er een administrator pagina gemaakt die alleen weergegeven wordt als de gebruiker admin-rechten heeft.
+Op de gegevens aanpassen pagina kan de gebruiker op een knop klikken om zijn gegevens te verwijderen. Dit is weer een aparte pagina en wordt hieronder toeglicht.
+
+## Account verwijderen
+Als de gebuiker naar onder scrollt op de gegevens aanpassen pagina, dan staat er een knop om je gegevens te verwijderen
+de gebruiker gaat dat naar een aparte pagina waar de gebruikersnaam staat en het wachtwoord moet worden ingegeven.
+Als de gebruiker een `checkbox` heeft aangevinkt waarmee (waarmee hij dubbel checkt dat de gegevens verwijderd moeten worden)
+En het wachtwoord klopt worden met meerdere `prepared statements` de gegevens verwijderd. 
+
+Het kan zijn dat verwijderen niet meteen een optie is omdat de gebnruiker advertenties of beidingen heeft openstaan.
+Dan wordt de gebruiker in de openstaande acties veranderd naar `VEERWIJDERDE_GEBRUIKER` wordt het account alsnog verwijderd.
+Als deze `DELETE-` en `UPDATE-statements` succesvol zijn uitgevoerd wordt `session destroyed` en is de gebruiker een volledig nieuw, onbekende gebruiker.
+
+## Nieuwe feature 
+
 
