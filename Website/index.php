@@ -9,57 +9,12 @@ $siteTitle= "Hoofdpagina"
 $dbh = connectToDatabase();
 $ads = "";
 $Random = "";
-$day= date('d');
-$month= date('m');
-$year= date('Y');
-    
-    if($month==1){
- $mont="jan";
-}
-else if($month==2){
-$mont="feb";
-}
-else if($month==3){
-$mont="mar";
-}
-else if($month==4){
-$mont="apr";
-}
-else if($month==5){
-$mont="mei";
-}
-else if($month==6){
-$mont="jun";
-}
-else if($month==7){
-$mont="jul";
-}
-else if($month==8){
-$mont="aug";
-}
-else if($month==9){
-$mont="sept";
-}
-else if($month==10){
-$mont="oct";
-}
-else if($month==11){
-$mont="nov";
-}
-else if($month==12){
-$mont="dec";
-}
-else {
-
-}
-$datee=$day."-".$mont."-".$year;
 
 
 
-
-$sql = "SELECT TOP (4) V.voorwerpnummer ,V.titel, V.beschrijving, V.startprijs, V.LooptijdbeginDag, B.filenaam 
+$sql = "SELECT TOP (4) V.voorwerpnummer ,V.titel, V.beschrijving, V.startprijs, V.LooptijdbeginDag, B.filenaam
 FROM Voorwerp V 
-	JOIN bestand B on V.voorwerpnummer = B.voorwerp WHERE V.looptijdeindeDag>'$datee'
+	JOIN bestand B on V.voorwerpnummer = B.voorwerp
 ORDER BY views DESC";
 
 
@@ -102,7 +57,7 @@ foreach ($dbh->query($sql) as $row) {
 
 $sql = "SELECT TOP (4) V.voorwerpnummer, V.titel, V.beschrijving, V.startprijs, V.LooptijdbeginDag, B.filenaam 
 FROM Voorwerp V 
-	JOIN bestand B on V.voorwerpnummer = B.voorwerp WHERE V.looptijdeindeDag>'$datee'
+	JOIN bestand B on V.voorwerpnummer = B.voorwerp
 ORDER BY NEWID()";
 
 foreach ($dbh->query($sql) as $row) {
