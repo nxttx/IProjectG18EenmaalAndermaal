@@ -60,7 +60,15 @@ Wanneer je al gebruiker bent wordt er eerst gecheckt of er een aanvraag is met e
 
 Wanneer de gebruiker nog niet verkoper is zal hij een uitleg tekst te zien krijgen en daarna een formulier. Waarbij de controle keuze met javascript bepaald of er nog een ```input``` veld bij komt. Wanneer alle velden zijn ingevuld en er op de inlever knop wordt gedrukt zal de pagina herladen.
 
-Door de eerder aangegeven post check zullen nu met prepaird statements de gegevens in de database geplaatst worden.
+Door de eerder aangegeven post check zullen nu met prepared statements de gegevens in de database geplaatst worden.
 
-## Andere feature
+## Profiel aanpassen
+De pagina die wordt gebruikt voor het aanpassen van het profiel is grotendeels gebaseerd op de registreren pagina. Er zijn een paar velden verwijderd en daarna is er code toegevoegd. De ingelogde gebruiker krijgt zijn data uit de database te zien. Dit wordt gedaan door met een  `foreach` de data uit de database te halen en deze in de `value` van een `input-field` te zetten. 
+
+Hier zitten een paar problemen aan omdat de `strings` die in de database staan heel veel spaties aan het einde hebben. Gelukkig is hier een PHP-functie voor. Door `rtrim()` binnen de `values` toe te voegen wordt alle data goed weergegeven, verzonden en vergeleken.
+
+Als de gebruiker zijn data heeft aangepast en het wachtwoord is geverifieerd wordt met een `prepared statement` het formulier naar de database verstuurd en de gegevens aangepast.
+
+## Gegevens verwijderen
+Als de gebruiker ingelogd is en op de `Mijn profiel` knop drukt komt er een pagina met 2 knop/opties tevoorschijn. de gebruiker klan verkoper worden(zie hietrboven) of gegevens aanpassen. Op de gegevens aanpassen pagina kan de gebruiker op een knop drukken om zijn gegevens te verwijderen
 
