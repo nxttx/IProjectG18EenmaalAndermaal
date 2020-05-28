@@ -79,13 +79,14 @@ Hiernaast wordt er een administrator pagina gemaakt die alleen weergegeven wordt
 Op de gegevens aanpassen pagina kan de gebruiker op een knop klikken om zijn gegevens te verwijderen. Dit is weer een aparte pagina en wordt hieronder toeglicht.
 
 ## Account verwijderen
-Als de gebuiker naar onder scrollt op de gegevens aanpassen pagina, dan staat er een knop om je gegevens te verwijderen
-de gebruiker gaat dat naar een aparte pagina waar de gebruikersnaam staat en het wachtwoord moet worden ingegeven.
-Als de gebruiker een `checkbox` heeft aangevinkt waarmee (waarmee hij dubbel checkt dat de gegevens verwijderd moeten worden)
+OKE BLIJKBAAR MOET HET VEEL TECHNISCHER DUS IK PLEUR HET ER IN EN KIJK MORGEN (VRIJDAG) WEL VERDER
+
+Als de gebruiker op de gegevens aanpassen pagina naar onder scrolt, staat er een knop om je gegevens te verwijderen. De gebruiker gaat dat naar een aparte pagina waar de gebruikersnaam staat en het wachtwoord moet worden ingegeven. Als de gebruiker een `checkbox` heeft aangevinkt waarmee hij aangeeft het account echt te willen 
 En het wachtwoord klopt worden met meerdere `prepared statements` de gegevens verwijderd. 
 
-Het kan zijn dat verwijderen niet meteen een optie is omdat de gebnruiker advertenties of beidingen heeft openstaan.
-Dan wordt de gebruiker in de openstaande acties veranderd naar `VEERWIJDERDE_GEBRUIKER` wordt het account alsnog verwijderd.
+Het kan voorkomen dat verwijderen niet meteen een optie is omdat de gebruiker advertenties of biedingen heeft openstaan.
+Dan wordt de gebruiker in de openstaande acties veranderd naar `VERWIJDERDE_GEBRUIKER` wordt het account alsnog verwijderd.
+
 Als deze `DELETE-` en `UPDATE-statements` succesvol zijn uitgevoerd wordt `session destroyed` en is de gebruiker een volledig nieuw, onbekende gebruiker.
 
 ## Nieuwe feature 
