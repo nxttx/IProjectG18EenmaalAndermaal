@@ -276,7 +276,7 @@ foreach ($sth->fetchAll(PDO::FETCH_ASSOC) as $row) {
             <?= $errorMsg ?>
             <div class="card ">
                 <div class="card-content">
-                    <?php include "breadcrumbstest.php" ?>
+                    <?php include "breadcrumbs.php" ?>
                     <?= $productpage ?>
                     <br>
                     <div class="columns">
