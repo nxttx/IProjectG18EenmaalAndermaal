@@ -376,9 +376,17 @@ if (isset($_POST['akkoord'])) {
                                             </div>
                                         </div>
                                     </div>
+                                    <br>
+                                    <br>
+                                    <div class="columns is-centered">
+                                        <div class="collumn"></div>
+                                        <div class="collumn">
 
-                                    <?php echo "$index"; ?>
+                                            <?php echo "$index"; ?>
 
+                                        </div>
+                                        <div class="collumn"></div>
+                                    </div>
                                 </main>
                             </div>
                         </div>
