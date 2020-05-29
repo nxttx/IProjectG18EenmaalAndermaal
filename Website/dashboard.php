@@ -303,96 +303,135 @@ if (isset($_POST['akkoord'])) {
 
 <?php include "includes/head.php" ?>
 <?php include "includes/header.php" ?>
-<section>
-    <div class="container">
-        <br>
 
-        <div class="card ">
-            <div class="card-content">
-                <h2 class="title is-2  has-text-centered">Dashboard</h2>
-            </div>
-        </div>
 
-        <br>
+<?php if (!isset($_SESSION['user'])) { ?>
+                    <h2 class="title is-3">U bent nog niet ingelogd, u wordt doorgestuurd naar de inlogpagina en login als admin AUB.</h2>
+                    <h3 class="subtitle is-5">Gebeurt dit niet automatisch binnnen enkele seconden? Klik dan <a
+                                href="login.php">hier.</a></h3>
 
-        <section>
-            <div class="container">
-                <br>
-                <div class="card ">
-                    <div class="card-content">
-                        <div class="section">
-                            <div class="columns">
-                                <aside class="column is-2">
-                                    <nav class="menu">
-                                        <form class="field" method="post">
-                                            <p class="menu-label">
-                                                ALgemeen
-                                            </p>
-                                            <ul class="menu-list">
-                                                <li>
-                                                    <button class="button is-primary is-inverted " type="submit"
-                                                            name="dashboard">Dashboard
-                                                    </button>
-                                                </li>
-                                                <li>
-                                                    <button class="button is-primary is-inverted " type="submit"
-                                                            name="klanten">Klanten
-                                                    </button>
-                                                </li>
-                                            </ul>
-                                        </form>
-                                    </nav>
-                                </aside>
-                                <main class="column">
-                                    <div class="level">
-                                        <div class="level-left">
-                                            <div class="level-item">
-                                                <div class="title">Klanten</div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div class="columns is-multiline">
-                                        <div class="column">
-                                            <div class="box">
-                                                <div class="level">
-                                                    <div class="level-item">
-                                                        <div class="">
-                                                            <div class="heading">Geaccepteerde Klanten</div>
-                                                            <div class="title is-4">
-                                                                <?php
-                                                                count_aantal($true, $antaal); ?>
+                    <script>
+                        setTimeout(function () {
+                            window.location.href = 'login.php';
+                        }, 2000)
+                    </script>
+<?php }elseif ($_SESSION['user']!= 'admin'){?>
+
+                    <h2 class="title is-3">Hier kunt u terecht alleen als u de admin bent u wordt doorgestuurd naar de home pagina</h2>
+                    <h3 class="subtitle is-5">Gebeurt dit niet automatisch binnnen enkele seconden? Klik dan <a
+                                href="index.php">hier.</a></h3>
+
+                    <script>
+                        setTimeout(function () {
+                            window.location.href = 'login.php';
+                        }, 2000)
+                    </script>
+
+    <?php } else{?>
+
+
+                    <section>
+                        <div class="container">
+                            <br>
+
+                            <div class="card ">
+                                <div class="card-content">
+                                    <h2 class="title is-2  has-text-centered">Dashboard</h2>
+                                </div>
+                            </div>
+
+                            <br>
+
+                            <section>
+                                <div class="container">
+                                    <br>
+                                    <div class="card ">
+                                        <div class="card-content">
+                                            <div class="section">
+                                                <div class="columns">
+                                                    <aside class="column is-2">
+                                                        <nav class="menu">
+                                                            <form class="field" method="post">
+                                                                <p class="menu-label">
+                                                                    ALgemeen
+                                                                </p>
+                                                                <ul class="menu-list">
+                                                                    <li>
+                                                                        <button class="button is-primary is-inverted " type="submit"
+                                                                                name="dashboard">Dashboard
+                                                                        </button>
+                                                                    </li>
+                                                                    <li>
+                                                                        <button class="button is-primary is-inverted " type="submit"
+                                                                                name="klanten">Klanten
+                                                                        </button>
+                                                                    </li>
+                                                                </ul>
+                                                            </form>
+                                                        </nav>
+                                                    </aside>
+                                                    <main class="column">
+                                                        <div class="level">
+                                                            <div class="level-left">
+                                                                <div class="level-item">
+                                                                    <div class="title">Klanten</div>
+                                                                </div>
                                                             </div>
                                                         </div>
-                                                    </div>
-                                                    <div class="level-item">
-                                                        <div class="">
-                                                            <div class="heading">Nieuwe Klanten</div>
-                                                            <div class="title is-4">
-                                                                <?php count_aantal($false, $antaal); ?>
+                                                        <div class="columns is-multiline">
+                                                            <div class="column">
+                                                                <div class="box">
+                                                                    <div class="level">
+                                                                        <div class="level-item">
+                                                                            <div class="">
+                                                                                <div class="heading">Geaccepteerde Klanten</div>
+                                                                                <div class="title is-4">(
+                                                                                    <?php
+                                                                                    count_aantal($true, $antaal); ?>)
+
+
+                                                                                </div>
+                                                                            </div>
+                                                                        </div>
+                                                                        <div class="level-item">
+                                                                            <div class="">
+                                                                                <div class="heading">Nieuwe Klanten</div>
+                                                                                <div class="title is-4">(
+
+                                                                                    <?php count_aantal($false, $antaal); ?>)
+
+
+                                                                                </div>
+                                                                            </div>
+                                                                        </div>
+                                                                    </div>
+                                                                </div>
                                                             </div>
                                                         </div>
-                                                    </div>
+                                                        <br>
+                                                        <br>
+                                                        <div class="columns is-centered">
+                                                            <div class="collumn"></div>
+                                                            <div class="collumn">
+                                                            
+
+                                                                <?php echo "$index"; ?>
+
+
+                                                            </div>
+                                                            <div class="collumn"></div>
+                                                        </div>
+                                                    </main>
                                                 </div>
                                             </div>
                                         </div>
                                     </div>
-                                    <br>
-                                    <br>
-                                    <div class="columns is-centered">
-                                        <div class="collumn"></div>
-                                        <div class="collumn">
-
-                                            <?php echo "$index"; ?>
-
-                                        </div>
-                                        <div class="collumn"></div>
-                                    </div>
-                                </main>
-                            </div>
+                            </section>
                         </div>
-                    </div>
-                </div>
-        </section>
-    </div>
-</section>
+                    </section>
+                    
+
+                <?php }?>
+
+
 <?php include "includes/footer.php" ?>
