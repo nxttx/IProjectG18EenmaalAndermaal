@@ -9,20 +9,24 @@ $siteTitle = "Dashboard ";
 
 <?php
 $dbh = connectToDatabase();
+$titlBox = "";
 $gebruiker = "";
 $antaal ="";
 $niewe_Klanten = "";
 $klanten = "";
 $gegevens_Klant = "";
+$veilingen = "";
 $index = "";
 
 $false = 0;
 $true = 1;
+$ja = "wel";
+$niet = "niet";
 
 
 
 
-function count_aantal($geval, $aantal)
+function count_aantal_gebruikers($geval, $aantal)
 {
     include_once("php/dbh.php");
     $dbh = connectToDatabase();
@@ -35,8 +39,27 @@ function count_aantal($geval, $aantal)
     }
 }
 
+function count_aantal_veilingen($geval, $aantal)
+{
+    include_once("php/dbh.php");
+    $dbh = connectToDatabase();
+    $sql = "SELECT COUNT(voorwerpnummer) as aantal FROM voorwerp  WHERE veilinGesloten = :veilinGesloten ";
+    $stmt = $dbh->prepare($sql);
+    $stmt->execute([
+            ':veilinGesloten'=>$geval
+    ]);
+    foreach ($stmt->fetchAll() as $row) {
+        $aantal .= $row['aantal'];
+        echo $aantal;
+    }
+}
 
-$klanten .= "
+
+
+if (isset($_POST['klanten'])) {
+    $titlBox = "Klanten";
+
+    $klanten .= "
                   <table class='table'>
                      <thead>
                         <tr>
@@ -44,12 +67,12 @@ $klanten .= "
                            <th><abbr title='Emailadres'>Email Address</abbr></th>";
 
 
-$sql = "SELECT gebruikersnaam, emailadress  FROM gebruiker WHERE is_geverifieerd =?";
-$stmt = $dbh->prepare($sql);
-$stmt->execute([$true]);
+    $sql = "SELECT gebruikersnaam, emailadress  FROM gebruiker WHERE is_geverifieerd =?";
+    $stmt = $dbh->prepare($sql);
+    $stmt->execute([$true]);
 
-foreach ($stmt->fetchAll() as $row) {
-    $klanten .= "
+    foreach ($stmt->fetchAll() as $row) {
+        $klanten .= "
         <form class='field' method='post'>
           <tr>
               <td><button class='button is-white' name='gebruiker' type='submit'> ".$row['gebruikersnaam']."</button></td>
@@ -59,15 +82,19 @@ foreach ($stmt->fetchAll() as $row) {
         </form>
 ";
 
-}
-$klanten .= "
+    }
+    $klanten .= "
                      </tr>
                    </thead>
                 </table>
              ";
 
+    $index .= $klanten;
+} elseif (isset($_POST['dashboard'])) {
+    $titlBox = "Dashboard";
 
-$niewe_Klanten = "<div class='columns is-multiline is-'>
+
+    $niewe_Klanten = "<div class='columns is-multiline is-'>
                                         <table class='table'>
                                             <thead>
                                             <tr>
@@ -82,12 +109,12 @@ $niewe_Klanten = "<div class='columns is-multiline is-'>
                                                </th> 
                                             </tr>";
 
-$sql = "SELECT gebruikersnaam, emailadress  FROM gebruiker WHERE is_geverifieerd =?";
-$stmt = $dbh->prepare($sql);
+    $sql = "SELECT gebruikersnaam, emailadress  FROM gebruiker WHERE is_geverifieerd =?";
+    $stmt = $dbh->prepare($sql);
     $false =0;
     $stmt->execute([$false]);
-foreach ($stmt->fetchAll() as $row) {
-    $niewe_Klanten .= "
+    foreach ($stmt->fetchAll() as $row) {
+        $niewe_Klanten .= "
                       <form class='field' method='post'>
                         <tr>
                             
@@ -102,17 +129,75 @@ foreach ($stmt->fetchAll() as $row) {
                       </form>
 ";
 
-}
+    }
 
-$niewe_Klanten .= "
+    $niewe_Klanten .= "
                     </thead>
                  </table>
                 </div>";
 
-if (isset($_POST['klanten'])) {
-    $index .= $klanten;
-} elseif (isset($_POST['dashboard'])) {
     $index = $niewe_Klanten;
+}elseif(isset($_POST['veilingen'])){
+    $titlBox = "Veilingen";
+
+    $veilingen .= "
+                <div class='columns is-multiline is-'>
+                                        <table class='table'>
+                                            <thead>
+                                            <tr>
+                                              <th><abbr title='titel'>Titel</abbr></th>
+                                              <th><abbr title='startprijs'>Startprijs</abbr></th>   
+                                              <th><abbr title='plaatsnaam'>Plaatsnaam</abbr></th> 
+                                              <th><abbr title='looptijdbeginDag'>Looptijd begin</abbr></th>   
+                                              <th><abbr title='verzendkosten'>Verzendkosten</abbr></th>  
+                                              <th><abbr title='verkoper'>Verkoper</abbr></th>   
+                                              <th><abbr title='looptijdeindeDag'>Looptijd Eind</abbr></th>                                          
+                                              <th>
+                                                 <div class='field is-grouped is-grouped-right'>
+                                                    <p class='control'>
+                                                        Blokeren
+                                                    </p>
+                                                 </div>
+                                               </th> 
+                                            </tr>
+
+";
+
+
+    $sql = "SELECT titel, startprijs, plaatsnaam, looptijdbeginDag, verzendkosten,  verkoper, looptijdeindeDag 
+        FROM voorwerp WHERE veilinGesloten = :veilinGesloten";
+    $stmt = $dbh->prepare($sql);
+
+    $stmt->execute([
+        ':veilinGesloten' => $niet
+    ]);
+    foreach ($stmt->fetchAll() as $row) {
+        $veilingen .= "
+                      <form class='field' method='post'>
+                        <tr>
+                            
+                            <td>".$row['titel']."</td>
+                            <td>" . $row['startprijs'] . "</td>  
+                            <td>" . $row['plaatsnaam'] . "</td> 
+                            <td>" . $row['looptijdbeginDag'] . "</td> 
+                            <td>" . $row['verzendkosten'] . "</td> 
+                            <td>" . $row['verkoper'] . "</td> 
+                            <td>" . $row['looptijdeindeDag'] . "</td>                            
+                            <td>                
+                                <button class='button is-primary' name='blokeren' type='submit'>Blokeren</button>
+                            </td>
+                         </tr>
+                      </form>
+";
+
+    }
+    $veilingen .= "
+                </thead>
+              </table>
+             </div>
+";
+    $index = "$veilingen";
+
 }else{
     $index = $niewe_Klanten;
 }
@@ -366,6 +451,11 @@ if (isset($_POST['akkoord'])) {
                                                                                 name="klanten">Klanten
                                                                         </button>
                                                                     </li>
+                                                                    <li>
+                                                                        <button class="button is-primary is-inverted " type="submit"
+                                                                                name="veilingen">Veilingen
+                                                                        </button>
+                                                                    </li>
                                                                 </ul>
                                                             </form>
                                                         </nav>
@@ -374,7 +464,7 @@ if (isset($_POST['akkoord'])) {
                                                         <div class="level">
                                                             <div class="level-left">
                                                                 <div class="level-item">
-                                                                    <div class="title">Klanten</div>
+                                                                    <div class="title"> <?php echo $titlBox; ?></div>
                                                                 </div>
                                                             </div>
                                                         </div>
@@ -387,8 +477,7 @@ if (isset($_POST['akkoord'])) {
                                                                                 <div class="heading">Geaccepteerde Klanten</div>
                                                                                 <div class="title is-4">(
                                                                                     <?php
-                                                                                    count_aantal($true, $antaal); ?>)
-
+                                                                                    count_aantal_gebruikers($true, $antaal); ?>)
 
                                                                                 </div>
                                                                             </div>
@@ -398,8 +487,27 @@ if (isset($_POST['akkoord'])) {
                                                                                 <div class="heading">Nieuwe Klanten</div>
                                                                                 <div class="title is-4">(
 
-                                                                                    <?php count_aantal($false, $antaal); ?>)
+                                                                                    <?php count_aantal_gebruikers($false, $antaal); ?>)
 
+                                                                                </div>
+                                                                            </div>
+                                                                        </div>
+                                                                        <div class="level-item">
+                                                                            <div class="">
+                                                                                <div class="heading">Gesloten veiling</div>
+                                                                                <div class="title is-4">(
+
+                                                                                    <?php count_aantal_veilingen($ja, $antaal); ?>)
+
+                                                                                </div>
+                                                                            </div>
+                                                                        </div>
+                                                                        <div class="level-item">
+                                                                            <div class="">
+                                                                                <div class="heading">Active veiling</div>
+                                                                                <div class="title is-4">(
+
+                                                                                    <?php count_aantal_veilingen($niet, $antaal); ?>)
 
                                                                                 </div>
                                                                             </div>
@@ -415,7 +523,7 @@ if (isset($_POST['akkoord'])) {
                                                             <div class="collumn">
                                                             
 
-                                                                <?php echo "$index"; ?>
+                                                                <?php echo $index; ?>
 
 
                                                             </div>
