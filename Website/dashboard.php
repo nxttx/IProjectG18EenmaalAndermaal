@@ -56,6 +56,50 @@ function count_aantal_veilingen($geval, $aantal)
 
 
 
+$niewe_Klanten = "<div class='columns is-multiline is-'>
+                                        <table class='table'>
+                                            <thead>
+                                            <tr>
+                                              <th><abbr title='Gebruikers_Naam'>Gebruiker Name</abbr></th>
+                                              <th><abbr title='Emailadres'>Email Address</abbr></th>                                              
+                                              <th>
+                                                 <div class='field is-grouped is-grouped-right'>
+                                                    <p class='control'>
+                                                        Akkoord/Delete
+                                                    </p>
+                                                 </div>
+                                               </th> 
+                                            </tr>";
+
+$sql = "SELECT gebruikersnaam, emailadress  FROM gebruiker WHERE is_geverifieerd =?";
+$stmt = $dbh->prepare($sql);
+$false =0;
+$stmt->execute([$false]);
+foreach ($stmt->fetchAll() as $row) {
+    $niewe_Klanten .= "
+                      <form class='field' method='post'>
+                        <tr>
+                            
+                            <td><button class='button is-white' name='gebruiker' type='submit'> ".$row['gebruikersnaam']."</button></td>
+                            <input type='hidden' name='gebruikersnaam' value=" . $row['gebruikersnaam'] . ">
+                            <td>" . $row['emailadress'] . "</td>                             
+                            <td>                
+                                <button class='button is-primary' name='akkoord' type='submit'>Akkoord</button> |
+                                <button class='button is-primary' name='delete' type='submit'>Delete</button>
+                            </td>
+                         </tr>
+                      </form>
+";
+
+}
+
+$niewe_Klanten .= "
+                    </thead>
+                 </table>
+                </div>";
+
+
+
 if (isset($_POST['klanten'])) {
     $titlBox = "Klanten";
 
@@ -92,50 +136,6 @@ if (isset($_POST['klanten'])) {
     $index .= $klanten;
 } elseif (isset($_POST['dashboard'])) {
     $titlBox = "Dashboard";
-
-
-    $niewe_Klanten = "<div class='columns is-multiline is-'>
-                                        <table class='table'>
-                                            <thead>
-                                            <tr>
-                                              <th><abbr title='Gebruikers_Naam'>Gebruiker Name</abbr></th>
-                                              <th><abbr title='Emailadres'>Email Address</abbr></th>                                              
-                                              <th>
-                                                 <div class='field is-grouped is-grouped-right'>
-                                                    <p class='control'>
-                                                        Akkoord/Delete
-                                                    </p>
-                                                 </div>
-                                               </th> 
-                                            </tr>";
-
-    $sql = "SELECT gebruikersnaam, emailadress  FROM gebruiker WHERE is_geverifieerd =?";
-    $stmt = $dbh->prepare($sql);
-    $false =0;
-    $stmt->execute([$false]);
-    foreach ($stmt->fetchAll() as $row) {
-        $niewe_Klanten .= "
-                      <form class='field' method='post'>
-                        <tr>
-                            
-                            <td><button class='button is-white' name='gebruiker' type='submit'> ".$row['gebruikersnaam']."</button></td>
-                            <input type='hidden' name='gebruikersnaam' value=" . $row['gebruikersnaam'] . ">
-                            <td>" . $row['emailadress'] . "</td>                             
-                            <td>                
-                                <button class='button is-primary' name='akkoord' type='submit'>Akkoord</button> |
-                                <button class='button is-primary' name='delete' type='submit'>Delete</button>
-                            </td>
-                         </tr>
-                      </form>
-";
-
-    }
-
-    $niewe_Klanten .= "
-                    </thead>
-                 </table>
-                </div>";
-
     $index = $niewe_Klanten;
 }elseif(isset($_POST['veilingen'])){
     $titlBox = "Veilingen";
@@ -164,7 +164,7 @@ if (isset($_POST['klanten'])) {
 ";
 
 
-    $sql = "SELECT titel, startprijs, plaatsnaam, looptijdbeginDag, verzendkosten,  verkoper, looptijdeindeDag 
+    $sql = "SELECT voorwerpnummer, titel, startprijs, plaatsnaam, looptijdbeginDag, verzendkosten,  verkoper, looptijdeindeDag 
         FROM voorwerp WHERE veilinGesloten = :veilinGesloten";
     $stmt = $dbh->prepare($sql);
 
@@ -183,7 +183,8 @@ if (isset($_POST['klanten'])) {
                             <td>" . $row['verzendkosten'] . "</td> 
                             <td>" . $row['verkoper'] . "</td> 
                             <td>" . $row['looptijdeindeDag'] . "</td>                            
-                            <td>                
+                            <td>    
+                            <input type='hidden' value='".$row['voorwerpnummer']."'>            
                                 <button class='button is-primary' name='blokeren' type='submit'>Blokeren</button>
                             </td>
                          </tr>
