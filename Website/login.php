@@ -1,6 +1,8 @@
 <?php $siteTitle = "Inloggen"; ?>
 <?php
 
+include_once "PHP/dbh.php";
+
 if (!isset($_SESSION)) {
     session_start();
 }
