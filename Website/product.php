@@ -126,7 +126,7 @@ foreach ($sth->fetchAll(PDO::FETCH_ASSOC) as $row) {
                         <b>Verkoper:</b> ' . $row['verkoper'] . '
                         </p>
                         <p>
-                        <b>Locatie verkoper:</b> ' . $row['plaatsnaam'] . $row['land'] . '
+                        <b>Locatie verkoper:</b> ' . $row['plaatsnaam'].', '. $row['land'] . '
                         <br><br>
                         <b>Betalingswijze:</b> ' . $row['Betalingswijze'] . '
                         <br>
