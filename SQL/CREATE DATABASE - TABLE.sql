@@ -200,7 +200,7 @@ ALTER TABLE voorwerp
 	ADD 
 	CONSTRAINT pk_voorwerpnummer PRIMARY KEY (voorwerpnummer),
 	CONSTRAINT fk_verkoper FOREIGN KEY (verkoper) REFERENCES verkoper (gebruiker) ON DELETE cascade ON UPDATE cascade,
-	CONSTRAINT fk_Koper FOREIGN KEY (koper) REFERENCES gebruiker(gebruikersnaam) ON DELETE cascade ON UPDATE cascade,
+	CONSTRAINT fk_Koper FOREIGN KEY (koper) REFERENCES gebruiker(gebruikersnaam) ON DELETE NO ACTION ON UPDATE NO ACTION,
 	CONSTRAINT ch_veilinGesloten CHECK (veilinGesloten = 'niet' OR veilinGesloten = 'wel');
 
 
