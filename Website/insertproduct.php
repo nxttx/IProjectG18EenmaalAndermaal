@@ -190,7 +190,7 @@ if (isset($_SESSION["user"])) {
                         <div class="field">
                             <label class="label">Startprijs</label>
                             <div class="control has-icons-left has-icons-right">
-                                <input class="input is-success" name="prijs" type="number" placeholder="Bedrag">
+                                <input class="input is-success" name="prijs" type="number" placeholder="Bedrag" step="0.01">
                                 <span class="icon is-small is-left">
                         <i class="fas fa-money-check"></i>
                     </span>
@@ -353,8 +353,8 @@ if (isset($_POST['insertproduct'])) {
         $dbh = connectToDatabase();
         $smte = $dbh->prepare("INSERT INTO voorwerp (voorwerpnummer, titel, beschrijving, startprijs, Betalingswijze, betalingsinstructie, 
 						plaatsnaam, land, LooptijdbeginDag, LooptijdbeginTijdstip, Verzendkosten,
-						verzendinstructies, Verkoper, Koper, LooptijdeindeDag, LooptijdeindeTijdstip, VeilingGesloten, Verkoopprijs, views)
-VALUES	   ('$idn', '$product_titel','$product_beschrijving','$product_prijs', '$product_betalingswijze', 'Overschrijving moet ontvangen zijn binnen 10 dagen na verkoop', '$product_plaats', '$product_land', CONVERT(date, GETDATE()), CONVERT(time, GETDATE()), '6,95', null , '$userr', NULL, DATEADD(day, 7, GETDATE()), CONVERT(time, GETDATE()), 'niet', NULL, 0)");
+						verzendinstructies, Verkoper, Koper, LooptijdeindeDag, LooptijdeindeTijdstip, Verkoopprijs, views)
+VALUES	   ('$idn', '$product_titel','$product_beschrijving','$product_prijs', '$product_betalingswijze', 'Overschrijving moet ontvangen zijn binnen 10 dagen na verkoop', '$product_plaats', '$product_land', CONVERT(date, GETDATE()), CONVERT(time, GETDATE()), '6,95', null , '$userr', NULL, DATEADD(day, 7, GETDATE()), CONVERT(time, GETDATE()), NULL, 0)");
         $smte->execute();
 
         $dbh = connectToDatabase();
