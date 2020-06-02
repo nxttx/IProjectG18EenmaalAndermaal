@@ -43,10 +43,10 @@ function count_aantal_veilingen($geval, $aantal)
 {
     include_once("php/dbh.php");
     $dbh = connectToDatabase();
-    $sql = "SELECT COUNT(voorwerpnummer) as aantal FROM voorwerp  WHERE veilinGesloten = :veilinGesloten ";
+    $sql = "SELECT COUNT(voorwerpnummer) as aantal FROM voorwerp  WHERE veilinggesloten = :veilinggesloten ";
     $stmt = $dbh->prepare($sql);
     $stmt->execute([
-            ':veilinGesloten'=>$geval
+        ':veilinggesloten'=>$geval
     ]);
     foreach ($stmt->fetchAll() as $row) {
         $aantal .= $row['aantal'];
@@ -135,11 +135,11 @@ $veilingen .= "
 
 
 $sql = "SELECT voorwerpnummer, titel, startprijs, plaatsnaam, looptijdbeginDag, verzendkosten,  verkoper, looptijdeindeDag , is_geblokkeerd
-        FROM voorwerp WHERE veilinGesloten = :veilinGesloten";
+        FROM voorwerp WHERE veilinggesloten = :veilinggesloten";
 $stmt = $dbh->prepare($sql);
 
 $stmt->execute([
-    ':veilinGesloten' => $niet
+    ':veilinggesloten' => $niet
 ]);
 foreach ($stmt->fetchAll() as $row) {
     $veilingen .= "
@@ -184,13 +184,13 @@ $veilingen .= "
 if(isset($_POST['zoek'])){
     $zoek_value = $_POST['searchInput'];
     $sql = "SELECT voorwerpnummer, titel, startprijs, plaatsnaam, looptijdbeginDag, verzendkosten,  verkoper, looptijdeindeDag , is_geblokkeerd
-        FROM voorwerp WHERE titel LIKE :title AND veilinGesloten = :veilinGesloten";
+        FROM voorwerp WHERE titel LIKE :title AND veilinggesloten = :veilinggesloten";
     $stmt = $dbh->prepare($sql);
 
     $stmt->execute([
 
-            ':title' => $zoek_value,
-        ':veilinGesloten' => $niet
+        ':title' => $zoek_value,
+        ':veilinggesloten' => $niet
     ]);
 
     foreach ($stmt->fetchAll() as $row) {
@@ -231,7 +231,7 @@ if(isset($_POST['zoek'])){
               </table>
              </div>
 ";
-$index = $veilingen;
+    $index = $veilingen;
 
 }
 
@@ -286,7 +286,7 @@ if (isset($_POST['klanten'])) {
 function uodate_voorwerp($geval, $voorwerpnummer){
     include_once("php/dbh.php");
     $dbh = connectToDatabase();
-  try {
+    try {
         $sql = 'UPDATE voorwerp
                 SET is_geblokkeerd = :is_is_geblokkeerd
                 WHERE voorwerpnummer = :voorwerpnummer';
@@ -485,58 +485,12 @@ if (isset($_POST['akkoord'])) {
 
     $index = $veilingen;
 
-} elseif(isset($_POST['deblokkeren'])){
+} elseif(isset($_POST['deblokkeren'])) {
 
     $voorwerpnummer = $_POST['voorwerpnummer'];
 
     uodate_voorwerp($false, $voorwerpnummer);
-
-    $sql = "SELECT voorwerpnummer, titel, startprijs, plaatsnaam, looptijdbeginDag, verzendkosten,  verkoper, looptijdeindeDag , is_geblokkeerd
-        FROM voorwerp WHERE veilinGesloten = :veilinGesloten";
-    $stmt = $dbh->prepare($sql);
-
-    $stmt->execute([
-        ':veilinGesloten' => $niet
-    ]);
-    foreach ($stmt->fetchAll() as $row) {
-        $veilingen .= "
-                      <form class='field' method='post'>
-                        <tr>
-                            <input type='hidden' name='voorwerpnummer' value=" .$row['voorwerpnummer']. ">
-                            <td>" .$row['titel']. "</td>
-                            <td>" . $row['startprijs'] . "</td>  
-                            <td>" . $row['plaatsnaam'] . "</td> 
-                            <td>" . $row['looptijdbeginDag'] . "</td> 
-                            <td>" . $row['verzendkosten'] . "</td> 
-                            <td>" . $row['verkoper'] . "</td> 
-                            <td>" . $row['looptijdeindeDag'] . "</td>";
-
-
-        if(rtrim($row['is_geblokkeerd']) == $true) {
-            $veilingen .= "
-                            <td>    
-                                <button class='button is-primary' name='deblokkeren' type='submit'>Deblokkeren</button>
-                            </td>";
-
-        }else{
-            $veilingen .= "
-                            <td>    
-                                <button class='button is-primary' name='blokkeren' type='submit'>Blokkeren</button>
-                            </td>";
-        }
-
-
-        $veilingen .= "     </tr>
-                      </form>
-";
-
-    }
-
-    $index = $veilingen;
-
 }
-
-
 
 ?>
 
@@ -545,155 +499,155 @@ if (isset($_POST['akkoord'])) {
 
 
 <?php if (!isset($_SESSION['user'])) { ?>
-                    <h2 class="title is-3">U bent nog niet ingelogd, u wordt doorgestuurd naar de inlogpagina en login als admin AUB.</h2>
-                    <h3 class="subtitle is-5">Gebeurt dit niet automatisch binnnen enkele seconden? Klik dan <a
-                                href="login.php">hier.</a></h3>
+    <h2 class="title is-3">U bent nog niet ingelogd, u wordt doorgestuurd naar de inlogpagina en login als admin AUB.</h2>
+    <h3 class="subtitle is-5">Gebeurt dit niet automatisch binnnen enkele seconden? Klik dan <a
+                href="login.php">hier.</a></h3>
 
-                    <script>
-                        setTimeout(function () {
-                            window.location.href = 'login.php';
-                        }, 2000)
-                    </script>
+    <script>
+        setTimeout(function () {
+            window.location.href = 'login.php';
+        }, 2000)
+    </script>
 <?php }elseif ($_SESSION['user']!= 'admin'){?>
 
-                    <h2 class="title is-3">Hier kunt u terecht alleen als u de admin bent u wordt doorgestuurd naar de home pagina</h2>
-                    <h3 class="subtitle is-5">Gebeurt dit niet automatisch binnnen enkele seconden? Klik dan <a
-                                href="index.php">hier.</a></h3>
+    <h2 class="title is-3">Hier kunt u terecht alleen als u de admin bent u wordt doorgestuurd naar de home pagina</h2>
+    <h3 class="subtitle is-5">Gebeurt dit niet automatisch binnnen enkele seconden? Klik dan <a
+                href="index.php">hier.</a></h3>
 
-                    <script>
-                        setTimeout(function () {
-                            window.location.href = 'login.php';
-                        }, 2000)
-                    </script>
+    <script>
+        setTimeout(function () {
+            window.location.href = 'login.php';
+        }, 2000)
+    </script>
 
-    <?php } else{?>
-
-
-                    <section>
-                        <div class="container">
-                            <br>
-
-                            <div class="card ">
-                                <div class="card-content">
-                                    <h2 class="title is-2  has-text-centered">Dashboard</h2>
-                                </div>
-                            </div>
-
-                            <br>
-
-                            <section>
-                                <div class="container">
-                                    <br>
-                                    <div class="card ">
-                                        <div class="card-content">
-                                            <div class="section">
-                                                <div class="columns">
-                                                    <aside class="column is-2">
-                                                        <nav class="menu">
-                                                            <form class="field" method="post">
-                                                                <p class="menu-label">
-                                                                    ALgemeen
-                                                                </p>
-                                                                <ul class="menu-list">
-                                                                    <li>
-                                                                        <button class="button is-primary is-inverted " type="submit"
-                                                                                name="dashboard">Dashboard
-                                                                        </button>
-                                                                    </li>
-                                                                    <li>
-                                                                        <button class="button is-primary is-inverted " type="submit"
-                                                                                name="klanten">Klanten
-                                                                        </button>
-                                                                    </li>
-                                                                    <li>
-                                                                        <button class="button is-primary is-inverted " type="submit"
-                                                                                name="veilingen">Veilingen
-                                                                        </button>
-                                                                    </li>
-                                                                </ul>
-                                                            </form>
-                                                        </nav>
-                                                    </aside>
-                                                    <main class="column">
-                                                        <div class="level">
-                                                            <div class="level-left">
-                                                                <div class="level-item">
-                                                                    <div class="title"> <?php echo $titlBox; ?></div>
-                                                                </div>
-                                                            </div>
-                                                        </div>
-                                                        <div class="columns is-multiline">
-                                                            <div class="column">
-                                                                <div class="box">
-                                                                    <div class="level">
-                                                                        <div class="level-item">
-                                                                            <div class="">
-                                                                                <div class="heading">Geaccepteerde Klanten</div>
-                                                                                <div class="title is-4">(
-                                                                                    <?php
-                                                                                    count_aantal_gebruikers($true, $antaal); ?>)
-
-                                                                                </div>
-                                                                            </div>
-                                                                        </div>
-                                                                        <div class="level-item">
-                                                                            <div class="">
-                                                                                <div class="heading">Nieuwe Klanten</div>
-                                                                                <div class="title is-4">(
-
-                                                                                    <?php count_aantal_gebruikers($false, $antaal); ?>)
-
-                                                                                </div>
-                                                                            </div>
-                                                                        </div>
-                                                                        <div class="level-item">
-                                                                            <div class="">
-                                                                                <div class="heading">Gesloten veiling</div>
-                                                                                <div class="title is-4">(
-
-                                                                                    <?php count_aantal_veilingen($ja, $antaal); ?>)
-
-                                                                                </div>
-                                                                            </div>
-                                                                        </div>
-                                                                        <div class="level-item">
-                                                                            <div class="">
-                                                                                <div class="heading">Active veiling</div>
-                                                                                <div class="title is-4">(
-
-                                                                                    <?php count_aantal_veilingen($niet, $antaal); ?>)
-
-                                                                                </div>
-                                                                            </div>
-                                                                        </div>
-                                                                    </div>
-                                                                </div>
-                                                            </div>
-                                                        </div>
-                                                        <br>
-                                                        <br>
-                                                        <div class="columns is-centered">
-                                                            <div class="collumn"></div>
-                                                            <div class="collumn">
-                                                            
-
-                                                                <?php echo $index; ?>
+<?php } else{?>
 
 
-                                                            </div>
-                                                            <div class="collumn"></div>
-                                                        </div>
-                                                    </main>
+    <section>
+        <div class="container">
+            <br>
+
+            <div class="card ">
+                <div class="card-content">
+                    <h2 class="title is-2  has-text-centered">Dashboard</h2>
+                </div>
+            </div>
+
+            <br>
+
+            <section>
+                <div class="container">
+                    <br>
+                    <div class="card ">
+                        <div class="card-content">
+                            <div class="section">
+                                <div class="columns">
+                                    <aside class="column is-2">
+                                        <nav class="menu">
+                                            <form class="field" method="post">
+                                                <p class="menu-label">
+                                                    ALgemeen
+                                                </p>
+                                                <ul class="menu-list">
+                                                    <li>
+                                                        <button class="button is-primary is-inverted " type="submit"
+                                                                name="dashboard">Dashboard
+                                                        </button>
+                                                    </li>
+                                                    <li>
+                                                        <button class="button is-primary is-inverted " type="submit"
+                                                                name="klanten">Klanten
+                                                        </button>
+                                                    </li>
+                                                    <li>
+                                                        <button class="button is-primary is-inverted " type="submit"
+                                                                name="veilingen">Veilingen
+                                                        </button>
+                                                    </li>
+                                                </ul>
+                                            </form>
+                                        </nav>
+                                    </aside>
+                                    <main class="column">
+                                        <div class="level">
+                                            <div class="level-left">
+                                                <div class="level-item">
+                                                    <div class="title"> <?php echo $titlBox; ?></div>
                                                 </div>
                                             </div>
                                         </div>
-                                    </div>
-                            </section>
-                        </div>
-                    </section>
-                    
+                                        <div class="columns is-multiline">
+                                            <div class="column">
+                                                <div class="box">
+                                                    <div class="level">
+                                                        <div class="level-item">
+                                                            <div class="">
+                                                                <div class="heading">Geaccepteerde Klanten</div>
+                                                                <div class="title is-4">(
+                                                                    <?php
+                                                                    count_aantal_gebruikers($true, $antaal); ?>)
 
-                <?php }?>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                        <div class="level-item">
+                                                            <div class="">
+                                                                <div class="heading">Nieuwe Klanten</div>
+                                                                <div class="title is-4">(
+
+                                                                    <?php count_aantal_gebruikers($false, $antaal); ?>)
+
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                        <div class="level-item">
+                                                            <div class="">
+                                                                <div class="heading">Gesloten veiling</div>
+                                                                <div class="title is-4">(
+
+                                                                    <?php count_aantal_veilingen($ja, $antaal); ?>)
+
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                        <div class="level-item">
+                                                            <div class="">
+                                                                <div class="heading">Active veiling</div>
+                                                                <div class="title is-4">(
+
+                                                                    <?php count_aantal_veilingen($niet, $antaal); ?>)
+
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <br>
+                                        <br>
+                                        <div class="columns is-centered">
+                                            <div class="collumn"></div>
+                                            <div class="collumn">
+
+
+                                                <?php echo $index; ?>
+
+
+                                            </div>
+                                            <div class="collumn"></div>
+                                        </div>
+                                    </main>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+            </section>
+        </div>
+    </section>
+
+
+<?php }?>
 
 
 <?php include "includes/footer.php" ?>
