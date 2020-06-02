@@ -14,7 +14,7 @@ if (!$dbh) {
 
     $searchInput = "%$searchInput%";
     
-    $qry = $dbh->prepare("SELECT * FROM voorwerp WHERE titel LIKE :search OR beschrijving LIKE :search2 ORDER BY titel ASC");
+    $qry = $dbh->prepare("SELECT * FROM voorwerp WHERE titel LIKE :search OR beschrijving LIKE :search2 where veilinggesloten2 = 'niet' ORDER BY titel ASC");
 
     $qry->execute(array($searchInput, $searchInput));
 

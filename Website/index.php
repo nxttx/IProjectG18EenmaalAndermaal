@@ -14,7 +14,7 @@ $Random = "";
 
 $sql = "SELECT TOP (4) V.titel, V.beschrijving, V.startprijs, V.LooptijdbeginDag, B.filenaam 
 FROM Voorwerp V 
-	JOIN bestand B on V.voorwerpnummer = B.voorwerp
+	JOIN bestand B on V.voorwerpnummer = B.voorwerp where veilinggesloten2 = 'niet'
 ORDER BY views DESC";
 
 
@@ -56,7 +56,7 @@ foreach ($dbh->query($sql) as $row) {
 
 $sql = "SELECT TOP (4) V.titel, V.beschrijving, V.startprijs, V.LooptijdbeginDag, B.filenaam 
 FROM Voorwerp V 
-	JOIN bestand B on V.voorwerpnummer = B.voorwerp
+	JOIN bestand B on V.voorwerpnummer = B.voorwerp where veilinggesloten2 = 'niet'
 ORDER BY NEWID()";
 
 foreach ($dbh->query($sql) as $row) {
