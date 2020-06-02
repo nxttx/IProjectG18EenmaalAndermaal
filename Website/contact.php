@@ -16,7 +16,7 @@ $siteTitle = "Contact";
                     met een van onze medewerkers?</p>
 
 
-                <p class="subtitle is-5  has-text-centered">Stuur een mail naar <a href="mailto:Sander.Leer@han.nl">ons
+                <p class="subtitle is-5  has-text-centered">Stuur een mail naar <a href="mailto:iproject18@protonmail.com">ons
                         team.</a></p>
 
                 <p class="subtitle is-6 has-text-centered is-marginless">Of kom gezellig langs.</p>
@@ -30,4 +30,4 @@ $siteTitle = "Contact";
         <br>
     </div>
 </section>
-<?php include "includes/footer.html" ?>
+<?php include "includes/footer.php" ?>

@@ -12,7 +12,7 @@ $Random = "";
 
 
 
-$sql = "SELECT TOP (4) V.titel, V.beschrijving, V.startprijs, V.LooptijdbeginDag, B.filenaam 
+$sql = "SELECT TOP (4) V.voorwerpnummer ,V.titel, V.beschrijving, V.startprijs, V.LooptijdbeginDag, B.filenaam
 FROM Voorwerp V 
 	JOIN bestand B on V.voorwerpnummer = B.voorwerp where veilinggesloten2 = 'niet'
 ORDER BY views DESC";
@@ -32,6 +32,7 @@ foreach ($dbh->query($sql) as $row) {
                         <div class=\"columns has-text-centered\">
                             <div class=\"column\">
                                 <div class=\"content is-medium\">
+                                <p class='is-size-7'>vanaf prijs:</p>
                                     	<p>&euro;{$row['startprijs']}</p>
                                 </div> 
                             </div>
@@ -46,7 +47,7 @@ foreach ($dbh->query($sql) as $row) {
                                 </div>
                             </div>
                         </div>
-                        <a class=\"button is-fullwidth\" href='#'>
+                        <a class=\"button is-fullwidth\" href=\"product.php?pn=" . $row['voorwerpnummer'] ." \">
                             Bekijk nu!
                         </a>
                     </div>
@@ -54,7 +55,7 @@ foreach ($dbh->query($sql) as $row) {
             </div> ";
 }
 
-$sql = "SELECT TOP (4) V.titel, V.beschrijving, V.startprijs, V.LooptijdbeginDag, B.filenaam 
+$sql = "SELECT TOP (4) V.voorwerpnummer, V.titel, V.beschrijving, V.startprijs, V.LooptijdbeginDag, B.filenaam 
 FROM Voorwerp V 
 	JOIN bestand B on V.voorwerpnummer = B.voorwerp where veilinggesloten2 = 'niet'
 ORDER BY NEWID()";
@@ -73,6 +74,7 @@ foreach ($dbh->query($sql) as $row) {
                         <div class=\"columns has-text-centered\">
                             <div class=\"column\">
                                 <div class=\"content is-medium\">
+                                <p class='is-size-7'>vanaf prijs:</p>
                                     	<p>&euro;{$row['startprijs']}</p>
                                 </div> 
                             </div>
@@ -87,7 +89,7 @@ foreach ($dbh->query($sql) as $row) {
                                 </div>
                             </div>
                         </div>
-                        <a class=\"button is-fullwidth\" href='#'>
+                        <a class=\"button is-fullwidth\" href=\"product.php?pn=" . $row['voorwerpnummer'] ." \">
                             Bekijk nu!
                         </a>
                     </div>
@@ -120,4 +122,4 @@ foreach ($dbh->query($sql) as $row) {
       <br>
     </div>
 </section>
-<?php include "includes/footer.html" ?>
+<?php include "includes/footer.php" ?>
