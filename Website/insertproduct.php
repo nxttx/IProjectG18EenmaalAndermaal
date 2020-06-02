@@ -292,7 +292,7 @@ if (isset($_SESSION["user"])) {
 
         </div>
     </section>
-<?php include "includes/footer.html" ?>
+<?php include "includes/footer.php" ?>
 <?php
 
 
@@ -364,6 +364,12 @@ VALUES	   ('$idn', '$product_titel','$product_beschrijving','$product_prijs', '$
         $dbh = connectToDatabase();
         $smtpic = $dbh->prepare("INSERT INTO bestand (filenaam, voorwerp) VALUES ('$picpath', '$idn')");
         $smtpic->execute();
+
+        $datee= date('Y-m-d');
+        $time=date("h:i:s");
+        $dbh = connectToDatabase();
+        $smtbod = $dbh->prepare("INSERT INTO bod (voorwerp, bodbedrag, gebruiker, bodDag, bodTijdstip) VALUES ('$idn', '$product_prijs', '$userr', '$datee','$time')");
+        $smtbod->execute();
 
         echo "<script>alert('Product is toegevoegd!')</script>";
         exit();
