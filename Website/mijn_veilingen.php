@@ -31,10 +31,11 @@ if (!isset($_SESSION['user'])) { //user is not logged in\
 } else { // user is verkoper
     $subTitle = 'Hier ziet u al u aangboden items';
 
-    $sth = $dbh->prepare("SELECT B.filenaam, V.titel, V.beschrijving, V.startprijs, V.looptijdbeginDag, V.voorwerpnummer, V.VeilinGesloten
+    $sth = $dbh->prepare("SELECT B.filenaam, V.titel, V.beschrijving, V.startprijs, V.looptijdbeginDag, V.voorwerpnummer, V.veilinggesloten , V.is_geblokkeerd
     FROM voorwerp V
         JOIN bestand B on V.voorwerpnummer = B.voorwerp
-    where verkoper = :gebruikersnaam");
+    where verkoper = :gebruikersnaam
+    ORDER BY V.voorwerpnummer DESC");
     $sth->bindParam(':gebruikersnaam', $gebruikersnaam);
     $gebruikersnaam = $_SESSION['user'];
     $sth->execute();
@@ -43,7 +44,7 @@ if (!isset($_SESSION['user'])) { //user is not logged in\
         //get highest bod
         $sth = $dbh->prepare("
             SELECT TOP(1) bodbedrag FROM bod 
-            where voorwerp = :voorwerpnummer
+            where voorwerp = :voorwerpnummer 
             ORDER BY Bodbedrag ASC");
         $sth->bindParam(':voorwerpnummer', $row['voorwerpnummer']);
         $sth->execute();
@@ -79,11 +80,11 @@ if (!isset($_SESSION['user'])) { //user is not logged in\
                                 </div>
                             </div>
                         </div> ';
-            if ($row['VeilinGesloten']) {
-                $voorwerp .= '<a class="button is-fullwidth is-warning" href="product.php?pn=' . $row['voorwerpnummer'] . '">
-                            Veiling gesloten 
+            if ($row['is_geblokkeerd']) {
+                $voorwerp .= '<a class="button is-fullwidth is-danger" href="product.php?pn=' . $row['voorwerpnummer'] . '">
+                            Veiling geblokeerd door beheerder. 
                         </a> ';
-            } elseif ($row['VeilinGesloten']) {
+            } elseif ($row['veilinggesloten'] == 'wel' ) {
                 $voorwerp .= '<a class="button is-fullwidth is-warning" href="product.php?pn=' . $row['voorwerpnummer'] . '">
                             Veiling gesloten 
                         </a> ';
@@ -125,14 +126,25 @@ if (!isset($_SESSION['user'])) { //user is not logged in\
                                     <p> ' . $row['looptijdbeginDag'] . '</p>
                                 </div>
                             </div>
-                        </div>
-                        <a class="button is-fullwidth" href="product.php?pn=' . $row['voorwerpnummer'] . '">
+                                                </div> ';
+            if ($row['is_geblokkeerd']) {
+                $voorwerp .= '<a class="button is-fullwidth is-danger" href="product.php?pn=' . $row['voorwerpnummer'] . '">
+                            Veiling geblokeerd door beheerder. 
+                        </a> ';
+
+            } elseif ($row['veilinggesloten']) {
+                $voorwerp .= '<a class="button is-fullwidth is-warning" href="product.php?pn=' . $row['voorwerpnummer'] . '">
+                            Veiling gesloten 
+                        </a> ';
+            } else {
+                $voorwerp .= '<a class="button is-fullwidth" href="product.php?pn=' . $row['voorwerpnummer'] . '">
                             Bekijk nu!
-                        </a>
+                        </a> ';
+            }
+            $voorwerp .= '
                     </div>
-                </div> 
                 </div>
-                ';
+                </div>';
             $count = 1;
         }
     }
