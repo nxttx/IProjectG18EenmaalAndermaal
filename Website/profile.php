@@ -45,9 +45,29 @@ $dbh = connectToDatabase();
                                     <a href="gegevensAanpassen.php" class="button is-primary ">Gegevens aanpassen</a>
                                     <br>
                                     <br>
+                            <?php
+                            if (isset($_SESSION['user'])) {
+    $sth = $dbh->prepare("SELECT COUNT(gebruiker) as hoeveelheid FROM verkoper WHERE gebruiker =:gebruikersnaam");
+    $sth->bindParam(':gebruikersnaam', $gebruikersnaam);
+    $gebruikersnaam = $_SESSION['user'];
+    $sth->execute();
+    foreach ($sth->fetchAll(PDO::FETCH_ASSOC) as $row) {
+        $hoeveelheidGebruikersnamen = $row['hoeveelheid'];
+    }
+}
+                            if($hoeveelheidGebruikersnamen <1){
+                            ?>
+
                                     <br>
                                     <h3 class="subtitle is-5 is-marginless">Of klik hier om u aan te melden als verkoper.</h3><br>
                                     <a href="verkoper_worden.php" class="button is-primary ">Verkoper worden</a>
+
+
+                            <?php }else{ ?>
+                                <br>
+                                <h3 class="subtitle is-5 is-marginless">Bekijk al uw veilingen </h3><br>
+                                <a href="mijn_veilingen.php" class="button is-primary ">Mijn veilingen </a>
+                            <?php } ?>
                         </div>
                 <?php } ?>
 
