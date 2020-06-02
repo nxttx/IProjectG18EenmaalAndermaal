@@ -8,7 +8,6 @@ ob_start();
 <?php include "php/dbh.php" ?>
 
 <?php
-//session_destroy();
 
 if (isset($_SESSION["user"])) {
     $name = '';
@@ -183,14 +182,14 @@ if (isset($_SESSION["user"])) {
                         <div class="field">
                             <label class="label">Productnaam</label>
                             <div class="control">
-                                <input class="input is-primary"  name="titel" type="text" placeholder="Productnaam">
+                                <input class="input is-primary"  name="titel" type="text" placeholder="Productnaam" maxlength="150" required>
                             </div>
                         </div>
 
                         <div class="field">
                             <label class="label">Startprijs</label>
                             <div class="control has-icons-left has-icons-right">
-                                <input class="input is-success" name="prijs" type="number" placeholder="Bedrag" step="0.01">
+                                <input class="input is-success" name="prijs" type="number" placeholder="Bedrag" step="0.01" maxlength="20" required>
                                 <span class="icon is-small is-left">
                         <i class="fas fa-money-check"></i>
                     </span>
@@ -224,14 +223,14 @@ if (isset($_SESSION["user"])) {
                             <label class="label">Beschrijving</label>
                             <div class="control">
                                 <textarea class="textarea is-primary" name="beschrijving"
-                                          placeholder="Beschrijving van product"></textarea>
+                                          placeholder="Beschrijving van product" maxlength="255" required></textarea>
                             </div>
                         </div>
 
                         <div class="field">
                             <label class="label">Land</label>
                             <div class="control has-icons-left has-icons-right">
-                                <input class="input is-success" name="land" type="text" placeholder="Land">
+                                <input class="input is-success" name="land" type="text" placeholder="Land" maxlength="20" required>
                                 <span class="icon is-small is-left">
                         <i class="fas fa-globe-europe"></i>
                     </span>
@@ -240,7 +239,7 @@ if (isset($_SESSION["user"])) {
                         <div class="field">
                             <label class="label">Plaats</label>
                             <div class="control has-icons-left has-icons-right">
-                                <input class="input is-success" name="plaats" type="text" placeholder="Plaats">
+                                <input class="input is-success" name="plaats" type="text" placeholder="Plaats" maxlength="20" required>
                             </div>
                         </div>
                         <br>
