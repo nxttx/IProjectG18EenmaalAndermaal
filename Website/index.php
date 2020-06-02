@@ -19,6 +19,18 @@ ORDER BY views DESC";
 
 
 foreach ($dbh->query($sql) as $row) {
+
+    //get highest bod
+    $sth = $dbh->prepare("
+            SELECT TOP(1) bodbedrag FROM bod 
+            where voorwerp = :voorwerpnummer
+            ORDER BY Bodbedrag DESC");
+    $sth->bindParam(':voorwerpnummer', $row['voorwerpnummer']);
+    $sth->execute();
+    foreach ($sth->fetchAll(PDO::FETCH_ASSOC) as $row2) {
+        $highestBod=$row2['bodbedrag'];
+    }
+
     $ads .= "  <div class=\"column\">
                 <div class=\"has-background-primary\">
                     <figure class=\"image objectfit-cover\">
@@ -32,8 +44,7 @@ foreach ($dbh->query($sql) as $row) {
                         <div class=\"columns has-text-centered\">
                             <div class=\"column\">
                                 <div class=\"content is-medium\">
-                                <p class='is-size-7'>vanaf prijs:</p>
-                                    	<p>&euro;{$row['startprijs']}</p>
+                                    	<p>&euro; ". $highestBod . "</p>
                                 </div> 
                             </div>
                             <div class=\"column\">
@@ -61,6 +72,18 @@ FROM Voorwerp V
 ORDER BY NEWID()";
 
 foreach ($dbh->query($sql) as $row) {
+
+    //get highest bod
+    $sth = $dbh->prepare("
+            SELECT TOP(1) bodbedrag FROM bod 
+            where voorwerp = :voorwerpnummer
+            ORDER BY Bodbedrag DESC");
+    $sth->bindParam(':voorwerpnummer', $row['voorwerpnummer']);
+    $sth->execute();
+    foreach ($sth->fetchAll(PDO::FETCH_ASSOC) as $row2) {
+        $highestBod=$row2['bodbedrag'];
+    }
+
     $Random .= "  <div class=\"column\">
                 <div class=\"has-background-primary\">
                     <figure class=\"image objectfit-cover\">
@@ -74,8 +97,7 @@ foreach ($dbh->query($sql) as $row) {
                         <div class=\"columns has-text-centered\">
                             <div class=\"column\">
                                 <div class=\"content is-medium\">
-                                <p class='is-size-7'>vanaf prijs:</p>
-                                    	<p>&euro;{$row['startprijs']}</p>
+                                    	<p>&euro;" . $highestBod . "</p>
                                 </div> 
                             </div>
                             <div class=\"column\">
