@@ -191,16 +191,16 @@ ALTER TABLE gebruiker
 ALTER TABLE verkoper
   ADD 
   CONSTRAINT pk_Gebruiker PRIMARY KEY (gebruiker),
-  CONSTRAINT fk_Verkoper_Is_Gebruiker FOREIGN KEY (gebruiker) REFERENCES gebruiker (gebruikersnaam);	
+  CONSTRAINT fk_Verkoper_Is_Gebruiker FOREIGN KEY (gebruiker) REFERENCES gebruiker (gebruikersnaam) ON DELETE cascade ON UPDATE cascade;	
 --
--- Indexen voor geëxporteerde tabellen
+-- Indexen voor geÃ«xporteerde tabellen
 --
 -- Indexen voor tabel Voorwerp
 ALTER TABLE voorwerp
 	ADD 
 	CONSTRAINT pk_voorwerpnummer PRIMARY KEY (voorwerpnummer),
-	CONSTRAINT fk_verkoper FOREIGN KEY (verkoper) REFERENCES verkoper (gebruiker),
-	CONSTRAINT fk_Koper FOREIGN KEY (koper) REFERENCES gebruiker(gebruikersnaam),
+	CONSTRAINT fk_verkoper FOREIGN KEY (verkoper) REFERENCES verkoper (gebruiker) ON DELETE cascade ON UPDATE cascade,
+	CONSTRAINT fk_Koper FOREIGN KEY (koper) REFERENCES gebruiker(gebruikersnaam) ON DELETE cascade ON UPDATE cascade,
 	CONSTRAINT ch_veilinGesloten CHECK (veilinGesloten = 'niet' OR veilinGesloten = 'wel');
 
 
@@ -209,10 +209,10 @@ ALTER TABLE voorwerp
 ALTER TABLE bod
   ADD 
   CONSTRAINT pk_Voorwerp_Bodbedrag PRIMARY KEY (Voorwerp,Bodbedrag),
-  CONSTRAINT fk_Gebruiker FOREIGN KEY (gebruiker) REFERENCES gebruiker (gebruikersnaam),
+  CONSTRAINT fk_Gebruiker FOREIGN KEY (gebruiker) REFERENCES gebruiker (gebruikersnaam) ON DELETE cascade ON UPDATE cascade,
   CONSTRAINT un_gebruiker_bodDag_bodTijd_Uq UNIQUE (gebruiker ,bodDag, bodTijdstip),
   CONSTRAINT un_voorwerp_bodDag_bodTijd_Uq UNIQUE (voorwerp ,bodDag, bodTijdstip),
-  CONSTRAINT fk_Bod_Voorwerp FOREIGN KEY (voorwerp) REFERENCES voorwerp (voorwerpnummer);
+  CONSTRAINT fk_Bod_Voorwerp FOREIGN KEY (voorwerp) REFERENCES voorwerp (voorwerpnummer) ;
 
 
 
@@ -233,7 +233,7 @@ ALTER TABLE feedback
 ALTER TABLE gebruikerstelefoon
   ADD 
   CONSTRAINT pk_volgnr_Gebruiker PRIMARY KEY (volgnr, Gebruiker),
-  CONSTRAINT fk_Gebruikerstelefoon FOREIGN KEY (gebruiker) REFERENCES gebruiker (gebruikersnaam);
+  CONSTRAINT fk_Gebruikerstelefoon FOREIGN KEY (gebruiker) REFERENCES gebruiker (gebruikersnaam) ON DELETE cascade ON UPDATE cascade;
 
 --
 -- Indexen voor tabel `rubriek`
@@ -248,7 +248,7 @@ ALTER TABLE rubriek
 ALTER TABLE voorwerpInRubriek
 	ADD 
 	CONSTRAINT pk_Voorwerp PRIMARY KEY (Voorwerp),
-	CONSTRAINT fk_Rubriek_Voorwerp FOREIGN KEY (voorwerp) REFERENCES voorwerp(voorwerpnummer),
+	CONSTRAINT fk_Rubriek_Voorwerp FOREIGN KEY (voorwerp) REFERENCES voorwerp(voorwerpnummer) ON DELETE cascade ON UPDATE cascade,
 	CONSTRAINT fk_RubriekOpLaagsteNiveau FOREIGN KEY (rubriekOpLaagsteNiveau) REFERENCES rubriek(rubrieknummer);
 
 --
