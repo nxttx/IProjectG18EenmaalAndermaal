@@ -63,7 +63,7 @@ $sth->execute();
 // get info for the page
 
 $sth = $dbh->prepare('SELECT V.titel, V.beschrijving, V.startprijs, V.Betalingswijze, V.betalingsinstructie, V.plaatsnaam, V.land,
-       V.LooptijdbeginDag, V.LooptijdbeginTijdstip, V.Verzendkosten, V.verkoper, V.VeilinGesloten,V.Verkoopprijs,
+       V.LooptijdbeginDag, V.LooptijdbeginTijdstip, V.Verzendkosten, V.verkoper, V.VeilingGesloten,V.Verkoopprijs,
        V.views, B.filenaam, D.bodbedrag
 FROM Voorwerp V
 	JOIN bestand B on V.voorwerpnummer = B.voorwerp 
