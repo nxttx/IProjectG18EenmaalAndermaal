@@ -60,7 +60,32 @@ Wanneer je al gebruiker bent wordt er eerst gecheckt of er een aanvraag is met e
 
 Wanneer de gebruiker nog niet verkoper is zal hij een uitleg tekst te zien krijgen en daarna een formulier. Waarbij de controle keuze met javascript bepaald of er nog een ```input``` veld bij komt. Wanneer alle velden zijn ingevuld en er op de inlever knop wordt gedrukt zal de pagina herladen.
 
-Door de eerder aangegeven post check zullen nu met prepaird statements de gegevens in de database geplaatst worden.
+Door de eerder aangegeven post check zullen nu met prepared statements de gegevens in de database geplaatst worden.
 
-## Andere feature
+## Profiel aanpassen
+De pagina die wordt gebruikt voor het aanpassen van het profiel is grotendeels gebaseerd op de registreren pagina. Er zijn een paar velden verwijderd en aangepast. Daarna is er code voor het veranderen en weergeven van de gegevens toegevoegd. 
+
+De ingelogde gebruiker krijgt zijn data uit de database te zien. Dit wordt gedaan door met een `foreach` de data uit de database te halen en deze in de `value` van een `input-field` te zetten. 
+Hier komen een paar problemen tevoorschijn omdat de `chars` die in de database staan heel veel spaties aan het einde hebben. Gelukkig is hier een PHP-functie voor. Door `rtrim()` binnen de `values` toe te voegen wordt alle data goed weergegeven, verzonden en vergeleken.
+
+Als de gebruiker zijn data heeft aangepast en het wachtwoord is geverifieerd, wordt met een `prepared statement` het formulier naar de database verstuurd en de gegevens aangepast.
+
+
+## Gegevens verwijderen
+Als de gebruiker ingelogd is en op de `Mijn profiel` knop drukt komt er een pagina met 2 opties tevoorschijn:  
+- De gebruiker kan verkoper worden(zie kopje `Verkoper worden`) 
+- Of de gebruiker kan zijn gegevens aanpassen. 
+Hiernaast wordt er een administrator pagina gemaakt die alleen weergegeven wordt als de gebruiker admin-rechten heeft.
+Op de gegevens aanpassen pagina kan de gebruiker op een knop klikken om zijn gegevens te verwijderen. Dit is weer een aparte pagina en wordt hieronder toeglicht.
+
+
+## Account verwijderen
+!!!!!!!!!!!NOG AAN TE PASSEN
+Als de gebruiker op de gegevens aanpassen pagina naar onder scrolt, staat er een knop om je gegevens te verwijderen. De gebruiker gaat dat naar een aparte pagina waar de gebruikersnaam staat en het wachtwoord moet worden ingegeven. Als de gebruiker een `checkbox` heeft aangevinkt waarmee hij aangeeft het account echt te willen 
+En het wachtwoord klopt worden met meerdere `prepared statements` de gegevens verwijderd. 
+Het kan voorkomen dat verwijderen niet meteen een optie is omdat de gebruiker advertenties of biedingen heeft openstaan.
+Dan wordt de gebruiker in de openstaande acties veranderd naar `VERWIJDERDE_GEBRUIKER` wordt het account alsnog verwijderd.
+Als deze `DELETE-` en `UPDATE-statements` succesvol zijn uitgevoerd wordt `session destroyed` en is de gebruiker een volledig nieuw, onbekende gebruiker.
+## Nieuwe feature 
+
 
