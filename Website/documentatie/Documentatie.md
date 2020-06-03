@@ -93,10 +93,10 @@ En het wachtwoord klopt worden met meerdere `prepared statements` de gegevens ve
 
 Het kan voorkomen dat verwijderen niet meteen een optie is omdat de gebruiker advertenties of biedingen heeft openstaan.
 Dan wordt de gebruiker in de openstaande acties veranderd naar `VERWIJDERDE_GEBRUIKER` en wordt het account van de gebruiker alsnog verwijderd.
-Als deze `DELETE-` en `UPDATE-statements` succesvol zijn uitgevoerd wordt met een `session_destroy();` alle `session variabelen verwijderd en een nieuwe
+Als deze `DELETE-` en `UPDATE-statements` succesvol zijn uitgevoerd wordt met een `session_destroy();` alle `session variabelen` verwijderd en een nieuwe `session` gestart.
 
 ## Admin dashboard 
-
+@Osama verder 
 
 ## Nieuwe feature 
 
