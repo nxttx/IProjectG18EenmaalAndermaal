@@ -19,7 +19,7 @@ if(!isset($_SESSION['user'])){
     $mainContent = '';
 
     $sth = $dbh->prepare("SELECT V.voorwerpnummer, B.Bodbedrag, B.BodDag, B.BodTijdstip, V.titel,
-       V.beschrijving, V.looptijdbeginDag, D.filenaam
+       V.beschrijving, V.looptijdbeginDag, D.filenaam, V.veilinggesloten , V.is_geblokkeerd
     FROM Bod B
     JOIN voorwerp V on V.voorwerpnummer = B.voorwerp
     JOIN bestand D on D.voorwerp = B.Voorwerp
@@ -84,7 +84,11 @@ if(!isset($_SESSION['user'])){
                 $mainContent .= '<a class="button is-fullwidth is-danger" href="product.php?pn=' . $row['voorwerpnummer'] . '">
                             Veiling geblokeerd door beheerder. 
                         </a> ';
-            } elseif ($row['veilinggesloten'] == 'wel' ) {
+            } elseif ($row['veilinggesloten'] == 'wel' && $highestUserBod == $highestBod) {
+                $mainContent .= '<a class="button is-fullwidth is-success" href="product.php?pn=' . $row['voorwerpnummer'] . '">
+                            Veiling gesloten 
+                        </a> ';
+            }elseif ($row['veilinggesloten'] == 'wel' ) {
                 $mainContent .= '<a class="button is-fullwidth is-warning" href="product.php?pn=' . $row['voorwerpnummer'] . '">
                             Veiling gesloten 
                         </a> ';
