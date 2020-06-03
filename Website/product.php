@@ -63,7 +63,7 @@ $sth->execute();
 // get info for the page
 
 $sth = $dbh->prepare('SELECT V.titel, V.beschrijving, V.startprijs, V.Betalingswijze, V.betalingsinstructie, V.plaatsnaam, V.land,
-       V.LooptijdbeginDag, V.LooptijdbeginTijdstip, V.Verzendkosten, V.verkoper, V.VeilinGesloten,V.Verkoopprijs,
+       V.LooptijdbeginDag, V.LooptijdbeginTijdstip,V.LooptijdeindeDag,V.LooptijdeindeTijdstip, V.Verzendkosten, V.verkoper, V.VeilingGesloten,V.Verkoopprijs,
        V.views, B.filenaam, D.bodbedrag
 FROM Voorwerp V
 	JOIN bestand B on V.voorwerpnummer = B.voorwerp 
@@ -80,6 +80,9 @@ foreach ($sth->fetchAll(PDO::FETCH_ASSOC) as $row) {
     $siteTitle = $row['titel'];
     $productnaam = $row['titel'];
     $filenaam = $row['filenaam'];
+    if ($row['VeilingGesloten'] == 'wel') {
+        $errorMsg = '<div class="notification is-warning">Deze veiling is gesloten.</div>';
+        }
     $productpage = '
         <h2 class="title is-1  has-text-centered">' . $row['titel'] . '</h2>
         <br>
@@ -110,6 +113,10 @@ foreach ($sth->fetchAll(PDO::FETCH_ASSOC) as $row) {
         $productpage .= ' <input class="input is-primary" type="number" name="bod"
                                            id="bod" placeholder="&euro;' . $row['startprijs'] . '" maxlength="50" minlength="5" required
                                            oninput="checkBodAmount()" step="0.01" disabled >';
+    } elseif ($row['VeilingGesloten'] == 'wel') {
+        $productpage .= ' <input class="input is-primary" type="number" name="bod"
+                                           id="bod" placeholder="&euro;' . $row['startprijs'] . '" maxlength="50" minlength="5" required
+                                           oninput="checkBodAmount()" step="0.01" disabled >';
     } else {
         $productpage .= ' <input class="input is-primary" type="number" name="bod"
                                            id="bod" placeholder="&euro;' . $row['startprijs'] . '" maxlength="50" minlength="5" required
@@ -130,7 +137,9 @@ foreach ($sth->fetchAll(PDO::FETCH_ASSOC) as $row) {
                         <br><br>
                         <b>Betalingswijze:</b> ' . $row['Betalingswijze'] . '
                         <br>
-                        <b>Betalingsinstructie:</b> ' . $row['betalingsinstructie'] . '
+                        <b>Betalingsinstructie:</b> '.$row['betalingsinstructie'].'
+                                                <br>
+                        <b>Looptijd tot:</b>  ' . $row['LooptijdeindeTijdstip'] . '' . $row['LooptijdeindeDag'] . ' 
                         </p>
                 </div>
         </div>
@@ -172,31 +181,31 @@ foreach ($sth->fetchAll(PDO::FETCH_ASSOC) as $row) {
 
 <?php include "includes/head.php" ?>
 <?php include "includes/header.php" ?>
-    <div id="user" style="display: none"><?= $_SESSION['user'] ?></div>
-    <section>
-        <div class="container">
-            <br>
-            <?= $errorMsg ?>
-            <div class="card ">
-                <div class="card-content">
-                    <?= $productpage ?>
-                    <br>
-                    <div class="columns">
-                        <div class="column">
-                            <h3 class="title is-8  has-text-centered">Vorige biedingen:</h3>
-                            <?= $biedingen ?>
-                        </div>
-                        <div class="column">
-                            <h3 class="title is-8  has-text-centered">Iets anders </h3>
-                        </div>
+<div id="user" style="display: none"><?= $_SESSION['user'] ?></div>
+<section>
+    <div class="container">
+        <br>
+        <?= $errorMsg ?>
+        <div class="card ">
+            <div class="card-content">
+                <?= $productpage ?>
+                <br>
+                <div class="columns">
+                    <div class="column">
+                        <h3 class="title is-8  has-text-centered">Vorige biedingen:</h3>
+                        <?= $biedingen ?>
                     </div>
-
+                    <div class="column">
+                        <h3 class="title is-8  has-text-centered">Iets anders </h3>
+                    </div>
                 </div>
+
             </div>
-
-            <br>
-
         </div>
-    </section>
-    <script src="js/productPaginaBieden.js"></script>
+
+        <br>
+
+    </div>
+</section>
+<script src="js/productPaginaBieden.js"></script>
 <?php include "includes/footer.php" ?>

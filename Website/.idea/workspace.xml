@@ -157,19 +157,19 @@
     <state width="1024" height="185" key="GridCell.Tab.0.bottom" timestamp="1590585718227">
       <screen x="0" y="0" width="1536" height="834" />
     </state>
-    <state width="1024" height="185" key="GridCell.Tab.0.bottom/0.0.1536.834@0.0.1536.834" timestamp="1590585718227" />
-    <state width="1024" height="185" key="GridCell.Tab.0.center" timestamp="1590585718227">
+    <state width="1024" height="257" key="GridCell.Tab.0.bottom/0.0.1536.834@0.0.1536.834" timestamp="1591101238505" />
+    <state width="1024" height="257" key="GridCell.Tab.0.center" timestamp="1591101238505">
       <screen x="0" y="0" width="1536" height="834" />
     </state>
-    <state width="1024" height="185" key="GridCell.Tab.0.center/0.0.1536.834@0.0.1536.834" timestamp="1590585718227" />
-    <state width="1024" height="185" key="GridCell.Tab.0.left" timestamp="1590585718227">
+    <state width="1024" height="257" key="GridCell.Tab.0.center/0.0.1536.834@0.0.1536.834" timestamp="1591101238505" />
+    <state width="1024" height="257" key="GridCell.Tab.0.left" timestamp="1591101238505">
       <screen x="0" y="0" width="1536" height="834" />
     </state>
-    <state width="1024" height="185" key="GridCell.Tab.0.left/0.0.1536.834@0.0.1536.834" timestamp="1590585718227" />
-    <state width="1024" height="185" key="GridCell.Tab.0.right" timestamp="1590585718227">
+    <state width="1024" height="257" key="GridCell.Tab.0.left/0.0.1536.834@0.0.1536.834" timestamp="1591101238505" />
+    <state width="1024" height="257" key="GridCell.Tab.0.right" timestamp="1591101238505">
       <screen x="0" y="0" width="1536" height="834" />
     </state>
-    <state width="1024" height="185" key="GridCell.Tab.0.right/0.0.1536.834@0.0.1536.834" timestamp="1590585718227" />
+    <state width="1024" height="257" key="GridCell.Tab.0.right/0.0.1536.834@0.0.1536.834" timestamp="1591101238505" />
     <state x="844" y="189" key="NewPhpFileDialog" timestamp="1589883479606">
       <screen x="0" y="0" width="1536" height="834" />
     </state>
@@ -190,9 +190,9 @@
       <screen x="0" y="0" width="1536" height="834" />
     </state>
     <state x="425" y="189" width="672" height="677" key="run.anything.popup/0.0.1536.834@0.0.1536.834" timestamp="1589910736286" />
-    <state x="431" y="155" width="672" height="678" key="search.everywhere.popup" timestamp="1589961038803">
+    <state x="431" y="155" width="672" height="678" key="search.everywhere.popup" timestamp="1591101217948">
       <screen x="0" y="0" width="1536" height="834" />
     </state>
-    <state x="431" y="155" width="672" height="678" key="search.everywhere.popup/0.0.1536.834@0.0.1536.834" timestamp="1589961038803" />
+    <state x="431" y="155" width="672" height="678" key="search.everywhere.popup/0.0.1536.834@0.0.1536.834" timestamp="1591101217948" />
   </component>
 </project>
