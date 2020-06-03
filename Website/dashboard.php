@@ -167,17 +167,23 @@ function delete_verkoper($verkoper){
     }
 }
 
-$dashboard .= "<div class=\"box\">
-                    <iframe width='1000' height='541.25' 
-                    src='https://app.powerbi.com/reportEmbed?reportId=d25a271e-ac3a-4a12-b374-3166a8d2d2a4&autoAuth=true&ctid=5d73e7b7-b3e1-4d00-b303-056140b2a3b4&config=eyJjbHVzdGVyVXJsIjoiaHR0cHM6Ly93YWJpLWV1cm9wZS1ub3J0aC1iLXJlZGlyZWN0LmFuYWx5c2lzLndpbmRvd3MubmV0LyJ9' frameborder='0' allowFullScreen='true'>    
-                   </iframe>
-               </div>
-                   ";
+
+
+
+
+
+
 
 
 
 if(isset($_POST['dashboard'])){
 
+    $dashboard .= "<div class=\"box\">
+                    <iframe width='1000' height='541.25' 
+                    src='https://app.powerbi.com/reportEmbed?reportId=d25a271e-ac3a-4a12-b374-3166a8d2d2a4&autoAuth=true&ctid=5d73e7b7-b3e1-4d00-b303-056140b2a3b4&config=eyJjbHVzdGVyVXJsIjoiaHR0cHM6Ly93YWJpLWV1cm9wZS1ub3J0aC1iLXJlZGlyZWN0LmFuYWx5c2lzLndpbmRvd3MubmV0LyJ9' frameborder='0' allowFullScreen='true'>    
+                   </iframe>
+               </div>
+                   ";
     $index = $dashboard;
 }elseif(isset($_POST['new'])) {
     $titlBox = "Nieuwe Klanten";
@@ -357,7 +363,7 @@ if(isset($_POST['dashboard'])){
               <td><button class='button is-white' name='gebruiker' type='submit'> ".$row['gebruikersnaam']."</button></td>
                             <input type='hidden' name='gebruikersnaam' value=" . $row['gebruikersnaam'] . ">
               <td>" . $row['emailadress'] . "</td>
-              <td><button class='button is-primary' name='koper_delete' type='submit'>Delete</button></td>
+              <td><button class='button is-primary'  onclick='pres()' name='koper_delete' type='submit'>Delete</button></td>
           </tr>
         </form>
 ";
@@ -403,7 +409,7 @@ if(isset($_POST['dashboard'])){
               <td><button class='button is-white' name='gebruiker' type='submit'> ".$row['gebruikersnaam']."</button></td>
                             <input type='hidden' name='gebruikersnaam' value=" . $row['gebruikersnaam'] . ">
               <td>" . $row['emailadress'] . "</td>
-              <td><button class='button is-primary' name='koper_delete' type='submit'>Delete</button></td>
+              <td><button class='button is-primary' onclick='pres()' name='koper_delete' type='submit'>Delete</button></td>
           </tr>
         </form>
 ";
@@ -445,7 +451,7 @@ if(isset($_POST['dashboard'])){
               <td><button class='button is-white' name='gebruiker' type='submit'> ".$row['gebruikersnaam']."</button></td>
                             <input type='hidden' name='gebruikersnaam' value=" . $row['gebruikersnaam'] . ">
               <td>" . $row['emailadress'] . "</td>
-              <td><button class='button is-primary' name='verkoper_delete' type='submit'>Delete</button></td>
+              <td><button class='button is-primary' onclick='pres()' name='verkoper_delete' type='submit'>Delete</button></td>
           </tr>
         </form>
 ";
@@ -491,7 +497,7 @@ if(isset($_POST['dashboard'])){
               <td><button class='button is-white' name='gebruiker' type='submit'> ".$row['gebruikersnaam']."</button></td>
                             <input type='hidden' name='gebruikersnaam' value=" . $row['gebruikersnaam'] . ">
               <td>" . $row['emailadress'] . "</td>
-              <td><button class='button is-primary' name='verkoper_delete' type='submit'>Delete</button></td>
+              <td><button class='button is-primary' onclick='pres()' name='verkoper_delete' type='submit'>Delete</button></td>
           </tr>
         </form>
 ";
@@ -504,6 +510,14 @@ if(isset($_POST['dashboard'])){
              ";
     $index = $verkoper;
 }else{
+
+    $dashboard .= "<div class=\"box\">
+                    <iframe width='1000' height='541.25' 
+                    src='https://app.powerbi.com/reportEmbed?reportId=d25a271e-ac3a-4a12-b374-3166a8d2d2a4&autoAuth=true&ctid=5d73e7b7-b3e1-4d00-b303-056140b2a3b4&config=eyJjbHVzdGVyVXJsIjoiaHR0cHM6Ly93YWJpLWV1cm9wZS1ub3J0aC1iLXJlZGlyZWN0LmFuYWx5c2lzLndpbmRvd3MubmV0LyJ9' frameborder='0' allowFullScreen='true'>    
+                   </iframe>
+               </div>
+                   ";
+
     $index = $dashboard;
 }
 
@@ -708,7 +722,8 @@ if(isset($_POST['veilingen'])){
     ]);
     foreach ($stmt->fetchAll() as $row) {
         $veilingen .= "
-                      <form class='field' method='post'>
+                     <form class='field' method='post'>
+
                         <tr>
                             <input type='hidden' name='voorwerpnummer' value=" .$row['voorwerpnummer']. ">
                             <td>" .$row['titel']. "</td>
@@ -723,13 +738,13 @@ if(isset($_POST['veilingen'])){
         if(rtrim($row['is_geblokkeerd']) == $true) {
             $veilingen .= "
                             <td>    
-                                <button class='button is-primary' name='deblokkeren' type='submit'>Deblokkeren</button>
+                                <button class='button is-primary' onclick='pres()' name='deblokkeren' type='submit'>Deblokkeren</button>
                             </td>";
 
         }else{
             $veilingen .= "
                             <td>    
-                                <button class='button is-primary' name='blokkeren' type='submit'>Blokkeren</button>
+                                <button class='button is-primary' onclick='pres()' name='blokkeren' type='submit'>Blokkeren</button>
                             </td>";
         }
 
@@ -817,13 +832,13 @@ if(isset($_POST['veilingen'])){
         if(rtrim($row['is_geblokkeerd']) == $true) {
             $veilingen .= "
                             <td>    
-                                <button class='button is-primary' name='deblokkeren' type='submit'>Deblokkeren</button>
+                                <button class='button is-primary' onclick='pres()' name='deblokkeren' type='submit'>Deblokkeren</button>
                             </td>";
 
         }else{
             $veilingen .= "
                             <td>    
-                                <button class='button is-primary' name='blokkeren' type='submit'>Blokkeren</button>
+                                <button class='button is-primary' onclick='pres()' name='blokkeren' type='submit'>Blokkeren</button>
                             </td>";
         }
 
@@ -841,12 +856,14 @@ if(isset($_POST['veilingen'])){
 
     $index = $veilingen;
 
-}elseif(isset($_POST['blokkeren'])){
+}elseif(isset($_POST['blokkeren'])) {
     $voorwerpnummer = $_POST['voorwerpnummer'];
     uodate_voorwerp($true, $voorwerpnummer);
 
-    // veiligen
-    $veilingen .= "<form method='post' class='is-half'>
+
+
+        // veiligen
+        $veilingen .= "<form method='post' class='is-half'>
                     <div class='field has-addons'>
                         <div class=\"control\">
                             <label>                      
@@ -859,7 +876,7 @@ if(isset($_POST['veilingen'])){
                 <br>";
 
 
-    $veilingen .= "
+        $veilingen .= "
                 <div class='columns is-multiline is-'>
                                         <table class='table'>
                                             <thead>
@@ -883,19 +900,19 @@ if(isset($_POST['veilingen'])){
 ";
 
 
-    $sql = "SELECT voorwerpnummer, titel, startprijs, plaatsnaam, looptijdbeginDag, verzendkosten,  verkoper, looptijdeindeDag , is_geblokkeerd
+        $sql = "SELECT voorwerpnummer, titel, startprijs, plaatsnaam, looptijdbeginDag, verzendkosten,  verkoper, looptijdeindeDag , is_geblokkeerd
         FROM voorwerp WHERE veilinggesloten = :veilinggesloten ORDER BY voorwerpnummer DESC";
-    $stmt = $dbh->prepare($sql);
+        $stmt = $dbh->prepare($sql);
 
-    $stmt->execute([
-        ':veilinggesloten' => $niet
-    ]);
-    foreach ($stmt->fetchAll() as $row) {
-        $veilingen .= "
+        $stmt->execute([
+            ':veilinggesloten' => $niet
+        ]);
+        foreach ($stmt->fetchAll() as $row) {
+            $veilingen .= "
                       <form class='field' method='post'>
                         <tr>
-                            <input type='hidden' name='voorwerpnummer' value=" .$row['voorwerpnummer']. ">
-                            <td>" .$row['titel']. "</td>
+                            <input type='hidden' name='voorwerpnummer' value=" . $row['voorwerpnummer'] . ">
+                            <td>" . $row['titel'] . "</td>
                             <td>" . $row['startprijs'] . "</td>  
                             <td>" . $row['plaatsnaam'] . "</td> 
                             <td>" . $row['looptijdbeginDag'] . "</td> 
@@ -904,34 +921,33 @@ if(isset($_POST['veilingen'])){
                             <td>" . $row['looptijdeindeDag'] . "</td>";
 
 
-        if(rtrim($row['is_geblokkeerd']) == $true) {
-            $veilingen .= "
+            if (rtrim($row['is_geblokkeerd']) == $true) {
+                $veilingen .= "
                             <td>    
-                                <button class='button is-primary' name='deblokkeren' type='submit'>Deblokkeren</button>
+                                <button class='button is-primary' onclick='pres()' name='deblokkeren' type='submit'>Deblokkeren</button>
                             </td>";
 
-        }else{
-            $veilingen .= "
+            } else {
+                $veilingen .= "
                             <td>    
-                                <button class='button is-primary' name='blokkeren' type='submit'>Blokkeren</button>
+                                <button class='button is-primary' onclick='pres()' name='blokkeren' type='submit'>Blokkeren</button>
                             </td>";
-        }
+            }
 
 
-        $veilingen .= "     </tr>
+            $veilingen .= "     </tr>
                       </form>
 ";
 
-    }
-    $veilingen .= "
+        }
+        $veilingen .= "
                 </thead>
               </table>
              </div>
+             
 ";
 
-    $index = $veilingen;
-
-} elseif(isset($_POST['deblokkeren'])) {
+}elseif(isset($_POST['deblokkeren'])) {
 
     $voorwerpnummer = $_POST['voorwerpnummer'];
     uodate_voorwerp($false, $voorwerpnummer);
@@ -997,13 +1013,13 @@ if(isset($_POST['veilingen'])){
         if(rtrim($row['is_geblokkeerd']) == $true) {
             $veilingen .= "
                             <td>    
-                                <button class='button is-primary' name='deblokkeren' type='submit'>Deblokkeren</button>
+                                <button class='button is-primary' onclick='pres()' name='deblokkeren' type='submit'>Deblokkeren</button>
                             </td>";
 
         }else{
             $veilingen .= "
                             <td>    
-                                <button class='button is-primary' name='blokkeren' type='submit'>Blokkeren</button>
+                                <button class='button is-primary' onclick='pres()' name='blokkeren' type='submit'>Blokkeren</button>
                             </td>";
         }
 
@@ -1058,6 +1074,11 @@ if(isset($_POST['veilingen'])){
 
 
     <section>
+        <script>
+            function pres() {
+                alert("I am an alert box!");
+            }
+        </script>
         <div class="container">
             <br>
 
@@ -1119,10 +1140,11 @@ if(isset($_POST['veilingen'])){
                                         </nav>
                                     </aside>
                                     <main class="column">
+                                        <p id="demo"></p>
                                         <div class="level">
                                             <div class="level-left">
                                                 <div class="level-item">
-                                                    <div class="title"> <?php echo $titlBox; ?></div>
+                                                    <div class="title"> <?php echo $titlBox ?></div>
                                                 </div>
                                             </div>
                                         </div>
