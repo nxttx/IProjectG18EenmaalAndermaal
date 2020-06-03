@@ -12,6 +12,7 @@ $dbh = connectToDatabase();
 $titlBox = "";
 $gebruiker = "";
 $antaal ="";
+$dashboard = "";
 $niewe_Klanten = "";
 $verkoper = "";
 $koper = "";
@@ -166,8 +167,19 @@ function delete_verkoper($verkoper){
     }
 }
 
+$dashboard .= "<div class=\"box\">
+                    <iframe width='1000' height='541.25' 
+                    src='https://app.powerbi.com/reportEmbed?reportId=d25a271e-ac3a-4a12-b374-3166a8d2d2a4&autoAuth=true&ctid=5d73e7b7-b3e1-4d00-b303-056140b2a3b4&config=eyJjbHVzdGVyVXJsIjoiaHR0cHM6Ly93YWJpLWV1cm9wZS1ub3J0aC1iLXJlZGlyZWN0LmFuYWx5c2lzLndpbmRvd3MubmV0LyJ9' frameborder='0' allowFullScreen='true'>    
+                   </iframe>
+               </div>
+                   ";
 
-if(isset($_POST['new'])) {
+
+
+if(isset($_POST['dashboard'])){
+
+    $index = $dashboard;
+}elseif(isset($_POST['new'])) {
     $titlBox = "Nieuwe Klanten";
 
         // niewe kanten
@@ -267,7 +279,7 @@ if(isset($_POST['new'])) {
 
     $index = $niewe_Klanten;
 
-} elseif (isset($_POST['delete'])) {
+} elseif(isset($_POST['delete'])) {
 
     $gebruikersnaam = $_POST['gebruikersnaam'];
 
@@ -317,7 +329,7 @@ if(isset($_POST['new'])) {
 
 
     $index = $niewe_Klanten;
-}elseif (isset($_POST['koper'])){
+}elseif(isset($_POST['koper'])){
     $titlBox = " Koper";
 
 // koper.
@@ -405,7 +417,7 @@ if(isset($_POST['new'])) {
 
 
     $index = $koper;
-}elseif (isset($_POST['verkoper'])) {
+}elseif(isset($_POST['verkoper'])) {
     $titlBox = " Verkoper";
 
 // verkoper.
@@ -491,6 +503,8 @@ if(isset($_POST['new'])) {
                 </table>
              ";
     $index = $verkoper;
+}else{
+    $index = $dashboard;
 }
 
 
