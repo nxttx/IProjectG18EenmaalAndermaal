@@ -18,6 +18,9 @@
                         </p>
                     <?php } elseif (isset($_SESSION['user'])) { ?>
                         <p class="link"><a href="../profile.php">Mijn profiel</a></p>
+                        <p class="is-link is-large">
+                            <a href="../mijn_biedingen.php">Mijn biedingen</a>
+                        </p>
                         <?php
                         $sth = $dbh->prepare("SELECT COUNT(gebruiker)as x FROM verkoper WHERE gebruiker=:username");
                         $sth->bindParam(':username', $_SESSION['user']);
@@ -86,6 +89,9 @@
                     </p>
                 <?php } elseif (isset($_SESSION['user'])) { ?>
                     <p class="link"><a href="../profile.php">Mijn profiel</a></p>
+                    <p class="is-link is-large">
+                        <a href="../mijn_biedingen.php">Mijn biedingen</a>
+                    </p>
                     <?php
                     $sth = $dbh->prepare("SELECT COUNT(gebruiker)as x FROM verkoper WHERE gebruiker=:username");
                     $sth->bindParam(':username', $_SESSION['user']);

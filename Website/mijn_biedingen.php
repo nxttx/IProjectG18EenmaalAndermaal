@@ -19,11 +19,12 @@ if(!isset($_SESSION['user'])){
     $mainContent = '';
 
     $sth = $dbh->prepare("SELECT V.voorwerpnummer, B.Bodbedrag, B.BodDag, B.BodTijdstip, V.titel,
-       V.beschrijving, V.looptijdbeginDag, D.filenaam, V.veilinggesloten , V.is_geblokkeerd
+       V.beschrijving, V.looptijdbeginDag, D.filenaam,V.Verkoper, V.veilinggesloten , V.is_geblokkeerd, G.emailadress
     FROM Bod B
     JOIN voorwerp V on V.voorwerpnummer = B.voorwerp
     JOIN bestand D on D.voorwerp = B.Voorwerp
-    WHERE Gebruiker = :gebruikersnaam AND V.verkoper <> B.Gebruiker
+    JOIN gebruiker G on V.verkoper = g.gebruikersnaam
+    WHERE B.Gebruiker = :gebruikersnaam AND V.verkoper <> B.Gebruiker
     ORDER BY BodDag DESC, BodTijdstip DESC");
     $sth->bindParam(':gebruikersnaam', $gebruikersnaam);
     $gebruikersnaam = $_SESSION['user'];
@@ -85,8 +86,8 @@ if(!isset($_SESSION['user'])){
                             Veiling geblokeerd door beheerder. 
                         </a> ';
             } elseif ($row['veilinggesloten'] == 'wel' && $highestUserBod == $highestBod) {
-                $mainContent .= '<a class="button is-fullwidth is-success" href="product.php?pn=' . $row['voorwerpnummer'] . '">
-                            Veiling gesloten 
+                $mainContent .= '<a class="button is-fullwidth is-success is-large" href="mailto:' . $row['emailadress'] . '">
+                           <p class="is-size-7"> U heeft het voorwerp gewonnen! <br> Druk hier om contact op<br> te nemen met de'.$row['Verkoper'].' </p>
                         </a> ';
             }elseif ($row['veilinggesloten'] == 'wel' ) {
                 $mainContent .= '<a class="button is-fullwidth is-warning" href="product.php?pn=' . $row['voorwerpnummer'] . '">
