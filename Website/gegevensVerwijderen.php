@@ -135,10 +135,7 @@ $dbh = connectToDatabase();
 ';
                         }
                     }
-
                     $dbh = null;
-
-
                 }
 
                 ?>
@@ -151,9 +148,7 @@ $dbh = connectToDatabase();
                     <?= $subtitle ?>
                     <?= $error_msg ?>
 
-
                 <?php }; ?>
-
 
             </div>
         </div>
@@ -164,6 +159,5 @@ $dbh = connectToDatabase();
 
 <?php include "includes/footer.php" ?>
 <script>
-    <
-    alert('LET OP! Al uw gegevens worden verwijderd!')
+    <alert('LET OP! Al uw gegevens worden verwijderd!')
 </script>

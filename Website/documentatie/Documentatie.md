@@ -60,7 +60,44 @@ Wanneer je al gebruiker bent wordt er eerst gecheckt of er een aanvraag is met e
 
 Wanneer de gebruiker nog niet verkoper is zal hij een uitleg tekst te zien krijgen en daarna een formulier. Waarbij de controle keuze met javascript bepaald of er nog een ```input``` veld bij komt. Wanneer alle velden zijn ingevuld en er op de inlever knop wordt gedrukt zal de pagina herladen.
 
-Door de eerder aangegeven post check zullen nu met prepaird statements de gegevens in de database geplaatst worden.
+Door de eerder aangegeven post check zullen nu met prepared statements de gegevens in de database geplaatst worden.
 
-## Andere feature
+## Profielpagina
+Als de gebruiker ingelogd is en op de `Mijn profiel` knop drukt komt er een pagina met 2 opties tevoorschijn:  
+
+De gebruiker kan verkoper worden (zie kopje **_Verkoper worden_** hierboven) of de gebruiker kan zijn gegevens aanpassen (zie kopje **_Gegevens aanpassen_** hieronder). 
+
+Als laatste is er een administrator pagina die alleen weergegeven wordt als de gebruiker een administrator is. 
+Dit wordt gedaan met een `IF ELSEIF-statement` en met een `isset $_SESSION` om te checken wat voor account er is ingelogd.
+(zie kopje **_Admin dashboard_** hieronder)
+
+Is een gebruiker niet ingelogd komt en komt hij of zijn toch op een profielpagina. Dan krijgt de gebruiker een melding dat er eerst ingelogd moet worden, na 2 seconden is er een `redirect` naar de inlogpagina.
+
+## Gegevens aanpassen
+Nadat er op de profielpagina op de `Gegevens aanpassen`-knop is geklikt kom je op deze pagina.
+
+De pagina die wordt gebruikt voor het aanpassen van het profiel is grotendeels gebaseerd op de registreren pagina. Er zijn een paar velden verwijderd en aangepast. Daarna is er code voor het veranderen en weergeven van de gegevens toegevoegd. 
+
+De ingelogde gebruiker krijgt zijn data uit de database te zien. Dit wordt gedaan door met een `foreach` de data uit de database te halen en deze in de `value` van een `input-field` te zetten. 
+Hier komen een paar problemen tevoorschijn omdat de `chars` die in de database staan heel veel spaties aan het einde hebben. Gelukkig is hier een PHP-functie voor. Door `rtrim()` binnen de `values` toe te voegen wordt alle data goed weergegeven, verzonden en vergeleken.
+
+Als de gebruiker zijn data heeft aangepast en het wachtwoord is geverifieerd, wordt met een `prepared statement` het formulier naar de database verstuurd en de gegevens aangepast.
+
+
+
+## Account verwijderen
+Als de gebruiker op de gegevens aanpassen pagina naar onder scrolt, staat er een knop om je gegevens te verwijderen. 
+
+De gebruiker gaat dan naar een aparte pagina waar de gebruikersnaam staat en het wachtwoord moet worden ingegeven. Als de gebruiker een `checkbox` heeft aangevinkt waarmee hij aangeeft het account echt te willen 
+En het wachtwoord klopt worden met meerdere `prepared statements` de gegevens verwijderd. 
+
+Het kan voorkomen dat verwijderen niet meteen een optie is omdat de gebruiker advertenties of biedingen heeft openstaan.
+Dan wordt de gebruiker in de openstaande acties veranderd naar `VERWIJDERDE_GEBRUIKER` en wordt het account van de gebruiker alsnog verwijderd.
+Als deze `DELETE-` en `UPDATE-statements` succesvol zijn uitgevoerd wordt met een `session_destroy();` alle `session variabelen verwijderd en een nieuwe
+
+## Admin dashboard 
+
+
+## Nieuwe feature 
+
 
