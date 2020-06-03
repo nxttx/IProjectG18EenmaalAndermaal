@@ -37,9 +37,9 @@ DROP TABLE IF EXISTS bod;
 
 CREATE TABLE bod (
   voorwerp INT NOT NULL,
-  bodbedrag char(6) NOT NULL,
+  bodbedrag char(20) NOT NULL,
   gebruiker char(50) NOT NULL,
-  bodDag char(6) NOT NULL,
+  bodDag DATE NOT NULL,
   bodTijdstip char(10) NOT NULL
 ) 
 
@@ -55,7 +55,7 @@ CREATE TABLE feedback (
   voorwerp INT NOT NULL,
   soortGebruiker char(8) NOT NULL,
   feedbacksoort char(20) NOT NULL,
-  dag char(10) NOT NULL,
+  dag DATE NOT NULL,
   tijdstip char(10) NOT NULL,
   commentaar varchar(255) DEFAULT NULL
 )
@@ -367,8 +367,8 @@ ON bod
 FOR INSERT, UPDATE
 AS
 	DECLARE @v_Voorwerp numeric(25);
-	DECLARE @v_Bodbedrag char(6);
-	DECLARE @v_Max_Bodbedrag char(6);
+	DECLARE @v_Bodbedrag char(20);
+	DECLARE @v_Max_Bodbedrag char(20);
 
 	select @v_Voorwerp=i.Voorwerp, @v_Bodbedrag=i.Bodbedrag 	from Inserted i;
 	SELECT @v_Max_Bodbedrag = max(CAST(Bodbedrag AS INT)) FROM bod WHERE Voorwerp = @v_Voorwerp;
@@ -393,7 +393,7 @@ AS
 	DECLARE @v_Voorwerp numeric(25);
 	DECLARE @v_Bodbedrag char(6);
 	DECLARE @v_Gebruiker char(25);
-	DECLARE @v_BodDag char(6);
+	DECLARE @v_BodDag DATE;
 	DECLARE @v_BodTijdstip char(10);
 	DECLARE @v_Verkoper char(25);
 

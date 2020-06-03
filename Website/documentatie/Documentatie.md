@@ -25,6 +25,8 @@ De advertenties bij de index worden laten zien door een for each loop. Die de ge
 
 ## Rubriekenboom
 De rubriekenboom gaan we met twee for loops doorlopen, waardoor we eerst de headerkiezen en daarna het sub menu.
+###### edit
+De wanneer er op een sub rubriek wordt gedrukt wordt door middel van een iframe op de desktop pagina de subsubrubrieken weergegeven. Op de mobiele pagina wordt je doorgestuurd naar een apparte pagina waar je opnieuw door kan drukken naar de sub sub rubriek.
 
 ## Breadcrumbs
 Controleer de Rubriek, ALS Rubriek NULL is, identificeren ze dat dit een hoofdcategorie is.
@@ -41,4 +43,61 @@ In de header staat een zoekbalk waar men op kan klikken. Als op enter wordt gedr
 Tijdens het registeren kan je door middel van javascript, php en sql checken of je gebuikers naam nog vrij is.
 Bij het wachtwoord wordt gecheckt of het wachtwoord gelijk is en lang genoeg. Dit gaat worden gedaan door middel van javascript en het veranderen van de kleur van de rand. De gebruiker mag dit negeren. Echter zal de gebruiker dan een fout melding krijgen na het inleveren van de form. Bij elke input is ingesteld dat het niet langer mag zijn dan dat de database toestaat. Dit is een html lock en kan dus wel met element inspecteren worden veranderd. Maar de database accepteert dit niet. 
 
-## Andere feature
+## Bieden
+Voor bieden hebben we eerst een check nodig of de gebruiker de verkoper is. Dit doen we met javascript. Wanneer dit klopt wordt de text veld voor het bieden ```disabled```. Dit wordt ook gecheckt in de php zodat er niet met element inspecteren ```disabled``` weg kan halen. 
+
+Daarna wordt er met PHP een check of de gebruiker wel is ingelogd. Wanneer dit niet is, wordt opnieuw het text veld ```disabled```. Als de gebruiker ingelogd is en niet de verkoper is dan kan er een bieding plaatsvinden. Met JS wordt er gekeken of de bieding hoger is dan de huidige prijs en of er aan de minimum verhoging wordt voldaan. Wanneer dit niet waar is komt er een error message in beeld en blijft de knop ```disabled```.
+
+Anders wanneer er aan deze eisen wordt voldaan kan je op bieden drukken en herlaad de pagina. Bij het bezoeken van een pagina wordt gecheckt of er gebruikt wordt gemaakt van ```POST```. Wanneer dit waar is wordt de gegevens opnieuw gecheckt of je wel ingelogd bent en of je zelf niet de verkoper bent. Als dat waar is dan wordt er een prepaird statement uitgevoerd waardoor je bod geregistreerd wordt.
+
+Je kan ook een lijst met de vorige biedingen bekijken. Deze wordt opgehaald uit de database door prepaired statements en in een foreach loop uit gewerkt naar mooie colomen. 
+
+## Verkoper worden
+Voor het worden van een verkoper worden eerst een aantal checks gedaan. Eerst wordt gecheckt of je ingelogd bent. Daarna wordt gecheckt of de admin is ingelogd, en als laatste wordt gecheckt of je al een verkoper bent.
+Wanneer je al een verkoper bent wordt er aangegeven dat je niet opnieuw verkoper kan worden en daarna wordt je terug gestuurd naar de hoofdpagina. De admin ontvangt een blanke pagina die we later nog kunnen invullen, en wannener je niet bent ingelog dan wordt je door gestuurd naar de inlog pagina.
+
+Wanneer je al gebruiker bent wordt er eerst gecheckt of er een aanvraag is met een post methode. Wanneer dat niet waar is wordt er direct gecheckt of de huidige gebruiker al een verkoper is. Wanneer dit waar is zal hij een bericht krijgen op zijn scherm dat hij al verkoper is met een knop om terug te keren naar de hoofdpagina. 
+
+Wanneer de gebruiker nog niet verkoper is zal hij een uitleg tekst te zien krijgen en daarna een formulier. Waarbij de controle keuze met javascript bepaald of er nog een ```input``` veld bij komt. Wanneer alle velden zijn ingevuld en er op de inlever knop wordt gedrukt zal de pagina herladen.
+
+Door de eerder aangegeven post check zullen nu met prepared statements de gegevens in de database geplaatst worden.
+
+## Profielpagina
+Als de gebruiker ingelogd is en op de `Mijn profiel` knop drukt komt er een pagina met 2 opties tevoorschijn:  
+
+De gebruiker kan verkoper worden (zie kopje **_Verkoper worden_** hierboven) of de gebruiker kan zijn gegevens aanpassen (zie kopje **_Gegevens aanpassen_** hieronder). 
+
+Als laatste is er een administrator pagina die alleen weergegeven wordt als de gebruiker een administrator is. 
+Dit wordt gedaan met een `IF ELSEIF-statement` en met een `isset $_SESSION` om te checken wat voor account er is ingelogd.
+(zie kopje **_Admin dashboard_** hieronder)
+
+Is een gebruiker niet ingelogd komt en komt hij of zijn toch op een profielpagina. Dan krijgt de gebruiker een melding dat er eerst ingelogd moet worden, na 2 seconden is er een `redirect` naar de inlogpagina.
+
+## Gegevens aanpassen
+Nadat er op de profielpagina op de `Gegevens aanpassen`-knop is geklikt kom je op deze pagina.
+
+De pagina die wordt gebruikt voor het aanpassen van het profiel is grotendeels gebaseerd op de registreren pagina. Er zijn een paar velden verwijderd en aangepast. Daarna is er code voor het veranderen en weergeven van de gegevens toegevoegd. 
+
+De ingelogde gebruiker krijgt zijn data uit de database te zien. Dit wordt gedaan door met een `foreach` de data uit de database te halen en deze in de `value` van een `input-field` te zetten. 
+Hier komen een paar problemen tevoorschijn omdat de `chars` die in de database staan heel veel spaties aan het einde hebben. Gelukkig is hier een PHP-functie voor. Door `rtrim()` binnen de `values` toe te voegen wordt alle data goed weergegeven, verzonden en vergeleken.
+
+Als de gebruiker zijn data heeft aangepast en het wachtwoord is geverifieerd, wordt met een `prepared statement` het formulier naar de database verstuurd en de gegevens aangepast.
+
+
+
+## Account verwijderen
+Als de gebruiker op de gegevens aanpassen pagina naar onder scrolt, staat er een knop om je gegevens te verwijderen. 
+
+De gebruiker gaat dan naar een aparte pagina waar de gebruikersnaam staat en het wachtwoord moet worden ingegeven. Als de gebruiker een `checkbox` heeft aangevinkt waarmee hij aangeeft het account echt te willen 
+En het wachtwoord klopt worden met meerdere `prepared statements` de gegevens verwijderd. 
+
+Het kan voorkomen dat verwijderen niet meteen een optie is omdat de gebruiker advertenties of biedingen heeft openstaan.
+Dan wordt de gebruiker in de openstaande acties veranderd naar `VERWIJDERDE_GEBRUIKER` en wordt het account van de gebruiker alsnog verwijderd.
+Als deze `DELETE-` en `UPDATE-statements` succesvol zijn uitgevoerd wordt met een `session_destroy();` alle `session variabelen` verwijderd en een nieuwe `session` gestart.
+
+## Admin dashboard 
+@Osama verder 
+
+## Nieuwe feature 
+
+
