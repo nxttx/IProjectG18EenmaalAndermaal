@@ -947,6 +947,8 @@ if(isset($_POST['veilingen'])){
              
 ";
 
+    $index = $veilingen;
+
 }elseif(isset($_POST['deblokkeren'])) {
 
     $voorwerpnummer = $_POST['voorwerpnummer'];
