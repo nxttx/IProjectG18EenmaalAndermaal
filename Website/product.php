@@ -101,24 +101,40 @@ foreach ($sth->fetchAll(PDO::FETCH_ASSOC) as $row) {
                         <form action=" product.php " method="POST">
                             <input value="' . $productNummer . '" style="display: none" name="pn">
                             <label for="bod" class="label">Uw bod: *</label>
-                            <label class="checkbox">
+';
+//    Check voor user ingelog en of het de verkoper is.
+    if (!isset($_SESSION['user'])) {
+        $productpage .= '                            <label class="checkbox">
+                                <input type="checkbox" required disabled>
+                                Ik ga akoord met <a href="tos.php" target="_blank"> de gebruikersvoorwaarden</a>
+                            </label>
+                            <div class="field has-addons">
+
+                                <div class="control"> 
+         <input class="input is-primary" type="number" name="bod"
+                                           id="bod" placeholder="&euro;' . $row['startprijs'] . '" maxlength="50" minlength="5" required
+                                           oninput="checkBodAmount()" step="0.01" disabled >';
+    } elseif ($row['VeilingGesloten'] == 'wel') {
+        $productpage .= '                            <label class="checkbox">
+                                <input type="checkbox" required disabled>
+                                haha lol
+                                Ik ga akoord met <a href="tos.php" target="_blank"> de gebruikersvoorwaarden</a>
+                            </label>
+                            <div class="field has-addons">
+
+                                <div class="control"> 
+         <input class="input is-primary" type="number" name="bod"
+                                           id="bod" placeholder="&euro;' . $row['startprijs'] . '" maxlength="50" minlength="5" required
+                                           oninput="checkBodAmount()" step="0.01" disabled >';
+    } else {
+        $productpage .= '                            <label class="checkbox">
                                 <input type="checkbox" required>
                                 Ik ga akoord met <a href="tos.php" target="_blank"> de gebruikersvoorwaarden</a>
                             </label>
                             <div class="field has-addons">
 
-                                <div class="control"> ';
-//    Check voor user ingelog en of het de verkoper is.
-    if (!isset($_SESSION['user'])) {
-        $productpage .= ' <input class="input is-primary" type="number" name="bod"
-                                           id="bod" placeholder="&euro;' . $row['startprijs'] . '" maxlength="50" minlength="5" required
-                                           oninput="checkBodAmount()" step="0.01" disabled >';
-    } elseif ($row['VeilingGesloten'] == 'wel') {
-        $productpage .= ' <input class="input is-primary" type="number" name="bod"
-                                           id="bod" placeholder="&euro;' . $row['startprijs'] . '" maxlength="50" minlength="5" required
-                                           oninput="checkBodAmount()" step="0.01" disabled >';
-    } else {
-        $productpage .= ' <input class="input is-primary" type="number" name="bod"
+                                <div class="control"> 
+                                 <input class="input is-primary" type="number" name="bod"
                                            id="bod" placeholder="&euro;' . $row['startprijs'] . '" maxlength="50" minlength="5" required
                                            oninput="checkBodAmount()" step="0.01" >';
     }
@@ -139,7 +155,9 @@ foreach ($sth->fetchAll(PDO::FETCH_ASSOC) as $row) {
                         <br>
                         <b>Betalingsinstructie:</b> '.$row['betalingsinstructie'].'
                                                 <br>
-                        <b>Looptijd tot:</b>  ' . $row['LooptijdeindeTijdstip'] . '' . $row['LooptijdeindeDag'] . ' 
+                        <b>Looptijd tot:</b>  ' . substr_replace($row['LooptijdeindeTijdstip'] ,"",-2) . '
+                        <br>
+                        <b>Loopdag: </b>' . str_replace(" ","-",str_replace("202","2020",$row['LooptijdeindeDag'])) . ' 
                         </p>
                 </div>
         </div>
