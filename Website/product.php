@@ -63,7 +63,7 @@ $sth->execute();
 // get info for the page
 
 $sth = $dbh->prepare('SELECT V.titel, V.beschrijving, V.startprijs, V.Betalingswijze, V.betalingsinstructie, V.plaatsnaam, V.land,
-       V.LooptijdbeginDag, V.LooptijdbeginTijdstip, V.Verzendkosten, V.verkoper, V.VeilinGesloten,V.Verkoopprijs,
+       V.LooptijdbeginDag, V.LooptijdbeginTijdstip,V.LooptijdeindeDag,V.LooptijdeindeTijdstip, V.Verzendkosten, V.verkoper, V.VeilingGesloten,V.Verkoopprijs,
        V.views, B.filenaam, D.bodbedrag
 FROM Voorwerp V
 	JOIN bestand B on V.voorwerpnummer = B.voorwerp 
@@ -80,6 +80,9 @@ foreach ($sth->fetchAll(PDO::FETCH_ASSOC) as $row) {
     $siteTitle = $row['titel'];
     $productnaam = $row['titel'];
     $filenaam = $row['filenaam'];
+    if ($row['VeilingGesloten'] == 'wel') {
+        $errorMsg = '<div class="notification is-warning">Deze veiling is gesloten.</div>';
+        }
     $productpage = '
         <h2 class="title is-1  has-text-centered">' . $row['titel'] . '</h2>
         <br>
@@ -98,19 +101,40 @@ foreach ($sth->fetchAll(PDO::FETCH_ASSOC) as $row) {
                         <form action=" product.php " method="POST">
                             <input value="' . $productNummer . '" style="display: none" name="pn">
                             <label for="bod" class="label">Uw bod: *</label>
-                            <label class="checkbox">
+';
+//    Check voor user ingelog en of het de verkoper is.
+    if (!isset($_SESSION['user'])) {
+        $productpage .= '                            <label class="checkbox">
+                                <input type="checkbox" required disabled>
+                                Ik ga akoord met <a href="tos.php" target="_blank"> de gebruikersvoorwaarden</a>
+                            </label>
+                            <div class="field has-addons">
+
+                                <div class="control"> 
+         <input class="input is-primary" type="number" name="bod"
+                                           id="bod" placeholder="&euro;' . $row['startprijs'] . '" maxlength="50" minlength="5" required
+                                           oninput="checkBodAmount()" step="0.01" disabled >';
+    } elseif ($row['VeilingGesloten'] == 'wel') {
+        $productpage .= '                            <label class="checkbox">
+                                <input type="checkbox" required disabled>
+                                haha lol
+                                Ik ga akoord met <a href="tos.php" target="_blank"> de gebruikersvoorwaarden</a>
+                            </label>
+                            <div class="field has-addons">
+
+                                <div class="control"> 
+         <input class="input is-primary" type="number" name="bod"
+                                           id="bod" placeholder="&euro;' . $row['startprijs'] . '" maxlength="50" minlength="5" required
+                                           oninput="checkBodAmount()" step="0.01" disabled >';
+    } else {
+        $productpage .= '                            <label class="checkbox">
                                 <input type="checkbox" required>
                                 Ik ga akoord met <a href="tos.php" target="_blank"> de gebruikersvoorwaarden</a>
                             </label>
                             <div class="field has-addons">
-                                <div class="control"> ';
-//    Check voor user ingelog en of het de verkoper is.
-    if (!isset($_SESSION['user'])) {
-        $productpage .= ' <input class="input is-primary" type="number" name="bod"
-                                           id="bod" placeholder="&euro;' . $row['startprijs'] . '" maxlength="50" minlength="5" required
-                                           oninput="checkBodAmount()" step="0.01" disabled >';
-    } else {
-        $productpage .= ' <input class="input is-primary" type="number" name="bod"
+
+                                <div class="control"> 
+                                 <input class="input is-primary" type="number" name="bod"
                                            id="bod" placeholder="&euro;' . $row['startprijs'] . '" maxlength="50" minlength="5" required
                                            oninput="checkBodAmount()" step="0.01" >';
     }
@@ -128,7 +152,11 @@ foreach ($sth->fetchAll(PDO::FETCH_ASSOC) as $row) {
                         <br><br>
                         <b>Betalingswijze:</b> ' . $row['Betalingswijze'] . '
                         <br>
-                        <b>Betalingsinstructie:</b> ' . $row['betalingsinstructie'] . '
+                        <b>Betalingsinstructie:</b> '.$row['betalingsinstructie'].'
+                                                <br>
+                        <b>Looptijd tot:</b>  ' . substr_replace($row['LooptijdeindeTijdstip'] ,"",-2) . '
+                        <br>
+                        <b>Loopdag: </b>' . str_replace(" ","-",str_replace("202","2020",$row['LooptijdeindeDag'])) . ' 
                         </p>
                 </div>
         </div>
@@ -170,32 +198,32 @@ foreach ($sth->fetchAll(PDO::FETCH_ASSOC) as $row) {
 
 <?php include "includes/head.php" ?>
 <?php include "includes/header.php" ?>
-    <div id="user" style="display: none"><?= $_SESSION['user'] ?></div>
-    <section>
-        <div class="container">
-            <br>
-            <?= $errorMsg ?>
-            <div class="card ">
-                <div class="card-content">
-                    <?php include "breadcrumbs.php" ?>
-                    <?= $productpage ?>
-                    <br>
-                    <div class="columns">
-                        <div class="column">
-                            <h3 class="title is-8  has-text-centered">Vorige biedingen:</h3>
-                            <?= $biedingen ?>
-                        </div>
-                        <div class="column">
-                            <h3 class="title is-8  has-text-centered">Iets anders </h3>
-                        </div>
+<div id="user" style="display: none"><?= $_SESSION['user'] ?></div>
+<section>
+    <div class="container">
+        <br>
+        <?= $errorMsg ?>
+        <div class="card ">
+            <div class="card-content">
+            <? include 'breadcrumbs.php' ?>
+                <?= $productpage ?>
+                <br>
+                <div class="columns">
+                    <div class="column">
+                        <h3 class="title is-8  has-text-centered">Vorige biedingen:</h3>
+                        <?= $biedingen ?>
                     </div>
-
+                    <div class="column">
+                        <h3 class="title is-8  has-text-centered">Iets anders </h3>
+                    </div>
                 </div>
+
             </div>
-
-            <br>
-
         </div>
-    </section>
-    <script src="js/productPaginaBieden.js"></script>
+
+        <br>
+
+    </div>
+</section>
+<script src="js/productPaginaBieden.js"></script>
 <?php include "includes/footer.php" ?>

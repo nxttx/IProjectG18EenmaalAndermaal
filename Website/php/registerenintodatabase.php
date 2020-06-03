@@ -57,27 +57,35 @@ VALUES( :gebruikersnaam, :voornaam, :achternaam, :adresregel1, :adresregel2, :po
     $subtitle = "";
     $error_msg = '<div class="notification is-danger">
   Wachtwoorden zijn <b>niet</b> gelijk. 
-</div>';
+</div><div class="column has-text-centered">
+ <input class="button is-primary " value="Klik om terug te gaan" onclick="history.back()">
+ </div>';
 
 } elseif (strlen($_POST['wachtwoordregel1']) < 8) {
     $title = "Foutmelding";
     $subtitle = "";
     $error_msg = '<div class="notification is-danger">
   Wachtwoord moet groter zijn dan 8 tekens. U heeft: ' . strlen($_POST['wachtwoordregel1']) . ' tekens.
-</div>';
+</div><div class="column has-text-centered">
+ <input class="button is-primary " value="Klik om terug te gaan" onclick="history.back()">
+ </div>';
 
 } elseif ($hoeveelheidGebruikersnamen > 0) {
     $title = "Foutmelding";
     $subtitle = "";
     $error_msg = '<div class="notification is-danger">
   Gebruikersnaam bestaat al. U had <b>\'' . $_POST['gebruikersnaam'] . '\'</b>.
-</div>';
+</div><div class="column has-text-centered">
+ <input class="button is-primary " value="Klik om terug te gaan" onclick="history.back()">
+ </div>';
 } else {
     $title = "Foutmelding";
     $subtitle = "";
     $error_msg = '<div class="notification is-danger">
   Geen data ontvangen.
-</div>';
+</div><div class="column has-text-centered">
+ <input class="button is-primary " value="Klik om terug te gaan" onclick="history.back()">
+ </div>';
 }
 
 $dbh = null;
