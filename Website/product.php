@@ -139,7 +139,6 @@ foreach ($sth->fetchAll(PDO::FETCH_ASSOC) as $row) {
     }
     $productpage .= '          </div>
                                 <input class="button is-primary" type="submit" id="submitButton" value="breng bod uit" disabled>
-
                             </div>
                             <div class="notification is-danger" id="errorBod" style="display: none"></div>
                         </form>
@@ -202,9 +201,12 @@ foreach ($sth->fetchAll(PDO::FETCH_ASSOC) as $row) {
 <section>
     <div class="container">
         <br>
+        <?php include 'breadcrumbs.php' ?>
+        <br>
         <?= $errorMsg ?>
         <div class="card ">
             <div class="card-content">
+
                 <?= $productpage ?>
                 <br>
                 <div class="columns">
