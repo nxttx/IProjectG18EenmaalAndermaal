@@ -87,7 +87,7 @@ if(!isset($_SESSION['user'])){
                         </a> ';
             } elseif ($row['veilinggesloten'] == 'wel' && $highestUserBod == $highestBod) {
                 $mainContent .= '<a class="button is-fullwidth is-success is-large" href="mailto:' . $row['emailadress'] . '">
-                           <p class="is-size-7"> U heeft het voorwerp gewonnen! <br> Druk hier om contact op<br> te nemen met de'.$row['Verkoper'].' </p>
+                           <p class="is-size-7"> U heeft het voorwerp gewonnen! <br> Druk hier om contact op<br> te nemen met&nbsp;'.$row['Verkoper'].' </p>
                         </a> ';
             }elseif ($row['veilinggesloten'] == 'wel' ) {
                 $mainContent .= '<a class="button is-fullwidth is-warning" href="product.php?pn=' . $row['voorwerpnummer'] . '">
