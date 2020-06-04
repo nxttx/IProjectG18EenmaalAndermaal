@@ -87,7 +87,7 @@ if ($Rubriek >= $j) {
 }
 ?>
 
-<div class="notification">
+<div class="notification is-info is-light">
     <nav class="breadcrumb" aria-label="breadcrumbs">
         <ul>
             <li><a href="#"><?php echo $cat ?></a></li>

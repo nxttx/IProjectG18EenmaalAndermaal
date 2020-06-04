@@ -72,12 +72,12 @@
     <property name="last_opened_file_path" value="$PROJECT_DIR$" />
   </component>
   <component name="RecentsManager">
-    <key name="MoveFile.RECENT_KEYS">
-      <recent name="C:\Users\Rober\Documents\GitHub\IProjectEenmaalAndermaal\Website\includes" />
-      <recent name="C:\Users\Rober\Documents\GitHub\IProjectEenmaalAndermaal\Website\php\checks" />
-    </key>
     <key name="CopyFile.RECENT_KEYS">
       <recent name="C:\Users\Rober\Documents\GitHub\IProjectEenmaalAndermaal\Website" />
+      <recent name="C:\Users\Rober\Documents\GitHub\IProjectEenmaalAndermaal\Website\php\checks" />
+    </key>
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="C:\Users\Rober\Documents\GitHub\IProjectEenmaalAndermaal\Website\includes" />
       <recent name="C:\Users\Rober\Documents\GitHub\IProjectEenmaalAndermaal\Website\php\checks" />
     </key>
   </component>
@@ -90,6 +90,7 @@
     <option name="viewStates">
       <list>
         <serviceView>
+          <option name="contentProportion" value="0.18101093" />
           <treeState>
             <expand>
               <path>

@@ -202,10 +202,12 @@ foreach ($sth->fetchAll(PDO::FETCH_ASSOC) as $row) {
 <section>
     <div class="container">
         <br>
+        <?php include 'breadcrumbs.php' ?>
+        <br>
         <?= $errorMsg ?>
         <div class="card ">
             <div class="card-content">
-            <?php include 'breadcrumbs.php' ?>
+
                 <?= $productpage ?>
                 <br>
                 <div class="columns">
