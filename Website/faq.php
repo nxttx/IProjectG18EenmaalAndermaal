@@ -40,8 +40,7 @@ $siteTitle = "FAQ";
                     <br>
 
                     <h2 class="title is-3 is-marginless">Ik ben mij wachtwoord vergeten, wat doe ik nu? </h2>
-                    <p>Deze u kunt (binnenkort) aanpassen via een link onderaan de inlogpagina of via <a
-                                href="passwordForgot.php">deze </a>link.</p>
+                    <p>Deze u kunt (binnenkort) aanpassen.</p>
                     <br>
 
                     <h2 class="title is-3 is-marginless">Ik kan geen advertentie plaatsen, waardoor komt dit? </h2>
