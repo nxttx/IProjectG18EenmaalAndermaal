@@ -199,6 +199,7 @@ foreach ($sth->fetchAll(PDO::FETCH_ASSOC) as $row) {
 <?php include "includes/head.php" ?>
 <?php include "includes/header.php" ?>
 <div id="user" style="display: none"><?= $_SESSION['user'] ?></div>
+<?php include "includes/BC.php" ?>
 <section>
     <div class="container">
         <br>
