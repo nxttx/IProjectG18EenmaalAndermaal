@@ -73,7 +73,7 @@ $dbh = connectToDatabase();
                     $gebuiker = $_SESSION['user'];
                     $telefoonNummer = $_POST['Telefoonnummer'];
                     $sth->execute();
-                    if( ($errors = sqlsrv_errors() ) != null) {
+                    if( $errors = sqlsrv_errors()  != null) {
                         $sth = $dbh->prepare('DELETE FROM verkoper WHERE Gebruiker = :gebruiker');
                         $sth->bindParam(':gebruiker', $gebruiker);
                         $sth->execute();
@@ -81,7 +81,8 @@ $dbh = connectToDatabase();
                     }else{
                         $registreermessage = "<div class=\"notification is-primary\">U ben verkoper geworden, leuk om je er bij te hebben!</div>";
                     }
-//                    "DELETE FROM verkoper where gebruiker = 'plantenliefhebber'"
+                   // "DELETE FROM verkoper where gebruiker = 'plantenliefhebber'"
+                    //"DELETE FROM gebruikerstelefoon where gebruiker = 'plantenliefhebber'"
 
                 }
                 $results=0;

@@ -1,3 +1,7 @@
+<?php include "php/dbh.php" ;
+$dbh = connectToDatabase();
+?>
+
 <footer class="footer">
     <div class="container">
         <div id="desktop">
