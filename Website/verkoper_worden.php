@@ -58,7 +58,31 @@ $dbh = connectToDatabase();
                     }
 
                     $sth->execute();
-                    $registreermessage = "<div class=\"notification is-primary\">U ben verkoper geworden, leuk om je er bij te hebben!</div>";
+
+                    $sth2 = $dbh->prepare("SELECT MAX(volgnr) as x FROM gebruikerstelefoon");
+                    $sth2->execute();
+                    foreach ($sth2->fetchAll(PDO::FETCH_ASSOC) as $row2) {
+                        $volgnummer=$row2['x'];
+                    }
+
+                    $sth = $dbh->prepare("INSERT INTO gebruikerstelefoon (volgnr, gebruiker, telefoon) VALUES(:volgnummer, :Gebruiker, :telefoonnummer)");
+                    $sth->bindParam(':volgnummer', $volgnummer);
+                    $sth->bindParam(':Gebruiker',$gebruiker);
+                    $sth->bindParam(':telefoonnummer',$telefoonNummer);
+                    $volgnummer = $volgnummer+1;
+                    $gebuiker = $_SESSION['user'];
+                    $telefoonNummer = $_POST['Telefoonnummer'];
+                    $sth->execute();
+                    if( ($errors = sqlsrv_errors() ) != null) {
+                        $sth = $dbh->prepare('DELETE FROM verkoper WHERE Gebruiker = :gebruiker');
+                        $sth->bindParam(':gebruiker', $gebruiker);
+                        $sth->execute();
+                        $registreermessage = "<div class=\"notification is-danger\">Er is iets misgegaan. Probeer het later opnieuw of neem contact met ons op</div>";
+                    }else{
+                        $registreermessage = "<div class=\"notification is-primary\">U ben verkoper geworden, leuk om je er bij te hebben!</div>";
+                    }
+//                    "DELETE FROM verkoper where gebruiker = 'plantenliefhebber'"
+
                 }
                 $results=0;
                 //check of gebruiker een verkoper is
@@ -114,7 +138,7 @@ $dbh = connectToDatabase();
                                     <div class="control">
                                         <input class="input is-primary" type="text" name="rekeningnummer"
                                                placeholder="Rekeningnummer"
-                                               maxlength="18" required>
+                                               maxlength="18" minlength="5" required>
                                     </div>
                                 </div>
                             </div>
@@ -142,6 +166,21 @@ $dbh = connectToDatabase();
                         <div id="controleOptieCreditCard" class="columns">
 
 
+                        </div>
+                        <br>
+                        <!--TelefoonNummer -->
+                        <div class="columns">
+                            <div class="column">
+
+                                <div class="field">
+                                    <label for="Telefoonnummer" class="label">Telefoon nummer: *</label>
+                                    <div class="control">
+                                        <input class="input is-primary" type="text" name="Telefoonnummer"
+                                               placeholder="31 6/ 31 "
+                                               maxlength="15" required>
+                                    </div>
+                                </div>
+                            </div>
                         </div>
                         <br>
                         <!--submit -->
