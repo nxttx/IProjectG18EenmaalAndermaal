@@ -117,7 +117,6 @@ foreach ($sth->fetchAll(PDO::FETCH_ASSOC) as $row) {
     } elseif ($row['VeilingGesloten'] == 'wel') {
         $productpage .= '                            <label class="checkbox">
                                 <input type="checkbox" required disabled>
-                                haha lol
                                 Ik ga akoord met <a href="tos.php" target="_blank"> de gebruikersvoorwaarden</a>
                             </label>
                             <div class="field has-addons">

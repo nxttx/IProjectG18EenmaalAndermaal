@@ -113,10 +113,11 @@ if (isset($_SESSION["user"])) {
                         ';
                         } else {
                             echo '                        
-                        <button class="button is-primary" onclick="logout()" style="width:82%">
+                        <button class="button is-primary " onclick="logout()" style="width:33%">
                             <i class="far fa-2x fa-user"></i>
                             <p> Uitloggen</p>
-                        </button>';
+                        </button>
+                        <b><a class="button is-primary" href="../profile.php"><i class="far fa-f2x fa-user small-icon"></i>Mijn profiel</b></a>';
                         }
                         ?>
 
