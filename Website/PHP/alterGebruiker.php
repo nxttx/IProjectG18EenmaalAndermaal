@@ -49,6 +49,12 @@ SET voornaam=:voornaam, achternaam=:achternaam, adresregel1=:adresregel1, adresr
         $gebruikersnaam = $_SESSION['user'];
         $sth->execute();
 
+        $sth = $dbh->prepare("UPDATE gebruikerstelefoon set telefoon=:telefoon where gebruiker= :gebruikersnaam");
+        $sth->bindParam(':telefoon', $telefoon);
+        $sth->bindParam(':gebruikersnaam', $gebruikersnaam);
+        $telefoon = $_POST['telefoon'];
+        $gebruikersnaam = $_SESSION['user'];
+        $sth->execute();
 
         $title = "Uw gegevens zijn aangepast.";
         $subtitle = '<p class="subtitle has-text-centered is-marginless">U kunt nu gerust de pagina sluiten of naar een andere pagina gaan.</p> 

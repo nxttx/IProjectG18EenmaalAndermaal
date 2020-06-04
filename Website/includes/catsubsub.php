@@ -20,10 +20,14 @@ $sth = $dbh->prepare('SELECT * FROM rubriek WHERE Rubriek = :rubriek');
 $sth->bindParam(':rubriek', $_GET['rk']);
 $sth->execute();
 
+$count=0;
 foreach ($sth->fetchAll(PDO::FETCH_ASSOC) as $row) {
-    $rubriekenLijst .= '<p class="link"><a href="###?rk=' .$row['rubrieknummer'] . '">' . $row['rubrieknaam'] . '</a></p>';
+    $rubriekenLijst .= '<p class="link"><a href="###?rk=' .$row['rubrieknummer'] . '" target="_blank">' . $row['rubrieknaam'] . '</a></p>'; //deze link aanpassen voor zoeken
+    $count++;
 }
-
+if($count <1){
+    $rubriekenLijst .= '<p class="link"><a href="###?rk=' . $_GET['rk'] . '" target="_blank">' . $categorie . '</a></p>'; //deze link aanpassen voor zoeken
+}
 
 
 ?>

@@ -1,3 +1,13 @@
+<?php
+if(!isset($dbh)){
+    include "php/dbh.php" ;
+    $dbh = connectToDatabase();
+}else{
+    //nothing
+}
+
+?>
+
 <footer class="footer">
     <div class="container">
         <div id="desktop">

@@ -133,11 +133,12 @@
       <workItem from="1589960925466" duration="521000" />
       <workItem from="1590568451322" duration="8533000" />
       <workItem from="1590583124551" duration="1784000" />
+      <workItem from="1591257746354" duration="10029000" />
     </task>
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
-    <option name="version" value="2" />
+    <option name="version" value="1" />
   </component>
   <component name="WindowStateProjectService">
     <state x="361" y="76" key="#Deployment" timestamp="1590407117083">
@@ -183,7 +184,6 @@
     <state x="757" y="239" key="com.intellij.database.run.ParametersPanel.Standalone" timestamp="1591184753277">
       <screen x="0" y="0" width="1536" height="834" />
     </state>
-    <state x="757" y="239" key="com.intellij.database.run.ParametersPanel.Standalone/0.0.1536.834@0.0.1536.834" timestamp="1591184753277" />
     <state x="465" y="241" key="com.intellij.ide.util.TipDialog" timestamp="1590583126860">
       <screen x="0" y="0" width="1536" height="834" />
     </state>
