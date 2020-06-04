@@ -73,11 +73,12 @@
     <property name="settings.editor.selected.configurable" value="preferences.lookFeel" />
   </component>
   <component name="RecentsManager">
-    <key name="CopyFile.RECENT_KEYS">
-      <recent name="C:\Users\Rober\Documents\GitHub\IProjectEenmaalAndermaal\Website" />
+    <key name="MoveFile.RECENT_KEYS">
       <recent name="C:\Users\Rober\Documents\GitHub\IProjectEenmaalAndermaal\Website\php\checks" />
     </key>
-    <key name="MoveFile.RECENT_KEYS">
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="C:\Users\Rober\Documents\GitHub\IProjectEenmaalAndermaal\Website\php" />
+      <recent name="C:\Users\Rober\Documents\GitHub\IProjectEenmaalAndermaal\Website" />
       <recent name="C:\Users\Rober\Documents\GitHub\IProjectEenmaalAndermaal\Website\php\checks" />
     </key>
   </component>
@@ -133,7 +134,7 @@
       <workItem from="1589960925466" duration="521000" />
       <workItem from="1590568451322" duration="8533000" />
       <workItem from="1590583124551" duration="1784000" />
-      <workItem from="1591257746354" duration="9406000" />
+      <workItem from="1591257746354" duration="10029000" />
     </task>
     <servers />
   </component>
