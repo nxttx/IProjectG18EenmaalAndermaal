@@ -12,6 +12,7 @@ $countH1 = 0;
 $header1 = array();
 
 $count = 0;
+$x=0;
 //H1
 $sql = "SELECT COUNT(rubrieknummer)as 'tel' FROM rubriek WHERE Rubriek IS NULL;";
 foreach ($dbh->query($sql) as $row) {
@@ -24,14 +25,20 @@ foreach ($dbh->query($sql) as $row) {
     $count++;
 }
 
+$sql = "SELECT rubrieknummer FROM rubriek where Rubriek IS NULL;";
+foreach ($dbh->query($sql) as $row) {
+    $h1Rubrieknummer[$x] = $row['rubrieknummer'];
+    $x++;
+}
+
 
 //MAIN CODE:
 //Desktop:
 for ($a = 0; $a < $countH1; $a++) {
     $rubriekenLijstDesktop .= "<br><h2 class='link title is-8 is-marginless'>" . $header1[$a] . "</h2>";
-    $sql = "SELECT (rubrieknaam) as 'h2 naam', (rubrieknummer) as nummer FROM rubriek WHERE Rubriek = $a+1;";
+    $sql = "SELECT (rubrieknaam) as 'h2 naam', (rubrieknummer) as nummer FROM rubriek WHERE Rubriek = $h1Rubrieknummer[$a];";
     foreach ($dbh->query($sql) as $row) {
-        $rubriekenLijstDesktop .= '<p class="link"><a href="#top" onclick="showSubSub( ' . $row['nummer'] . ')">' . $row['h2 naam'] . '</a></p>';
+        $rubriekenLijstDesktop .= '<p class="link"><a href="#top" onclick="showSubSub( ' . $row['nummer'] . ')">' . $row['h2 naam'] . $a. '</a></p>';
     }
 }
 

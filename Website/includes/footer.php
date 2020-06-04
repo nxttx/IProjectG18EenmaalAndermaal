@@ -1,5 +1,11 @@
-<?php include "php/dbh.php" ;
-$dbh = connectToDatabase();
+<?php
+if(!isset($dbh)){
+    include "php/dbh.php" ;
+    $dbh = connectToDatabase();
+}else{
+    //nothing
+}
+
 ?>
 
 <footer class="footer">

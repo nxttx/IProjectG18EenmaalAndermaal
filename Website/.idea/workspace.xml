@@ -69,7 +69,7 @@
     <property name="DatabaseDriversLRU" value="sqlserver" />
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
     <property name="WebServerToolWindowFactoryState" value="true" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/php" />
     <property name="settings.editor.selected.configurable" value="preferences.lookFeel" />
   </component>
   <component name="RecentsManager">
@@ -133,7 +133,7 @@
       <workItem from="1589960925466" duration="521000" />
       <workItem from="1590568451322" duration="8533000" />
       <workItem from="1590583124551" duration="1784000" />
-      <workItem from="1591257746354" duration="6165000" />
+      <workItem from="1591257746354" duration="9406000" />
     </task>
     <servers />
   </component>
