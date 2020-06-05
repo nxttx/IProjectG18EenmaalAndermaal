@@ -1188,7 +1188,7 @@ if(isset($_POST['veilingen'])){
                                                         </div>
                                                         <div class="level-item">
                                                             <div class="">
-                                                                <div class="heading">Active veiling</div>
+                                                                <div class="heading">Actieve veilingen</div>
                                                                 <div class="title is-4">(
 
                                                                     <?php count_aantal_veilingen($niet, $antaal); ?>
@@ -1222,6 +1222,7 @@ if(isset($_POST['veilingen'])){
             </section>
         </div>
     </section>
+    <br>
 
 <?php }?>
 
