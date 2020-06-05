@@ -82,6 +82,8 @@
       <workItem from="1590998562875" duration="11142000" />
       <workItem from="1591096633660" duration="2337000" />
       <workItem from="1591099183084" duration="13641000" />
+      <workItem from="1591344130985" duration="20000" />
+      <workItem from="1591344161788" duration="38000" />
     </task>
     <task id="LOCAL-00001" summary="dashboard">
       <created>1590601476891</created>
@@ -109,10 +111,11 @@
     <option name="LAST_COMMIT_MESSAGE" value="klant pagina toegevoegd" />
   </component>
   <component name="WindowStateProjectService">
-    <state x="361" y="71" key="#Deployment" timestamp="1591179755981">
-      <screen x="0" y="0" width="1536" height="824" />
+    <state x="361" y="72" key="#Deployment" timestamp="1591344198818">
+      <screen x="0" y="0" width="1536" height="834" />
     </state>
     <state x="361" y="71" key="#Deployment/0.0.1536.824@0.0.1536.824" timestamp="1591179755981" />
+    <state x="361" y="72" key="#Deployment/0.0.1536.834@0.0.1536.834" timestamp="1591344198818" />
     <state x="559" y="97" key="#categorieen.php" timestamp="1589307033937">
       <screen x="0" y="0" width="1536" height="834" />
     </state>
