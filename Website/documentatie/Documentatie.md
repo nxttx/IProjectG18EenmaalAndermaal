@@ -84,7 +84,6 @@ Hier komen een paar problemen tevoorschijn omdat de `chars` die in de database s
 Als de gebruiker zijn data heeft aangepast en het wachtwoord is geverifieerd, wordt met een `prepared statement` het formulier naar de database verstuurd en de gegevens aangepast.
 
 
-
 ## Account verwijderen
 Als de gebruiker op de gegevens aanpassen pagina naar onder scrolt, staat er een knop om je gegevens te verwijderen. 
 
@@ -98,6 +97,23 @@ Als deze `DELETE-` en `UPDATE-statements` succesvol zijn uitgevoerd wordt met ee
 ## Admin dashboard 
 @Osama verder 
 
-## Nieuwe feature 
+## Databatch conversie 
+De databatch conversie was veel ingewikkelder dan gedacht, dit is verder toegelicht in sprint review 3 en de persoonlijke projectverslagen. 
+Het komt er kort op neer dat er te laat naar is gekeken en daardoor te weinig tijd was om de (zwaar) vervuilde database op te schonen.
+Hierdoor hebben we alleen de categorieën compleet geïmporteerd. 
+
+Om herhaling minimaal te houden laat ik de stappen zien die ik heb genomen in het uiteindelijke script. 
+Als deze stappen juist zijn uitgevoerd kom je op de huidige database structuur uit. 
+1. Constraint uitzetten met een `NOCHECK-Statement` 
+2. De oude data verwijderen met een `DELETE-Statement`
+3. Constraint weer aanzetten met een `CHECK-Statement`
+4. De `CREATE-` en `DELETE-Statements` uit de databatch aanpassen om de rubrieken in een aparte `importeer-tabel` te zetten
+5. De lengte van de rubrieknaam wordt met een `ALTER TABLE-` en `ALTER COLUMN-Statements` verhoogd omdat het anders te kort is voor de nieuwe rubrieknamen
+6. Hoofdrubrieken met een `INSERT-SELECT`-combinatie importeren. Een aantal manipulaties van de data zijn nog nodig om ze te laten aansluiten op de huidige data in de database.
+7. Subrubrieken met een `INSERT-SELECT`-combinatie importeren. Een aantal manipulaties van de data zijn nog nodig om ze te laten aansluiten op de huidige data in de database.
+
+Uiteindelijk stond alles goed in de database maar werd het verkeerd op de site weergegeven. 
+Dit was een probleem in de PHP-code en is na overleg en onderzoek door de maker van de code opgelost.
 
 
+## Nieuwe feature
