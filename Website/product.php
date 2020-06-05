@@ -35,23 +35,101 @@ JOIN bod  b on v.voorwerpnummer = b.voorwerp
         $errorMsg = '<div class="notification is-danger">U kunt niet op u zelf bieden.</div>';
     } else {
         if ($huidigebod < $bodBedrag) {
-            $sth = $dbh->prepare("INSERT INTO Bod (voorwerp, Bodbedrag, Gebruiker, BodDag, BodTijdstip) VALUES(:Voorwerp, :Bodbedrag, :Gebruiker, :BodDag, :BodTijdstip)");
-            $sth->bindParam(':Voorwerp', $Voorwerp);
-            $sth->bindParam(':Bodbedrag', $bodbedrag);
-            $sth->bindParam(':Gebruiker', $gebruikersnaam);
-            $sth->bindParam(':BodDag', $bodDag);
-            $sth->bindParam(':BodTijdstip', $bodTijdstip);
+            if ($bodBedrag < 49.99) {//Dan moet minimaal +0.50
+                if ($huidigebod + 0.50 <= $bodBedrag) {
+                    $sth = $dbh->prepare("INSERT INTO Bod (voorwerp, Bodbedrag, Gebruiker, BodDag, BodTijdstip) VALUES(:Voorwerp, :Bodbedrag, :Gebruiker, :BodDag, :BodTijdstip)");
+                    $sth->bindParam(':Voorwerp', $Voorwerp);
+                    $sth->bindParam(':Bodbedrag', $bodbedrag);
+                    $sth->bindParam(':Gebruiker', $gebruikersnaam);
+                    $sth->bindParam(':BodDag', $bodDag);
+                    $sth->bindParam(':BodTijdstip', $bodTijdstip);
 
-            $Voorwerp = $productNummer;
-            $bodbedrag = $bodBedrag;
-            $gebruikersnaam = $_SESSION['user'];
-            $bodDag = date('Y/m/d');
-            $bodTijdstip = date('H:i:s');;
-            $sth->execute();
+                    $Voorwerp = $productNummer;
+                    $bodbedrag = $bodBedrag;
+                    $gebruikersnaam = $_SESSION['user'];
+                    $bodDag = date('Y/m/d');
+                    $bodTijdstip = date('H:i:s');;
+                    $sth->execute();
+                } else {
+                    $errorMsg = '<div class="notification is-danger">Er is iets mis gegaan, probeer het later opnieuw.</div>';
+                }
+            } elseif ($bodBedrag < 499.99) {//Dan moet minimaal +1.00
+                if ($huidigebod + 1.00 <= $bodBedrag) {
+                    $sth = $dbh->prepare("INSERT INTO Bod (voorwerp, Bodbedrag, Gebruiker, BodDag, BodTijdstip) VALUES(:Voorwerp, :Bodbedrag, :Gebruiker, :BodDag, :BodTijdstip)");
+                    $sth->bindParam(':Voorwerp', $Voorwerp);
+                    $sth->bindParam(':Bodbedrag', $bodbedrag);
+                    $sth->bindParam(':Gebruiker', $gebruikersnaam);
+                    $sth->bindParam(':BodDag', $bodDag);
+                    $sth->bindParam(':BodTijdstip', $bodTijdstip);
+
+                    $Voorwerp = $productNummer;
+                    $bodbedrag = $bodBedrag;
+                    $gebruikersnaam = $_SESSION['user'];
+                    $bodDag = date('Y/m/d');
+                    $bodTijdstip = date('H:i:s');;
+                    $sth->execute();
+                } else {
+                    $errorMsg = '<div class="notification is-danger">Er is iets mis gegaan, probeer het later opnieuw.</div>';
+                }
+            } elseif ($bodBedrag < 999.99) {//Dan moet minimaal +5.00
+                if ($huidigebod + 5.00 <= $bodBedrag) {
+                    $sth = $dbh->prepare("INSERT INTO Bod (voorwerp, Bodbedrag, Gebruiker, BodDag, BodTijdstip) VALUES(:Voorwerp, :Bodbedrag, :Gebruiker, :BodDag, :BodTijdstip)");
+                    $sth->bindParam(':Voorwerp', $Voorwerp);
+                    $sth->bindParam(':Bodbedrag', $bodbedrag);
+                    $sth->bindParam(':Gebruiker', $gebruikersnaam);
+                    $sth->bindParam(':BodDag', $bodDag);
+                    $sth->bindParam(':BodTijdstip', $bodTijdstip);
+
+                    $Voorwerp = $productNummer;
+                    $bodbedrag = $bodBedrag;
+                    $gebruikersnaam = $_SESSION['user'];
+                    $bodDag = date('Y/m/d');
+                    $bodTijdstip = date('H:i:s');;
+                    $sth->execute();
+                } else {
+                    $errorMsg = '<div class="notification is-danger">Er is iets mis gegaan, probeer het later opnieuw.</div>';
+                }
+            } elseif ($bodBedrag < 4999.99) {//Dan moet minimaal +10.00
+                if ($huidigebod + 10.00 <= $bodBedrag) {
+                    $sth = $dbh->prepare("INSERT INTO Bod (voorwerp, Bodbedrag, Gebruiker, BodDag, BodTijdstip) VALUES(:Voorwerp, :Bodbedrag, :Gebruiker, :BodDag, :BodTijdstip)");
+                    $sth->bindParam(':Voorwerp', $Voorwerp);
+                    $sth->bindParam(':Bodbedrag', $bodbedrag);
+                    $sth->bindParam(':Gebruiker', $gebruikersnaam);
+                    $sth->bindParam(':BodDag', $bodDag);
+                    $sth->bindParam(':BodTijdstip', $bodTijdstip);
+
+                    $Voorwerp = $productNummer;
+                    $bodbedrag = $bodBedrag;
+                    $gebruikersnaam = $_SESSION['user'];
+                    $bodDag = date('Y/m/d');
+                    $bodTijdstip = date('H:i:s');;
+                    $sth->execute();
+                } else {
+                    $errorMsg = '<div class="notification is-danger">Er is iets mis gegaan, probeer het later opnieuw.</div>';
+                }
+            } elseif ($bodBedrag > 5000.00) {//Dan moet minimaal +50.00
+                if ($huidigebod + 50.00 <= $bodBedrag) {
+                    $sth = $dbh->prepare("INSERT INTO Bod (voorwerp, Bodbedrag, Gebruiker, BodDag, BodTijdstip) VALUES(:Voorwerp, :Bodbedrag, :Gebruiker, :BodDag, :BodTijdstip)");
+                    $sth->bindParam(':Voorwerp', $Voorwerp);
+                    $sth->bindParam(':Bodbedrag', $bodbedrag);
+                    $sth->bindParam(':Gebruiker', $gebruikersnaam);
+                    $sth->bindParam(':BodDag', $bodDag);
+                    $sth->bindParam(':BodTijdstip', $bodTijdstip);
+
+                    $Voorwerp = $productNummer;
+                    $bodbedrag = $bodBedrag;
+                    $gebruikersnaam = $_SESSION['user'];
+                    $bodDag = date('Y/m/d');
+                    $bodTijdstip = date('H:i:s');;
+                    $sth->execute();
+                } else {
+                    $errorMsg = '<div class="notification is-danger">Er is iets mis gegaan, probeer het later opnieuw.</div>';
+                }
+
+            }
         }
     }
 }
-
 
 //views +1
 $sth = $dbh->prepare('UPDATE voorwerp SET views = views +1  WHERE voorwerpnummer = :productnummer');
@@ -80,11 +158,11 @@ foreach ($sth->fetchAll(PDO::FETCH_ASSOC) as $row) {
     $siteTitle = $row['titel'];
     $productnaam = $row['titel'];
     $filenaam = $row['filenaam'];
-    if($row['is_geblokkeerd'] == 1){
+    if ($row['is_geblokkeerd'] == 1) {
         $errorMsg = '<div class="notification is-warning">Deze veiling is geblokkeerd. Neem contact met de beheerder</div>';
-        }elseif ($row['VeilingGesloten'] == 'wel') {
-            $errorMsg = '<div class="notification is-warning">Deze veiling is gesloten.</div>';
-            }
+    } elseif ($row['VeilingGesloten'] == 'wel') {
+        $errorMsg = '<div class="notification is-warning">Deze veiling is gesloten.</div>';
+    }
 
     $productpage = '
         <h2 class="title is-1  has-text-centered">' . $row['titel'] . '</h2>
@@ -117,10 +195,9 @@ foreach ($sth->fetchAll(PDO::FETCH_ASSOC) as $row) {
          <input class="input is-primary" type="number" name="bod"
                                            id="bod" placeholder="&euro;' . $row['startprijs'] . '" maxlength="50" minlength="5" required
                                            oninput="checkBodAmount()" step="0.01" disabled >';
-    }elseif ($row['is_geblokkeerd'] == 1) {
+    } elseif ($row['is_geblokkeerd'] == 1) {
         $productpage .= '                            <label class="checkbox">
                                 <input type="checkbox" required disabled>
-                                haha lol
                                 Ik ga akoord met <a href="tos.php" target="_blank"> de gebruikersvoorwaarden</a>
                             </label>
                             <div class="field has-addons">
@@ -129,7 +206,7 @@ foreach ($sth->fetchAll(PDO::FETCH_ASSOC) as $row) {
          <input class="input is-primary" type="number" name="bod"
                                            id="bod" placeholder="&euro;' . $row['startprijs'] . '" maxlength="50" minlength="5" required
                                            oninput="checkBodAmount()" step="0.01" disabled >';
-    }elseif ($row['VeilingGesloten'] == 'wel') {
+    } elseif ($row['VeilingGesloten'] == 'wel') {
         $productpage .= '                            <label class="checkbox">
                                 <input type="checkbox" required disabled>
                                 Ik ga akoord met <a href="tos.php" target="_blank"> de gebruikersvoorwaarden</a>
@@ -166,11 +243,11 @@ foreach ($sth->fetchAll(PDO::FETCH_ASSOC) as $row) {
                         <br><br>
                         <b>Betalingswijze:</b> ' . $row['Betalingswijze'] . '
                         <br>
-                        <b>Betalingsinstructie:</b> '.$row['betalingsinstructie'].'
+                        <b>Betalingsinstructie:</b> ' . $row['betalingsinstructie'] . '
                                                 <br>
-                        <b>Looptijd tot:</b>  ' . substr_replace($row['LooptijdeindeTijdstip'] ,"",-2) . '
+                        <b>Looptijd tot:</b>  ' . substr_replace($row['LooptijdeindeTijdstip'], "", -2) . '
                         <br>
-                        <b>Loopdag: </b>' . str_replace(" ","-",str_replace("202","2020",$row['LooptijdeindeDag'])) . ' 
+                        <b>Loopdag: </b>' . str_replace(" ", "-", str_replace("202", "2020", $row['LooptijdeindeDag'])) . ' 
                         </p>
                 </div>
         </div>
