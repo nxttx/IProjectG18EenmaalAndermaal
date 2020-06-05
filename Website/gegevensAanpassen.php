@@ -8,7 +8,6 @@ $dbh = connectToDatabase();
 <?php include "includes/header.php" ?>
 
 
-
 <section>
     <div class="container">
         <br>
@@ -18,7 +17,7 @@ $dbh = connectToDatabase();
                 <?php if (!isset($_SESSION['user'])) { ?>
                     <h2 class="title is-3">U bent nog niet ingelogd, u wordt doorgestuurd naar de inlogpagina</h2>
                     <h3 class="subtitle is-5">Gebeurt dit niet automatisch binnnen enkele seconden? Klik dan <a
-                            href="login.php">hier.</a></h3>
+                                href="login.php">hier.</a></h3>
                     <script>
                         setTimeout(function () {
                             window.location.href = 'login.php';
@@ -36,14 +35,28 @@ $dbh = connectToDatabase();
                 $username = $_SESSION['user'];
 
 
-                $sth = $dbh->prepare('SELECT * FROM gebruiker WHERE gebruikersnaam =:user');
+                $sth = $dbh->prepare("SELECT * 
+                FROM gebruiker 
+                WHERE gebruikersnaam = :user");
+
                 $sth->bindParam(':user', $us);
                 $us = $username;
                 $sth->execute();
-                $test = "DIT IS PHP";
 
 
                 foreach ($sth->fetchAll(PDO::FETCH_ASSOC) as $row) {
+                    //get phone number
+                    $sth = $dbh->prepare("SELECT *
+                    FROM gebruikerstelefoon
+                    WHERE gebruiker = :user");
+
+                    $sth->bindParam(':user', $us);
+                    $us = $username;
+                    $sth->execute();
+                    foreach ($sth->fetchAll(PDO::FETCH_ASSOC) as $row2) {
+                        $telefoon = $row2['telefoon'];
+                    }
+
                     $profielAanpassen .= ' 
                   
                         <label for="gebruikersnaam" class="label">Uw gebruikersnaam:</label>
@@ -191,8 +204,38 @@ $dbh = connectToDatabase();
       </div>
    </div>
    <br>
-   
-   <!--                    wachtwoord-->
+   ';
+                    if(isset($row2['telefoon'])){
+                    $profielAanpassen .=  '
+         <div class="field">
+            <label for="telefoon" class="label">Uw telefoonnummer: *</label>
+            <p class="control has-icons-left">
+               <input class="input is-primary" type="telefoon" name="telefoon"
+                  value="' . rtrim($telefoon) . '"
+                  required maxlength="15">
+               <span class="icon is-small is-left">
+               <i class="fas fa-phone"></i>
+               </span>
+            </p>
+         </div>
+   <br> '; }
+                    else{
+                    $profielAanpassen .=  '
+         <div class="field">
+            <label for="telefoon" class="label">Uw telefoonnummer: *</label>
+            <p class="control has-icons-left">
+               <input class="input is-primary" type="telefoon" name="telefoon"
+                  value=""
+                  required maxlength="15" disabled>
+               <span class="icon is-small is-left">
+               <i class="fas fa-phone"></i>
+               </span>
+            </p>
+         </div>
+   <br> '; }
+
+
+                    $profielAanpassen .=  '   <!--                    wachtwoord-->
       <div class="field">
          <label for="wachtwoordregel1" class="label">Uw wachtwoord: *</label>
          <div class="control has-icons-left">
@@ -249,8 +292,6 @@ $dbh = connectToDatabase();
     </div>
 </section>
 <br>
-
-
 
 
 <?php include "includes/footer.php" ?>

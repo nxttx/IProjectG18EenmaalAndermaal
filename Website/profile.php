@@ -68,6 +68,9 @@ $dbh = connectToDatabase();
                                 <h3 class="subtitle is-5 is-marginless">Bekijk al uw veilingen </h3><br>
                                 <a href="mijn_veilingen.php" class="button is-primary ">Mijn veilingen </a>
                             <?php } ?>
+                            <br>
+                            <h3 class="subtitle is-5 is-marginless">Bekijk al uw biedingen </h3><br>
+                            <a href="mijn_biedingen.php" class="button is-primary ">Mijn biedingen </a>
                         </div>
                 <?php } ?>
 

@@ -43,7 +43,7 @@ if (isset($_SESSION["user"])) {
                 </div>
 
                 <a class="navbar-item" href="../categorieen.php">Categorieën</a>
-                <a class="navbar-item" href="../#">Aanbiedingen</a>
+                <a class="navbar-item" href="contact.php">Contact</a>
                 <div class="navbar-item">
                     <div class="buttons">
                         <?php
@@ -100,9 +100,9 @@ if (isset($_SESSION["user"])) {
                             <p> Categorieën</p>
                         </a>
 
-                        <a href="#" class="button is-light has-text-primary">
+                        <a href="contact.php" class="button is-light has-text-primary">
                             <i class="fas fa-2x fa-shopping-cart"></i>
-                            <p>Aanbiedingen</p>
+                            <p>Contact</p>
                         </a>
 
                         <?php
@@ -131,10 +131,11 @@ if (isset($_SESSION["user"])) {
                                   ';
                         }else {
                             echo '                        
-                        <button class="button is-primary" onclick="logout()" style="width:82%">
+                        <button class="button is-primary " onclick="logout()" style="width:33%">
                             <i class="far fa-2x fa-user"></i>
                             <p> Uitloggen</p>
-                        </button>';
+                        </button>
+                        <b><a class="button is-primary" href="../profile.php"><i class="far fa-f2x fa-user small-icon"></i>Mijn profiel</b></a>';
                         }
                         ?>
 
