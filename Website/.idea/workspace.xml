@@ -4,7 +4,6 @@
     <list default="true" id="0aff27a9-945f-405c-a4cf-e1d8b89d62ae" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/dashboard.php" beforeDir="false" afterPath="$PROJECT_DIR$/dashboard.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/product.php" beforeDir="false" afterPath="$PROJECT_DIR$/product.php" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -83,7 +82,8 @@
       <workItem from="1591096633660" duration="2337000" />
       <workItem from="1591099183084" duration="13641000" />
       <workItem from="1591344130985" duration="20000" />
-      <workItem from="1591344161788" duration="38000" />
+      <workItem from="1591344161788" duration="151000" />
+      <workItem from="1591344313489" duration="1541000" />
     </task>
     <task id="LOCAL-00001" summary="dashboard">
       <created>1590601476891</created>
@@ -111,11 +111,11 @@
     <option name="LAST_COMMIT_MESSAGE" value="klant pagina toegevoegd" />
   </component>
   <component name="WindowStateProjectService">
-    <state x="361" y="72" key="#Deployment" timestamp="1591344198818">
+    <state x="361" y="72" key="#Deployment" timestamp="1591344397107">
       <screen x="0" y="0" width="1536" height="834" />
     </state>
     <state x="361" y="71" key="#Deployment/0.0.1536.824@0.0.1536.824" timestamp="1591179755981" />
-    <state x="361" y="72" key="#Deployment/0.0.1536.834@0.0.1536.834" timestamp="1591344198818" />
+    <state x="361" y="72" key="#Deployment/0.0.1536.834@0.0.1536.834" timestamp="1591344397107" />
     <state x="559" y="97" key="#categorieen.php" timestamp="1589307033937">
       <screen x="0" y="0" width="1536" height="834" />
     </state>
@@ -137,11 +137,11 @@
       <screen x="0" y="0" width="1536" height="824" />
     </state>
     <state x="128" y="100" width="1336" height="624" key="DirDiffDialog/0.0.1536.824@0.0.1536.824" timestamp="1591179991545" />
-    <state x="549" y="170" key="FileChooserDialogImpl" timestamp="1591004589629">
-      <screen x="0" y="0" width="1536" height="824" />
+    <state x="549" y="172" key="FileChooserDialogImpl" timestamp="1591344310631">
+      <screen x="0" y="0" width="1536" height="834" />
     </state>
     <state x="549" y="170" key="FileChooserDialogImpl/0.0.1536.824@0.0.1536.824" timestamp="1591004589629" />
-    <state x="549" y="172" key="FileChooserDialogImpl/0.0.1536.834@0.0.1536.834" timestamp="1589889410020" />
+    <state x="549" y="172" key="FileChooserDialogImpl/0.0.1536.834@0.0.1536.834" timestamp="1591344310631" />
     <state width="1024" height="373" key="GridCell.Tab.0.bottom" timestamp="1589890569890">
       <screen x="0" y="0" width="1536" height="834" />
     </state>

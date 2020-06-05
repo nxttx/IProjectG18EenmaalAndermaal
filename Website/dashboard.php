@@ -31,7 +31,6 @@ $nee = "nee";
 
 function count_aantal_gebruikers($geval, $antaal)
 {
-
     include_once("php/dbh.php");
     $dbh = connectToDatabase();
     $sql = "SELECT COUNT(gebruikersnaam) as aantal FROM gebruiker  WHERE is_geverifieerd =? ";
@@ -336,7 +335,7 @@ if(isset($_POST['dashboard'])){
 
     $index = $niewe_Klanten;
 }elseif(isset($_POST['koper'])){
-    $titlBox = " Koper";
+    $titlBox = " Gebruiker";
 
 // koper.
     $koper .= "
@@ -382,7 +381,7 @@ if(isset($_POST['dashboard'])){
     $gebruikersnaam = $_POST['gebruikersnaam'];
     delete_koper($gebruikersnaam);
 
-    $titlBox = " Koper";
+    $titlBox = " Gebruiker";
 
 // koper.
     $koper .= "
@@ -513,7 +512,7 @@ if(isset($_POST['dashboard'])){
 
     $dashboard .= "<div class=\"box\">
                     <iframe width='1000' height='541.25' 
-                    src='https://app.powerbi.com/reportEmbed?reportId=d25a271e-ac3a-4a12-b374-3166a8d2d2a4&autoAuth=true&ctid=5d73e7b7-b3e1-4d00-b303-056140b2a3b4&config=eyJjbHVzdGVyVXJsIjoiaHR0cHM6Ly93YWJpLWV1cm9wZS1ub3J0aC1iLXJlZGlyZWN0LmFuYWx5c2lzLndpbmRvd3MubmV0LyJ9' frameborder='0' allowFullScreen='true'>    
+                    src='https://app.powerbi.com/reportEmbed?reportId=eb046052-919f-4c2b-ab7f-189607501b80&groupId=8c113102-a38b-462b-98b0-c82cdfd937ea&autoAuth=true&ctid=5d73e7b7-b3e1-4d00-b303-056140b2a3b4&config=eyJjbHVzdGVyVXJsIjoiaHR0cHM6Ly93YWJpLWV1cm9wZS1ub3J0aC1iLXJlZGlyZWN0LmFuYWx5c2lzLndpbmRvd3MubmV0LyJ9' frameborder='0' allowFullScreen='true'>    
                    </iframe>
                </div>
                    ";
@@ -1013,7 +1012,7 @@ if(isset($_POST['veilingen'])){
 
 
         if(rtrim($row['is_geblokkeerd']) == $true) {
-            $veilingen .= "
+            $veilingen .= " 
                             <td>    
                                 <button class='button is-primary' onclick='pres()' name='deblokkeren' type='submit'>Deblokkeren</button>
                             </td>";
@@ -1127,7 +1126,7 @@ if(isset($_POST['veilingen'])){
                                                                 </li>
                                                                 <li>
                                                                     <button class="button is-primary is-inverted " type="submit"
-                                                                            name="koper">Koper
+                                                                            name="koper">Gebruiker
                                                                     </button>
                                                                 </li>
                                                             </ul>
