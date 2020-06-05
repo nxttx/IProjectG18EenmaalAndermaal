@@ -63,7 +63,7 @@ $sth->execute();
 // get info for the page
 
 $sth = $dbh->prepare('SELECT V.titel, V.beschrijving, V.startprijs, V.Betalingswijze, V.betalingsinstructie, V.plaatsnaam, V.land,
-       V.LooptijdbeginDag, V.LooptijdbeginTijdstip,V.LooptijdeindeDag,V.LooptijdeindeTijdstip, V.Verzendkosten, V.verkoper, V.VeilingGesloten,V.Verkoopprijs,
+       V.LooptijdbeginDag, V.LooptijdbeginTijdstip,V.LooptijdeindeDag,V.LooptijdeindeTijdstip, V.Verzendkosten, V.verkoper, V.is_geblokkeerd, V.VeilingGesloten,V.Verkoopprijs,
        V.views, B.filenaam, D.bodbedrag
 FROM Voorwerp V
 	JOIN bestand B on V.voorwerpnummer = B.voorwerp 
@@ -80,9 +80,12 @@ foreach ($sth->fetchAll(PDO::FETCH_ASSOC) as $row) {
     $siteTitle = $row['titel'];
     $productnaam = $row['titel'];
     $filenaam = $row['filenaam'];
-    if ($row['VeilingGesloten'] == 'wel') {
-        $errorMsg = '<div class="notification is-warning">Deze veiling is gesloten.</div>';
-        }
+    if($row['is_geblokkeerd'] == 1){
+        $errorMsg = '<div class="notification is-warning">Deze veiling is geblokkeerd. Neem contact met de beheerder</div>';
+        }elseif ($row['VeilingGesloten'] == 'wel') {
+            $errorMsg = '<div class="notification is-warning">Deze veiling is gesloten.</div>';
+            }
+
     $productpage = '
         <h2 class="title is-1  has-text-centered">' . $row['titel'] . '</h2>
         <br>
@@ -114,7 +117,19 @@ foreach ($sth->fetchAll(PDO::FETCH_ASSOC) as $row) {
          <input class="input is-primary" type="number" name="bod"
                                            id="bod" placeholder="&euro;' . $row['startprijs'] . '" maxlength="50" minlength="5" required
                                            oninput="checkBodAmount()" step="0.01" disabled >';
-    } elseif ($row['VeilingGesloten'] == 'wel') {
+    }elseif ($row['is_geblokkeerd'] == 1) {
+        $productpage .= '                            <label class="checkbox">
+                                <input type="checkbox" required disabled>
+                                haha lol
+                                Ik ga akoord met <a href="tos.php" target="_blank"> de gebruikersvoorwaarden</a>
+                            </label>
+                            <div class="field has-addons">
+
+                                <div class="control"> 
+         <input class="input is-primary" type="number" name="bod"
+                                           id="bod" placeholder="&euro;' . $row['startprijs'] . '" maxlength="50" minlength="5" required
+                                           oninput="checkBodAmount()" step="0.01" disabled >';
+    }elseif ($row['VeilingGesloten'] == 'wel') {
         $productpage .= '                            <label class="checkbox">
                                 <input type="checkbox" required disabled>
                                 Ik ga akoord met <a href="tos.php" target="_blank"> de gebruikersvoorwaarden</a>

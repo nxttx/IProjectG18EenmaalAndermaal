@@ -5,26 +5,30 @@ if (!isset($_SESSION)) {
 }
 
 $login = false;
+$login_Admin = false;
 
 if (isset($_SESSION["user"])) {
     $login = true;
+    if($_SESSION["user"] == "admin"){
+        $login_Admin = true;
+    }
 }
 
 ?>
 
 <body>
-    <nav class="navbar" id="headerDesktop">
-        <div class="container ">
-            <div class="navbar-brand">
-                <h1 class="navbar-item title">
-                    <a class="title" href="../index.php"> EenmaalAndermaal</a>
-                </h1>
-            </div>
-            <div class="navbar-menu">
-                <div class="navbar-end">
-                    <div class="navbar-item">
-                        <div class="field has-addons">
-                            <form action="../search.php" method="get">
+<nav class="navbar" id="headerDesktop">
+    <div class="container ">
+        <div class="navbar-brand">
+            <h1 class="navbar-item title">
+                <a class="title" href="../index.php"> EenmaalAndermaal</a>
+            </h1>
+        </div>
+        <div class="navbar-menu">
+            <div class="navbar-end">
+                <div class="navbar-item">
+                    <div class="field has-addons">
+                        <form action="../search.php" method="get">
                             <div class="field has-addons">
                                 <div class="control">
                                     <label>
@@ -43,13 +47,15 @@ if (isset($_SESSION["user"])) {
                 <div class="navbar-item">
                     <div class="buttons">
                         <?php
-                        if (!$login) {
-                            echo '<a class="button is-primary" href="../login.php"><i class="far fa-f2x fa-user small-icon"></i>Log in</a>';
-                            echo '<b><a class="button has-text-primary" href="../register.php"><i class="far fa-f2x fa-user small-icon"></i>Registeren</a></b>';
-                        } else {
-                            echo '<b><button class="button has-text-primary" onclick="logout()"><i class="far fa-f2x fa-user small-icon"></i>Uitloggen</button></b>';
-                            echo '<b><a class="button is-primary" href="../profile.php"><i class="far fa-f2x fa-user small-icon"></i>Mijn profiel</b></a>';
-
+                        if (!$login && !$login_Admin) {
+                            echo '<a class="button is-primary" href="../login.php"><i class="far fa-f2x fa-user small-icon"></i>Log in</strong></a>';
+                            echo '<b><a class="button has-text-primary" href="../register.php"><i class="far fa-f2x fa-user small-icon"></i>Registeren</strong></a></b>';
+                        } elseif($login_Admin){
+                            echo '<b><button class="button has-text-primary" onclick="logout()"><strong><i class="far fa-f2x fa-user small-icon"></i>Uitloggen</strong></button></b>';
+                            echo '<a class="button is-primary" href="../dashboard.php"><i class="far fa-f2x fa-user small-icon"></i>Dashboard</strong></a>';
+                        }elseif($login) {
+                            echo '<b><button class="button has-text-primary" onclick="logout()"><strong><i class="far fa-f2x fa-user small-icon"></i>Uitloggen</strong></button></b>';
+                            echo '<a class="button is-primary" href="../profile.php"><i class="far fa-f2x fa-user small-icon"></i>Mijn profiel</strong></a>';
                         }
                         ?>
                     </div>
@@ -111,7 +117,19 @@ if (isset($_SESSION["user"])) {
                             <p>Registeren</p>
                         </a>
                         ';
-                        } else {
+                        }
+                        elseif($login_Admin){
+                            echo '<a href="../dashboard.php" class="button is-primary">
+                                    <i class="far fa-2x fa-user"></i>
+                                  <p>Dashboard</p>
+                                  </a>
+
+                                  <button class="button is-primary" onclick="logout()" style="width:82%">
+                                    <i class="far fa-2x fa-user"></i>
+                                     <p> Uitloggen</p>
+                                  </button>
+                                  ';
+                        }else {
                             echo '                        
                         <button class="button is-primary " onclick="logout()" style="width:33%">
                             <i class="far fa-2x fa-user"></i>
