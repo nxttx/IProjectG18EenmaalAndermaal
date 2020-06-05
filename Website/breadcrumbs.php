@@ -7,7 +7,14 @@ function makeBreadcrumbs()
 
 ?>
 <?php
-$id2 = $_GET['pn'];
+if ($_SERVER["REQUEST_METHOD"] == "GET") {
+    $id2 = $_GET['pn'];
+}
+
+if ($_SERVER["REQUEST_METHOD"] == "POST") {
+    $id2 = $_POST['pn'];
+}
+
 $queryn="select * from voorwerpinrubriek where Voorwerp='$id2'";
 
 $datan=connectToDatabase()->query($queryn);
