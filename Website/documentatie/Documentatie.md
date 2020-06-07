@@ -94,9 +94,7 @@ Het kan voorkomen dat verwijderen niet meteen een optie is omdat de gebruiker ad
 Dan wordt de gebruiker in de openstaande acties veranderd naar `VERWIJDERDE_GEBRUIKER` en wordt het account van de gebruiker alsnog verwijderd.
 Als deze `DELETE-` en `UPDATE-statements` succesvol zijn uitgevoerd wordt met een `session_destroy();` alle `session variabelen` verwijderd en een nieuwe `session` gestart.
 
-## Admin dashboard 
-
-Om bij het dashoard te kunnen komen. Woordt eerste met `if statement`gecheckt of je ingelogd bent daarna met een andere `if statement`checkt de website of je de admin bent als dat true is kom je bij het dashboard als niet wordt je terug gestuurd naar de homa pagina.  
+## Admin dashboard  
 @Osama verder 
 
 ## Databatch conversie 
