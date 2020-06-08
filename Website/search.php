@@ -33,6 +33,7 @@ $siteTitle = "Contact";
 
         <div class="columns card" id="search-columns">
             <div class="column is-3">
+                <button onclick="changeCategory()" class="button is-large is-fullwidth">Overal zoeken</button>
                 <ul id="categories">
 
                 </ul>

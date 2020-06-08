@@ -69,5 +69,3 @@ if (!$dbh) {
         echo json_encode($records);
     }
 }
-
-// SELECT * FROM voorwerp RIGHT JOIN voorwerpInRubriek ON voorwerp.voorwerpnummer = voorwerpInRubriek.voorwerp WHERE voorwerpInRubriek.rubriekOpLaagsteNiveau = 33;

@@ -1,7 +1,7 @@
 try {
     var searchKeyword = getURLParams("searchInput").values[0];
 } catch (e) {
-    console.error(e);
+    var searchKeyword = "";
 }
 
 try {
@@ -48,8 +48,6 @@ search = async (form) => {
 };
 
 trySearch = async (input) => {
-    console.log("search")
-
     try {
         let html = "";
 

@@ -72,7 +72,7 @@ getSubCategory = (rubrieknummer) => {
 
                 categoryList.innerHTML = HTML;
             } else if (request.readyState === 4 && request.status === 204) {
-
+                changeCategory(rubrieknummer);
             } else if (request.readyState === 4) {
 
             }
@@ -80,7 +80,7 @@ getSubCategory = (rubrieknummer) => {
     };
 }
 
-displaySubCategories = (rubrieknummer, search) => {
+displaySubCategories = (rubrieknummer) => {
     let categoryList = document.getElementById(`${rubrieknummer}`);
 
     categoryList.classList.toggle('close');
@@ -88,6 +88,10 @@ displaySubCategories = (rubrieknummer, search) => {
 
 changeCategory = (id) => {
     categoryKeyword = id;
+    
+    if(id == undefined) {
+        categoryKeyword = "";
+    }
 
     window.history.pushState({
         search: searchKeyword,
