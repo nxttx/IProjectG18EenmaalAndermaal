@@ -169,7 +169,7 @@ foreach ($sth->fetchAll(PDO::FETCH_ASSOC) as $row) {
         <br>
         <div class="columns">
                 <div class="column is-half">
-                    <figure class=\"image objectfit-cover\">
+                    <figure class="image objectfit-cover">
                         <img src=" ' . $row['filenaam'] . '" alt="img">
                     </figure>
                 </div>
