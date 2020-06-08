@@ -36,8 +36,6 @@ function checkBodAmount() {
                 bodIsNietCorrect("50.00");
             }
         }
-        // console.log(bod + "bod is groter dan huidig bod"+ huidigBod);
-        // document.getElementById('bod').classList="input is-link";
     } else {
         document.getElementById('errorBod').style = "display:block";
         document.getElementById('errorBod').innerHTML = "Uw bod moet hoger zijn dan het huidige bod";
@@ -63,9 +61,6 @@ function bodIsNietCorrect(amount){
 //check user.
 var user = document.getElementById("user").innerHTML.trim().toLowerCase();
 var productOwner = document.getElementById("verkoper").innerHTML.toLowerCase().trim().substring('<b>verkoper:</b>'.length).trim();
-console.log("user === PO");
-console.log(user +" == " + productOwner);
 if (user == productOwner) {
-    console.log("user === PO2");
     document.getElementById("bod").disabled = true;
 }

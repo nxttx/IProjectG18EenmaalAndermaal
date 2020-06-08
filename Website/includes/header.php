@@ -48,8 +48,8 @@ if (isset($_SESSION["user"])) {
                     <div class="buttons">
                         <?php
                         if (!$login && !$login_Admin) {
-                            echo '<a class="button is-primary" href="../login.php"><i class="far fa-f2x fa-user small-icon"></i>Log in</strong></a>';
-                            echo '<b><a class="button has-text-primary" href="../register.php"><i class="far fa-f2x fa-user small-icon"></i>Registeren</strong></a></b>';
+                            echo '<a class="button is-primary" href="../login.php"><i class="far fa-f2x fa-user small-icon"></i>Log in</a>';
+                            echo '<b><a class="button has-text-primary" href="../register.php"><i class="far fa-f2x fa-user small-icon"></i>Registeren</a></b>';
                         } elseif($login_Admin){
                             echo '<b><button class="button has-text-primary" onclick="logout()"><strong><i class="far fa-f2x fa-user small-icon"></i>Uitloggen</strong></button></b>';
                             echo '<a class="button is-primary" href="../dashboard.php"><i class="far fa-f2x fa-user small-icon"></i>Dashboard</strong></a>';
@@ -70,18 +70,15 @@ if (isset($_SESSION["user"])) {
             <div class="navbar-item" style="width:100%">
                 <details style="width:100%">
                     <summary class="title">&equiv; EenmaalAndermaal</summary>
-
                     <form action="../search.php" method="get">
                         <div class="field has-addons">
                             <div class="control">
                                 <label>
-                                    <input class="input is-primary" placeholder="Zoeken" size="50%" type="text" name="searchInput">
+                                    <input class="input is-primary" placeholder="Zoeken" size="50" type="text" name="searchInput">
                                 </label>
                             </div>
                             <div class="control">
-                                <a class="button is-primary" type="submit">
-                                    <i class="fas fa-search"></i>
-                                </a>
+                                <button class="button is-primary"><i class="fas fa-search"></i></button>
                             </div>
                         </div>
                     </form>
