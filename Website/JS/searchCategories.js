@@ -100,3 +100,7 @@ changeCategory = (id) => {
 
     trySearch(searchKeyword, categoryKeyword);
 }
+
+openCategoryMenu = () => {
+    document.getElementById("categories-container").classList.toggle("open");
+}
