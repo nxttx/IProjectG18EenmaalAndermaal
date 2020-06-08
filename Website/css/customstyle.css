@@ -1,15 +1,59 @@
 details summary::-webkit-details-marker {
-    display:none;
+    display: none;
 }
 
- .extra-padding-1 {
-     padding: 1em;
- }
+.extra-padding-1 {
+    padding: 1em;
+}
 
-.objectfit-cover{
+.objectfit-cover {
     object-fit: cover;
 }
 
-html{
+html {
     scroll-behavior: smooth;
+}
+
+.search-price {
+    margin-bottom: 0;
+}
+
+#categories {
+    box-sizing: border-box;
+}
+
+#categories ul {
+    padding-left: 10px;
+}
+
+#categories li {
+    border-left: 1px solid grey;
+}
+
+#categories li .title:hover {
+    background-color: grey;
+    cursor: pointer;
+}
+
+#categories .title {
+    margin: 0;
+    padding: 10px;
+}
+
+#categories p {
+    padding: 10px;
+}
+
+#categories p:hover {
+    background-color: grey;
+    cursor: pointer;
+    color: white;
+}
+
+.close ul {
+    display: none;
+}
+
+#search-columns {
+    margin: 0;
 }

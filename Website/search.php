@@ -22,11 +22,24 @@ $siteTitle = "Contact";
                         </div>
                     </div>
                 </form>
+                <div class="slider-container">
+                    <div class="slider">
+                        <div class="slide-button"></div>
+                    </div>
+                </div>
             </div>
         </div>
         <br>
-        <div id="results">
 
+        <div class="columns card" id="search-columns">
+            <div class="column is-3">
+                <ul id="categories">
+
+                </ul>
+            </div>
+            <div id="results" class="column is-9">
+
+            </div>
         </div>
         <br>
     </div>
@@ -34,5 +47,13 @@ $siteTitle = "Contact";
 
 <script src="JS/search-params.js"></script>
 <script src="JS/search.js"></script>
+<script src="JS/searchCategories.js"></script>
+
+<script>
+    window.onload = async () => {
+        trySearch(searchKeyword);
+        getAllMainCategories();
+    }
+</script>
 
 <?php include "includes/footer.php" ?>
