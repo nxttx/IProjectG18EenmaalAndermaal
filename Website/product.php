@@ -226,7 +226,8 @@ foreach ($sth->fetchAll(PDO::FETCH_ASSOC) as $row) {
 
                                 <div class="control"> 
                                  <input class="input is-primary" type="number" name="bod"
-                                           id="bod" placeholder="&euro;' . $row['startprijs'] . '" maxlength="50" minlength="5" required
+                                           id="bod" placeholder="&euro;' . $row['startprijs'] . '" max="9999999999999999999999999999999999999999999999999
+" required
                                            oninput="checkBodAmount()" step="0.01" >';
     }
     $productpage .= '          </div>
