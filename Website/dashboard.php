@@ -106,72 +106,46 @@ function uodate_voorwerp($geval, $voorwerpnummer){
 
 }
 
-function delete_koper($koper){
+function delete_koper_of_gebruiker($gebruikersnaam){
+
     include_once("php/dbh.php");
     $dbh = connectToDatabase();
     try {
-        $sql = 'UPDATE voorwerp
-                SET koper = null
-                WHERE koper = :gebruikersnaam';
-        $stmt = $dbh->prepare($sql);
-        $stmt->execute([$koper]);
+        $sth = $dbh->prepare('DELETE FROM gebruikerstelefoon WHERE gebruiker=:gebruiker');
+        $sth->bindParam(':gebruiker', $gebruiker);
+        $gebruiker = $gebruikersnaam;
+        $sth->execute();
 
-        $sql = "DELETE FROM gebruikerstelefoon
-                WHERE gebruiker = :gebruiker";
+        $sth = $dbh->prepare('UPDATE voorwerp SET verkoper = \'VERWIJDERDE_GEBRUIKER\' WHERE verkoper=:gebruiker');
+        $sth->bindParam(':gebruiker', $gebruiker);
+        $gebruiker = $gebruikersnaam;
+        $sth->execute();
 
-        $stmt = $dbh->prepare($sql);
-        $stmt->execute([$koper]);
+        $sth = $dbh->prepare('UPDATE voorwerp SET koper = \'VERWIJDERDE_GEBRUIKER\' WHERE koper=:gebruiker');
+        $sth->bindParam(':gebruiker', $gebruiker);
+        $gebruiker = $gebruikersnaam;
+        $sth->execute();
 
-        $sql = "DELETE FROM gebruiker
-                WHERE gebruikersnaam = :gebruikersnaam ";
+        $sth = $dbh->prepare('UPDATE bod SET gebruiker = \'VERWIJDERDE_GEBRUIKER\' WHERE gebruiker=:gebruiker');
+        $sth->bindParam(':gebruiker', $gebruiker);
+        $gebruiker = $gebruikersnaam;
+        $sth->execute();
 
-        $stmt = $dbh->prepare($sql);
-        $stmt->execute([$koper]);
+        $sth = $dbh->prepare('DELETE FROM verkoper WHERE gebruiker=:gebruiker');
+        $sth->bindParam(':gebruiker', $gebruiker);
+        $gebruiker = $gebruikersnaam;
+        $sth->execute();
+
+        $sth = $dbh->prepare('DELETE FROM gebruiker WHERE gebruikersnaam=:gebruiker');
+        $sth->bindParam(':gebruiker', $gebruiker);
+        $gebruiker = $gebruikersnaam;
+        $sth->execute();
+
 
     } catch (PDOException $e) {
         echo $e->getMessage();
     }
 }
-
-function delete_verkoper($verkoper){
-    include_once("php/dbh.php");
-    $dbh = connectToDatabase();
-    try {
-        $sql = 'DELETE FROM bod
-                WHERE gebruiker =:gebruiker';
-        $stmt = $dbh->prepare($sql);
-        $stmt->execute([$verkoper]);
-
-        $sql = "DELETE FROM voorwerp
-                WHERE verkoper =:verkoper";
-
-        $stmt = $dbh->prepare($sql);
-        $stmt->execute([$verkoper]);
-
-
-        $sql = "DELETE FROM gebruikerstelefoon
-                WHERE gebruiker =:gebruiker";
-
-        $stmt = $dbh->prepare($sql);
-        $stmt->execute([$verkoper]);
-
-        $sql = "DELETE FROM gebruiker
-                WHERE gebruikersnaam =:gebruikersnaam ";
-
-        $stmt = $dbh->prepare($sql);
-        $stmt->execute([$verkoper]);
-
-    } catch (PDOException $e) {
-        echo $e->getMessage();
-    }
-}
-
-
-
-
-
-
-
 
 
 
@@ -187,8 +161,8 @@ if(isset($_POST['dashboard'])){
 }elseif(isset($_POST['new'])) {
     $titlBox = "Nieuwe Klanten";
 
-        // niewe kanten
-        $niewe_Klanten = "<div class='columns is-multiline is-'>
+    // niewe kanten
+    $niewe_Klanten = "<div class='columns is-multiline is-'>
                                         <table class='table'>
                                             <thead>
                                             <tr>
@@ -203,12 +177,12 @@ if(isset($_POST['dashboard'])){
                                                </th> 
                                             </tr>";
 
-        $sql = "SELECT gebruikersnaam, emailadress  FROM gebruiker WHERE is_geverifieerd =?";
-        $stmt = $dbh->prepare($sql);
-        $false = 0;
-        $stmt->execute([$false]);
-        foreach ($stmt->fetchAll() as $row) {
-            $niewe_Klanten .= "
+    $sql = "SELECT gebruikersnaam, emailadress  FROM gebruiker WHERE is_geverifieerd =?";
+    $stmt = $dbh->prepare($sql);
+    $false = 0;
+    $stmt->execute([$false]);
+    foreach ($stmt->fetchAll() as $row) {
+        $niewe_Klanten .= "
                       <form class='field' method='post'>
                         <tr>
                             
@@ -223,15 +197,15 @@ if(isset($_POST['dashboard'])){
                       </form>
 ";
 
-        }
+    }
 
-        $niewe_Klanten .= "
+    $niewe_Klanten .= "
                     </thead>
                  </table>
                 </div>";
 
 
-        $index = $niewe_Klanten;
+    $index = $niewe_Klanten;
 
 }elseif(isset($_POST['akkoord'])) {
 
@@ -379,7 +353,7 @@ if(isset($_POST['dashboard'])){
 }elseif(isset($_POST['koper_delete'])) {
 
     $gebruikersnaam = $_POST['gebruikersnaam'];
-    delete_koper($gebruikersnaam);
+    delete_koper_of_gebruiker($gebruikersnaam);
 
     $titlBox = " Gebruiker";
 
@@ -433,14 +407,14 @@ if(isset($_POST['dashboard'])){
                            <th><abbr title='Gebruikers_Naam'>Gebruiker Name</abbr></th>
                            <th><abbr title='Emailadres'>Email Address</abbr></th>
                            <th>Klant Delete</th>"
-                           ;
+    ;
 
 
     $sql = "SELECT gebruikersnaam, emailadress  FROM gebruiker WHERE is_geverifieerd =:is_geverifieerd  AND verkoper = :verkoper ";
     $stmt = $dbh->prepare($sql);
     $stmt->execute([
-           ':is_geverifieerd'=> $true,
-           ':verkoper' => $ja
+        ':is_geverifieerd'=> $true,
+        ':verkoper' => $ja
     ]);
 
     foreach ($stmt->fetchAll() as $row) {
@@ -468,7 +442,7 @@ if(isset($_POST['dashboard'])){
 
     $gebruikersnaam = $_POST['gebruikersnaam'];
 
-    delete_verkoper($gebruikersnaam);
+    delete_koper_of_gebruiker($gebruikersnaam);
 
     $titlBox = " Verkoper";
 
@@ -861,8 +835,8 @@ if(isset($_POST['veilingen'])){
 
 
 
-        // veiligen
-        $veilingen .= "<form method='post' class='is-half'>
+    // veiligen
+    $veilingen .= "<form method='post' class='is-half'>
                     <div class='field has-addons'>
                         <div class=\"control\">
                             <label>                      
@@ -875,7 +849,7 @@ if(isset($_POST['veilingen'])){
                 <br>";
 
 
-        $veilingen .= "
+    $veilingen .= "
                 <div class='columns is-multiline is-'>
                                         <table class='table'>
                                             <thead>
@@ -899,15 +873,15 @@ if(isset($_POST['veilingen'])){
 ";
 
 
-        $sql = "SELECT voorwerpnummer, titel, startprijs, plaatsnaam, looptijdbeginDag, verzendkosten,  verkoper, looptijdeindeDag , is_geblokkeerd
+    $sql = "SELECT voorwerpnummer, titel, startprijs, plaatsnaam, looptijdbeginDag, verzendkosten,  verkoper, looptijdeindeDag , is_geblokkeerd
         FROM voorwerp WHERE veilinggesloten = :veilinggesloten ORDER BY voorwerpnummer DESC";
-        $stmt = $dbh->prepare($sql);
+    $stmt = $dbh->prepare($sql);
 
-        $stmt->execute([
-            ':veilinggesloten' => $niet
-        ]);
-        foreach ($stmt->fetchAll() as $row) {
-            $veilingen .= "
+    $stmt->execute([
+        ':veilinggesloten' => $niet
+    ]);
+    foreach ($stmt->fetchAll() as $row) {
+        $veilingen .= "
                       <form class='field' method='post'>
                         <tr>
                             <input type='hidden' name='voorwerpnummer' value=" . $row['voorwerpnummer'] . ">
@@ -920,26 +894,26 @@ if(isset($_POST['veilingen'])){
                             <td>" . $row['looptijdeindeDag'] . "</td>";
 
 
-            if (rtrim($row['is_geblokkeerd']) == $true) {
-                $veilingen .= "
+        if (rtrim($row['is_geblokkeerd']) == $true) {
+            $veilingen .= "
                             <td>    
                                 <button class='button is-primary' onclick='pres()' name='deblokkeren' type='submit'>Deblokkeren</button>
                             </td>";
 
-            } else {
-                $veilingen .= "
+        } else {
+            $veilingen .= "
                             <td>    
                                 <button class='button is-primary' onclick='pres()' name='blokkeren' type='submit'>Blokkeren</button>
                             </td>";
-            }
+        }
 
 
-            $veilingen .= "     </tr>
+        $veilingen .= "     </tr>
                       </form>
 ";
 
-        }
-        $veilingen .= "
+    }
+    $veilingen .= "
                 </thead>
               </table>
              </div>
@@ -1110,27 +1084,27 @@ if(isset($_POST['veilingen'])){
                                                                 name="dashboard">Dashboard
                                                         </button>
                                                     </li>
-                                                        <li>
-                                                            <a class="button is-primary is-inverted ">Klanten
-                                                            </a>
-                                                            <ul>
-                                                                <li>
-                                                                    <button class="button is-primary is-inverted " type="submit"
-                                                                            name="new">Nieuwe Klanten
-                                                                    </button>
-                                                                </li>
-                                                                <li>
-                                                                    <button class="button is-primary is-inverted " type="submit"
+                                                    <li>
+                                                        <p class="is-primary ">Klanten
+                                                        </p>
+                                                        <ul>
+                                                            <li>
+                                                                <button class="button is-primary is-inverted " type="submit"
+                                                                        name="new">Nieuwe Klanten
+                                                                </button>
+                                                            </li>
+                                                            <li>
+                                                                <button class="button is-primary is-inverted " type="submit"
                                                                         name="verkoper">Verkoper
-                                                                    </button>
-                                                                </li>
-                                                                <li>
-                                                                    <button class="button is-primary is-inverted " type="submit"
-                                                                            name="koper">Gebruiker
-                                                                    </button>
-                                                                </li>
-                                                            </ul>
-                                                        </li>
+                                                                </button>
+                                                            </li>
+                                                            <li>
+                                                                <button class="button is-primary is-inverted " type="submit"
+                                                                        name="koper">Gebruiker
+                                                                </button>
+                                                            </li>
+                                                        </ul>
+                                                    </li>
                                                     <li>
                                                         <button class="button is-primary is-inverted " type="submit"
                                                                 name="veilingen">Veilingen
