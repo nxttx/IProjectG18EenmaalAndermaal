@@ -19,7 +19,17 @@ if (!$dbh) {
 
     $hash = $qry->fetch();
 
-    if (empty($hash)) {
+    $sth = $dbh->prepare("SELECT is_geverifieerd as x FROM gebruiker WHERE gebruikersnaam=:username");
+    $sth->execute(array($username));
+    $verifieerd = 0;
+    foreach ($sth->fetchAll(PDO::FETCH_ASSOC) as $row) {
+        $verifieerd= $row['x'];
+    }
+
+    if($verifieerd==0){
+        http_response_code(428);
+    }
+    elseif (empty($hash)) {
         http_response_code(404);
     } else {
         $pw = $hash[0];
