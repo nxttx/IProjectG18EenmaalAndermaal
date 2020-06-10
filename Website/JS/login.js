@@ -35,6 +35,9 @@ login = (form) => {
                 button.classList.remove("is-loading");
 
                 switch(request.status) {
+                    case 428:
+                        errorField.innerHTML = "U bent nog niet geverifieerd";
+                        break;
                     case 404:
                         errorField.innerHTML = "Gebruikersnaam of wachtwoord incorrect";
                         break;
