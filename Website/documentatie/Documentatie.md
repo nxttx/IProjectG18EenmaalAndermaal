@@ -95,7 +95,20 @@ Dan wordt de gebruiker in de openstaande acties veranderd naar `VERWIJDERDE_GEBR
 Als deze `DELETE-` en `UPDATE-statements` succesvol zijn uitgevoerd wordt met een `session_destroy();` alle `session variabelen` verwijderd en een nieuwe `session` gestart.
 
 ## Admin dashboard  
-@Osama verder 
+
+Om bij het dashboard te kunnen komen. Wordt eerste met `if statement` gecheckt of je ingelogd bent daarna met een andere `if statement` checkt de website of je de admin bent als dat true is kom je bij het dashboard terecht en als dat false is stuurt de website  je naar de home pagina. 
+
+Als je daarbij komt zie je als eerst een rechthoek waarin het aantal van de geaccepteerde klanten, de  nieuwe klanten, de gesloten veilingen en de actieve veilingen. Hiervoor heb ik 2 functies gemaakt waarin dat voor je gaat tellen en in allebei heb ik gebruikt gemaakt van de `count statement` en de `prepared statement` . Daaronder komt een overzicht van het website te staan. Door gebruik te maken van de power bi en ifream van php.
+Aan de zijkant zie 5 knopjes waar je de index het dashboard wordt naar je keuze veranderd. Bovenaan komt het woord dashboard waar je mee het huidig index kan krijgen. Daaronder zie je nog nieuwe klanten, verkoper,  gebruiker en als laatste komt veilingen.
+
+Bij nieuwe klanten kan de nieuwe klanten die nog geen gebruikers zijn hun gegevens zien in een tabel als op de gebruikersnaam van de nieuwe klant drukt daarnaast zie je twee knopjes akkoord en delete waar je mee deze nieuwe klant kan accepteren of niet accepteren hiervoor heb ik gebruikt van de `update statement` waar je mee de column is_geverifieerd op .
+
+Bij verkoper komt bijna het zelfde te staan maar met een delete knop waar je mee de gegevens van de verkoper kan delete als hij zich niet aan de regels houdt. Bij gebruiker komt ook het zelfde te staan.  
+
+Bij veilingen zie alle veilingen die nog actief zijn daarboven komt een zoek functie te staat waar je mee op een specifieke veiling kunt opzoeken en deze functie maakt gebruik van de `select statement`. Bij elke veiling komt een knopje blokkeren of deblokkeren waar je mee de veiling die niet volgens de regels is gemaakt kan blokkeren en daarvoor heb ik gebuikt gemaakt van de  `update statement` waar ik mee de column is_geblokkeerd van de database op ture kan zitten en als hem deblokkeert zit ik hem op false.
+
+
+
 
 ## Databatch conversie 
 De databatch conversie was veel ingewikkelder dan gedacht, dit is verder toegelicht in sprint review 3 en de persoonlijke projectverslagen. 
