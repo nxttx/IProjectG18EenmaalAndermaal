@@ -22,11 +22,11 @@ $sth->execute();
 
 $count=0;
 foreach ($sth->fetchAll(PDO::FETCH_ASSOC) as $row) {
-    $rubriekenLijst .= '<p class="link"><a href="###?rk=' .$row['rubrieknummer'] . '" target="_blank">' . $row['rubrieknaam'] . '</a></p>'; //deze link aanpassen voor zoeken
+    $rubriekenLijst .= '<p class="link"><a href="/search.php?searchInput=&category=' .$row['rubrieknummer'] . '" target="_top">' . $row['rubrieknaam'] . '</a></p>'; //deze link aanpassen voor zoeken
     $count++;
 }
 if($count <1){
-    $rubriekenLijst .= '<p class="link"><a href="###?rk=' . $_GET['rk'] . '" target="_blank">' . $categorie . '</a></p>'; //deze link aanpassen voor zoeken
+    $rubriekenLijst .= '<p class="link"><a href="/search.php?searchInput=&category=' . $_GET['rk'] . '" target="_top">' . $categorie . '</a></p>'; //deze link aanpassen voor zoeken
 }
 
 
