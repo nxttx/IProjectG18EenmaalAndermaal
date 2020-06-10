@@ -43,10 +43,6 @@ if (isset($_SESSION["user"])) {
                     <span id="error-field" class="help"></span>
 
                     <br>
-
-                    <a class="has-text-white" href="../login/passwordForgot.html">
-                        <p>Wachtwoord vergeten</p>
-                    </a>
                 </form>
             </div>
         </div>
