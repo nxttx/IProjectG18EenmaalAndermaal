@@ -116,4 +116,12 @@ Uiteindelijk stond alles goed in de database maar werd het verkeerd op de site w
 Dit was een probleem in de PHP-code en is na overleg en onderzoek door de maker van de code opgelost.
 
 
-## Nieuwe feature
+## Invoeren veiling
+Als de gebruiker een nieuwe veiling wilt openen, moet hij of zij naar de `insertproduct.php` pagina. Hiervoor moet de gebruiker wel een verkoper zijn. Is de gebruiker dat niet, wordt hij naar de index gestuurd.
+
+Allereerst moet de juiste rubriek worden gevonden. De rubrieken worden uit de `POST-METHOD` gehaald. Eerst wordt de hoofdcategorie geselecteerd. Vervolgens krijgt het systeem het `rubrieknummer` en vullen ze de volgende selectielijst met de bijbehorende subcategorieën. En hetzelfde proces voor sub-subcategorieën.
+
+Daarna moeten er wat algemene gegevens worden ingevoerd, zoals titel, prijs, omschrijving en land van herkomst. Deze velden zijn `required` en moeten dus worden ingevoerd, anders wordt er geen nieuwe veiling aangemaakt. 
+
+Tot slot moet de verkoper een `image` uploaden. Met een input script wordt de image gekopieerd in de directory. Filepath is vooraf bepaald, zodat alle images in dezelde map komen.
+Met een `INSERT` query worden alle gegevens in de database gezet.
